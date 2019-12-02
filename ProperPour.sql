@@ -7,10 +7,10 @@
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
+-- SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+-- SET AUTOCOMMIT = 0;
+-- START TRANSACTION;
+-- SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -27,6 +27,8 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `TAuditCreditCard`
 --
+CREATE DATABASE IF NOT EXISTS `ProperPour`;
+USE `ProperPour`;
 
 CREATE TABLE `TAuditCreditCard` (
   `nAuditCreditCardID` bigint(20) UNSIGNED NOT NULL,
