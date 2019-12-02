@@ -4,18 +4,187 @@
     margin: 0;
 }
 
-/*****   FONT    *****/
+/*****   GENERAL DOM ELEMENTS   *****/
+section{
+    /* height: 45vw; */
+}
 
-h1, h3, h5, a{
+.section-one{
+    margin-top: 70px;
+}
+
+.list ul{
+    list-style-type: none;
+}
+
+.list li{
+    margin: 0;
+	padding: 3vw 0 3vw 6vw;
+	list-style: none;
+	background-image: url(img/coffee-stain-list-item.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 5vw;
+}
+
+/*****   GRID   *****/
+
+.grid{display: grid;}
+
+.grid-two{
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-almost-two{
+    grid-template-columns: 3fr 2.5fr;
+}
+
+.grid-two-thirds{
+    grid-template-columns: 4fr 2fr;
+}
+
+.grid-three{
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-four{
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.masonry{
+    column-count: 4;
+}
+
+.masonry .image-container{
+    align-items: center;
+}
+
+.image{
+    height: 90%;
+    background-position: center;
+}
+
+/***** POSITIONING *****/
+
+.absolute{
+    position: absolute;
+}
+
+.relative{
+    position: relative;
+}
+
+.margin-auto{
+    margin: 0 auto;
+}
+
+/*****   ALIGNMENT    *****/
+
+.align-self-top{
+    align-self: start;
+}
+
+.align-self-bottom{
+    align-self: end;
+}
+
+.align-self-center{
+    align-self: center;
+}
+
+.align-items-center{
+    align-items: center;
+}
+
+.justify-items-center{
+    justify-items: center;
+}
+
+/*****   MARGINS & PADDINGS    *****/
+
+.p-small{padding: 1vw;}
+.ph-small{padding-left: 1vw; padding-right: 1vw;}
+.pv-small{padding-top: 1vw; padding-bottom: 1vw;}
+.pb-small{padding-bottom: 1vw;}
+.pt-small{padding-top: 1vw}
+
+
+.p-medium{padding: 4vw;}
+.ph-medium{padding-left: 4vw; padding-right: 4vw;}
+.pv-medium{padding-top: 4vw; padding-bottom: 4vw;}
+.pb-medium{padding-bottom: 4vw;};
+.pt-medium{padding-top: 4vw;}
+
+.p-large{padding: 8vw;}
+.ph-large{padding-left: 8vw; padding-right: 8vw;}
+.pv-large{padding-top: 8vw; padding-bottom: 8vw;}
+.pb-large{padding-bottom: 8vw;}
+.pt-large{padding-top: 8vw;}
+
+.p-xlarge{padding: 12vw;}
+.ph-xlarge{padding-left: 12vw; padding-right: 12vw;}
+.pv-xlarge{padding-top: 12vw; padding-bottom: 12vw;}
+.pb-xlarge{padding-bottom: 12vw;}
+.pt-xlarge{padding-top: 12vw;}
+
+.m-small{margin: 1vw;}
+.mh-small{margin-left: 1vw; margin-right: 1vw;}
+.mv-small{margin-top: 1vw; margin-bottom: 1vw;}
+.mb-small{margin-bottom: 1vw;}
+.mt-small{margin-top: 1vw;}
+
+.m-medium{margin: 4vw;}
+.mh-medium{margin-left: 4vw; margin-right: 4vw;}
+.mv-medium{margin-top: 4vw; margin-bottom: 4vw;}
+.mb-medium{margin-bottom: 4vw;}
+.mt-medium{margin-top: 4vw;}
+
+.m-large{margin: 8vw;}
+.mh-large{margin-left: 8vw; margin-right: 8vw;}
+.mv-large{margin-top: 8vw; margin-bottom: 8vw;}
+.mb-large{margin-bottom: 8vw;}
+.mt-large{margin-top: 8vw;}
+
+.m-xlarge{margin: 12vw;}
+.mh-xlarge{margin-left: 12vw; margin-right: 12vw;}
+.mv-xlarge{margin-top: 12vw; margin-bottom: 12vw;}
+.mb-xlarge{margin-bottom: 12vw;}
+.mt-xlarge{margin-top: 12vw;}
+
+
+/*****   FONTS & HEADERS    *****/
+
+h1, h2, h5, a, .step-no .no{
     font-family: 'Lato', sans-serif;
     font-weight: 900;
     color: black;
+    text-transform: uppercase;
+    text-align: center;
 }
 
-h2, h4{
-    font-family: 'Open sans', sans-serif;
+h1, h2, h5, .step-no .no{
+    padding-bottom: 2vw;
+}
+
+h3{
+    text-transform: inherit;
+}
+
+h3, h4, button{
+    font-family: 'Lato', sans-serif;
     font-weight: 300;
     color: black;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 2vw;
+}
+
+h5{
+    padding-bottom: 0.5vw;
+}
+
+p{
+    font-size: calc(0.8em + 10%);
 }
 
 body{
@@ -75,32 +244,33 @@ color: #FB8B23;
 
 /*****   MENU    *****/
 header {
-    background:rgba(250,250,250, .9);
+    background:rgba(255,255,255, .95);
     max-width: 100vw;
     width: 100%;
     position: fixed;
     z-index: 80;
     top: 0;
     display: grid;
-    grid-template-columns: 2fr 5.5fr;
+    grid-template-columns: 2fr 2.5fr;
     height:70px;
     justify-content: center;
     align-items: center;
     padding: 0 2vw;
-    text-align: right;
+  }
+
+  a{
+    text-decoration: none;
   }
   
   .deskmenu{
-    display: grid;
     grid-template-columns: repeat(7, 1fr);
-    text-align: center;
+    justify-items: center;
+    align-items: center;
    }
 
-   a{
-      text-decoration: none;
-    }
+   
 
-    .active{
+    .deskmenu a.active{
         color: #FB8B23;
     }
 
@@ -117,9 +287,130 @@ header {
      color: transparent;
      height: 45%;
    }
+
+   .logo h1{
+       color: transparent;
+   }
+
+   .menu-icon{
+    color: transparent;
+    height: 100%;
+    background-position: center;
+    padding: 0.2vw;
+   }
    
+   .cart{
+    background-image: url(img/cart.svg);
+   }
+
+   .profile{
+    background-image: url(img/profile.svg);
+   }
     
   /*****   MENU ENDS  *****/
+
+   /*****  BUTTONS  *****/
+
+   .button{
+       display: grid;
+       padding: 1vw;
+       font-size: calc(0.8em + 10%);
+       font-weight: 300;
+       color: #fff;
+       background-color: #FB8B23;
+       text-transform: uppercase;
+       border: none;
+       width: 15vw;
+       height: 4vw;
+       align-content: center;
+   }
+
+
+   /***** FRONTPAGE *****/
+
+.frontpage .section-one .masonry .image-container .img1{background-image: url(img/coffee-beans-heart-good-coffee-is-good-for-the-health.png);}
+.frontpage .section-one .masonry .image-container .img2{background-image: url(img/coffee-bean-sprout.png);}
+.frontpage .section-one .masonry .image-container .img3{background-image: url(img/hand-holding-caffe-latte.png); align-self: end;}
+.frontpage .section-one .masonry .image-container .img4{background-image: url(img/greater-goods-kickstart-coffeebag.png); transform: rotate(10deg);}
+
+.frontpage .section-one .logo{
+    height: 75%;
+}
+
+.frontpage .section-two .image{
+background-image: url(img/what-you-get.png);
+height: 100%;
+}
+
+.list h5{
+    text-align: left;
+}
+
+.frontpage .section-three .step{
+    height: 30vw;
+}
+
+.step-no .no{
+    color: #fff;
+    font-size: calc(6vw + 10%);
+    left: 4vw;
+}
+
+.step-no h4{
+    transform: rotate(-90deg);
+    padding:0;
+    top: 5vw;
+    left: 1vw;
+}
+
+.step .image{
+    height: 55%;
+    margin: 5vw 0 3vw 0;
+}
+
+.step .description{
+    margin: 0 5vw;
+}
+
+.step.one .image{background-image: url(img/products.png);}
+.step.two .image{background-image: url(img/mockup-properpour.png); margin: 4vw 0 4vw 0;}
+.step.three .image{background-image: url(img/caffe-latte-with-saucer.png); background-position: 55%;}
+
+.section-four .image{
+    background-image: url(img/coffee-cup-splashing.png);
+    height: 135%;
+    top: -3vw;
+}
+
+.section-five .masonry{
+    overflow: hidden;
+}
+
+.section-five .masonry .item{min-height: 20vw; max-width: 100%;}
+.section-five .masonry .item .image{min-height: 17vw;}
+.section-five .masonry .item h5{top: -1vw;}
+
+.section-five .masonry .item.one{grid-column: 1/3;}
+.section-five .masonry .item.two{grid-column: 3/4; grid-row: 1/3;}
+.section-five .masonry .item.six {height: 20vw; overflow: hidden;}
+
+.section-five .masonry .item.two .image{height: 35vw;}
+.section-five .masonry .item.four .image{left: -5vw;}
+.section-five .masonry .item.six .image{height: 35vw;}
+
+.section-five .masonry .item.two h5{top: 1vw;}
+.section-five .masonry .item.six h5{top: -20vw;}
+
+.section-five .masonry .item.one .image{background-image: url(img/moccamaster-coffeemaker.png);}
+.section-five .masonry .item.two .image{background-image: url(img/cold-brew-with-milk-in-jar.png);}
+.section-five .masonry .item.three .image{background-image: url(img/cinnamon-nutmeg-staranis-cloves-spices.png);}
+.section-five .masonry .item.four .image{background-image: url(img/hand-holding-caffe-latte.png); transform: rotate(90deg);}
+.section-five .masonry .item.five .image{background-image: url(img/bialetti-espresso-moka-pot-coffee-maker.png);}
+.section-five .masonry .item.six .image{background-image: url(img/coffee-plant-in-soil.png);}
+
+ /***** SUBSCRIBE PAGE *****/
+
+
 .subscriptionItem {
   width: 200px;
   height: 400px;
