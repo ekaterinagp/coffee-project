@@ -89,8 +89,8 @@ CREATE TABLE `TAuditUser` (
   `cOldAddress` varchar(255) DEFAULT NULL,
   `nOldCityID` mediumint(8) UNSIGNED DEFAULT NULL,
   `cOldPhoneNo` char(8) DEFAULT NULL,
-  `dOldNewUser` date DEFAULT NULL,
-  `dOldDeleteUser` date DEFAULT NULL,
+  `dOldNewUser` timestamp DEFAULT NULL,
+  `dOldDeleteUser` timestamp DEFAULT NULL,
   `nOldTotalPurchaseAmount` decimal(18,4) DEFAULT NULL,
   `cNewUserID` mediumint(8) UNSIGNED DEFAULT NULL,
   `cNewName` varchar(50) DEFAULT NULL,
@@ -101,8 +101,8 @@ CREATE TABLE `TAuditUser` (
   `cNewAddress` varchar(255) DEFAULT NULL,
   `nNewCityID` mediumint(8) UNSIGNED DEFAULT NULL,
   `cNewPhoneNo` char(8) DEFAULT NULL,
-  `dNewNewUser` date DEFAULT NULL,
-  `dNewDeleteUser` date DEFAULT NULL,
+  `dNewNewUser` timestamp DEFAULT NULL,
+  `dNewDeleteUser` timestamp DEFAULT NULL,
   `nNewTotalPurchaseAmount` decimal(18,4) DEFAULT NULL,
   `cAction` char(1) NOT NULL,
   `dTimeStamp` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -215,9 +215,9 @@ CREATE TABLE `TUser` (
   `cPassword` char(56) NOT NULL,
   `cAddress` varchar(255) NOT NULL,
   `nCityID` mediumint(9) UNSIGNED NOT NULL,
-  `cPhoneNo` char(8) NOT NULL,
-  `dNewUser` date NOT NULL,
-  `dDeleteUser` date DEFAULT NULL,
+  `cPhoneNo` char(8) NOT NULL DEFAULT current_timestamp,
+  `dNewUser` timestamp NOT NULL,
+  `dDeleteUser` timestamp DEFAULT NULL,
   `nTotalPurchaseAmount` decimal(18,4) NOT NULL DEFAULT 0.0000
 ) ;
 
@@ -230,8 +230,8 @@ CREATE TABLE `TUser` (
 CREATE TABLE `TUserSubscription` (
   `nUserSubscriptionID` int(8) UNSIGNED NOT NULL,
   `nUserID` mediumint(8) UNSIGNED NOT NULL,
-  `dSubscription` date NOT NULL,
-  `dCancellation` date DEFAULT NULL,
+  `dSubscription` timestamp NOT NULL DEFAULT current_timestamp,
+  `dCancellation` timestamp DEFAULT NULL,
   `nSubscriptionTypeID` mediumint(8) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
