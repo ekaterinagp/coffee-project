@@ -32,6 +32,7 @@
     </div>
   </div>
 
+  <h2>In doubt what to choose? Take a test!</h2>
 
   <div class="testContainer">
     <div class="intro">
@@ -40,8 +41,8 @@
     <div class="testContent">
       <h1 id="timeline"></h1>
 
-      <h1 id="question">Question</h1>
-      <h2 id="questionText">Text of the question</h2>
+      <h1 id="question"></h1>
+      <h2 id="questionText"></h2>
       <div id="answer"></div>
     </div>
     <button id="backBtn">Back</button>
