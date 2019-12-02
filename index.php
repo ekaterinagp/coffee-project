@@ -1,7 +1,10 @@
 <?php 
-$sTitle = 'Proper Pour | Signup';
+$sTitle = 'Proper Pour | Front page';
 require_once(__DIR__.'/components/header.php');
 ?>
+
+
+<main></main>
 
 <?php
 $sScriptPath = 'script.js';

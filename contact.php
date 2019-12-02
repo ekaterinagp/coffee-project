@@ -1,5 +1,5 @@
 <?php 
-$sTitle = 'Proper Pour | Signup';
+$sTitle = 'Proper Pour | Contact Us';
 require_once(__DIR__.'/components/header.php');
 ?>
 
