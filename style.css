@@ -1,19 +1,77 @@
-/*****   FONTS    *****/
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
 
-h1, h3, h5{
+/*****   FONT    *****/
+
+h1, h3, h5, a{
     font-family: 'Lato', sans-serif;
     font-weight: 900;
+    color: black;
 }
 
 h2, h4{
     font-family: 'Open sans', sans-serif;
     font-weight: 300;
+    color: black;
 }
 
 body{
     font-family: 'Open sans', sans-serif;
     font-weight: 300;
+    color: black;
 }
+
+.color-white{
+    color: #fff;
+}
+
+.color-black{
+    color: black;
+}
+
+.color-orange{
+color: #FB8B23;
+}
+
+/*****   BACKGROUND CLASSES    *****/
+
+.bg-cover{
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bg-contain{
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.bg-white{
+    background-color: #fff;
+}
+
+.bg-light-brown{
+    background-color: #D8B69C;
+}
+
+.bg-medium-light-brown{
+    background-color: #815946;
+}
+
+.bg-brown{
+    background-color: #483C32;
+}
+
+.bg-dark-brown{
+    background-color: #2B231D;
+}
+
+.bg-orange{
+    background-color: #FB8B23;
+}
+
 
 /*****   MENU    *****/
 header {
@@ -23,42 +81,41 @@ header {
     position: fixed;
     z-index: 80;
     top: 0;
-    text-align: right;
     display: grid;
-    grid-template-columns: .2fr .5fr 3.5fr;
+    grid-template-columns: 2fr 5.5fr;
     height:70px;
     justify-content: center;
     align-items: center;
-    padding: 0 2em;
+    padding: 0 2vw;
+    text-align: right;
   }
   
   .deskmenu{
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    font-size: 1.2em;
     text-align: center;
    }
+
    a{
-      color:#d09cab;
       text-decoration: none;
     }
-    .deskmenu a{
-      text-align: center;
+
+    .active{
+        color: #FB8B23;
     }
+
    .deskmenu a, .hiddenMenu a{
-       color:#d09cab;
-       font-weight: bold;
+       font-weight: 900;
    }
-  .imgLogo{
-    width:80%;
-    opacity: .7;
-    cursor: pointer;
-  }
+
+   .deskmenu a:hover, .hiddenMenu a:hover{
+        color: #FB8B23;
+   }
+
   .logo{
-    cursor: pointer;
-     text-align: left;
-     font-weight: bold;
-     font-size: 1.1em;
+     background-image: url(img/the-proper-pour-logo.svg);
+     color: transparent;
+     height: 45%;
    }
    
     

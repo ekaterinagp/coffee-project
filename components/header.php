@@ -9,16 +9,16 @@
   </head>
   <body>
     <header>
-            <img src="" class="imgLogo" alt="The Proper Pour logo">    
-            <a href="index.html" class="logo">The Proper Pour</a>
+            <!-- <img src="img/the-proper-pour-logo.svg" class="imgLogo" alt="The Proper Pour logo">     -->
+            <a href="index.php" class="logo bg-contain">The Proper Pour Logo</a>
             <nav class="deskmenu">
-                <a href="index.html">Home</a>
-                    <a href="howto.html">How to use a Rebozo?</a>
-                    <a href="stories.html">Stories</a>
-                    <a href="about.html">About the Founder</a>
-                    <a href="aboutartisans.html">About the Artisans</a>
-                    <a href="https://www.rebozology.com/shop">Shop</a>
-                    <a href="contact.php">Contact Us</a> 
+                <a href="index.php">Home</a>
+                    <a href="subscribe.php">Subscribe</a>
+                    <a href="shop.php">Shop</a>
+                    <a href="how-to.php">How-To</a>
+                    <a href="contact.php">Contact</a>
+                    <a href="profile.php">Profile</a>
+                    <a href="cart.php">Cart</a> 
             </nav>
     
         </header>
