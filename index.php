@@ -1,5 +1,5 @@
 <?php 
-$sTitle = 'Proper Pour | Front page';
+$sTitle = ' | Front page';
 require_once(__DIR__.'/components/header.php');
 ?>
 

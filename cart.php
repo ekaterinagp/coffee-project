@@ -1,5 +1,5 @@
 <?php 
-$sTitle = 'Proper Pour | Your cart';
+$sTitle = ' | Your cart';
 require_once(__DIR__.'/components/header.php');
 ?>
 

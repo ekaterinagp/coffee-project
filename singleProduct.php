@@ -1,5 +1,5 @@
 <?php 
-$sTitle = 'Proper Pour | Product name'; // Add the product dynamically
+$sTitle = ' | Product name'; // Add the product dynamically
 require_once(__DIR__.'/components/header.php');
 ?>
 

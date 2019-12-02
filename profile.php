@@ -1,5 +1,5 @@
 <?php 
-$sTitle = 'Proper Pour | Your profile'; // Should get the actual name :-)
+$sTitle = ' | Your profile'; // Should get the actual name :-)
 require_once(__DIR__.'/components/header.php');
 ?>
 

@@ -1,5 +1,5 @@
 <?php 
-$sTitle = 'Proper Pour | Admin'; // Should get the username maybe? :-)
+$sTitle = ' | Admin'; // Should get the username maybe? :-)
 require_once(__DIR__.'/components/header.php');
 ?>
 
