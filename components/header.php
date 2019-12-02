@@ -4,14 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css" />
-    <title>The Proper Poor</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,900|Open+Sans:300&display=swap" rel="stylesheet">
+    <title>The Proper Poor - <?php echo $sTitle; ?></title>
   </head>
   <body>
     <header></header>
-
-    <main></main>
-
-    <footer></footer>
-    <script src="script.js"></script>
-  </body>
-</html>
