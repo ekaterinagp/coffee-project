@@ -1,0 +1,65 @@
+/*****   FONTS    *****/
+
+h1, h3, h5{
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+}
+
+h2, h4{
+    font-family: 'Open sans', sans-serif;
+    font-weight: 300;
+}
+
+body{
+    font-family: 'Open sans', sans-serif;
+    font-weight: 300;
+}
+
+/*****   MENU    *****/
+header {
+    background:rgba(250,250,250, .9);
+    max-width: 100vw;
+    width: 100%;
+    position: fixed;
+    z-index: 80;
+    top: 0;
+    text-align: right;
+    display: grid;
+    grid-template-columns: .2fr .5fr 3.5fr;
+    height:70px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2em;
+  }
+  
+  .deskmenu{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-size: 1.2em;
+    text-align: center;
+   }
+   a{
+      color:#d09cab;
+      text-decoration: none;
+    }
+    .deskmenu a{
+      text-align: center;
+    }
+   .deskmenu a, .hiddenMenu a{
+       color:#d09cab;
+       font-weight: bold;
+   }
+  .imgLogo{
+    width:80%;
+    opacity: .7;
+    cursor: pointer;
+  }
+  .logo{
+    cursor: pointer;
+     text-align: left;
+     font-weight: bold;
+     font-size: 1.1em;
+   }
+   
+    
+  /*****   MENU ENDS  *****/
