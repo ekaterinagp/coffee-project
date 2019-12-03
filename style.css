@@ -6,21 +6,21 @@
 
 /*****   GENERAL DOM ELEMENTS   *****/
 
-img{
-    width: 100%;
-    height: 100%;
+img {
+  width: 100%;
+  height: 100%;
 }
 
 .image {
-    height: 90%;
-    background-position: center;
-  }
+  height: 90%;
+  background-position: center;
+}
 
-svg{
-    width: 100%;
-    height: 100%;
-    position: relative;
-    top: -20;
+svg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: -20;
 }
 
 .section-one {
@@ -41,9 +41,9 @@ svg{
   background-size: 5vw;
 }
 
-.container .banner{
+/* .container .banner{
 
-}
+} */
 
 /*****   GRID   *****/
 
@@ -279,8 +279,8 @@ a,
   text-align: center;
 }
 
-h1{
-    text-align: inherit;
+h1 {
+  text-align: inherit;
 }
 
 h2,
@@ -423,21 +423,21 @@ a {
   background-position: center;
   padding: 0.2vw;
   width: 2vw;
-    height: 2vw;
+  height: 2vw;
 }
 
-a.cart:hover, a.profile:hover {
+a.cart:hover,
+a.profile:hover {
   color: transparent;
 }
 
-a svg path{
-    transition: 0.2s ease-in-out;
+a svg path {
+  transition: 0.2s ease-in-out;
 }
 
-a svg:hover path{
-    stroke:  #fb8b23;
+a svg:hover path {
+  stroke: #fb8b23;
 }
-
 
 /* .cart svg{
     width: 3vw;
@@ -469,10 +469,10 @@ footer .icon {
 /* footer .icon.fb{}
 footer .icon.instagram{} */
 
-footer svg{
-    fill: #fff;
-    width: 80%;
-    height: 80%;
+footer svg {
+  fill: #fff;
+  width: 80%;
+  height: 80%;
 }
 
 /*****  BUTTONS & LINKS  *****/
@@ -636,11 +636,11 @@ a {
 /***** SHOP PAGE *****/
 
 .shop .section-one .image {
-    background-image: url(img/coffee-cup-splashing.png);
-    height: 330%;
-    top: -13vw;
-    z-index: 81;
-    transform: rotate(45deg);
+  background-image: url(img/coffee-cup-splashing.png);
+  height: 330%;
+  top: -13vw;
+  z-index: 81;
+  transform: rotate(45deg);
 }
 
 /***** SUBSCRIBE PAGE *****/
