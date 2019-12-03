@@ -598,8 +598,8 @@ a {
 /***** SUBSCRIBE PAGE *****/
 
 .subscriptionItem {
-  width: 200px;
-  height: 400px;
+  width: 400px;
+  height: 200px;
   position: relative;
 }
 
@@ -628,11 +628,11 @@ a {
 }
 
 .itemSize {
-  width: 200px;
-  height: 400px;
+  width: 400px;
+  height: 200px;
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: center;
+  background-position: right;
   border: black solid 1px;
 }
 
@@ -747,4 +747,13 @@ input:checked + .btnRadio {
 .imgResults {
   width: 300px;
   height: 300px;
+}
+
+.descSubscription {
+  margin-right: 10em;
+}
+
+#paymentMain {
+  display: grid;
+  grid-template-columns: 2fr 4fr;
 }

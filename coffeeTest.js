@@ -515,7 +515,7 @@ function disabledIfEmpty() {
 }
 function timeline(questions) {
   let timelineInput = document.querySelector("#timeline");
-  let allQuestionsDigit = questions.length;
+  let allQuestionsDigit = questions.length - 1;
   let currentQuestionDigit = questions[currentQuestionIndex].id;
   timelineInput.textContent = currentQuestionDigit + "/" + allQuestionsDigit;
 }
