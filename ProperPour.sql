@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2019 at 09:49 PM
+-- Generation Time: Dec 03, 2019 at 09:39 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.1.31
 
@@ -17,11 +17,12 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-CREATE DATABASE IF NOT EXISTS `ProperPour`;
-USE `ProperPour`;
+
 --
 -- Database: `properpour`
 --
+CREATE DATABASE IF NOT EXISTS `properpour` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `properpour`;
 
 DELIMITER $$
 --
@@ -80,6 +81,8 @@ START TRANSACTION;
 	UPDATE tproduct
   	SET nStock = nStock-1
     WHERE nProductID = pnProductID;
+
+  
   
 
 COMMIT;
@@ -127,24 +130,9 @@ CREATE TABLE `tauditcreditcard` (
 --
 
 INSERT INTO `tauditcreditcard` (`nAuditCreditCardID`, `nOldCreditCardID`, `nOldUserID`, `cOldIBAN`, `cOldExpiration`, `cOldCCV`, `nOldTotalPurchaseAmount`, `nNewCreditCardID`, `nNewUserID`, `cNewIBAN`, `cNewExpiration`, `cNewCCV`, `nNewTotalPurchaseAmount`, `cAction`, `dTimestamp`, `cDBUser`, `cHost`) VALUES
-(2, 3, 8, '123456781234567890', '12/2', '333', '0.0000', NULL, NULL, NULL, NULL, NULL, NULL, 'D', '2019-12-02 16:29:01', 'root', 'localhost'),
-(3, NULL, NULL, NULL, NULL, NULL, NULL, 4, 8, '123456781234555555', '04/2', '123', '0.0000', 'D', '2019-12-02 16:36:17', 'root', 'localhost'),
-(4, 4, 8, '123456781234555555', '04/2', '123', '0.0000', 4, 8, '123456781234555555', '04/2', '124', '0.0000', 'D', '2019-12-02 16:36:26', 'root', 'localhost'),
-(9, 4, 8, '123456781234555555', '04/2', '124', '0.0000', 4, 8, '123456781234555555', '04/2', '124', NULL, 'D', '2019-12-02 20:12:17', 'root', 'localhost'),
-(10, 4, 8, '123456781234555555', '04/2', '124', NULL, 4, 8, '123456781234555555', '04/2', '124', '50.0000', 'D', '2019-12-02 20:14:08', 'root', 'localhost'),
-(11, 4, 8, '123456781234555555', '04/2', '124', '50.0000', 4, 8, '123456781234555555', '04/2', '124', NULL, 'D', '2019-12-02 20:14:58', 'root', 'localhost'),
-(12, 4, 8, '123456781234555555', '04/2', '124', NULL, 4, 8, '123456781234555555', '04/2', '124', NULL, 'D', '2019-12-02 20:19:12', 'root', 'localhost'),
-(13, 4, 8, '123456781234555555', '04/2', '124', NULL, 4, 8, '123456781234555555', '04/2', '124', NULL, 'D', '2019-12-02 20:37:50', 'root', 'localhost'),
-(14, 4, 8, '123456781234555555', '04/2', '124', NULL, 4, 8, '123456781234555555', '04/2', '124', '2.0000', 'D', '2019-12-02 20:38:44', 'root', 'localhost'),
-(15, 4, 8, '123456781234555555', '04/2', '124', '2.0000', 4, 8, '123456781234555555', '04/2', '124', NULL, 'D', '2019-12-02 20:39:00', 'root', 'localhost'),
-(16, 4, 8, '123456781234555555', '04/2', '124', NULL, 4, 8, '123456781234555555', '04/2', '124', NULL, 'D', '2019-12-02 20:39:59', 'root', 'localhost'),
-(17, 4, 8, '123456781234555555', '04/2', '124', NULL, 4, 8, '123456781234555555', '04/2', '124', NULL, 'D', '2019-12-02 20:41:13', 'root', 'localhost'),
-(18, 4, 8, '123456781234555555', '04/2', '124', NULL, 4, 8, '123456781234555555', '04/2', '124', '20.0000', 'D', '2019-12-02 20:41:32', 'root', 'localhost'),
-(19, 4, 8, '123456781234555555', '04/2', '124', '20.0000', 4, 8, '123456781234555555', '04/2', '124', '70.0000', 'D', '2019-12-02 20:41:40', 'root', 'localhost'),
-(24, 4, 8, '123456781234555555', '04/2', '124', '70.0000', 4, 8, '123456781234555555', '04/2', '124', '120.0000', 'D', '2019-12-02 20:43:57', 'root', 'localhost'),
-(26, 4, 8, '123456781234555555', '04/2', '124', '120.0000', 4, 8, '123456781234555555', '04/2', '124', '170.0000', 'D', '2019-12-02 20:45:50', 'root', 'localhost'),
-(27, 4, 8, '123456781234555555', '04/2', '124', '170.0000', 4, 8, '123456781234555555', '04/2', '124', '220.0000', 'D', '2019-12-02 20:46:06', 'root', 'localhost'),
-(29, 4, 8, '123456781234555555', '04/2', '124', '220.0000', 4, 8, '123456781234555555', '04/2', '124', '270.0000', 'D', '2019-12-02 20:49:12', 'root', 'localhost');
+(33, NULL, NULL, NULL, NULL, NULL, NULL, 6, 9, '123456781234567890', '12/2', '123', '0.0000', 'I', '2019-12-03 08:36:05', 'root', 'localhost'),
+(34, NULL, NULL, NULL, NULL, NULL, NULL, 7, 10, '4555400091110086', '06/2', '888', '0.0000', 'I', '2019-12-03 08:36:49', 'root', 'localhost'),
+(35, 6, 9, '123456781234567890', '12/2', '123', '0.0000', 6, 9, '123456781234567890', '12/2', '123', '50.0000', 'U', '2019-12-03 08:37:30', 'root', 'localhost');
 
 -- --------------------------------------------------------
 
@@ -177,40 +165,7 @@ CREATE TABLE `tauditpurchase` (
 --
 
 INSERT INTO `tauditpurchase` (`nAuditPurchaseID`, `nOldPurchaseID`, `nOldProductID`, `dOldPurchase`, `nOldNetAmount`, `nOldTax`, `nOldCreditCardID`, `nNewPurchaseID`, `nNewProductID`, `dNewPurchase`, `nNewNetAmount`, `nNewTax`, `nNewCreditCardID`, `cAction`, `dTimestamp`, `cDBUser`, `cHost`) VALUES
-(1, NULL, 0, NULL, NULL, NULL, NULL, 2, 1, '2019-12-02 16:59:58', '50.00', '0.00', 4, 'D', '2019-12-02 16:59:58', 'root', 'localhost'),
-(6, NULL, 0, NULL, NULL, NULL, NULL, 7, 1, '2019-12-02 19:54:07', '50.00', '0.99', 4, 'D', '2019-12-02 19:54:07', 'root', 'localhost'),
-(7, NULL, 0, NULL, NULL, NULL, NULL, 8, 1, '2019-12-02 20:08:10', '50.00', '0.99', 4, 'D', '2019-12-02 20:08:10', 'root', 'localhost'),
-(8, NULL, 0, NULL, NULL, NULL, NULL, 9, 2, '2019-12-02 20:10:29', '75.00', '0.99', 4, 'D', '2019-12-02 20:10:29', 'root', 'localhost'),
-(9, NULL, 0, NULL, NULL, NULL, NULL, 10, 1, '2019-12-02 20:11:29', '50.00', '0.99', 4, 'D', '2019-12-02 20:11:29', 'root', 'localhost'),
-(10, 7, 1, '2019-12-02 19:54:07', '50.00', '0.99', 4, NULL, 0, NULL, NULL, NULL, NULL, 'D', '2019-12-02 20:11:40', 'root', 'localhost'),
-(11, 8, 1, '2019-12-02 20:08:10', '50.00', '0.99', 4, NULL, 0, NULL, NULL, NULL, NULL, 'D', '2019-12-02 20:11:42', 'root', 'localhost'),
-(12, NULL, 0, NULL, NULL, NULL, NULL, 11, 1, '2019-12-02 20:12:17', '50.00', '0.99', 4, 'D', '2019-12-02 20:12:17', 'root', 'localhost'),
-(13, NULL, 0, NULL, NULL, NULL, NULL, 12, 1, '2019-12-02 20:14:58', '50.00', '0.99', 4, 'D', '2019-12-02 20:14:58', 'root', 'localhost'),
-(14, NULL, 0, NULL, NULL, NULL, NULL, 13, 1, '2019-12-02 20:19:12', '50.00', '0.99', 4, 'D', '2019-12-02 20:19:12', 'root', 'localhost'),
-(17, NULL, 0, NULL, NULL, NULL, NULL, 16, 2, '2019-12-02 20:32:18', '75.00', '0.99', 4, 'D', '2019-12-02 20:32:18', 'root', 'localhost'),
-(18, 9, 2, '2019-12-02 20:10:29', '75.00', '0.99', 4, NULL, 0, NULL, NULL, NULL, NULL, 'D', '2019-12-02 20:33:21', 'root', 'localhost'),
-(19, 10, 1, '2019-12-02 20:11:29', '50.00', '0.99', 4, NULL, 0, NULL, NULL, NULL, NULL, 'D', '2019-12-02 20:33:23', 'root', 'localhost'),
-(20, 11, 1, '2019-12-02 20:12:17', '50.00', '0.99', 4, NULL, 0, NULL, NULL, NULL, NULL, 'D', '2019-12-02 20:33:25', 'root', 'localhost'),
-(21, NULL, 0, NULL, NULL, NULL, NULL, 18, 2, '2019-12-02 20:33:46', '75.00', '0.99', 4, 'D', '2019-12-02 20:33:46', 'root', 'localhost'),
-(23, NULL, 0, NULL, NULL, NULL, NULL, 20, 1, '2019-12-02 20:34:38', '50.00', '0.99', 4, 'D', '2019-12-02 20:34:38', 'root', 'localhost'),
-(24, NULL, 0, NULL, NULL, NULL, NULL, 21, 1, '2019-12-02 20:35:07', '50.00', '0.99', 4, 'D', '2019-12-02 20:35:07', 'root', 'localhost'),
-(25, 21, 1, '2019-12-02 20:35:07', '50.00', '0.99', 4, NULL, 0, NULL, NULL, NULL, NULL, 'D', '2019-12-02 20:35:15', 'root', 'localhost'),
-(26, 20, 1, '2019-12-02 20:34:38', '50.00', '0.99', 4, NULL, 0, NULL, NULL, NULL, NULL, 'D', '2019-12-02 20:35:18', 'root', 'localhost'),
-(27, 18, 2, '2019-12-02 20:33:46', '75.00', '0.99', 4, NULL, 0, NULL, NULL, NULL, NULL, 'D', '2019-12-02 20:35:20', 'root', 'localhost'),
-(28, 12, 1, '2019-12-02 20:14:58', '50.00', '0.99', 4, NULL, 0, NULL, NULL, NULL, NULL, 'D', '2019-12-02 20:35:53', 'root', 'localhost'),
-(29, 13, 1, '2019-12-02 20:19:12', '50.00', '0.99', 4, NULL, 0, NULL, NULL, NULL, NULL, 'D', '2019-12-02 20:35:55', 'root', 'localhost'),
-(30, 16, 2, '2019-12-02 20:32:18', '75.00', '0.99', 4, NULL, 0, NULL, NULL, NULL, NULL, 'D', '2019-12-02 20:35:56', 'root', 'localhost'),
-(31, NULL, 0, NULL, NULL, NULL, NULL, 22, 1, '2019-12-02 20:36:04', '50.00', '0.99', 4, 'D', '2019-12-02 20:36:04', 'root', 'localhost'),
-(32, NULL, 0, NULL, NULL, NULL, NULL, 23, 2, '2019-12-02 20:36:22', '75.00', '0.99', 4, 'D', '2019-12-02 20:36:22', 'root', 'localhost'),
-(33, NULL, 0, NULL, NULL, NULL, NULL, 24, 1, '2019-12-02 20:37:50', '50.00', '0.99', 4, 'D', '2019-12-02 20:37:50', 'root', 'localhost'),
-(34, NULL, 0, NULL, NULL, NULL, NULL, 25, 1, '2019-12-02 20:39:00', '50.00', '0.99', 4, 'D', '2019-12-02 20:39:00', 'root', 'localhost'),
-(35, NULL, 0, NULL, NULL, NULL, NULL, 26, 1, '2019-12-02 20:39:59', '50.00', '0.99', 4, 'D', '2019-12-02 20:39:59', 'root', 'localhost'),
-(36, NULL, 0, NULL, NULL, NULL, NULL, 27, 1, '2019-12-02 20:41:13', '50.00', '0.99', 4, 'D', '2019-12-02 20:41:13', 'root', 'localhost'),
-(37, NULL, 0, NULL, NULL, NULL, NULL, 28, 1, '2019-12-02 20:41:40', '50.00', '0.99', 4, 'D', '2019-12-02 20:41:40', 'root', 'localhost'),
-(42, NULL, 0, NULL, NULL, NULL, NULL, 33, 1, '2019-12-02 20:43:57', '50.00', '0.99', 4, 'D', '2019-12-02 20:43:57', 'root', 'localhost'),
-(44, NULL, 0, NULL, NULL, NULL, NULL, 35, 1, '2019-12-02 20:45:50', '50.00', '0.99', 4, 'D', '2019-12-02 20:45:50', 'root', 'localhost'),
-(45, NULL, 0, NULL, NULL, NULL, NULL, 36, 1, '2019-12-02 20:46:06', '50.00', '0.99', 4, 'D', '2019-12-02 20:46:06', 'root', 'localhost'),
-(47, NULL, 0, NULL, NULL, NULL, NULL, 38, 1, '2019-12-02 20:49:12', '50.00', '0.99', 4, 'D', '2019-12-02 20:49:12', 'root', 'localhost');
+(59, NULL, 0, NULL, NULL, NULL, NULL, 40, 1, '2019-12-03 08:37:30', '50.00', '0.99', 6, 'I', '2019-12-03 08:37:30', 'root', 'localhost');
 
 -- --------------------------------------------------------
 
@@ -255,7 +210,10 @@ CREATE TABLE `taudituser` (
 --
 
 INSERT INTO `taudituser` (`nAuditUserID`, `nOldUserID`, `cOldName`, `cOldSurname`, `cOldEmail`, `cOldUsername`, `cOldPassword`, `cOldAddress`, `nOldCityID`, `cOldPhoneNo`, `dOldNewUser`, `dOldDeleteUser`, `nOldTotalPurchaseAmount`, `nNewUserID`, `cNewName`, `cNewSurname`, `cNewEmail`, `cNewUsername`, `cNewPassword`, `cNewAddress`, `nNewCityID`, `cNewPhoneNo`, `dNewNewUser`, `dNewDeleteUser`, `nNewTotalPurchaseAmount`, `cAction`, `dTimeStamp`, `cDBUser`, `cHost`) VALUES
-(1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 'Jonas', 'Jonassen', 'jonse@jonse.com', 'jonse', 'd63dc919e201d7bc4c825630d2cf25fdc93d4b2f0d46706d29038d01', 'Ryparken 120, 2100', 1, '55555555', '0000-00-00', NULL, '0.0000', 'D', '2019-12-02 16:25:59', 'root', 'localhost');
+(1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 'Jonas', 'Jonassen', 'jonse@jonse.com', 'jonse', 'd63dc919e201d7bc4c825630d2cf25fdc93d4b2f0d46706d29038d01', 'Ryparken 120, 2100', 1, '55555555', '0000-00-00', NULL, '0.0000', 'I', '2019-12-02 16:25:59', 'root', 'localhost'),
+(2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, 'Anna', 'Nielsen', 'anna@mail.com', 'annaniel', 'a7470858e79c282bc2f6adfd831b132672dfd1224c1e78cbf5bcd057', 'Tagensvej 1, 2400', 1, '54545454', '2019-12-02', NULL, '0.0000', 'I', '2019-12-02 22:01:45', 'root', 'localhost'),
+(3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 10, 'Frida', 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-02', NULL, '0.0000', 'I', '2019-12-02 22:02:39', 'root', 'localhost'),
+(4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 11, 'Pippi', 'Langstromp', 'langstromp@yahoo.com', 'pippi', '03dfe83128ab8c6f0b6406a887f58b8d87b139c5cf040db96e891424', 'Lygten 16, 2400', 1, '43434343', '2019-12-02', NULL, '0.0000', 'I', '2019-12-02 22:14:02', 'root', 'localhost');
 
 -- --------------------------------------------------------
 
@@ -273,7 +231,9 @@ CREATE TABLE `tcity` (
 --
 
 INSERT INTO `tcity` (`nCityID`, `cName`) VALUES
-(1, 'Copenhagen');
+(1, 'Copenhagen'),
+(2, 'Roskilde'),
+(3, 'Århus');
 
 -- --------------------------------------------------------
 
@@ -291,7 +251,12 @@ CREATE TABLE `tcoffeetype` (
 --
 
 INSERT INTO `tcoffeetype` (`nCoffeeTypeID`, `cName`) VALUES
-(1, 'Guatemala');
+(1, 'Guatemala'),
+(2, 'Ethiopia'),
+(3, 'Sumatra'),
+(4, 'Brazil'),
+(5, 'Nicaragua'),
+(6, 'Kenya');
 
 -- --------------------------------------------------------
 
@@ -313,13 +278,14 @@ CREATE TABLE `tcreditcard` (
 --
 
 INSERT INTO `tcreditcard` (`nCreditCardID`, `cIBAN`, `cExpiration`, `cCCV`, `nTotalPurchaseAmount`, `nUserID`) VALUES
-(4, '123456781234555555', '04/2', '124', '270.0000', 8);
+(6, '123456781234567890', '12/2', '123', '50.0000', 9),
+(7, '4555400091110086', '06/2', '888', '0.0000', 10);
 
 --
 -- Triggers `tcreditcard`
 --
 DELIMITER $$
-CREATE TRIGGER `trgDeleteCreditCard` BEFORE DELETE ON `tcreditcard` FOR EACH ROW BEGIN
+CREATE TRIGGER `trgDeleteCreditCard` AFTER DELETE ON `tcreditcard` FOR EACH ROW BEGIN
 	INSERT INTO tauditcreditcard 
     	(nOldCreditCardID, 
          cOldIban,
@@ -366,7 +332,7 @@ CREATE TRIGGER `trgInsertCreditCard` AFTER INSERT ON `tcreditcard` FOR EACH ROW 
              new.cCCV,
              new.nTotalPurchaseAmount,
              new.nUserID, 
-             'D', 
+             'I', 
              CURRENT_TIMESTAMP(),
             SUBSTRING(CURRENT_USER(),1,LOCATE('@', CURRENT_USER())-1), 				SUBSTRING(CURRENT_USER(),LOCATE('@', CURRENT_USER())+1)
             );
@@ -406,7 +372,7 @@ CREATE TRIGGER `trgUpdateCreditCard` AFTER UPDATE ON `tcreditcard` FOR EACH ROW 
              new.cCCV,
              new.nTotalPurchaseAmount,
              new.nUserID, 
-             'D', 
+             'U', 
              CURRENT_TIMESTAMP(),
             SUBSTRING(CURRENT_USER(),1,LOCATE('@', CURRENT_USER())-1), 				SUBSTRING(CURRENT_USER(),LOCATE('@', CURRENT_USER())+1)
             );
@@ -434,8 +400,9 @@ CREATE TABLE `tproduct` (
 --
 
 INSERT INTO `tproduct` (`nProductID`, `cName`, `nCoffeeTypeID`, `nPrice`, `nStock`) VALUES
-(1, 'The Coffee', 1, '50.00', 7),
-(2, 'Greater Goods', 1, '75.00', 10);
+(1, 'The Coffee', 1, '50.00', 6),
+(2, 'Greater Goods', 1, '75.00', 10),
+(3, 'Hugo Melo', 2, '20.00', 200);
 
 -- --------------------------------------------------------
 
@@ -457,17 +424,7 @@ CREATE TABLE `tpurchase` (
 --
 
 INSERT INTO `tpurchase` (`nPurchaseID`, `nProductID`, `dPurchase`, `nNetAmount`, `nTax`, `nCreditCardID`) VALUES
-(22, 1, '2019-12-02 20:36:04', '50.00', '12.50', 4),
-(23, 2, '2019-12-02 20:36:22', '75.00', '18.75', 4),
-(24, 1, '2019-12-02 20:37:50', '50.00', '12.50', 4),
-(25, 1, '2019-12-02 20:39:00', '50.00', '12.50', 4),
-(26, 1, '2019-12-02 20:39:59', '50.00', '12.50', 4),
-(27, 1, '2019-12-02 20:41:13', '50.00', '12.50', 4),
-(28, 1, '2019-12-02 20:41:40', '50.00', '12.50', 4),
-(33, 1, '2019-12-02 20:43:57', '50.00', '12.50', 4),
-(35, 1, '2019-12-02 20:45:50', '50.00', '12.50', 4),
-(36, 1, '2019-12-02 20:46:06', '50.00', '12.50', 4),
-(38, 1, '2019-12-02 20:49:12', '50.00', '12.50', 4);
+(40, 1, '2019-12-03 08:37:30', '50.00', '12.50', 6);
 
 --
 -- Triggers `tpurchase`
@@ -522,7 +479,7 @@ INSERT INTO tauditpurchase(
     new.nNetAmount,
     new.nTax,
     new.nCreditCardID,
-    'D', 
+    'I', 
     CURRENT_TIMESTAMP(),
     SUBSTRING(CURRENT_USER(),1,LOCATE('@', CURRENT_USER())-1), 			       SUBSTRING(CURRENT_USER(),LOCATE('@', CURRENT_USER())+1)
             );
@@ -563,7 +520,7 @@ INSERT INTO tauditpurchase(
     old.nNetAmount,
     old.nTax,
     old.nCreditCardID,
-    'D', 
+    'U', 
     CURRENT_TIMESTAMP(),
     SUBSTRING(CURRENT_USER(),1,LOCATE('@', CURRENT_USER())-1), 			       SUBSTRING(CURRENT_USER(),LOCATE('@', CURRENT_USER())+1)
             );
@@ -622,7 +579,10 @@ CREATE TABLE `tuser` (
 --
 
 INSERT INTO `tuser` (`nUserID`, `cName`, `cSurname`, `cEmail`, `cUsername`, `cPassword`, `cAddress`, `nCityID`, `cPhoneNo`, `dNewUser`, `dDeleteUser`, `nTotalPurchaseAmount`) VALUES
-(8, 'Jonas', 'Jonassen', 'jonse@jonse.com', 'jonse', 'd63dc919e201d7bc4c825630d2cf25fdc93d4b2f0d46706d29038d01', 'Ryparken 120, 2100', 1, '55555555', '0000-00-00 00:00:00', NULL, '0.0000');
+(8, 'Jonas', 'Jonassen', 'jonse@jonse.com', 'jonse', 'd63dc919e201d7bc4c825630d2cf25fdc93d4b2f0d46706d29038d01', 'Ryparken 120, 2100', 1, '55555555', '0000-00-00 00:00:00', NULL, '0.0000'),
+(9, 'Anna', 'Nielsen', 'anna@mail.com', 'annaniel', 'a7470858e79c282bc2f6adfd831b132672dfd1224c1e78cbf5bcd057', 'Tagensvej 1, 2400', 1, '54545454', '2019-12-02 22:01:45', NULL, '0.0000'),
+(10, 'Frida', 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-02 22:02:39', NULL, '0.0000'),
+(11, 'Pippi', 'Langstromp', 'langstromp@yahoo.com', 'pippi', '03dfe83128ab8c6f0b6406a887f58b8d87b139c5cf040db96e891424', 'Lygten 16, 2400', 1, '43434343', '2019-12-02 22:14:02', NULL, '0.0000');
 
 --
 -- Triggers `tuser`
@@ -706,7 +666,7 @@ CREATE TRIGGER `trgInsertUser` AFTER INSERT ON `tuser` FOR EACH ROW BEGIN
          new.dNewUser,
          new.dDeleteUser,
          new.nTotalPurchaseAmount,
-             'D', 
+             'I', 
              CURRENT_TIMESTAMP(),
             SUBSTRING(CURRENT_USER(),1,LOCATE('@', CURRENT_USER())-1), 				SUBSTRING(CURRENT_USER(),LOCATE('@', CURRENT_USER())+1)
             );
@@ -770,7 +730,7 @@ CREATE TRIGGER `trgUpdateUser` AFTER UPDATE ON `tuser` FOR EACH ROW BEGIN
          new.dNewUser,
          new.dDeleteUser,
          new.nTotalPurchaseAmount,
-             'D', 
+             'U', 
              CURRENT_TIMESTAMP(),
             SUBSTRING(CURRENT_USER(),1,LOCATE('@', CURRENT_USER())-1), 				SUBSTRING(CURRENT_USER(),LOCATE('@', CURRENT_USER())+1)
             );
@@ -887,49 +847,49 @@ ALTER TABLE `tusersubscription`
 -- AUTO_INCREMENT for table `tauditcreditcard`
 --
 ALTER TABLE `tauditcreditcard`
-  MODIFY `nAuditCreditCardID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `nAuditCreditCardID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `tauditpurchase`
 --
 ALTER TABLE `tauditpurchase`
-  MODIFY `nAuditPurchaseID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `nAuditPurchaseID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `taudituser`
 --
 ALTER TABLE `taudituser`
-  MODIFY `nAuditUserID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `nAuditUserID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tcity`
 --
 ALTER TABLE `tcity`
-  MODIFY `nCityID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `nCityID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tcoffeetype`
 --
 ALTER TABLE `tcoffeetype`
-  MODIFY `nCoffeeTypeID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `nCoffeeTypeID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tcreditcard`
 --
 ALTER TABLE `tcreditcard`
-  MODIFY `nCreditCardID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `nCreditCardID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tproduct`
 --
 ALTER TABLE `tproduct`
-  MODIFY `nProductID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `nProductID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tpurchase`
 --
 ALTER TABLE `tpurchase`
-  MODIFY `nPurchaseID` int(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `nPurchaseID` int(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `tsubscriptiontype`
@@ -941,7 +901,7 @@ ALTER TABLE `tsubscriptiontype`
 -- AUTO_INCREMENT for table `tuser`
 --
 ALTER TABLE `tuser`
-  MODIFY `nUserID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `nUserID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tusersubscription`

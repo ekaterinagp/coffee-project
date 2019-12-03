@@ -20,6 +20,7 @@ $sql = "SELECT * FROM TUser";
 
 // TEST IF CONNECTION IS SUCCEFUL WITH try catch
 
+
 try{
     $connection = new PDO($dsn, $username, $password, $options);
     foreach ($connection->query($sql) as $row) {
@@ -32,7 +33,7 @@ try{
         die("Error executing the query");
         }
         
-      
+
     
 } catch(PDOException $e){
     throw new PDOException($e->getMessage(), (int)$e->getCode()); // throw me errors
