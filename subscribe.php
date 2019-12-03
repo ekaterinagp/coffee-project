@@ -49,8 +49,9 @@
       <h2 id="questionText"></h2>
       <div id="answer"></div>
     </div>
-    <button id="backBtn">Back</button>
-    <button id="nextBtn" disabled>Next</button>
+    <div class="testButtons">
+      <button id="backBtn">Back</button>
+      <button id="nextBtn" disabled>Next</button></div>
   </div>
 
 </body>
