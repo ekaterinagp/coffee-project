@@ -650,12 +650,17 @@ a {
 .testContainer {
   width: 90vw;
   height: 70vh;
+  text-align: center;
   background-color: grey;
 }
 
 .testContent {
-  width: 100%;
+  width: 80%;
   height: 90%;
+}
+
+.testButtons {
+  height: 10%;
 }
 
 #nextBtn {
@@ -663,8 +668,9 @@ a {
 }
 
 .intro {
-  width: 100%;
-  height: 100%;
+  width: 92%;
+  height: 72%;
+
   background-color: green;
   position: absolute;
 }
@@ -700,6 +706,10 @@ a {
   /* -webkit-box-shadow: 5px 2px 10px 3px rgba(176, 168, 132, 0.7);
   -moz-box-shadow: 5px 2px 10px 3px rgba(176, 168, 132, 0.7);
   box-shadow: 5px 2px 10px 3px rgba(176, 168, 132, 0.7); */
+}
+
+#backBtn {
+  float: left;
 }
 
 .addGrid {

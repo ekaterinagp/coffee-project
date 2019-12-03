@@ -415,6 +415,9 @@ function prevElement() {
   }
   timeline(questions);
   eventlistenerForRadio();
+  if (questions[currentQuestionIndex].id == 4) {
+    document.querySelector("#nextBtn").style.display = "block";
+  }
 }
 
 function nextElement() {
