@@ -24,34 +24,6 @@
 	background-size: 5vw;
 }
 
-footer{
-    padding-top: 3vw;
-}
-
-footer .logo{
-    height: 30%;
-}
-
-footer .item{
-    
-}
-
-footer h5{
-    text-align: left;
-}
-
-footer .icon{
-    height: 2vw;
-    width: 2vw;
-}
-
-/* footer .icon.fb{
-
-}
-footer .icon.instagram{
-
-} */
-
 /*****   GRID   *****/
 
 .grid{display: grid;}
@@ -336,9 +308,36 @@ header {
     background-image: url(img/profile.svg);
    }
     
-  /*****   MENU ENDS  *****/
+  /*****  MENU ENDS  *****/
 
-   /*****  BUTTONS  *****/
+  /*****  FOOTER  *****/
+
+  footer{
+    padding-top: 3vw;
+}
+
+footer .logo{
+    height: 30%;
+}
+
+footer h5{
+    text-align: left;
+}
+
+footer .icon{
+    height: 2vw;
+    width: 2vw;
+}
+
+/* ADD FOOTER SOME ICONS HERE */
+/* footer .icon.fb{}
+footer .icon.instagram{} */
+
+   /*****  BUTTONS & LINKS  *****/
+
+   a{
+    color: black;
+    }
 
    .button{
        display: grid;
@@ -417,7 +416,7 @@ height: 100%;
 
 .section-five .masonry .item{min-height: 20vw; max-width: 100%;}
 .section-five .masonry .item .image{min-height: 17vw;}
-.section-five .masonry .item h5{top: -1vw;}
+.section-five .masonry .item h5{top: -0.5vw;}
 
 .section-five .masonry .item.one{grid-column: 1/3;}
 .section-five .masonry .item.two{grid-column: 3/4; grid-row: 1/3;}
@@ -427,8 +426,8 @@ height: 100%;
 .section-five .masonry .item.four .image{left: -5vw;}
 .section-five .masonry .item.six .image{height: 35vw;}
 
-.section-five .masonry .item.two h5{top: 1vw;}
-.section-five .masonry .item.six h5{top: -20vw;}
+.section-five .masonry .item.two h5{top: 1.5vw;}
+.section-five .masonry .item.six h5{top: -18.5vw;}
 
 .section-five .masonry .item.one .image{background-image: url(img/moccamaster-coffeemaker.png);}
 .section-five .masonry .item.two .image{background-image: url(img/cold-brew-with-milk-in-jar.png);}
