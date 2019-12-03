@@ -1,7 +1,7 @@
 <?php
 
 $host = '127.0.0.1';
-$db = 'ProperPour';
+$db = 'properpour';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset"; // using 'mysql:connecting to the host; specifying dbname';
@@ -24,12 +24,7 @@ $options = [
 try{
     $connection = new PDO($dsn, $username, $password, $options);
     
-    
-
-  
         
-
-    
 } catch(PDOException $e){
     throw new PDOException($e->getMessage(), (int)$e->getCode()); // throw me errors
 }
