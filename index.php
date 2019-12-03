@@ -1,5 +1,6 @@
 <?php 
 $sTitle = ' | Front page';
+$sCurrentPage = 'frontpage';
 require_once(__DIR__.'/components/header.php');
 ?>
 
