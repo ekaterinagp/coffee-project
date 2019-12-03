@@ -1,4 +1,4 @@
-    <footer class="grid grid-five bg-dark-brown ph-medium">
+    <footer class="grid grid-five bg-dark-brown p-medium">
       <div class="item ph-small">
       <?= file_get_contents(__DIR__.'/../img/the-proper-pour-logo.svg') ;?>
       </div>
@@ -20,5 +20,6 @@
       </div>
     </footer>
     <script src="script.js"></script>
+    <script src="<?=$sScriptPath;?>"></script>
   </body>
 </html>

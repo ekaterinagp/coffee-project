@@ -41,10 +41,6 @@ svg{
   background-size: 5vw;
 }
 
-.container .banner{
-
-}
-
 /*****   GRID   *****/
 
 .grid {
@@ -60,8 +56,12 @@ svg{
 }
 
 .grid-two-thirds {
-  grid-template-columns: 4fr 2fr;
+  grid-template-columns: 2fr 4fr;
 }
+
+.grid-two-thirds-reversed {
+    grid-template-columns: 4fr 2fr;
+  }
 
 .grid-three {
   grid-template-columns: repeat(3, 1fr);
@@ -72,7 +72,6 @@ svg{
 }
 .grid-five {
   grid-template-columns: 1fr 1fr 1fr 3fr 1fr;
-  height: 10vw;
 }
 
 .masonry {
@@ -117,6 +116,22 @@ svg{
 
 .justify-items-center {
   justify-items: center;
+}
+
+.justify-self-right{
+    justify-self: right;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.text-left{
+    text-align: left;
 }
 
 /*****   MARGINS & PADDINGS    *****/
@@ -271,10 +286,11 @@ h1,
 h2,
 h5,
 a,
-.step-no .no {
+.step-no .no, 
+.frontpage h2, 
+#formSearch label, .product h3, .filter h3 {
   font-family: "Lato", sans-serif;
   font-weight: 900;
-  /* color: black; */
   text-transform: uppercase;
   text-align: center;
 }
@@ -283,22 +299,19 @@ h1{
     text-align: inherit;
 }
 
-h2,
+h3,
 h5,
-.step-no .no {
+.step-no .no, 
+.frontpage h3 {
   padding-bottom: 2vw;
-}
-
-h3 {
-  text-transform: inherit;
 }
 
 h3,
 h4,
-button {
+button, a p {
   font-family: "Lato", sans-serif;
   font-weight: 300;
-  color: black;
+  color: #000;
   text-transform: uppercase;
   text-align: center;
   padding-bottom: 2vw;
@@ -344,6 +357,10 @@ body {
 
 .bg-white {
   background-color: #fff;
+}
+
+.bg-grey{
+    background-color: #F2F2F2;
 }
 
 .bg-light-brown {
@@ -447,10 +464,6 @@ a svg:hover path{
 /*****  MENU ENDS  *****/
 
 /*****  FOOTER  *****/
-
-footer {
-  padding-top: 3vw;
-}
 
 footer .logo {
   height: 30%;
@@ -635,12 +648,116 @@ a {
 
 /***** SHOP PAGE *****/
 
+#txtSearch{
+    justify-self: right;
+    width: 15vw;
+    padding: 0.5vw;
+    border: solid 0.1px #00000045;
+    /* border: solid 1px #000; */
+}
+
+#txtSearch::placeholder{
+    font-family: 'Open sans', sans-serif;
+    color:#000;
+    font-style: italic;
+}
+
 .shop .section-one .image {
     background-image: url(img/coffee-cup-splashing.png);
     height: 330%;
     top: -13vw;
-    z-index: 81;
+    left: 3vw;
     transform: rotate(45deg);
+}
+
+.filter{
+    width: 80%;
+    top: -5.5vw;
+}
+
+.filter .accordion {
+    cursor: pointer;
+    padding: 1.5vw;
+    width: 100%;
+    text-align: left;
+    border: none;
+    border-bottom: solid 1px #fff;
+    outline: none;
+    transition: 0.4s;
+    box-sizing: none;
+  }
+  
+.filter .active, .accordion:hover {
+    background-color: #fff;
+    color: black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.filter .accordion:after {
+    content: '\002B';
+    color: #fff;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.filter .accordion:hover:after{
+    color: black;
+}
+
+.filter .accordion.active:after {
+    content: "\2212";
+    color: #000
+}
+  
+.filter .panel {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+.filter .panel .options{
+      padding: 2vw;
+}
+
+.filter .accordion.active{
+    box-shadow: none;
+}
+
+.shop .product{
+    height: 30vw;
+    margin-right: 4vw;
+    border: solid 0.1px #00000045;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.shop .product .image{
+    height: 75%;
+}
+
+.product h3{
+    padding: 0;
+    text-align: left;
+}
+
+.filter h3{
+    text-align: left;
+}
+
+/***** SINGLE PRODUCT PAGE *****/
+
+.single-product .section-one{
+height: 30vw;
+}
+
+.single-product .image{
+    background-position: left;
+}
+
+.product-purchase-container h2, .productPrice{
+    text-align: left;
 }
 
 /***** SUBSCRIBE PAGE *****/
