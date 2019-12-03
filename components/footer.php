@@ -19,6 +19,7 @@
         <div class="icon instagram"></div>
       </div>
     </footer>
+    
     <script src="script.js"></script>
     </body>
 

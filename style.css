@@ -816,6 +816,26 @@ input:checked + .btnRadio {
   grid-template-columns: 2fr 4fr;
 }
 
+
+
+
+/*   ADMIN PAGE   */
+
+#frmAddProduct, #frmNewProduct, #frmUpdateStock{
+  display:grid;
+  grid-template-columns: 1fr;
+  margin:auto;
+  width:500px;
+}
+.adminProducts{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  
+}
+.product{
+  border:1px solid black;
+  margin:1vw;
+}
 .loginWelcome {
   text-align: center;
   padding-top: 10%;

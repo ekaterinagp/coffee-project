@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2019 at 03:02 PM
+-- Generation Time: Dec 03, 2019 at 07:46 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.1.31
 
@@ -438,17 +438,18 @@ CREATE TABLE `tproduct` (
 --
 
 INSERT INTO `tproduct` (`nProductID`, `cName`, `nCoffeeTypeID`, `nPrice`, `nStock`) VALUES
-(1, 'Organic Tierra Del Sol', 5, '50.00', 1996),
-(2, 'Greater Goods', 6, '75.00', 10),
+(1, 'Organic Tierra Del Sol', 5, '23.00', 145),
+(2, 'Greater Goods', 6, '44.00', 10),
 (3, 'Hugo Melo', 1, '20.00', 200),
 (4, 'Light It Up', 4, '35.00', 100),
-(5, 'Full Steam', 3, '12.00', 100),
+(5, 'Full Steam', 3, '12.00', 101),
 (6, 'Coffee Manufactory', 2, '60.00', 100),
 (7, 'Little Nap Coffee Beans', 6, '25.00', 100),
 (8, 'Atlas Coffee', 5, '45.00', 100),
 (9, 'Kintore Coffee', 6, '40.00', 100),
 (10, 'Lavazza', 2, '12.00', 100),
-(11, 'Battlecreek Coffee', 6, '99.99', 100);
+(11, 'Battlecreek Coffee', 6, '99.99', 100),
+(21, 'Read Coffee Bag', 1, '35.00', 150);
 
 -- --------------------------------------------------------
 
@@ -949,7 +950,7 @@ ALTER TABLE `tcreditcard`
 -- AUTO_INCREMENT for table `tproduct`
 --
 ALTER TABLE `tproduct`
-  MODIFY `nProductID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `nProductID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `tpurchase`
@@ -995,7 +996,6 @@ ALTER TABLE `tproduct`
 -- Constraints for table `tpurchase`
 --
 ALTER TABLE `tpurchase`
-  ADD CONSTRAINT `tpurchase_ibfk_1` FOREIGN KEY (`nProductID`) REFERENCES `tproduct` (`nProductID`),
   ADD CONSTRAINT `tpurchase_ibfk_2` FOREIGN KEY (`nCreditCardID`) REFERENCES `tcreditcard` (`nCreditCardID`);
 
 --
