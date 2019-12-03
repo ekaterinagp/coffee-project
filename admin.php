@@ -2,30 +2,6 @@
 $sTitle = ' | Admin'; // Should get the username maybe? :-)
 require_once(__DIR__.'/components/header.php');
 require_once(__DIR__.'/connection.php');
-
-
-
-
-$sql = "SELECT * FROM tProduct";
-
-
-if($_POST){
-    if(isset($_POST['newPrice']) && isset($_POST['newStock'])){
-        $price = $_POST['newPrice'];
-        $stock = $_POST['newStock'];
-        $sql = 'UPDATE tproduct SET nPrice=:price, nStock=:stock WHERE nProductID=:id'; // :name og :email are placeholder and FITLER with where
-
-        $statement = $connection->prepare($sql); // prepare the sql statement
-        echo $price;
-        // everytime the sql statement is executed, pass the placeholder text and replace with the variables
-        // check if this is done succesfully
-        // if($statement->execute([':price' => $price, ':stock' => $stock, ':id' => $id]))
-        // {
-        //     header('location: /');    
-        // }
-    }
-}
-
 ?>
 
 <main>
@@ -33,7 +9,7 @@ if($_POST){
 <h1>Update Products</h1>
 <div class="adminProducts">
 <?php
-// echo $sjProperties;
+    $sql = "SELECT * FROM tProduct";
     foreach($connection->query($sql) as $row){
             echo '
             <div class="product" id="product-'.$row['nProductID'].' ">
