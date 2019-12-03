@@ -17,8 +17,14 @@
                     <a href="shop.php" class="<?php if($sCurrentPage == 'shop') echo 'active';?>">Shop</a>
                     <a href="how-to.php" class="<?php if($sCurrentPage == 'how-to') echo 'active';?>">How-To</a>
                     <a href="contact.php" class="<?php if($sCurrentPage == 'contact') echo 'active';?>">Contact</a>
-                    <a href="profile.php" class="profile menu-icon bg-contain <?php if($sCurrentPage == 'profile') echo 'active';?>">Profile</a>
-                    <a href="cart.php" class="cart menu-icon bg-contain" <?php if($sCurrentPage == 'cart') echo 'active';?>>Cart</a> 
+                    <a href="profile.php" class="profile menu-icon <?php if($sCurrentPage == 'profile') echo 'active';?>">
+                    Profile
+                    <?= file_get_contents(__DIR__.'/../img/profile.svg') ;?>
+                  </a>
+                    <a href="cart.php" class="cart menu-icon" <?php if($sCurrentPage == 'cart') echo 'active';?>>
+                    Cart
+                    <?= file_get_contents(__DIR__.'/../img/cart.svg') ;?>
+                  </a> 
             </nav>
     
         </header>
