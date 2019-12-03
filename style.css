@@ -24,6 +24,34 @@
 	background-size: 5vw;
 }
 
+footer{
+    padding-top: 3vw;
+}
+
+footer .logo{
+    height: 30%;
+}
+
+footer .item{
+    
+}
+
+footer h5{
+    text-align: left;
+}
+
+footer .icon{
+    height: 2vw;
+    width: 2vw;
+}
+
+/* footer .icon.fb{
+
+}
+footer .icon.instagram{
+
+} */
+
 /*****   GRID   *****/
 
 .grid{display: grid;}
@@ -46,6 +74,10 @@
 
 .grid-four{
     grid-template-columns: repeat(4, 1fr);
+}
+.grid-five{
+    grid-template-columns: 1fr 1fr 1fr 3fr 1fr;
+    height: 10vw;
 }
 
 .masonry{
@@ -154,7 +186,7 @@
 h1, h2, h5, a, .step-no .no{
     font-family: 'Lato', sans-serif;
     font-weight: 900;
-    color: black;
+    /* color: black; */
     text-transform: uppercase;
     text-align: center;
 }
