@@ -1,6 +1,6 @@
 <?php 
 $sTitle = ' | How-To';
-$sCurrentPage = 'cart';
+$sCurrentPage = 'how-to';
 require_once(__DIR__.'/components/header.php');
 ?>
 

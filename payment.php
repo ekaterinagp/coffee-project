@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Payment</title>
-</head>
-
-<body>
+<?php 
+$sTitle = ' | Payment';
+$sCurrentPage = 'payment';
+require_once(__DIR__.'/components/header.php');
+?>
   <main id="paymentMain">
 
     <div id="selectedItem"></div>
@@ -18,6 +12,7 @@
       <p id="sumTopay"></p>
     </div>
   </main>
-</body>
 
-</html>
+<?php
+$sScriptPath = 'script.js';
+require_once(__DIR__.'/components/footer.php');
