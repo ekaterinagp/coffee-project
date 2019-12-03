@@ -46,7 +46,7 @@
       <div id="answer"></div>
     </div>
     <button id="backBtn">Back</button>
-    <button id="nextBtn">Next</button>
+    <button id="nextBtn" disabled>Next</button>
   </div>
 
 </body>

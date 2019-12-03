@@ -1,125 +1,129 @@
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 /*****   FONT    *****/
 
-h1, h3, h5, a{
-    font-family: 'Lato', sans-serif;
-    font-weight: 900;
-    color: black;
+h1,
+h3,
+h5,
+a {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  color: black;
 }
 
-h2, h4{
-    font-family: 'Open sans', sans-serif;
-    font-weight: 300;
-    color: black;
+h2,
+h4 {
+  font-family: "Open sans", sans-serif;
+  font-weight: 300;
+  color: black;
 }
 
-body{
-    font-family: 'Open sans', sans-serif;
-    font-weight: 300;
-    color: black;
+body {
+  font-family: "Open sans", sans-serif;
+  font-weight: 300;
+  color: black;
 }
 
-.color-white{
-    color: #fff;
+.color-white {
+  color: #fff;
 }
 
-.color-black{
-    color: black;
+.color-black {
+  color: black;
 }
 
-.color-orange{
-color: #FB8B23;
+.color-orange {
+  color: #fb8b23;
 }
 
 /*****   BACKGROUND CLASSES    *****/
 
-.bg-cover{
-    background-size: cover;
-    background-repeat: no-repeat;
+.bg-cover {
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.bg-contain{
-    background-size: contain;
-    background-repeat: no-repeat;
+.bg-contain {
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
-.bg-white{
-    background-color: #fff;
+.bg-white {
+  background-color: #fff;
 }
 
-.bg-light-brown{
-    background-color: #D8B69C;
+.bg-light-brown {
+  background-color: #d8b69c;
 }
 
-.bg-medium-light-brown{
-    background-color: #815946;
+.bg-medium-light-brown {
+  background-color: #815946;
 }
 
-.bg-brown{
-    background-color: #483C32;
+.bg-brown {
+  background-color: #483c32;
 }
 
-.bg-dark-brown{
-    background-color: #2B231D;
+.bg-dark-brown {
+  background-color: #2b231d;
 }
 
-.bg-orange{
-    background-color: #FB8B23;
+.bg-orange {
+  background-color: #fb8b23;
 }
-
 
 /*****   MENU    *****/
 header {
-    background:rgba(250,250,250, .9);
-    max-width: 100vw;
-    width: 100%;
-    position: fixed;
-    z-index: 80;
-    top: 0;
-    display: grid;
-    grid-template-columns: 2fr 5.5fr;
-    height:70px;
-    justify-content: center;
-    align-items: center;
-    padding: 0 2vw;
-    text-align: right;
-  }
-  
-  .deskmenu{
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    text-align: center;
-   }
+  background: rgba(250, 250, 250, 0.9);
+  max-width: 100vw;
+  width: 100%;
+  position: fixed;
+  z-index: 80;
+  top: 0;
+  display: grid;
+  grid-template-columns: 2fr 5.5fr;
+  height: 70px;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2vw;
+  text-align: right;
+}
 
-   a{
-      text-decoration: none;
-    }
+.deskmenu {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+}
 
-    .active{
-        color: #FB8B23;
-    }
+a {
+  text-decoration: none;
+}
 
-   .deskmenu a, .hiddenMenu a{
-       font-weight: 900;
-   }
+.active {
+  color: #fb8b23;
+}
 
-   .deskmenu a:hover, .hiddenMenu a:hover{
-        color: #FB8B23;
-   }
+.deskmenu a,
+.hiddenMenu a {
+  font-weight: 900;
+}
 
-  .logo{
-     background-image: url(img/the-proper-pour-logo.svg);
-     color: transparent;
-     height: 45%;
-   }
-   
-    
-  /*****   MENU ENDS  *****/
+.deskmenu a:hover,
+.hiddenMenu a:hover {
+  color: #fb8b23;
+}
+
+.logo {
+  background-image: url(img/the-proper-pour-logo.svg);
+  color: transparent;
+  height: 45%;
+}
+
+/*****   MENU ENDS  *****/
 .subscriptionItem {
   width: 200px;
   height: 400px;
@@ -255,4 +259,19 @@ header {
 input:checked + .btnRadio {
   background-color: #6c9972;
   color: #f7f7f7;
+}
+
+.textBtns .btnRadio {
+  display: block;
+  height: 7em;
+  width: 23em;
+}
+.testResults {
+  width: 300px;
+  height: 400px;
+}
+
+.imgResults {
+  width: 300px;
+  height: 300px;
 }
