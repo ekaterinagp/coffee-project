@@ -14,7 +14,7 @@ $options = [
     PDO::ATTR_EMULATE_PREPARES => false,
 ];
 
-$sql = "SELECT * FROM TUser";
+// $sql = "SELECT * FROM TUser";
 //$connection = new PDO($dsn, $username, $password, $options); // PDO connection with own variable - the instance of the PDO
 // new PDO() takes 4 parameters: $dsn (datasourcename), $username, $password, $options
 
@@ -23,15 +23,10 @@ $sql = "SELECT * FROM TUser";
 
 try{
     $connection = new PDO($dsn, $username, $password, $options);
-    foreach ($connection->query($sql) as $row) {
-      echo $row['cName'] . "\t";
-        echo $row['cSurname'] . "\t";
-    }
+    
     
 
-    if($stmt === false){
-        die("Error executing the query");
-        }
+  
         
 
     
