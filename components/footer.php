@@ -18,6 +18,7 @@
       </div>
     </footer>
     <script src="script.js"></script>
-    <script src="menu.js"></script>
-  </body>
-</html>
+
+    </body>
+
+    </html>
