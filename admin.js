@@ -12,26 +12,41 @@ btnAddProduct.addEventListener('click', saveNewProduct);
 
 btnUpdatePrice.forEach(btnUpdate=>{
     btnUpdate.addEventListener('click', function(){
-            event.preventDefault();
-            updateProduct(btnUpdate.parentElement.parentElement.id, btnUpdate.parentElement);
+        event.preventDefault();
+        let id = btnUpdate.parentElement.parentElement.id;
+        let form = btnUpdate.parentElement;
+            updateProduct(id, form);
         });
 })
-// btnUpdateStock.forEach(btnUpdate=>{
-//     btnUpdate.addEventListener('click', function(){
-//             event.preventDefault();
-//             updateProduct(btnUpdate.parentElement.parentElement.id);
-//         });
-// })
+btnUpdateStock.forEach(btnUpdate=>{
+    btnUpdate.addEventListener('click', function(){
+        event.preventDefault();
+        let id = btnUpdate.parentElement.parentElement.id;
+        let form = btnUpdate.parentElement;
+        updateProduct(id, form);
+        });
+})
 
 
 
 function updateProduct(id, form){
+    let url;
     id = id.substr(id.search("-")+1,id.length)
-    let price= form.querySelector('[name=updatePrice]').value;
     let formData = new FormData();
+
+    if (form.id == "frmUpdatePrice"){
+        console.log("price");
+        url = updatePriceUrl;
+        let price= form.querySelector('[name=updatePrice]').value;
         formData.append('updatePrice', price);
+    }else{
+        url = updateStockUrl;
+        let stock = form.querySelector('[name=updateStock]').value;
+        formData.append('updateStock', stock);
+    }
+    
         formData.append('id', id);
-        fetch(updatePriceUrl, {
+        fetch(url, {
             method: "POST",
             body: formData
             })

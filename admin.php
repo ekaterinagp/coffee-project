@@ -41,9 +41,13 @@ if($_POST){
             <p class="propertyPrice">'.$row['nPrice'].'kr.</p>
             <form method="post" id="frmUpdatePrice"> 
     <label for="">Update Price<input type="text" name="updatePrice"></label> 
-    <button type="submit" class="btnUpdatePrice">UPDATE</button>
+    <button type="submit" class="btnUpdatePrice">UPDATE PRICE</button>
 </form>
             <p class="propertyStock">'.$row['nStock'].'</p>
+            <form method="post" id="frmUpdateStock"> 
+    <label for="">Update Stock<input type="text" name="updateStock"></label>
+    <button type="submit" class="btnUpdateStock">UPDATE STOCK</button>
+</form>
             </div>
             ';
         }   
@@ -52,10 +56,7 @@ if($_POST){
 ?>
 </div>
 
-<form method="post" id="frmUpdatePrice"> 
-    <label for="">Update Stock<input type="text" name="updateStock"></label>
-    <button type="submit">UPDATE</button>
-</form>
+
 
 <button>Delete Product</button>
 
