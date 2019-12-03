@@ -4,12 +4,20 @@ const frmAddProduct = document.querySelector("#frmAddProduct");
 const btnAddProduct = document.querySelector(".btnAddProduct")
 const btnUpdatePrice = document.querySelectorAll(".btnUpdatePrice")
 const btnUpdateStock = document.querySelectorAll(".btnUpdateStock")
-// const createUrl = 'api/api-update-product.php';
+const btnDeleteProduct = document.querySelectorAll(".btnDeleteProduct")
 let updatePriceUrl = 'api/api-update-price.php'
 let updateStockUrl = 'api/api-update-stock.php'
+let deleteUrl = 'api/api-delete-product.php'
 
 btnAddProduct.addEventListener('click', saveNewProduct);
-
+btnDeleteProduct.forEach(btnDelete=>{
+    btnDelete.addEventListener("click", function(){
+        
+        let id = btnDelete.parentElement.id;
+        console.log(id)
+        deleteProduct(id);
+    })
+})
 btnUpdatePrice.forEach(btnUpdate=>{
     btnUpdate.addEventListener('click', function(){
         event.preventDefault();
@@ -27,7 +35,21 @@ btnUpdateStock.forEach(btnUpdate=>{
         });
 })
 
+function deleteProduct(id){
+    let idString = id.substr(id.search("-")+1,id.length)
+    let formData = new FormData();
+    formData.append('id', idString);
+    fetch(deleteUrl, {
+        method: "POST",
+        body: formData
+        })
+            .then(res => res.text())
+            .then(response => {
+            console.log(response);
+            document.getElementById(id).remove();
+            });
 
+}
 
 function updateProduct(id, form){
     let url;
