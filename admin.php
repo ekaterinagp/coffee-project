@@ -24,6 +24,7 @@ require_once(__DIR__.'/connection.php');
     <label for="">Update Stock<input type="text" name="updateStock"></label>
     <button type="submit" class="btnUpdateStock">UPDATE STOCK</button>
 </form>
+<button class="btnDeleteProduct">Delete Product</button>
             </div>
             ';
         }   
@@ -34,7 +35,7 @@ require_once(__DIR__.'/connection.php');
 
 
 
-<button>Delete Product</button>
+
 
 <div>
 <h2>Add Coffee products</h2>
