@@ -6,7 +6,7 @@ startBtn.addEventListener("click", () => {
   init();
 });
 
-let questions = [
+const questions = [
   {
     id: 1,
     question: "How do you make your coffee?",
@@ -52,19 +52,20 @@ let questions = [
         }
       ];
       let form = document.createElement("form");
-      form.setAttribute("class", "gridWith3columns");
-
+      // form.setAttribute("id", "gridWith3columns");
+      // form.setAttribute("class", "listenTo");
+      form.className = "listenTo gridWith3columns";
       values.forEach(function(value) {
         let divWrapper = document.createElement("div");
         let label = document.createElement("label");
         let theInput = document.createElement("input");
         let theBreak = document.createElement("br");
         let divAnswer = document.querySelector("#answer");
-        divAnswer.setAttribute("class", "addGrid");
+        // divAnswer.setAttribute("class", "addGrid");
         divWrapper.setAttribute("class", "wrapper");
         // label.setAttribute("class", "labelClass");
         theInput.setAttribute("type", "radio");
-        theInput.setAttribute("name", "coffeeTypes");
+        theInput.setAttribute("name", "tools");
         theInput.setAttribute("value", value.title);
         let divWrapperP = document.createElement("div");
         let nameInput = document.createElement("p");
@@ -115,18 +116,21 @@ let questions = [
         }
       ];
       let form = document.createElement("form");
-      form.setAttribute("class", "gridWith2columns");
+
+      // form.setAttribute("class", "listenTo");
+      // form.setAttribute("class", "gridWith2columns");
+      form.className = "listenTo gridWith2columns";
       values.forEach(function(value) {
         let divWrapper = document.createElement("div");
         let label = document.createElement("label");
         let theInput = document.createElement("input");
         let theBreak = document.createElement("br");
         let divAnswer = document.querySelector("#answer");
-        divAnswer.setAttribute("class", "addGrid");
+        // divAnswer.setAttribute("class", "addGrid");
         divWrapper.setAttribute("class", "wrapper");
         // label.setAttribute("class", "labelClass");
         theInput.setAttribute("type", "radio");
-        theInput.setAttribute("name", "coffeeTypes");
+        theInput.setAttribute("name", "roast");
         theInput.setAttribute("value", value.title);
         let divWrapperP = document.createElement("div");
         let nameInput = document.createElement("p");
@@ -175,8 +179,10 @@ let questions = [
         }
       ];
       let form = document.createElement("form");
-      form.setAttribute("class", "gridWith2columns");
 
+      // form.setAttribute("class", "listenTo");
+      // form.setAttribute("class", "gridWith2columns");
+      form.className = "listenTo gridWith2columns";
       values.forEach(function(value) {
         let divWrapper = document.createElement("div");
         let label = document.createElement("label");
@@ -187,7 +193,7 @@ let questions = [
         divWrapper.setAttribute("class", "wrapper");
         // label.setAttribute("class", "labelClass");
         theInput.setAttribute("type", "radio");
-        theInput.setAttribute("name", "coffeeAdds");
+        theInput.setAttribute("name", "adds");
         theInput.setAttribute("value", value.title);
         let divWrapperP = document.createElement("div");
         let nameInput = document.createElement("p");
@@ -241,18 +247,20 @@ let questions = [
         }
       ];
       let form = document.createElement("form");
-      form.setAttribute("class", "gridWith2columns");
+      // form.setAttribute("class", "gridWith2columns");
+      // form.setAttribute("class", "listenTo");
+      form.className = "listenTo gridWith2columns textBtns";
       values.forEach(function(value) {
         let divWrapper = document.createElement("div");
         let label = document.createElement("label");
         let theInput = document.createElement("input");
         let theBreak = document.createElement("br");
         let divAnswer = document.querySelector("#answer");
-        divAnswer.setAttribute("class", "addGrid");
+        // divAnswer.setAttribute("class", "addGrid");
         divWrapper.setAttribute("class", "wrapper");
         // label.setAttribute("class", "labelClass");
         theInput.setAttribute("type", "radio");
-        theInput.setAttribute("name", "coffeeTypes");
+        theInput.setAttribute("name", "origins");
         theInput.setAttribute("value", value.title);
         let divWrapperP = document.createElement("div");
         let nameInput = document.createElement("p");
@@ -275,6 +283,89 @@ let questions = [
       return form;
     },
     userAnswer: null
+  },
+  {
+    id: 5,
+    question: "Here is your recommendation!",
+    text: "We think it fits you the best",
+
+    answerQ: function() {
+      const coffees = [
+        {
+          id: 1,
+          name: "Coffee1",
+          origin: "Brazil",
+          taste: "Nice",
+          roast: "Medium",
+          img: "coffe1.png"
+        },
+        {
+          id: 2,
+          name: "Coffee2",
+          origin: "Asia",
+          taste: "Very nice",
+          roast: "Light",
+          img: "coffe2.png"
+        },
+        {
+          id: 3,
+          name: "Coffee3",
+          origin: "Africa",
+          taste: "Nice nice",
+          roast: "Dark",
+          img: "coffe3.png"
+        },
+        {
+          id: 4,
+          name: "Coffee4",
+          origin: "Argentina",
+          taste: "Nice Mice",
+          roast: "Medium",
+          img: "coffe4.png"
+        },
+        {
+          id: 5,
+          name: "Coffee5",
+          origin: "Thailand",
+          taste: "Pice",
+          roast: "Light",
+          img: "coffe5.png"
+        },
+        {
+          id: 6,
+          name: "Coffee6",
+          origin: "Congo",
+          taste: "Dice",
+          roast: "Dark",
+          img: "coffe6.png"
+        }
+      ];
+      let randomChoice = coffees[Math.floor(Math.random() * coffees.length)];
+      console.log("randomChoice", randomChoice);
+
+      let divForResults = document.createElement("div");
+      // form.setAttribute("class", "gridWith2columns");
+      // form.setAttribute("class", "listenTo");
+      divForResults.className = "testResults";
+      let img = document.createElement("img");
+      img.setAttribute("class", "imgResults");
+      img.setAttribute("src", "img/" + randomChoice.img);
+      let pName = document.createElement("p");
+      pName.textContent = randomChoice.name;
+      let pOrigin = document.createElement("p");
+      pOrigin.textContent = randomChoice.origin;
+      let pTaste = document.createElement("p");
+      pTaste.textContent = randomChoice.pTaste;
+      let pRoast = document.createElement("p");
+      pRoast.textContent = randomChoice.roast;
+      let startAgainBtn = document.createElement("button");
+      startAgainBtn.innerHTML = "Take test again!";
+      startAgainBtn.addEventListener("click", () => {
+        window.location.reload(true);
+      });
+      divForResults.append(img, pName, pOrigin, pTaste, pRoast, startAgainBtn);
+      return divForResults;
+    }
   }
 ];
 
@@ -307,16 +398,43 @@ function prevElement() {
   questionText.innerHTML = currentEl.text;
 
   answer.appendChild(questions[currentQuestionIndex].answerQ());
+  if (
+    questions[currentQuestionIndex].type == "radio" &&
+    !questions[currentQuestionIndex].userAnswer
+  ) {
+    setNextBtnDisabled(true);
+  }
+
+  if (questions[currentQuestionIndex].userAnswer) {
+    radioAnswerInsert();
+    setNextBtnDisabled(false);
+  }
+
+  if (questions[currentQuestionIndex].id == 1) {
+    document.querySelector("#backBtn").style.display = "none";
+  }
+  timeline(questions);
+  eventlistenerForRadio();
 }
 
 function nextElement() {
   document.querySelector("#backBtn").style.display = "inline-block";
+
+  saveRadioAnswer();
+
   answer.textContent = "";
   let currentEl = nextItem();
 
   questionTitle.textContent = currentEl.question;
   questionText.innerHTML = currentEl.text;
   answer.appendChild(questions[currentQuestionIndex].answerQ());
+  if (questions[currentQuestionIndex].id != 5) {
+    eventlistenerForRadio();
+    disabledIfEmpty();
+    timeline(questions);
+  } else {
+    document.querySelector("#nextBtn").style.display = "none";
+  }
 }
 
 function prevItem() {
@@ -336,7 +454,7 @@ function nextItem() {
 }
 
 function setNextBtnDisabled(bool) {
-  document.getElementById("next_button").disabled = bool;
+  document.getElementById("nextBtn").disabled = bool;
 }
 
 function saveRadioAnswer() {
@@ -346,6 +464,64 @@ function saveRadioAnswer() {
   questions[currentQuestionIndex].userAnswer = radioValue[0];
 }
 
+function getRadioCheckedValue(radio_name) {
+  let formToCheck = document.querySelector(".listenTo");
+  let oRadio = formToCheck.elements[radio_name];
+
+  for (let u = 0; u < oRadio.length; u++) {
+    if (oRadio[u].checked) {
+      // console.log("u index", u);
+      return [oRadio[u].value, u];
+    }
+  }
+  // console.log("radio value returned?", oRadio[u].value);
+  return "";
+}
+
+function radioAnswerInsert() {
+  if (questions[currentQuestionIndex].type == "radio") {
+    let allRadios = answer.querySelectorAll("input");
+    let radioArr = Array.prototype.slice.call(allRadios);
+    for (let u = 0; u < radioArr.length; u++) {
+      if (radioArr[u].value == questions[currentQuestionIndex].userAnswer) {
+        radioArr[u].checked = true;
+      }
+    }
+  }
+}
+
+function eventlistenerForRadio() {
+  console.log("eventlistener runs");
+  document.querySelector(".listenTo").addEventListener("click", function() {
+    let allRadios = document.querySelectorAll("input[type=radio]");
+    console.log("we are inside eventlistener");
+    for (let i = 0; i < allRadios.length; i++) {
+      console.log("we are inside the loop");
+      if (allRadios[i].checked == true) {
+        let radioValue = allRadios[i].value;
+        questions[currentQuestionIndex].answer = radioValue;
+        console.log({ radioValue });
+      }
+    }
+    setNextBtnDisabled(false);
+  });
+}
+
+function disabledIfEmpty() {
+  setNextBtnDisabled(true);
+  if (questions[currentQuestionIndex].userAnswer) {
+    setNextBtnDisabled(false);
+  }
+}
+function timeline(questions) {
+  let timelineInput = document.querySelector("#timeline");
+  let allQuestionsDigit = questions.length - 1;
+  let currentQuestionDigit = questions[currentQuestionIndex].id;
+  timelineInput.textContent = currentQuestionDigit + "/" + allQuestionsDigit;
+}
+
 function init() {
+  timeline(questions);
   insertIntoDOM();
+  eventlistenerForRadio();
 }

@@ -13,22 +13,26 @@
   <h1>Choose a subscription</h1>
   <div class="containerForSubscriptions">
     <div class="subscriptionItem">
-      <div class="itemSize coffeeItemimg1">Subscription 1</div>
+      <div class="itemSize coffeeItemimg1" id="1">
+        <h3>Subscription 1</h3>
+        <p class="priceSubscription">250kr</p>
+        <p class="descSubscription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate praesentium, inventore deleniti optio nobis quasi provident nulla minus odit architecto enim facilis, ea veniam at ullam eligendi excepturi dolore tempora?</p>
+      </div>
     </div>
     <div class="subscriptionItem">
-      <div class="itemSize coffeeItemimg2">Subscription 2</div>
+      <div class="itemSize coffeeItemimg2" id="2">Subscription 2</div>
     </div>
     <div class="subscriptionItem">
-      <div class="itemSize coffeeItemimg3">Subscription 3</div>
+      <div class="itemSize coffeeItemimg3" id="3">Subscription 3</div>
     </div>
     <div class="subscriptionItem">
-      <div class="itemSize coffeeItemimg4">Subscription 4</div>
+      <div class="itemSize coffeeItemimg4" id="4">Subscription 4</div>
     </div>
     <div class="subscriptionItem">
-      <div class="itemSize coffeeItemimg5">Subscription 5</div>
+      <div class="itemSize coffeeItemimg5" id="5">Subscription 5</div>
     </div>
     <div class="subscriptionItem">
-      <div class="itemSize coffeeItemimg6">Subscription 6</div>
+      <div class="itemSize coffeeItemimg6" id="6">Subscription 6</div>
     </div>
   </div>
 
@@ -46,7 +50,7 @@
       <div id="answer"></div>
     </div>
     <button id="backBtn">Back</button>
-    <button id="nextBtn">Next</button>
+    <button id="nextBtn" disabled>Next</button>
   </div>
 
 </body>
