@@ -11,14 +11,14 @@
     <header>
             <!-- <img src="img/the-proper-pour-logo.svg" class="imgLogo" alt="The Proper Pour logo">     -->
             <a href="index.php" class="logo bg-contain">The Proper Pour Logo</a>
-            <nav class="deskmenu">
+            <nav class="deskmenu grid">
                 <a href="index.php">Home</a>
                     <a href="subscribe.php">Subscribe</a>
                     <a href="shop.php">Shop</a>
                     <a href="how-to.php">How-To</a>
                     <a href="contact.php">Contact</a>
-                    <a href="profile.php">Profile</a>
-                    <a href="cart.php">Cart</a> 
+                    <a href="profile.php" class="profile menu-icon bg-contain">Profile</a>
+                    <a href="cart.php" class="cart menu-icon bg-contain">Cart</a> 
             </nav>
     
         </header>

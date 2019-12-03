@@ -3,9 +3,9 @@ let allMenuItems = document.querySelectorAll(".deskmenu a");
 
     allMenuItems.forEach(function(menuItem) {
         menuItem.addEventListener("click", function(e) {
-            e.preventDefault();
+            // e.preventDefault();
             console.log("menu item is clicked");
-            // removeActive();
+            removeActive();
             menuItem.classList.add("active"); 
         });
     });
