@@ -11,6 +11,11 @@ img{
     height: 100%;
 }
 
+.image {
+    height: 90%;
+    background-position: center;
+  }
+
 svg{
     width: 100%;
     height: 100%;
@@ -34,6 +39,10 @@ svg{
   background-repeat: no-repeat;
   background-position: left center;
   background-size: 5vw;
+}
+
+.container .banner{
+
 }
 
 /*****   GRID   *****/
@@ -72,11 +81,6 @@ svg{
 
 .masonry .image-container {
   align-items: center;
-}
-
-.image {
-  height: 90%;
-  background-position: center;
 }
 
 /***** POSITIONING *****/
@@ -275,7 +279,10 @@ a,
   text-align: center;
 }
 
-h1,
+h1{
+    text-align: inherit;
+}
+
 h2,
 h5,
 .step-no .no {
@@ -626,6 +633,16 @@ a {
   background-image: url(img/coffee-plant-in-soil.png);
 }
 
+/***** SHOP PAGE *****/
+
+.shop .section-one .image {
+    background-image: url(img/coffee-cup-splashing.png);
+    height: 330%;
+    top: -13vw;
+    z-index: 81;
+    transform: rotate(45deg);
+}
+
 /***** SUBSCRIBE PAGE *****/
 
 .subscriptionItem {
@@ -818,4 +835,78 @@ input:checked + .btnRadio {
 .product{
   border:1px solid black;
   margin:1vw;
+}
+.loginWelcome {
+  text-align: center;
+  padding-top: 10%;
+
+  /* color: #06a4b7; */
+}
+
+.containerSignup {
+  width: 100%;
+  height: 79%;
+}
+
+#signupForm {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  grid-gap: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  /* width: 100%; */
+  border: 0;
+  border-radius: 5px;
+  height: 35px;
+  padding: 10px 10px 10px 30px;
+  background: #eee;
+}
+input[type="text"]:valid,
+input[type="email"]:valid,
+input[type="password"]:valid {
+  /* background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/check.svg); */
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 5px 6px;
+}
+input[type="text"]:valid + label,
+input[type="email"]:valid + label,
+input[type="password"]:valid + label {
+  opacity: 0;
+}
+input[type="text"]:invalid:not(:focus):not(:placeholder-shown),
+input[type="email"]:invalid:not(:focus):not(:placeholder-shown),
+input[type="password"]:invalid:not(:focus):not(:placeholder-shown) {
+  background: pink;
+}
+
+input[type="text"]:invalid:not(:focus):not(:placeholder-shown) ~ .errorMessage,
+input[type="email"]:invalid:not(:focus):not(:placeholder-shown) ~ .errorMessage,
+input[type="password"]:invalid:not(:focus):not(:placeholder-shown)
+  ~ .errorMessage {
+  max-height: 200px;
+  padding: 3px 10px 10px 30px;
+}
+
+form .errorMessage {
+  padding: 0 30px 0 50px;
+  color: #999;
+  max-height: 0;
+  transition: all 0.3s;
+  overflow: hidden;
+  color: red;
+  font-style: italic;
+  font-size: 80%;
+}
+
+input.error {
+  background-color: rgba(198, 38, 65, 0.1);
 }

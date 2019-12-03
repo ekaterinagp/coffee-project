@@ -1,6 +1,6 @@
     <footer class="grid grid-five bg-dark-brown ph-medium">
       <div class="item ph-small">
-      <?= file_get_contents(__DIR__.'/../img/the-proper-pour-logo.svg') ;?>
+        <?= file_get_contents(__DIR__ . '/../img/the-proper-pour-logo.svg'); ?>
       </div>
       <div class="item address color-white ph-small">
         <h5>Address</h5>
@@ -21,5 +21,6 @@
     </footer>
     
     <script src="script.js"></script>
-  </body>
-</html>
+    </body>
+
+    </html>
