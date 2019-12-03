@@ -21,8 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `properpour`
 --
-DROP DATABASE IF EXISTS `properpour`;
-CREATE DATABASE `properpour` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+
+CREATE DATABASE IF NOT EXISTS `properpour` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `properpour`;
 
 DELIMITER $$
