@@ -1,5 +1,7 @@
     <footer class="grid grid-five bg-dark-brown ph-medium">
-      <div class="item logo bg-contain ph-small"></div>
+      <div class="item ph-small">
+        <?= file_get_contents(__DIR__ . '/../img/the-proper-pour-logo.svg'); ?>
+      </div>
       <div class="item address color-white ph-small">
         <h5>Address</h5>
         <p>Lygten 37 2400 Copenhagen Denmark</p>
@@ -18,7 +20,6 @@
       </div>
     </footer>
     <script src="script.js"></script>
-
     </body>
 
     </html>

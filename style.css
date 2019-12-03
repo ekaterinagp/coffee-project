@@ -6,6 +6,23 @@
 
 /*****   GENERAL DOM ELEMENTS   *****/
 
+img{
+    width: 100%;
+    height: 100%;
+}
+
+.image {
+    height: 90%;
+    background-position: center;
+  }
+
+svg{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: -20;
+}
+
 .section-one {
   margin-top: 70px;
 }
@@ -22,6 +39,10 @@
   background-repeat: no-repeat;
   background-position: left center;
   background-size: 5vw;
+}
+
+.container .banner{
+
 }
 
 /*****   GRID   *****/
@@ -60,11 +81,6 @@
 
 .masonry .image-container {
   align-items: center;
-}
-
-.image {
-  height: 90%;
-  background-position: center;
 }
 
 /***** POSITIONING *****/
@@ -263,7 +279,10 @@ a,
   text-align: center;
 }
 
-h1,
+h1{
+    text-align: inherit;
+}
+
 h2,
 h5,
 .step-no .no {
@@ -380,6 +399,7 @@ a {
 .deskmenu a,
 .hiddenMenu a {
   font-weight: 900;
+  transition: 0.2s ease-in-out;
 }
 
 .deskmenu a:hover,
@@ -402,15 +422,27 @@ a {
   height: 100%;
   background-position: center;
   padding: 0.2vw;
+  width: 2vw;
+    height: 2vw;
 }
 
-.cart {
-  background-image: url(img/cart.svg);
+a.cart:hover, a.profile:hover {
+  color: transparent;
 }
 
-.profile {
-  background-image: url(img/profile.svg);
+a svg path{
+    transition: 0.2s ease-in-out;
 }
+
+a svg:hover path{
+    stroke:  #fb8b23;
+}
+
+
+/* .cart svg{
+    width: 3vw;
+    height: 3vw;
+} */
 
 /*****  MENU ENDS  *****/
 
@@ -436,6 +468,12 @@ footer .icon {
 /* ADD FOOTER SOME ICONS HERE */
 /* footer .icon.fb{}
 footer .icon.instagram{} */
+
+footer svg{
+    fill: #fff;
+    width: 80%;
+    height: 80%;
+}
 
 /*****  BUTTONS & LINKS  *****/
 
@@ -593,6 +631,16 @@ a {
 }
 .section-five .masonry .item.six .image {
   background-image: url(img/coffee-plant-in-soil.png);
+}
+
+/***** SHOP PAGE *****/
+
+.shop .section-one .image {
+    background-image: url(img/coffee-cup-splashing.png);
+    height: 330%;
+    top: -13vw;
+    z-index: 81;
+    transform: rotate(45deg);
 }
 
 /***** SUBSCRIBE PAGE *****/
