@@ -11,6 +11,11 @@ img{
     height: 100%;
 }
 
+.image {
+    height: 90%;
+    background-position: center;
+  }
+
 svg{
     width: 100%;
     height: 100%;
@@ -34,6 +39,10 @@ svg{
   background-repeat: no-repeat;
   background-position: left center;
   background-size: 5vw;
+}
+
+.container .banner{
+
 }
 
 /*****   GRID   *****/
@@ -72,11 +81,6 @@ svg{
 
 .masonry .image-container {
   align-items: center;
-}
-
-.image {
-  height: 90%;
-  background-position: center;
 }
 
 /***** POSITIONING *****/
@@ -275,7 +279,10 @@ a,
   text-align: center;
 }
 
-h1,
+h1{
+    text-align: inherit;
+}
+
 h2,
 h5,
 .step-no .no {
@@ -624,6 +631,16 @@ a {
 }
 .section-five .masonry .item.six .image {
   background-image: url(img/coffee-plant-in-soil.png);
+}
+
+/***** SHOP PAGE *****/
+
+.shop .section-one .image {
+    background-image: url(img/coffee-cup-splashing.png);
+    height: 330%;
+    top: -13vw;
+    z-index: 81;
+    transform: rotate(45deg);
 }
 
 /***** SUBSCRIBE PAGE *****/

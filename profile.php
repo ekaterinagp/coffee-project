@@ -4,8 +4,11 @@ $sCurrentPage = 'profile';
 require_once(__DIR__.'/components/header.php');
 ?>
 
+<main>
 
-<main></main>
+<section class="section-one"></section>
+
+</main>
 
 <?php
 $sScriptPath = 'script.js';
