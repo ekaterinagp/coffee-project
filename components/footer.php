@@ -19,15 +19,9 @@
         <div class="icon instagram"></div>
       </div>
     </footer>
-<<<<<<< HEAD
-    
-    <script src="script.js"></script>
-    <script src="<?= $sScriptPath ;?>"></script>
-=======
 
     <script src="js/script.js"></script>
     <script src="js/<?= $sScriptPath ?>"></script>
->>>>>>> 32f41aa3c620c8398b513c43ab60ec21269c48c5
     </body>
 
     </html>
