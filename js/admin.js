@@ -55,7 +55,7 @@ function updateProduct(id, form){
     id = id.substr(id.search("-")+1,id.length)
     let formData = new FormData();
 
-    if (form.id == "frmUpdatePrice"){
+    if (form.id == "frmUpdatePrice"){   
         console.log("price");
         url = updatePriceUrl;
         let price= form.querySelector('[name=updatePrice]').value;

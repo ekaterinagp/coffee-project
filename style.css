@@ -4,11 +4,11 @@
   margin: 0;
 }
 
+
 /*****   GENERAL DOM ELEMENTS   *****/
 
 img {
   width: 100%;
-  height: 100%;
 }
 
 .image {
@@ -85,6 +85,7 @@ svg {
 .masonry .image-container {
   align-items: center;
 }
+
 
 /***** POSITIONING *****/
 
@@ -345,6 +346,7 @@ body {
   font-family: "Open sans", sans-serif;
   font-weight: 300;
   color: black;
+  max-width: 100vw;
 }
 
 .color-white {
@@ -781,14 +783,46 @@ a {
 
 /***** SUBSCRIBE PAGE *****/
 
-.subscriptionItem {
-  width: 400px;
-  height: 200px;
-  position: relative;
+
+.subscribeBanner .grid-two{
+  align-items: end;
 }
 
+.subscriptionItem {
+  position: relative;
+  padding:1em;
+}
+.subscriptionItem img{
+  width:auto;
+  height:35vh;
+  margin: auto;
+}
+.subscriptionItem:nth-child(1){
+  background-color: #969494;
+}
+.subscriptionItem:nth-child(2){
+  background-color: #815946;
+}
+
+.subscriptionItem:nth-child(3){
+  background-color: #483c32;
+}
+.subscriptionItem:nth-child(4){
+  background-color: #545454;
+}
+.subscriptionItem:nth-child(5){
+  background-color: #483c32;
+}
+.subscriptionItem:nth-child(6){
+  background-color: #815946;
+}
+/* .subscriptionItem img{
+  height:50%;
+  width:auto;
+} */
+
 .coffeeItemimg1 {
-  background-image: url(img/coffe1.png);
+  /* background-image: url(img/coffe1.png); */
 }
 
 .coffeeItemimg2 {
@@ -811,20 +845,9 @@ a {
   background-image: url(img/coffe6.png);
 }
 
-.itemSize {
-  width: 400px;
-  height: 200px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: right;
-  border: black solid 1px;
-}
 
 .containerForSubscriptions {
-  display: grid;
-  grid-template-columns: 2fr 2fr;
-  margin: 0 10em 0 10em;
-  grid-gap: 10px;
+ max-width:100vw;
 }
 
 .selectedItem {
@@ -955,18 +978,32 @@ input:checked + .btnRadio {
 /*   ADMIN PAGE   */
 
 #frmAddProduct,
-#frmNewProduct,
-#frmUpdateStock {
+#frmUpdateStock,
+#frmUpdatePrice
+ {
   display: grid;
-  grid-template-columns: 1fr;
   margin: auto;
+}
+#frmUpdateStock,
+#frmUpdatePrice{
+  grid-template-columns: 1fr 1fr;
+}
+#frmAddProduct{
+  grid-template-columns: 1fr;
+  text-align: center;
   width: 500px;
+  margin:auto;
 }
 .adminProducts {
+  margin:5em;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
-
+.adminProduct{
+  margin:1em;
+  border:1px solid black;
+  padding:1em;
+}
 
 .loginWelcome {
   text-align: center;
