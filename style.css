@@ -318,14 +318,19 @@ h5,
 
 h3,
 h4,
-button,
-a p {
+button {
   font-family: "Lato", sans-serif;
   font-weight: 300;
   color: #000;
   text-transform: uppercase;
   text-align: center;
   padding-bottom: 2vw;
+}
+
+a p{
+    font-family: "Lato", sans-serif; 
+    font-weight: 300;
+    text-transform: uppercase;
 }
 
 h5 {
@@ -740,13 +745,13 @@ a {
 
 
 .shop .product{
-    height: 35vw;
+    height: 30vw;
     border: solid 0.1px #00000045;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .shop .product .image {
-  height: 75%;
+  height: 65%;
 }
 
 .product h3, .product h4{
