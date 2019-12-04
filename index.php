@@ -34,7 +34,7 @@ require_once(__DIR__.'/components/header.php');
 <section class="section-two grid mb-large">
     <h2>What you get</h2>
     <h3>We make sure you get the best you wished for and more </h3>
-    <div class="grid grid-two-thirds container ph-xlarge"> 
+    <div class="grid grid-two-thirds-reversed container ph-xlarge"> 
         <div class="image bg-contain"></div>
         <div class="list grid align-items-center">
             <ul>
