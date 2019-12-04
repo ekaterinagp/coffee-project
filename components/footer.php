@@ -19,8 +19,9 @@
         <div class="icon instagram"></div>
       </div>
     </footer>
-    
+
     <script src="script.js"></script>
+    <script src="<?= $sScriptPath; ?>"></script>
     </body>
 
     </html>

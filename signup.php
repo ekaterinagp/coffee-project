@@ -164,8 +164,8 @@ function sendErrorMessage($txtError, $iLineNumber)
 
     <h3>Already a user? <a href="login.php">Log in </a></h3>
   </div>
-  <script src="validation.js"></script>
+
   <?php
-  $sScriptPath = 'script.js';
+  $sScriptPath = 'validation.js';
   require_once(__DIR__ . '/components/footer.php');
   ?>
