@@ -63,6 +63,10 @@ svg {
   grid-template-columns: 4fr 2fr;
 }
 
+  .grid-two-thirds-bigger {
+    grid-template-columns: 2fr 5fr;
+  }
+
 .grid-three {
   grid-template-columns: repeat(3, 1fr);
 }
@@ -242,6 +246,10 @@ svg {
 }
 .mt-medium {
   margin-top: 4vw;
+}
+
+.mr-medium{
+    margin-right: 4vw;
 }
 
 .m-large {
@@ -673,9 +681,9 @@ a {
   transform: rotate(45deg);
 }
 
-.filter {
-  width: 80%;
-  top: -5.5vw;
+.filter{
+    width: 90%;
+    top: -5.5vw;
 }
 
 .filter .accordion {
@@ -730,20 +738,21 @@ a {
   box-shadow: none;
 }
 
-.shop .product {
-  height: 30vw;
-  margin-right: 4vw;
-  border: solid 0.1px #00000045;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+.shop .product{
+    height: 35vw;
+    border: solid 0.1px #00000045;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .shop .product .image {
   height: 75%;
 }
 
-.product h3 {
-  padding: 0;
-  text-align: left;
+.product h3, .product h4{
+    padding: 0;
+    text-align: left;
+
 }
 
 .filter h3 {
@@ -952,10 +961,8 @@ input:checked + .btnRadio {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
-.product {
-  border: 1px solid black;
-  margin: 1vw;
-}
+
+
 .loginWelcome {
   text-align: center;
   padding-top: 10%;

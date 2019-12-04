@@ -3,10 +3,20 @@ $sTitle = ' | Shop';
 $sCurrentPage = 'shop';
 
 require_once(__DIR__.'/connection.php');
-$sql = "SELECT * FROM tProduct";
+$sql = "SELECT tProduct.nProductID, tProduct.cName as cProductName, tProduct.nCoffeeTypeID as nProductCoffeeTypeID, tProduct.nPrice, tProduct.nStock, tCoffeeType.nCoffeeTypeID, tCoffeeType.cName FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID";
 $statement = $connection->prepare($sql);
 
 require_once(__DIR__.'/components/header.php');
+
+if($statement->execute()){
+    foreach($connection->query($sql) as $row){
+        $sCoffeeTypeName = $row['cName'];
+        $aCoffeeTypes = [];
+        array_push($aCoffeeTypes, $sCoffeeTypeName);
+    }
+
+    $aPrice = [];
+}
 
 ?>
 <main class="shop">
@@ -37,23 +47,24 @@ require_once(__DIR__.'/components/header.php');
         <input id="txtSearch" type="text" name="search" placeholder="Type here to search for products" maxlength="50" minlength="3">
     </form>
 
-    <div class="products grid grid-two-thirds">
+    <div class="products grid grid-two-thirds-bigger mr-medium">
 
     <div class="filter color-white relative">
         <h3 class="color-black ph-medium pb-medium">Filters</h3>
        
             <button class="accordion price bg-medium-light-brown color-white">Price</button>
-            <div class="panel bg-white color-black">
+            <div class="panel filter-price bg-white color-black">
                 <div class="options">
-                    <input type="checkbox" name="option1" value="0-50"> 0-50 kr.<br>
-                    <input type="checkbox" name="option2" value="51-100"> 51-100 kr.<br>
-                    <input type="checkbox" name="option3" value="101-150"> 101-150 kr.<br>
-                    <input type="checkbox" name="option4" value="101-150"> 151-200 kr.<br>
+                    <input type="checkbox" name="option1" value="0-50"> < 50 DKK<br>
+                    <input type="checkbox" name="option2" value="51-100"> 51-100 DKK<br>
+                    <input type="checkbox" name="option3" value="101-150"> 101-150 DKK<br>
+                    <input type="checkbox" name="option4" value="101-150"> 151-200 DKK<br>
+                    <input type="checkbox" name="option4" value="200-10000000">  + 200 DKK<br>
                 </div>
             </div>
 
             <button class="accordion origin bg-medium-light-brown color-white">Origin</button>
-            <div class="panel bg-white color-black">
+            <div class="panel filter-origin bg-white color-black">
                 <div class="options">
                     <input type="checkbox" name="option1" value="101-150"> Colombia<br>
                     <input type="checkbox" name="option2" value="101-150"> Ethiopia<br>
@@ -63,14 +74,6 @@ require_once(__DIR__.'/components/header.php');
                     <input type="checkbox" name="option5" value="101-150"> Blend<br>
                 </div>
             </div>
-
-            <button class="accordion  bg-medium-light-brown color-white">Section 3</button>
-            <div class="panel bg-white color-black">
-                <input type="checkbox" name="option1" value="101-150"> Colombia<br>
-                <input type="checkbox" name="option2" value="101-150"> Ethiopia<br>
-                <input type="checkbox" name="option3" value="101-150"> Sumatra<br>
-            </div>
-        
     </div>
 
     <div class="products-container grid grid-three">
@@ -78,7 +81,7 @@ require_once(__DIR__.'/components/header.php');
 if($statement->execute()){
     foreach($connection->query($sql) as $row){
 
-        $imgUrl = $row['cName'];
+        $imgUrl = $row['cProductName'];
         $result = strtolower(str_replace(" ", "-", $imgUrl));
 
             echo '
@@ -86,8 +89,9 @@ if($statement->execute()){
             <div class="product mb-medium" id="product-'.$row['nProductID'].'">
             <div class="image bg-contain" style="background-image: url(img/products/'.$result.'.png)"></div>
             <div class="description m-small">
-                <h3 class="productName mv-small text-left">'.$row['cName'].'</h3>
-                <p class="productPrice mv-small">'.$row['nPrice'].' kr.</p>
+                <h3 class="productName mt-small text-left">'.$row['cProductName'].'</h3>
+                <h4 class="productName mt-small text-left">'.$row['cName'].'</h4>
+                <p class="productPrice mt-small">'.$row['nPrice'].' DKK</p>
             </div>
             </div>
             </a>
