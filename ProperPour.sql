@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2019 at 12:38 PM
+-- Generation Time: Dec 04, 2019 at 01:52 PM
 -- Server version: 10.4.6-MariaDB
--- PHP Version: 7.1.31
+-- PHP Version: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,9 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `properpour`
 --
-DROP DATABASE IF EXISTS  `properpour`;
-CREATE DATABASE `properpour` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `properpour`;
 
 DELIMITER $$
 --
@@ -259,7 +256,17 @@ INSERT INTO `taudituser` (`nAuditUserID`, `nOldUserID`, `cOldName`, `cOldSurname
 (10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 17, 'Sophie', 'Jensen', 'jense@gmail.com', 'sohje', '1d46523873c515fe0303257388bcffb4b32a369ddd79c62a04746744', 'Jensengade 44, 7904', 3, '66778899', '2019-12-03', NULL, '0.0000', 'I', '2019-12-03 10:54:48', 'root', 'localhost'),
 (11, 10, 'Frida', 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-02', NULL, '125.0000', 10, NULL, 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-02', NULL, '187.5000', 'U', '2019-12-03 13:58:42', 'root', 'localhost'),
 (12, 10, 'Frida', 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-02', NULL, '187.5000', 10, NULL, 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-02', NULL, '0.0000', 'U', '2019-12-03 14:01:29', 'root', 'localhost'),
-(13, 10, 'Frida', 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-02', NULL, '0.0000', 10, NULL, 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-02', NULL, '62.5000', 'U', '2019-12-03 14:01:43', 'root', 'localhost');
+(13, 10, 'Frida', 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-02', NULL, '0.0000', 10, NULL, 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-02', NULL, '62.5000', 'U', '2019-12-03 14:01:43', 'root', 'localhost'),
+(14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 18, 'Olga', 'Smith', 'olga@olga.com', 'olga1', 'b986a019f4c1cf3fffe37f7cfe9eb60d57b621fe5a28f3df6245fdeb', 'Ovej,1 Koge 1234', 2, '11223344', '2019-12-04', NULL, '0.0000', 'I', '2019-12-04 12:03:57', 'root', 'localhost'),
+(15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 19, 'Olga', 'Smith', 'olga@olga.com', 'olga1', 'b986a019f4c1cf3fffe37f7cfe9eb60d57b621fe5a28f3df6245fdeb', 'Ovej,1 Koge 1234', 2, '11223344', '2019-12-04', NULL, '0.0000', 'I', '2019-12-04 12:04:35', 'root', 'localhost'),
+(16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 20, 'Olga', 'Smith', 'olga@olga.com', 'olga1', 'b986a019f4c1cf3fffe37f7cfe9eb60d57b621fe5a28f3df6245fdeb', 'Ovej,1 Koge 1234', 2, '11223344', '2019-12-04', NULL, '0.0000', 'I', '2019-12-04 12:05:24', 'root', 'localhost'),
+(17, 20, 'Olga', 'Smith', 'olga@olga.com', 'olga1', 'b986a019f4c1cf3fffe37f7cfe9eb60d57b621fe5a28f3df6245fdeb', 'Ovej,1 Koge 1234', 2, '11223344', '2019-12-04', NULL, '0.0000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'D', '2019-12-04 12:05:34', 'root', 'localhost'),
+(18, 19, 'Olga', 'Smith', 'olga@olga.com', 'olga1', 'b986a019f4c1cf3fffe37f7cfe9eb60d57b621fe5a28f3df6245fdeb', 'Ovej,1 Koge 1234', 2, '11223344', '2019-12-04', NULL, '0.0000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'D', '2019-12-04 12:05:43', 'root', 'localhost'),
+(19, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 21, 'Don', 'Jens', 'jens@don.dk', 'donJens', 'bbd2eaa465a570feed6a0f368550b9da88f89194f29466c649920dab', 'Randersvej,12 1234 Randers', 3, '11556438', '2019-12-04', NULL, '0.0000', 'I', '2019-12-04 12:30:04', 'root', 'localhost'),
+(20, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 22, 'Elisabet', 'Coolish', 'cool@cool.com', 'eli', '302c401c2dfb70269d43b24504cb80baad56564f91633a0392001444', 'Ryparken, 11 2100 København', 2, '34563456', '2019-12-04', NULL, '0.0000', 'I', '2019-12-04 12:40:42', 'root', 'localhost'),
+(21, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 23, 'Eleanor', 'Coolish', 'cool@cool.dk', 'eler', '302c401c2dfb70269d43b24504cb80baad56564f91633a0392001444', 'Ryparken 13 2100 København', 2, '34563456', '2019-12-04', NULL, '0.0000', 'I', '2019-12-04 12:41:58', 'root', 'localhost'),
+(22, 22, 'Elisabet', 'Coolish', 'cool@cool.com', 'eli', '302c401c2dfb70269d43b24504cb80baad56564f91633a0392001444', 'Ryparken, 11 2100 København', 2, '34563456', '2019-12-04', NULL, '0.0000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'D', '2019-12-04 12:42:25', 'root', 'localhost'),
+(23, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 24, 'Nina', 'Ricci', 'nina@gmail.com', 'ninaRich', '43f648533b07a340a204b8a9504c75aa457ddc5180209d01aad571e0', 'Coolvej, 14 2387 Nestved', 5, '37809754', '2019-12-04', NULL, '0.0000', 'I', '2019-12-04 12:45:37', 'root', 'localhost');
 
 -- --------------------------------------------------------
 
@@ -657,7 +664,11 @@ INSERT INTO `tuser` (`nUserID`, `cName`, `cSurname`, `cEmail`, `cUsername`, `cPa
 (14, 'Mike', 'Mikeson', 'mm@mail.com', 'mikeson', 'fb984f4bad7bc64f56f67744cd2dd869ca84968ab620b1d615b724bb', 'Carlsbergsvej 120', 2, '12344321', '2019-12-03 10:52:04', NULL, '0.0000'),
 (15, 'Lisa', 'Larsen', 'lars@gmail.com', 'lars', 'f67ec754183f332e47f97eb3997ba917da5adca443f41e5be2614f18', 'Jagtvej 564, 2100', 1, '87654321', '2019-12-03 10:52:50', NULL, '0.0000'),
 (16, 'Raleigh', 'Tyson', 'tyson@yahoo.com', 'tyson', '1bb4b2fcb1ebd6d9de87cfff5e8c78c67bb17ef1981d0356afc27000', 'Lyngybej 120, 2800', 1, '76767676', '2019-12-03 10:53:44', NULL, '0.0000'),
-(17, 'Sophie', 'Jensen', 'jense@gmail.com', 'sohje', '1d46523873c515fe0303257388bcffb4b32a369ddd79c62a04746744', 'Jensengade 44, 7904', 3, '66778899', '2019-12-03 10:54:48', NULL, '0.0000');
+(17, 'Sophie', 'Jensen', 'jense@gmail.com', 'sohje', '1d46523873c515fe0303257388bcffb4b32a369ddd79c62a04746744', 'Jensengade 44, 7904', 3, '66778899', '2019-12-03 10:54:48', NULL, '0.0000'),
+(18, 'Olga', 'Smith', 'olga@olga.com', 'olga1', 'b986a019f4c1cf3fffe37f7cfe9eb60d57b621fe5a28f3df6245fdeb', 'Ovej,1 Koge 1234', 2, '11223344', '2019-12-04 12:03:57', NULL, '0.0000'),
+(21, 'Don', 'Jens', 'jens@don.dk', 'donJens', 'bbd2eaa465a570feed6a0f368550b9da88f89194f29466c649920dab', 'Randersvej,12 1234 Randers', 3, '11556438', '2019-12-04 12:30:04', NULL, '0.0000'),
+(23, 'Eleanor', 'Coolish', 'cool@cool.dk', 'eler', '302c401c2dfb70269d43b24504cb80baad56564f91633a0392001444', 'Ryparken 13 2100 København', 2, '34563456', '2019-12-04 12:41:58', NULL, '0.0000'),
+(24, 'Nina', 'Ricci', 'nina@gmail.com', 'ninaRich', '43f648533b07a340a204b8a9504c75aa457ddc5180209d01aad571e0', 'Coolvej, 14 2387 Nestved', 5, '37809754', '2019-12-04 12:45:37', NULL, '0.0000');
 
 --
 -- Triggers `tuser`
@@ -936,7 +947,7 @@ ALTER TABLE `tauditpurchase`
 -- AUTO_INCREMENT for table `taudituser`
 --
 ALTER TABLE `taudituser`
-  MODIFY `nAuditUserID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `nAuditUserID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tcity`
@@ -978,7 +989,7 @@ ALTER TABLE `tsubscriptiontype`
 -- AUTO_INCREMENT for table `tuser`
 --
 ALTER TABLE `tuser`
-  MODIFY `nUserID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `nUserID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `tusersubscription`
