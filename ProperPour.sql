@@ -21,16 +21,95 @@ SET time_zone = "+00:00";
 --
 -- Database: `properpour`
 --
-
+DROP Database IF EXISTS `properpour`;
+CREATE DATABASE `properpour` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `properpour`;
 DELIMITER $$
 --
 -- Procedures
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `purchaseSubscription` (IN `pnUserID` MEDIUMINT, IN `pnSubscriptionTypeID` INT)  NO SQL
+CREATE DEFINER=`root`@`localhost` PROCEDURE `purchaseSubscriptionTransaction` (IN `pnUserID` MEDIUMINT, IN `pnProductID` MEDIUMINT, IN `pnCreditCardID` MEDIUMINT)  NO SQL
 BEGIN
 
 
+DECLARE vnTaxAmount DECIMAL(4,2);
+DECLARE vnPrice DECIMAL(4,2);
+DECLARE vnSubscriptionTypeID MEDIUMINT;
+DECLARE vnUserSubscriptionID INT;
+DECLARE vnPurchaseID INT;
 
+SELECT nPrice, tsubscriptiontype.nSubscriptionTypeID  
+	INTO vnPrice, vnSubscriptionTypeID
+    FROM tproduct 
+    INNER JOIN tsubscriptiontype 
+    ON tproduct.nProductID = tsubscriptiontype.nProductID
+    WHERE tproduct.nProductID=pnProductID ;
+    
+SELECT tproduct.nPrice * 0.25
+	INTO vnTaxAmount 
+	FROM tproduct
+   WHERE pnProductID = nProductID;
+
+
+START TRANSACTION;
+	INSERT INTO tpurchase( 
+        nPurchaseID,
+        nProductId,
+        dPurchase,
+        nNetAmount,
+        nTax,
+        nCreditCardID)
+        
+ 	VALUES(
+        DEFAULT,
+        pnProductID,
+        DEFAULT,
+        vnPrice,
+        vnTaxAmount,
+       	pnCreditCardID);
+        
+    
+ UPDATE tcreditcard 
+	SET tcreditcard.nTotalPurchaseAmount = tcreditcard.nTotalPurchaseAmount+vnPrice+vnTaxAmount
+ 	WHERE nCreditCardID=pnCreditCardID; 
+     
+	UPDATE tproduct
+  	SET tproduct.nStock = nStock-1
+    WHERE nProductID = pnProductID;
+    
+    UPDATE tuser
+  	SET tuser.nTotalPurchaseAmount = tuser.nTotalPurchaseAmount+vnPrice+vnTaxAmount
+    WHERE nUserID = pnUserID;
+
+  INSERT INTO tusersubscription(
+      nUserSubscriptionID,
+      nUserID,
+      dSubscription,
+      dCancellation,
+      nSubscriptionTypeID
+  )
+  VALUES(
+      DEFAULT,
+      pnUserID,
+      DEFAULT,
+      DEFAULT,
+      vnSubscriptionTypeID
+  );
+  
+   SELECT MAX(nUserSubscriptionID)  INTO vnUserSubscriptionID FROM tusersubscription;
+     SELECT MAX(nPurchaseID) INTO vnPurchaseID FROM tpurchase;
+  
+  INSERT INTO tsubscriptionpurchase(
+      nUserSubscriptionID,
+      nPurchaseID
+  )
+  VALUES(
+      vnUserSubscriptionID,
+     vnPurchaseID
+    
+  );
+
+COMMIT;
 
 END$$
 

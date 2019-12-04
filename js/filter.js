@@ -13,71 +13,59 @@ for (i = 0; i < acc.length; i++) {
   });
 }
 
-function fecthAllProducts() {
-  let endpoint = "api/api-get-products.php";
-  fetch(endpoint)
-    .then(res => res.json())
-    .then(response => {
-      console.log(response);
-    });
+console.log(document.querySelector(".product").innerHTML);
+
+const allProducts = document.querySelectorAll(".product");
+const allPrices = document.querySelectorAll(".productPrice");
+
+function inRange(price, minArray, maxArray) {
+  let priceRange;
+
+  for (let i = 0; i < minArray.length; i++) {
+    priceRange = (price - minArray[i]) * (price - maxArray[i]) <= 0;
+  }
+
+  console.log(priceRange);
+
+  return priceRange;
 }
 
-// console.log(document.querySelector(".product").innerHTML);
+const checkboxPrices = document.querySelectorAll(".filter-price input");
+const checkboxOrigins = document.querySelectorAll(".filter-origin input");
 
-// const allProducts = document.querySelectorAll(".product");
-// console.log(allProducts);
-// const divyArray = Array.prototype.slice.call(allProducts);
-// console.log(divyArray);
-// const allPrices = document.querySelectorAll(".productPrice");
+let arrayMinPrices = [];
+let arrayMaxPrices = [];
 
-// function inRange(price, minArray, maxArray) {
-//   let priceRange;
+checkboxPrices.forEach(checkboxPrice => {
+  checkboxPrice.addEventListener("click", function() {
+    if (checkboxPrice.checked == true) {
+      allProducts.forEach(product => {
+        product.parentElement.style.display = "none";
+      });
 
-//   for (let i = 0; i < minArray.length; i++) {
-//     priceRange = (price - minArray[i]) * (price - maxArray[i]) <= 0;
-//   }
+      let minPrice = checkboxPrice.value.substr(
+        0,
+        checkboxPrice.value.search("-")
+      );
+      let maxPrice = checkboxPrice.value.substr(
+        checkboxPrice.value.search("-") + 1,
+        checkboxPrice.value.length
+      );
 
-//   console.log(priceRange);
+      arrayMinPrices.push(minPrice);
+      arrayMaxPrices.push(maxPrice);
 
-//   return priceRange;
-// }
+      console.log(arrayMinPrices, arrayMaxPrices);
+      allPrices.forEach(price => {
+        let productParent = price.parentElement.parentElement.parentElement;
 
-// const checkboxPrices = document.querySelectorAll(".filter-price input");
-// const checkboxOrigins = document.querySelectorAll(".filter-origin input");
+        price = price.innerHTML.substr(0, price.innerHTML.search("D"));
 
-// let arrayMinPrices = [];
-// let arrayMaxPrices = [];
-
-// checkboxPrices.forEach(checkboxPrice => {
-//   checkboxPrice.addEventListener("click", function() {
-//     if (checkboxPrice.checked == true) {
-//       allProducts.forEach(product => {
-//         product.parentElement.style.display = "none";
-//       });
-
-//       let minPrice = checkboxPrice.value.substr(
-//         0,
-//         checkboxPrice.value.search("-")
-//       );
-//       let maxPrice = checkboxPrice.value.substr(
-//         checkboxPrice.value.search("-") + 1,
-//         checkboxPrice.value.length
-//       );
-
-//       arrayMinPrices.push(minPrice);
-//       arrayMaxPrices.push(maxPrice);
-
-//       console.log(arrayMinPrices, arrayMaxPrices);
-//       allPrices.forEach(price => {
-//         let productParent = price.parentElement.parentElement.parentElement;
-
-//         price = price.innerHTML.substr(0, price.innerHTML.search("D"));
-
-//         if (inRange(price, arrayMinPrices, arrayMaxPrices)) {
-//           console.log(price);
-//           productParent.style.display = "block";
-//         }
-//       });
-//     }
-//   });
-// });
+        if (inRange(price, arrayMinPrices, arrayMaxPrices)) {
+          console.log(price);
+          productParent.style.display = "block";
+        }
+      });
+    }
+  });
+});

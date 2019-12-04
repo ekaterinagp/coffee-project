@@ -104,6 +104,8 @@ function saveNewProduct(){
                 });
         }
     
+
+      
 //     const frmAddProperty = document.querySelector('#frmNewProperty')
 //     const btnCloseFrm = document.querySelector('.btnCloseFrm');
 //     document.querySelector('#btnShowFrm').addEventListener('click', function(){
