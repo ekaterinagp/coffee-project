@@ -21,6 +21,7 @@
     </footer>
     
     <script src="script.js"></script>
+    <script src="<?= $sScriptPath ;?>"></script>
     </body>
 
     </html>
