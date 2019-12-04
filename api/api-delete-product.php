@@ -2,7 +2,7 @@
 require_once(__DIR__.'/../connection.php');
 
 
-$stmt = $connection->prepare("DELETE FROM tproduct WHERE nProductID=:id");
+$stmt = $connection->prepare("UPDATE tproduct SET bActive=0 WHERE nProductID=:id");
 
 
 if($_POST){
