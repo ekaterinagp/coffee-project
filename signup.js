@@ -61,5 +61,8 @@ function addNewUser() {
     .then(res => res.text())
     .then(response => {
       console.log(response);
+      if (response) {
+        location.href = "profile.php";
+      }
     });
 }
