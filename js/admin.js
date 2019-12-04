@@ -48,7 +48,6 @@ function deleteProduct(id){
             console.log(response);
             document.getElementById(id).remove();
             });
-
 }
 
 function updateProduct(id, form){

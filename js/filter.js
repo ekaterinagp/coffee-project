@@ -14,6 +14,7 @@ for (i = 0; i < acc.length; i++) {
 }
 
 
+<<<<<<< HEAD:filter.js
 console.log(document.querySelector('.product').innerHTML);
 
 const allProducts = document.querySelectorAll('.product');
@@ -76,3 +77,5 @@ checkboxPrices.forEach(checkboxPrice => {
 
     
 });
+=======
+>>>>>>> 32f41aa3c620c8398b513c43ab60ec21269c48c5:js/filter.js
