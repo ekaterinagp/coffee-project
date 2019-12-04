@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2019 at 07:46 PM
+-- Generation Time: Dec 04, 2019 at 12:38 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.1.31
 
@@ -29,6 +29,14 @@ DELIMITER $$
 --
 -- Procedures
 --
+CREATE DEFINER=`root`@`localhost` PROCEDURE `purchaseSubscription` (IN `pnUserID` MEDIUMINT, IN `pnSubscriptionTypeID` INT)  NO SQL
+BEGIN
+
+
+
+
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `purchaseTransaction` (IN `pnProductID` MEDIUMINT, IN `pnCreditCardID` MEDIUMINT, IN `pnUserID` MEDIUMINT)  NO SQL
 BEGIN
 
@@ -158,14 +166,14 @@ CREATE TABLE `tauditpurchase` (
   `nOldPurchaseID` int(11) DEFAULT NULL,
   `nOldProductID` mediumint(9) NOT NULL,
   `dOldPurchase` timestamp NULL DEFAULT NULL,
-  `nOldNetAmount` decimal(4,2) DEFAULT NULL,
-  `nOldTax` decimal(2,2) DEFAULT NULL,
+  `nOldNetAmount` decimal(5,2) DEFAULT NULL,
+  `nOldTax` decimal(4,2) DEFAULT NULL,
   `nOldCreditCardID` mediumint(9) DEFAULT NULL,
   `nNewPurchaseID` int(11) DEFAULT NULL,
   `nNewProductID` mediumint(9) NOT NULL,
   `dNewPurchase` timestamp NULL DEFAULT NULL,
-  `nNewNetAmount` decimal(4,2) DEFAULT NULL,
-  `nNewTax` decimal(2,2) DEFAULT NULL,
+  `nNewNetAmount` decimal(5,2) DEFAULT NULL,
+  `nNewTax` decimal(4,2) DEFAULT NULL,
   `nNewCreditCardID` mediumint(9) DEFAULT NULL,
   `cAction` char(1) NOT NULL,
   `dTimestamp` timestamp NULL DEFAULT NULL,
@@ -269,9 +277,11 @@ CREATE TABLE `tcity` (
 --
 
 INSERT INTO `tcity` (`nCityID`, `cName`) VALUES
-(1, 'Copenhagen'),
-(2, 'Roskilde'),
-(3, 'Århus');
+(1, 'Zealand Region'),
+(2, 'Capital City Region'),
+(3, 'Mid Jutland Region'),
+(4, 'North Jutland Region'),
+(5, 'Southern Denmark Region');
 
 -- --------------------------------------------------------
 
@@ -429,27 +439,27 @@ CREATE TABLE `tproduct` (
   `nProductID` int(10) UNSIGNED NOT NULL,
   `cName` varchar(50) NOT NULL,
   `nCoffeeTypeID` mediumint(8) UNSIGNED NOT NULL,
-  `nPrice` decimal(4,2) NOT NULL DEFAULT 0.00,
-  `nStock` int(11) NOT NULL DEFAULT 0
+  `nPrice` decimal(5,2) NOT NULL DEFAULT 0.00,
+  `nStock` int(11) NOT NULL DEFAULT 0,
+  `bActive` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tproduct`
 --
 
-INSERT INTO `tproduct` (`nProductID`, `cName`, `nCoffeeTypeID`, `nPrice`, `nStock`) VALUES
-(1, 'Organic Tierra Del Sol', 5, '23.00', 145),
-(2, 'Greater Goods', 6, '44.00', 10),
-(3, 'Hugo Melo', 1, '20.00', 200),
-(4, 'Light It Up', 4, '35.00', 100),
-(5, 'Full Steam', 3, '12.00', 101),
-(6, 'Coffee Manufactory', 2, '60.00', 100),
-(7, 'Little Nap Coffee Beans', 6, '25.00', 100),
-(8, 'Atlas Coffee', 5, '45.00', 100),
-(9, 'Kintore Coffee', 6, '40.00', 100),
-(10, 'Lavazza', 2, '12.00', 100),
-(11, 'Battlecreek Coffee', 6, '99.99', 100),
-(21, 'Read Coffee Bag', 1, '35.00', 150);
+INSERT INTO `tproduct` (`nProductID`, `cName`, `nCoffeeTypeID`, `nPrice`, `nStock`, `bActive`) VALUES
+(1, 'Organic Tierra Del Sol', 5, '23.00', 145, 1),
+(2, 'Greater Goods', 6, '44.00', 10, 1),
+(3, 'Hugo Melo', 1, '20.00', 200, 1),
+(4, 'Light It Up', 4, '35.00', 100, 1),
+(5, 'Full Steam', 3, '12.00', 101, 1),
+(6, 'Coffee Manufactory', 2, '60.00', 100, 1),
+(7, 'Little Nap Coffee Beans', 6, '25.00', 100, 1),
+(8, 'Atlas Coffee', 5, '45.00', 100, 1),
+(9, 'Kintore Coffee', 6, '40.00', 100, 1),
+(10, 'Lavazza', 2, '12.00', 100, 1),
+(21, 'Read Coffee Bag', 1, '35.00', 150, 1);
 
 -- --------------------------------------------------------
 
@@ -461,7 +471,7 @@ CREATE TABLE `tpurchase` (
   `nPurchaseID` int(8) UNSIGNED NOT NULL,
   `nProductID` int(10) UNSIGNED NOT NULL,
   `dPurchase` timestamp NOT NULL DEFAULT current_timestamp(),
-  `nNetAmount` decimal(4,2) NOT NULL,
+  `nNetAmount` decimal(5,2) NOT NULL,
   `nTax` decimal(4,2) NOT NULL,
   `nCreditCardID` mediumint(8) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -932,7 +942,7 @@ ALTER TABLE `taudituser`
 -- AUTO_INCREMENT for table `tcity`
 --
 ALTER TABLE `tcity`
-  MODIFY `nCityID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `nCityID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tcoffeetype`
@@ -950,7 +960,7 @@ ALTER TABLE `tcreditcard`
 -- AUTO_INCREMENT for table `tproduct`
 --
 ALTER TABLE `tproduct`
-  MODIFY `nProductID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `nProductID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `tpurchase`
@@ -996,7 +1006,8 @@ ALTER TABLE `tproduct`
 -- Constraints for table `tpurchase`
 --
 ALTER TABLE `tpurchase`
-  ADD CONSTRAINT `tpurchase_ibfk_2` FOREIGN KEY (`nCreditCardID`) REFERENCES `tcreditcard` (`nCreditCardID`);
+  ADD CONSTRAINT `tpurchase_ibfk_2` FOREIGN KEY (`nCreditCardID`) REFERENCES `tcreditcard` (`nCreditCardID`),
+  ADD CONSTRAINT `tpurchase_ibfk_3` FOREIGN KEY (`nProductID`) REFERENCES `tproduct` (`nProductID`);
 
 --
 -- Constraints for table `tsubscriptionpurchase`

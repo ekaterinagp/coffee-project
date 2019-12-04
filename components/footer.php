@@ -20,8 +20,8 @@
       </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="<?= $sScriptPath; ?>"></script>
+    <script src="js/script.js"></script>
+    <script src="js/<?= $sScriptPath ?>"></script>
     </body>
 
     </html>

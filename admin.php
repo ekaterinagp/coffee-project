@@ -11,6 +11,8 @@ require_once(__DIR__.'/connection.php');
 <?php
     $sql = "SELECT * FROM tProduct";
     foreach($connection->query($sql) as $row){
+        if($row['bActive']==1){
+            
             echo '
             <div class="product" id="product-'.$row['nProductID'].' ">
             <h3 class="productName">'.$row['cName'].' </h3>
@@ -27,6 +29,7 @@ require_once(__DIR__.'/connection.php');
 <button class="btnDeleteProduct">Delete Product</button>
             </div>
             ';
+        }
         }   
 
     
@@ -59,7 +62,6 @@ require_once(__DIR__.'/connection.php');
 
 
 </main>
-<script src="admin.js"></script>
 <?php
-$sScriptPath = 'script.js';
+$sScriptPath = 'admin.js';
 require_once(__DIR__.'/components/footer.php');
