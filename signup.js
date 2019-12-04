@@ -37,21 +37,26 @@ function addNewUser() {
   let userEmail = document.querySelector("[name=inputEmail]").value;
   let userAddress = document.querySelector("[name=inputAddress]").value;
   let userPassword = document.querySelector("[name=password_1]").value;
+  let userPassword2 = document.querySelector("[name=password_2]").value;
   let userLoginName = document.querySelector("[name=inputLoginName]").value;
+  let userPhone = document.querySelector("[name=inputPhone]").value;
   let regionID = document.querySelector("[name=regionsInput]").value;
 
   let formData = new FormData();
   formData.append("inputName", userName);
   formData.append("inputLastName", userLastName);
   formData.append("inputEmail", userEmail);
+  formData.append("inputPhone", userPhone);
   formData.append("inputLoginName", userLoginName);
   formData.append("password_1", userPassword);
+  formData.append("password_2", userPassword2);
   formData.append("inputAddress", userAddress);
   formData.append("regionsInput", regionID);
 
-  console.log(userName, userLastName, region);
+  // console.log(userName, userLastName, region);
   fetch(endpoint, {
-    method: "POST"
+    method: "POST",
+    body: formData
   })
     .then(res => res.text())
     .then(response => {

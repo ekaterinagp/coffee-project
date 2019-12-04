@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__ . '/../connection.php');
 
-$statement = $connection->prepare("INSERT INTO tuser(cName, cSurname, cEmail, cUserName, cPassword, cAddress, nCityID, cPhoneNo) VALUES (:name, :surname, :email, :username, :password, :address, :regionID)");
+$statement = $connection->prepare("INSERT INTO tuser(cName, cSurname, cEmail, cUserName, cPassword, cAddress, nCityID, cPhoneNo) VALUES (:name, :surname, :email, :username, :password, :address, :regionID, :phone)");
 
 if ($_POST) {
   if (empty($_POST['inputEmail'])) {
@@ -28,15 +28,20 @@ if ($_POST) {
     return;
   }
 
+  if (empty($_POST['inputPhone'])) {
+    sendErrorMessage('phone is empty', __LINE__);
+    return;
+  }
+
   if (empty($_POST['inputAddress'])) {
     sendErrorMessage('address is empty', __LINE__);
     return;
   }
 
-  if (strlen($_POST['inputAddress']) > 12) {
-    sendErrorMessage('must be more than 12 characters', __LINE__);
-    return;
-  }
+  // if (strlen($_POST['inputAddress']) > 10) {
+  //   sendErrorMessage('must be more than 10 characters', __LINE__);
+  //   return;
+  // }
 
   if (empty($_POST['inputLoginName'])) {
     sendErrorMessage('login is empty', __LINE__);
@@ -64,6 +69,11 @@ if ($_POST) {
     sendErrorMessage('email is empty', __LINE__);
     return;
   }
+  if (strlen($_POST['inputPhone']) !== 8) {
+    sendErrorMessage('phone must be 8 characters', __LINE__);
+    return;
+  }
+
   if (strlen($_POST['password_1']) !== 8) {
     sendErrorMessage('email is empty', __LINE__);
     return;
@@ -95,9 +105,10 @@ if ($_POST) {
     'username' => $_POST['inputLoginName'],
     'password' => $_POST['password_1'],
     'address' => $_POST['inputAddress'],
+    'phone' => $_POST['inputPhone'],
     'regionID' => $_POST['regionsInput']
   ];
-  $stmt->execute($data);
+  $statement->execute($data);
 
   echo '{"status":1, "message":"New user created"}';
 }

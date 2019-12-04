@@ -177,6 +177,11 @@ function sendErrorMessage($txtError, $iLineNumber)
         </label>
       </div>
       <div>
+        <label for="userPhone"><input required type="text" data-type="string" name="inputPhone" placeholder="phone number">
+          <div class="errorMessage">Must be 8 characters</div>
+        </label>
+      </div>
+      <div>
         <label for="loginName"><input required type="text" data-type="string" name="inputLoginName" placeholder="user name">
           <div class="errorMessage">Must be more than 2 and less than 12</div>
         </label>
