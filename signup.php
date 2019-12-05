@@ -4,111 +4,14 @@ $sCurrentPage = 'profile';
 require_once(__DIR__ . '/components/header.php');
 
 
-// require_once(__DIR__ . '/connection.php');
+
 
 session_start();
 if ($_SESSION) {
   header("location:profile.php");
 }
 
-// if (isset($_POST['reg_user'])) {
-//   if (empty($_POST['inputEmail'])) {
-//     return;
-//   }
-//   if (!filter_var($_POST['inputEmail'], FILTER_VALIDATE_EMAIL)) {
-//     sendErrorMessage('email is empty', __LINE__);
-//     return;
-//   }
-//   if (empty($_POST['inputName'])) {
-//     sendErrorMessage('email is empty', __LINE__);
-//     return;
-//   }
-//   if (strlen($_POST['inputName']) < 2) {
-//     sendErrorMessage('email is empty', __LINE__);
-//     return;
-//   }
-//   if (strlen($_POST['inputName']) > 20) {
-//     sendErrorMessage('email is empty', __LINE__);
-//     return;
-//   }
-//   if (empty($_POST['inputLastName'])) {
-//     sendErrorMessage('email is empty', __LINE__);
-//     return;
-//   }
 
-//   if (empty($_POST['login'])) {
-//     sendErrorMessage('login is empty', __LINE__);
-//     return;
-//   }
-
-//   if (strlen($_POST['login']) < 2) {
-//     sendErrorMessage('email is empty', __LINE__);
-//     return;
-//   }
-//   if (strlen($_POST['login']) > 12) {
-//     sendErrorMessage('email is empty', __LINE__);
-//     return;
-//   }
-
-//   if (strlen($_POST['inputLastName']) < 2) {
-//     sendErrorMessage('email is empty', __LINE__);
-//     return;
-//   }
-//   if (strlen($_POST['inputLastName']) > 20) {
-//     sendErrorMessage('email is empty', __LINE__);
-//     return;
-//   }
-//   if (empty($_POST['password'])) {
-//     sendErrorMessage('email is empty', __LINE__);
-//     return;
-//   }
-//   if (strlen($_POST['password']) !== 8) {
-//     sendErrorMessage('email is empty', __LINE__);
-//     return;
-//   }
-
-
-
-
-
-
-// $strName = $_POST['inputName'];
-// $strLastName = $_POST['inputLastName'];
-// $strEmail = $_POST['inputEmail'];
-// $strPassword = $_POST['password'];
-// $strUserLogin = $_POST['login'];
-// // $sUserAge = $_POST['age'];
-
-// $user = new stdClass();
-
-
-// $user->name = $strName;
-// // $user->age = $sUserAge;
-// $user->lastName = $strLastName;
-// $user->email = $strEmail;
-// $user->password = $strPassword;
-// $user->userType = $strUserType;
-// $user->img = 'default.png';
-// $user->id = uniqid();
-// $user->active = "1";
-// if ($strUserType == "user") {
-//   $user->liked = [];
-// }
-
-
-
-// $sDataUsers = file_get_contents(__DIR__ . '/data/users.json');
-// $jDataUsers = json_decode($sDataUsers);
-// array_push($jDataUsers, $user);
-
-// $sDataUsers = json_encode($jDataUsers, JSON_PRETTY_PRINT);
-// file_put_contents(__DIR__ . '/data/users.json', $sDataUsers);
-
-// unset($user->password);
-// session_start();
-// $_SESSION['user'] = $user;
-// header("location:profile.php?name=$strName");
-// }
 
 function sendErrorMessage($txtError, $iLineNumber)
 {
@@ -162,13 +65,29 @@ function sendErrorMessage($txtError, $iLineNumber)
         </label>
       </div>
       <div>
-        <select name="regionsInput">
-          <option disabled selected value> -- select your region -- </option>
-          <option value="1">Zealand Region</option>
-          <option value="2">Capital City Region</option>
-          <option value="3">Mid Jutland Region</option>
-          <option value="4">North Jutland Region</option>
-          <option value="5">Southern Denmark Region</option>
+        <select name="cityInput">
+          <option disabled selected value> -- select your city -- </option>
+          <option value="1">Copenhagen</option>
+          <option value="2">Århus</option>
+          <option value="3">Odense</option>
+          <option value="4">Roskilde</option>
+          <option value="5">Lyngby</option>
+          <option value="6">Aalborg</option>
+          <option value="7">Silkeborg</option>
+          <option value="8">Ballerup</option>
+          <option value="9">Hellerup</option>
+          <option value="10">Holte</option>
+          <option value="11">Horsens</option>
+          <option value="12">Randers</option>
+          <option value="13">Sønderborg</option>
+          <option value="14">Helsingør</option>
+          <option value="15">Dragør</option>
+          <option value="16">Charlottenlund</option>
+          <option value="17">Frederiksberg</option>
+          <option value="18">Valby</option>
+          <option value="19">Whateverby</option>
+          <option value="20">Herlev</option>
+          <option value="21">Vanløse</option>
         </select>
       </div>
       <div>
@@ -204,8 +123,8 @@ function sendErrorMessage($txtError, $iLineNumber)
 
     <h3>Already a user? <a href="login.php">Log in </a></h3>
   </div>
-  <script src="signup.js"></script>
+  <script src="js/signup.js"></script>
   <?php
-  $sScriptPath = 'validation.js';
+  $sScriptPath = 'js/validation.js';
   require_once(__DIR__ . '/components/footer.php');
   ?>

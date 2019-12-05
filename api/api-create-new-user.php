@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__ . '/../connection.php');
 
-$statement = $connection->prepare("INSERT INTO tuser(cName, cSurname, cEmail, cUserName, cPassword, cAddress, nCityID, cPhoneNo) VALUES (:name, :surname, :email, :username, :password, :address, :regionID, :phone)");
+$statement = $connection->prepare("INSERT INTO tuser(cName, cSurname, cEmail, cUserName, cPassword, cAddress, nCityID, cPhoneNo) VALUES (:name, :surname, :email, :username, :password, :address, :cityID, :phone)");
 
 if ($_POST) {
   if (empty($_POST['inputEmail'])) {
@@ -84,8 +84,8 @@ if ($_POST) {
     return;
   }
 
-  if (empty($_POST['regionsInput'])) {
-    sendErrorMessage('region is empty', __LINE__);
+  if (empty($_POST['cityInput'])) {
+    sendErrorMessage('city is empty', __LINE__);
     return;
   }
   if (strlen($_POST['password_2']) !== 8) {
@@ -106,7 +106,7 @@ if ($_POST) {
     'password' => $_POST['password_1'],
     'address' => $_POST['inputAddress'],
     'phone' => $_POST['inputPhone'],
-    'regionID' => $_POST['regionsInput']
+    'cityID' => $_POST['cityInput']
   ];
   $statement->execute($data);
 
