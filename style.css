@@ -824,6 +824,17 @@ a {
   color: #f7f7f7;
 }
 
+.product-purchase-container input[type=number]{
+  border: none;
+  width: 2vw;
+  height: 2vw;
+  text-align: center;
+}
+
+.product-purchase-container input[type=number]:hover, .product-purchase-container .checkmark.number{
+  background-color: #fff;
+  color: #000;
+}
 
 /***** SUBSCRIBE PAGE *****/
 

@@ -32,7 +32,7 @@ if($statement->execute()){
 ?>
 
         <div id="product-<?=$product['nProductID'];?>" class="product-info-container grid grid-two mh-large">
-            <div class="image bg-contain" style="background-image: url(img/products/<?= $result; ?>.png)"></div>
+            <div class="image bg-contain" style="background-image: url(img/products/<?= $result;?>.png)"></div>
             <div class="description mh-small mv-medium">
                     <h1 class="productName mv-small text-left"><?=$product['cProductName'];?></h1>
                     <h2 class="coffee-type mv-small text-left"><?=$product['cName'];?></h2>
@@ -47,11 +47,11 @@ if($statement->execute()){
                 <h2 class="p-small">Quantity</h2>
 
                 <label for="option1" class="mr-small">
-                        <input type="number" name="option1" value="0-50" class="mr-small mb-small">
-                        <span class="checkmark">bag</span>    
+                    <input type="number" name="option1" value="1" class="">
+                    <span class="checkmark number">bag</span>    
                 </label>
 
-                
+            </div>
             
                 <h2 class="p-small">Grind</h2>
                 <div class="options">
@@ -66,7 +66,7 @@ if($statement->execute()){
                     </label>
                 </div>
                
-            </div>
+            
             <div class="payment grid">
                 <h2 class="align-self-bottom">Total amount</h2>
                 <p class="align-self-top"><?=$product['nPrice'];?> DKK</p>
