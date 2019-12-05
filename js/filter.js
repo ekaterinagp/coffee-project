@@ -3,6 +3,7 @@ window.addEventListener("load", init);
 
 // VARIABLES WITH DOM ELEMENTS
 
+
 const acc = document.getElementsByClassName("accordion");
 
 const txtSearch = document.querySelector('#txtSearch');

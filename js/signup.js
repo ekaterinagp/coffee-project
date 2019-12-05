@@ -17,7 +17,7 @@ function addNewUser() {
   let userPassword2 = document.querySelector("[name=password_2]").value;
   let userLoginName = document.querySelector("[name=inputLoginName]").value;
   let userPhone = document.querySelector("[name=inputPhone]").value;
-  let regionID = document.querySelector("[name=regionsInput]").value;
+  let cityID = document.querySelector("[name=cityInput]").value;
 
   let formData = new FormData();
   formData.append("inputName", userName);
@@ -28,9 +28,9 @@ function addNewUser() {
   formData.append("password_1", userPassword);
   formData.append("password_2", userPassword2);
   formData.append("inputAddress", userAddress);
-  formData.append("regionsInput", regionID);
+  formData.append("cityInput", cityID);
 
-  // console.log(userName, userLastName, region);
+  console.log(userName, userLastName, cityID);
   fetch(endpoint, {
     method: "POST",
     body: formData

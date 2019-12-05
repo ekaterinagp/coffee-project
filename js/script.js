@@ -1,6 +1,6 @@
 "use strict";
 
-let allSubscriptions = document.querySelectorAll(".itemSize");
+let allSubscriptions = document.querySelectorAll(".subscriptionItem");
 
 allSubscriptions.forEach(subscribeOption => {
   subscribeOption.addEventListener("click", () => {
@@ -9,7 +9,7 @@ allSubscriptions.forEach(subscribeOption => {
     removeButton();
     subscribeOption.classList.add("selectedItem");
     let buttonToPayment = document.createElement("button");
-    buttonToPayment.className = "paymentButton";
+    buttonToPayment.className = "paymentButton button";
     buttonToPayment.textContent = "To Payment";
     subscribeOption.append(buttonToPayment);
 
