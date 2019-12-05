@@ -8,16 +8,6 @@ $statement = $connection->prepare($sql);
 
 require_once(__DIR__.'/components/header.php');
 
-if($statement->execute()){
-    foreach($connection->query($sql) as $row){
-        $sCoffeeTypeName = $row['cName'];
-        $aCoffeeTypes = [];
-        array_push($aCoffeeTypes, $sCoffeeTypeName);
-    }
-
-    $aPrice = [];
-}
-
 ?>
 <main class="shop">
 
@@ -55,23 +45,45 @@ if($statement->execute()){
             <button class="accordion price bg-medium-light-brown color-white">Price</button>
             <div class="panel filter-price bg-white color-black">
                 <div class="options">
-                    <input type="checkbox" name="option1" value="0-50"> < 50 DKK<br>
-                    <input type="checkbox" name="option2" value="51-100"> 51-100 DKK<br>
-                    <input type="checkbox" name="option3" value="101-150"> 101-150 DKK<br>
-                    <input type="checkbox" name="option4" value="101-150"> 151-200 DKK<br>
-                    <input type="checkbox" name="option4" value="200-10000000">  + 200 DKK<br>
+                    <label for="option1">
+                        <input type="checkbox" name="option1" value="0-50" class="mr-small mb-small"> < 50 DKK
+                    </label> <br>
+                    <label for="option2" class="m-small">
+                        <input type="checkbox" name="option2" value="51-100" class="mr-small mb-small"> 51-100 DKK
+                    </label><br>
+                    <label for="option3" class="m-small">
+                        <input type="checkbox" name="option3" value="101-150" class="mr-small mb-small"> 101-150 DKK
+                    </label><br>
+                    <label for="option4" class="m-small">
+                        <input type="checkbox" name="option4" value="101-150" class="mr-small mb-small"> 151-200 DKK
+                    </label><br>
+                    <label for="option5" class="m-small">
+                        <input type="checkbox" name="option5" value="200-10000000" class="mr-small mb-small">  + 200 DKK
+                    </label><br>
                 </div>
             </div>
 
             <button class="accordion origin bg-medium-light-brown color-white">Origin</button>
             <div class="panel filter-origin bg-white color-black">
                 <div class="options">
-                    <input type="checkbox" name="option1" value="101-150"> Colombia<br>
-                    <input type="checkbox" name="option2" value="101-150"> Ethiopia<br>
-                    <input type="checkbox" name="option3" value="101-150"> Sumatra<br>
-                    <input type="checkbox" name="option4" value="101-150"> Brazil<br>
-                    <input type="checkbox" name="option5" value="101-150"> Nicaragua<br>
-                    <input type="checkbox" name="option5" value="101-150"> Blend<br>
+                    <label for="option1">
+                        <input type="checkbox" name="option1" value="101-150" class="mr-small"> Colombia
+                    </label><br>
+                    <label for="option1">
+                        <input type="checkbox" name="option2" value="101-150" class="mr-small"> Ethiopia
+                    </label><br>
+                    <label for="option2">
+                        <input type="checkbox" name="option3" value="101-150" class="mr-small"> Sumatra
+                    </label><br>
+                    <label for="option3">
+                        <input type="checkbox" name="option4" value="101-150" class="mr-small"> Brazil
+                    </label><br>
+                    <label for="option4">
+                        <input type="checkbox" name="option5" value="101-150" class="mr-small"> Nicaragua
+                    </label><br>
+                    <label for="option5">
+                        <input type="checkbox" name="option5" value="101-150" class="mr-small"> Blend
+                    </label><br>
                 </div>
             </div>
     </div>
@@ -79,18 +91,21 @@ if($statement->execute()){
     <div class="products-container grid grid-three">
 <?php
 if($statement->execute()){
-    foreach($connection->query($sql) as $row){
+
+    $products = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach($products as $row){
 
         $imgUrl = $row['cProductName'];
         $result = strtolower(str_replace(" ", "-", $imgUrl));
 
             echo '
             <a href="singleProduct.php?id='.$row['nProductID'].'">
-            <div class="product mb-medium" id="product-'.$row['nProductID'].'">
+            <div class="product" id="product-'.$row['nProductID'].'">
             <div class="image bg-contain" style="background-image: url(img/products/'.$result.'.png)"></div>
             <div class="description m-small">
                 <h3 class="productName mt-small text-left">'.$row['cProductName'].'</h3>
-                <h4 class="productName mt-small text-left">'.$row['cName'].'</h4>
+                <h4 class="productName mt-small text-left">Origin: '.$row['cName'].'</h4>
                 <p class="productPrice mt-small">'.$row['nPrice'].' DKK</p>
             </div>
             </div>
@@ -107,5 +122,5 @@ if($statement->execute()){
 </main>
 
 <?php
-$sScriptPath = 'filter.js';
+$sScriptPath = 'js/filter.js';
 require_once(__DIR__.'/components/footer.php');
