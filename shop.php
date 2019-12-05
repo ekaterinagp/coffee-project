@@ -45,7 +45,7 @@ require_once(__DIR__ . '/components/header.php');
                 <button class="accordion price bg-medium-light-brown color-white">Price</button>
                 <div class="panel filter-price bg-white color-black">
                     <div class="options">
-                        <label for="option1">
+                        <!-- <label for="option1">
                             <input type="checkbox" name="option1" value="0-50" class="mr-small mb-small">
                             < 50 DKK </label> <br>
                                 <label for="option2" class="m-small">
@@ -53,31 +53,32 @@ require_once(__DIR__ . '/components/header.php');
                                 </label><br>
                                 <label for="option3" class="m-small">
                                     <input type="checkbox" name="option3" value="101-150" class="mr-small mb-small"> more than 100 DKK
-                                </label><br>
+                                </label><br> -->
+                        <input type="range" min="0" max="150" id="rangePrice" value="150" step="10"><span id="priceValue"></span>
 
                     </div>
                 </div>
 
                 <button class="accordion origin bg-medium-light-brown color-white">Origin</button>
                 <div class="panel filter-origin bg-white color-black">
-                    <div class="options">
+                    <div class="options" id="coffeeTypesdiv">
                         <label for="option1">
-                            <input type="checkbox" name="option1" value="101-150" class="mr-small"> Colombia
+                            <input type="checkbox" value="Colombia" class="mr-small"> Colombia
                         </label><br>
                         <label for="option1">
-                            <input type="checkbox" name="option2" value="101-150" class="mr-small"> Ethiopia
+                            <input type="checkbox" value="Ethiopia" class="mr-small"> Ethiopia
                         </label><br>
                         <label for="option2">
-                            <input type="checkbox" name="option3" value="101-150" class="mr-small"> Sumatra
+                            <input type="checkbox" value="Sumatra" class="mr-small"> Sumatra
                         </label><br>
                         <label for="option3">
-                            <input type="checkbox" name="option4" value="101-150" class="mr-small"> Brazil
+                            <input type="checkbox" value="Brazil" class="mr-small"> Brazil
                         </label><br>
                         <label for="option4">
-                            <input type="checkbox" name="option5" value="101-150" class="mr-small"> Nicaragua
+                            <input type="checkbox" value="Nicaragua" class="mr-small"> Nicaragua
                         </label><br>
                         <label for="option5">
-                            <input type="checkbox" name="option5" value="101-150" class="mr-small"> Blend
+                            <input type="checkbox" value="Blend" class="mr-small"> Blend
                         </label><br>
                     </div>
                 </div>
