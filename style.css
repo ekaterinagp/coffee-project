@@ -846,14 +846,14 @@ a {
 }
 
 .subscriptionItem {
+  border: solid 0.1px #00000045;
   position: relative;
-  padding:1em;
+  
   color:white;
   cursor:pointer;
   transition: all .3s;
-  z-index: 0;
   margin:1em; 
-  height: 70vh;
+  background:white;
 }
 .subscribeOptiopnP{
   position: absolute;
@@ -881,36 +881,35 @@ a {
   margin: auto;
   display: block;
 }
-.subscriptionItem:nth-child(1){
+.subscriptionItemBg{
+  padding:1em;
+}
+.subscriptionItem:nth-child(1) .subscriptionItemBg {
   background-color: #D8B69C;
 }
-.subscriptionItem:nth-child(2){
+.subscriptionItem:nth-child(2) .subscriptionItemBg{
   background-color: #815946;
 }
 
-.subscriptionItem:nth-child(3){
+.subscriptionItem:nth-child(3) .subscriptionItemBg{
   background-color: #483c32;
 }
-.subscriptionItem:nth-child(4){
+.subscriptionItem:nth-child(4) .subscriptionItemBg{
   background-color: #815946;
 }
-.subscriptionItem:nth-child(5){
+.subscriptionItem:nth-child(5) .subscriptionItemBg{
   background-color: #483c32;
 }
-.subscriptionItem:nth-child(6){
+.subscriptionItem:nth-child(6) .subscriptionItemBg{
   background-color: #D8B69C;
 }
 .subscriptionItem button{
   text-align: center;
   margin:3vh auto;
 }
-.white-bg-text{
+.white-text-bg{
+  padding:1em;
   color: black;
-    padding: 1em 1em 3em;
-    left: -0em;
-    position: absolute;
-    width: 100%;
-    background: white;
 }
 .priceSubscription{
   text-align: right;
@@ -921,7 +920,6 @@ a {
 
 .selectedItem{
   transform: scale(1.05);
-  z-index: 100;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
