@@ -54,7 +54,8 @@ function showFilteredCoffee(products) {
     clone.querySelector(".image").style.backgroundImage =
       "url(img/products/" + product.cName + ".png)";
     checkCoffeeType(product);
-    clone.querySelector("h4").textContent = product.nCoffeeTypeID;
+    clone.querySelector("h4").textContent =
+      "Origin:" + " " + product.nCoffeeTypeID;
     clone.querySelector("p").textContent = product.nPrice;
     document.querySelector(".products-container").appendChild(clone);
   });
@@ -69,26 +70,9 @@ async function init() {
   const allProductsArray = await getAllProductsAsJson();
   console.log(allProductsArray);
 
-  // console.log(smaller50);
-
-  // showFilteredCoffee(products);
   let smaller50 = allProductsArray.filter(ifPriceSmaller50);
   let moreThan50 = allProductsArray.filter(ifPriceMore50Less100);
   let moreThan100 = allProductsArray.filter(ifPriceMore100);
-
-  // checkFirstOption.addEventListener("change", () => {
-
-  // });
-  // checkSecondOption.addEventListener("change", () => {});
-
-  // checkThirdOption.addEventListener("change", () => {
-  //   if (checkThirdOption.checked) {
-  //     console.log("optionSecond Checked");
-  //     document.querySelector(".products-container").innerHTML = "";
-
-  //     showFilteredCoffee(moreThan100);
-  //   }
-  // });
 
   document.querySelectorAll("input").forEach(input => {
     input.addEventListener("change", () => {
