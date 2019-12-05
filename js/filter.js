@@ -68,7 +68,7 @@ function changeFormatForImg(product) {
 
 async function init() {
   const allProductsArray = await getAllProductsAsJson();
-  console.log(allProductsArray);
+  // console.log(allProductsArray);
 
   let smaller50 = allProductsArray.filter(ifPriceSmaller50);
   let moreThan50 = allProductsArray.filter(ifPriceMore50Less100);
