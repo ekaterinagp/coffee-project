@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2019 at 10:22 AM
+-- Generation Time: Dec 05, 2019 at 12:09 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.1.31
 
@@ -21,93 +21,18 @@ SET time_zone = "+00:00";
 --
 -- Database: `properpour`
 --
-DROP Database IF EXISTS `properpour`;
-CREATE DATABASE `properpour` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `properpour` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `properpour`;
 
 DELIMITER $$
 --
 -- Procedures
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `purchaseSubscriptionTransaction` (IN `pnUserID` MEDIUMINT, IN `pnProductID` MEDIUMINT, IN `pnCreditCardID` MEDIUMINT, IN `pnTaxAmount` DECIMAL(4,2))  NO SQL
+CREATE DEFINER=`root`@`localhost` PROCEDURE `purchaseSubscription` (IN `pnUserID` MEDIUMINT, IN `pnSubscriptionTypeID` INT)  NO SQL
 BEGIN
 
-    DECLARE vnTaxAmount DECIMAL(4,2);
-    DECLARE vnPrice DECIMAL(4,2);
-    DECLARE vnSubscriptionTypeID MEDIUMINT;
-    DECLARE vnUserSubscriptionID INT;
-	DECLARE vnPurchaseID INT;
-    DECLARE EXIT HANDLER FOR SQLEXCEPTION
-    BEGIN
-   		SHOW ERRORS;
-        ROLLBACK;  -- rollback any error in the transaction
-    END;
 
-	START TRANSACTION;
 
-    SELECT nPrice, tsubscriptiontype.nSubscriptionTypeID  
-        INTO vnPrice, vnSubscriptionTypeID
-        FROM tproduct 
-        INNER JOIN tsubscriptiontype 
-        ON tproduct.nProductID = tsubscriptiontype.nProductID
-        WHERE tproduct.nProductID=pnProductID ;
-    
-    SELECT tproduct.nPrice * pnTaxAmount
-        INTO vnTaxAmount 
-        FROM tproduct
-        WHERE pnProductID = nProductID;
-
-	INSERT INTO tpurchase( 
-        nPurchaseID,
-        nProductId,
-        dPurchase,
-        nNetAmount,
-        nTax,
-        nCreditCardID)
-        
- 	VALUES(
-        DEFAULT,
-        pnProductID,
-        DEFAULT,
-        vnPrice,
-        vnTaxAmount,
-       	pnCreditCardID);
-
-	SELECT LAST_INSERT_ID() INTO vnPurchaseID;
-        
-    UPDATE tcreditcard 
-	SET tcreditcard.nTotalPurchaseAmount = tcreditcard.nTotalPurchaseAmount+vnPrice+vnTaxAmount
- 	WHERE nCreditCardID=pnCreditCardID; 
-     
-	UPDATE tproduct
-  	SET tproduct.nStock = nStock-1
-    WHERE nProductID = pnProductID;
-    
-	UPDATE tuser
-  	SET tuser.nTotalPurchaseAmount = tuser.nTotalPurchaseAmount+vnPrice+vnTaxAmount
-    WHERE nUserID = pnUserID;
-
-  INSERT INTO tusersubscription(
-      nUserSubscriptionID,
-      nUserID,
-      dSubscription,
-      dCancellation,
-      nSubscriptionTypeID)
-  VALUES(
-      DEFAULT,
-      pnUserID,
-      DEFAULT,
-      DEFAULT,
-      vnSubscriptionTypeID);
-      
-  SELECT LAST_INSERT_ID() INTO vnUserSubscriptionID;
-   
-  INSERT INTO tsubscriptionpurchase(
-     nUserSubscriptionID,
-     nPurchaseID)
-  VALUES(
-     vnUserSubscriptionID,
-     vnPurchaseID);
 
 	COMMIT;
 END$$
@@ -367,11 +292,27 @@ CREATE TABLE `tcity` (
 --
 
 INSERT INTO `tcity` (`nCityID`, `cName`) VALUES
-(1, 'Zealand Region'),
-(2, 'Capital City Region'),
-(3, 'Mid Jutland Region'),
-(4, 'North Jutland Region'),
-(5, 'Southern Denmark Region');
+(1, 'Copenhagen'),
+(2, 'Århus'),
+(3, 'Odense'),
+(4, 'Roskilde'),
+(5, 'Lyngby'),
+(6, 'Aalborg'),
+(7, 'Silkeborg'),
+(8, 'Ballerup'),
+(9, 'Hellerup'),
+(10, 'Holte'),
+(11, 'Horsens'),
+(12, 'Randers'),
+(13, 'Sønderborg'),
+(14, 'Helsingør'),
+(15, 'Dragør'),
+(16, 'Charlottenlund'),
+(17, 'Frederiksberg'),
+(18, 'Valby'),
+(19, 'Whateverby'),
+(20, 'Herlev'),
+(21, 'Vanløse');
 
 -- --------------------------------------------------------
 
@@ -389,7 +330,7 @@ CREATE TABLE `tcoffeetype` (
 --
 
 INSERT INTO `tcoffeetype` (`nCoffeeTypeID`, `cName`) VALUES
-(1, 'Columbia'),
+(1, 'Colombia'),
 (2, 'Ethiopia'),
 (3, 'Sumatra'),
 (4, 'Brazil'),
@@ -541,14 +482,14 @@ CREATE TABLE `tproduct` (
 INSERT INTO `tproduct` (`nProductID`, `cName`, `nCoffeeTypeID`, `nPrice`, `nStock`, `bActive`) VALUES
 (1, 'Organic Tierra Del Sol', 5, '23.00', 145, 1),
 (2, 'Greater Goods', 6, '44.00', 10, 1),
-(3, 'Hugo Melo', 1, '20.00', 200, 1),
-(4, 'Light It Up', 4, '35.00', 99, 1),
-(5, 'Full Steam', 3, '12.00', 100, 1),
+(3, 'Hugo Melo', 1, '110.00', 200, 1),
+(4, 'Light It Up', 4, '35.00', 100, 1),
+(5, 'Full Steam', 3, '68.00', 101, 1),
 (6, 'Coffee Manufactory', 2, '60.00', 100, 1),
 (7, 'Little Nap Coffee Beans', 6, '25.00', 100, 1),
 (8, 'Atlas Coffee', 5, '45.00', 100, 1),
 (9, 'Kintore Coffee', 6, '40.00', 100, 1),
-(10, 'Lavazza', 2, '12.00', 100, 1),
+(10, 'Lavazza', 2, '55.00', 100, 1),
 (21, 'Read Coffee Bag', 1, '35.00', 150, 1);
 
 -- --------------------------------------------------------
@@ -1038,7 +979,7 @@ ALTER TABLE `taudituser`
 -- AUTO_INCREMENT for table `tcity`
 --
 ALTER TABLE `tcity`
-  MODIFY `nCityID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `nCityID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `tcoffeetype`

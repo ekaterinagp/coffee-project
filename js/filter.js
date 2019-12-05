@@ -1,7 +1,9 @@
-var acc = document.getElementsByClassName("accordion");
-var i;
+"use strict";
+window.addEventListener("load", init);
 
-for (i = 0; i < acc.length; i++) {
+const acc = document.getElementsByClassName("accordion");
+
+for (let i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function() {
     this.classList.toggle("active");
     var panel = this.nextElementSibling;
@@ -9,70 +11,145 @@ for (i = 0; i < acc.length; i++) {
       panel.style.maxHeight = null;
     } else {
       panel.style.maxHeight = panel.scrollHeight + "px";
-    } 
+    }
   });
 }
 
-
-console.log(document.querySelector('.product').innerHTML);
-
-const allProducts = document.querySelectorAll('.product');
-const allPrices = document.querySelectorAll('.productPrice');
-
-function inRange(price, minArray, maxArray){
-
-    let priceRange;
-
-    for(let i = 0; i < minArray.length; i++){
-
-        priceRange = (price-minArray[i])*(price-maxArray[i]) <= 0;
-        
-    }   
-    
-    console.log(priceRange);
-    
-    return priceRange;
+function getAllProductsAsJson() {
+  let endpoint = "api/api-get-products.php";
+  return new Promise((resolve, reject) => {
+    fetch(endpoint)
+      .then(res => res.json())
+      .then(function(products) {
+        resolve(products);
+      });
+  });
 }
 
-const checkboxPrices = document.querySelectorAll('.filter-price input');
-const checkboxOrigins = document.querySelectorAll('.filter-origin input');
+function ifPriceSmaller50(product) {
+  return product.nPrice <= 50;
+}
 
-let arrayMinPrices = [];
-let arrayMaxPrices = [];
+function ifPriceMore50Less100(product) {
+  return product.nPrice > 50 && product.nPrice < 100;
+}
 
-checkboxPrices.forEach(checkboxPrice => {
+function ifPriceMore100(product) {
+  return product.nPrice > 100;
+}
 
-    checkboxPrice.addEventListener('click', function(){
-        if(checkboxPrice.checked == true){
+let checkFirstOption = document.querySelector("[name=option1]");
+let checkSecondOption = document.querySelector("[name=option2]");
+let checkThirdOption = document.querySelector("[name=option3]");
 
-            allProducts.forEach(product => {
-            
-                product.parentElement.style.display = 'none';
-                
-            });
+function showFilteredCoffee(products) {
+  let template = document.querySelector("template").content;
+  products.forEach(product => {
+    let clone = template.cloneNode(true);
+    clone.querySelector("a").href =
+      "singleProduct.php?id=" + product.nProductID;
+    clone.querySelector("h3").textContent = product.cName;
+    changeFormatForImg(product);
+    clone.querySelector(".mb-medium").id = "product-" + product.nProductID;
+    clone.querySelector(".image").style.backgroundImage =
+      "url(img/products/" + product.cName + ".png)";
+    checkCoffeeType(product);
+    clone.querySelector("h4").textContent =
+      "Origin:" + " " + product.nCoffeeTypeID;
+    clone.querySelector("p").textContent = product.nPrice;
+    document.querySelector(".products-container").appendChild(clone);
+  });
+}
 
-            let minPrice = checkboxPrice.value.substr(0, checkboxPrice.value.search('-'));
-            let maxPrice = checkboxPrice.value.substr(checkboxPrice.value.search('-')+1, checkboxPrice.value.length);
+function changeFormatForImg(product) {
+  let str = product.cName;
+  product.cName = str.replace(/\s+/g, "-").toLowerCase();
+}
 
-            arrayMinPrices.push(minPrice);
-            arrayMaxPrices.push(maxPrice);
+async function init() {
+  const allProductsArray = await getAllProductsAsJson();
+  console.log(allProductsArray);
 
-            console.log(arrayMinPrices, arrayMaxPrices);
-            allPrices.forEach(price => {
+  let smaller50 = allProductsArray.filter(ifPriceSmaller50);
+  let moreThan50 = allProductsArray.filter(ifPriceMore50Less100);
+  let moreThan100 = allProductsArray.filter(ifPriceMore100);
 
-                let productParent = price.parentElement.parentElement.parentElement;
-            
-                price = price.innerHTML.substr(0, price.innerHTML.search('D'));
+  document.querySelectorAll("input").forEach(input => {
+    input.addEventListener("change", () => {
+      if (checkThirdOption.checked) {
+        console.log("optionSecond Checked");
+        document.querySelector(".products-container").innerHTML = "";
 
-                if(inRange(price, arrayMinPrices, arrayMaxPrices)){
-                    console.log(price);
-                    productParent.style.display = 'block';
-                }
-                
-            });
-            
-        }
-    })
+        showFilteredCoffee(moreThan100);
+      }
+      if (checkSecondOption.checked) {
+        console.log("optionSecond Checked");
+        document.querySelector(".products-container").innerHTML = "";
 
-    
-});
+        showFilteredCoffee(moreThan50);
+      }
+      if (checkFirstOption.checked) {
+        console.log("optionFirst Checked");
+        document.querySelector(".products-container").innerHTML = "";
+
+        showFilteredCoffee(smaller50);
+      }
+      if (checkFirstOption.checked && checkSecondOption.checked) {
+        document.querySelector(".products-container").innerHTML = "";
+        showFilteredCoffee(moreThan50);
+        showFilteredCoffee(smaller50);
+      }
+      if (
+        checkFirstOption.checked &&
+        checkSecondOption.checked &&
+        checkThirdOption.checked
+      ) {
+        document.querySelector(".products-container").innerHTML = "";
+        showFilteredCoffee(moreThan50);
+        showFilteredCoffee(smaller50);
+        showFilteredCoffee(moreThan100);
+      }
+      if (checkSecondOption.checked && checkThirdOption.checked) {
+        document.querySelector(".products-container").innerHTML = "";
+        showFilteredCoffee(moreThan50);
+        showFilteredCoffee(moreThan100);
+      }
+      if (checkFirstOption.checked && checkThirdOption.checked) {
+        document.querySelector(".products-container").innerHTML = "";
+
+        showFilteredCoffee(smaller50);
+        showFilteredCoffee(moreThan100);
+      }
+      if (
+        !checkFirstOption.checked &&
+        !checkThirdOption.checked &&
+        !checkSecondOption.checked
+      ) {
+        document.querySelector(".products-container").innerHTML = "";
+
+        showFilteredCoffee(allProductsArray);
+      }
+    });
+  });
+}
+
+function checkCoffeeType(product) {
+  if (product.nCoffeeTypeID == 1) {
+    product.nCoffeeTypeID = "Colombia";
+  }
+  if (product.nCoffeeTypeID == 2) {
+    product.nCoffeeTypeID = "Ethiopia";
+  }
+  if (product.nCoffeeTypeID == 3) {
+    product.nCoffeeTypeID = "Sumatra";
+  }
+  if (product.nCoffeeTypeID == 4) {
+    product.nCoffeeTypeID = "Brazil";
+  }
+  if (product.nCoffeeTypeID == 5) {
+    product.nCoffeeTypeID = "Nicaragua";
+  }
+  if (product.nCoffeeTypeID == 6) {
+    product.nCoffeeTypeID = "Blend";
+  }
+}
