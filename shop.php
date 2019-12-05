@@ -58,9 +58,8 @@ if ($statement->execute()) {
                         <input type="checkbox" name="option1" value="0-50">
                         < 50 DKK<br>
                             <input type="checkbox" name="option2" value="51-100"> 51-100 DKK<br>
-                            <input type="checkbox" name="option3" value="101-150"> 101-150 DKK<br>
-                            <input type="checkbox" name="option4" value="101-150"> 151-200 DKK<br>
-                            <input type="checkbox" name="option4" value="200-10000000"> + 200 DKK<br>
+                            <input type="checkbox" name="option3" value="101-150"> more than 100 DKK<br>
+
                     </div>
                 </div>
 
