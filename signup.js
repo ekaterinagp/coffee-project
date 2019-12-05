@@ -7,29 +7,6 @@ createUserBtn.addEventListener("click", () => {
   addNewUser();
 });
 
-// const regions = [
-//   {
-//     id: 1,
-//     name: "Zealand Region"
-//   },
-//   {
-//     id: 2,
-//     name: "Capital City Region"
-//   },
-//   {
-//     id: 3,
-//     name: "Mid Jutland Region"
-//   },
-//   {
-//     id: 4,
-//     name: "North Jutland Region"
-//   },
-//   {
-//     id: 5,
-//     name: "Southern Denmark Region"
-//   }
-// ];
-
 function addNewUser() {
   let endpoint = "api/api-create-new-user.php";
   let userName = document.querySelector("[name=inputName]").value;
