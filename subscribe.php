@@ -55,7 +55,7 @@
   </div>
 
 </body>
-<script src="script.js"></script>
-<script src="coffeeTest.js"></script>
+<script src="js/script.js"></script>
+<script src="js/coffeeTest.js"></script>
 
 </html>

@@ -86,25 +86,39 @@ if ($statement->execute()) {
                         $result = strtolower(str_replace(" ", "-", $imgUrl));
 
                         echo '
-            <a href="singleProduct.php?id=' . $row['nProductID'] . '">
-            <div class="product mb-medium" id="product-' . $row['nProductID'] . '">
-            <div class="image bg-contain" style="background-image: url(img/products/' . $result . '.png)"></div>
-            <div class="description m-small">
-                <h3 class="productName mt-small text-left">' . $row['cProductName'] . '</h3>
-                <h4 class="productName mt-small text-left">' . $row['cName'] . '</h4>
-                <p class="productPrice mt-small">' . $row['nPrice'] . ' DKK</p>
-            </div>
-            </div>
-            </a>
-            ';
+                        <a href="singleProduct.php?id=' . $row['nProductID'] . '">
+                        <div class="product mb-medium" id="product-' . $row['nProductID'] . '">
+                        <div class="image bg-contain" style="background-image: url(img/products/' . $result . '.png)"></div>
+                        <div class="description m-small">
+                            <h3 class="productName mt-small text-left">' . $row['cProductName'] . '</h3>
+                            <h4 class="productName mt-small text-left">' . $row['cName'] . '</h4>
+                            <p class="productPrice mt-small">' . $row['nPrice'] . ' DKK</p>
+                        </div>
+                        </div>
+                        </a>
+                        ';
                     }
                 }
                 ?>
+
             </div>
 
         </div>
-    </section>
 
+    </section>
+    <template>
+        <a href="">
+            <div class="product mb-medium">
+                <div class="image bg-contain">
+                    <div class="description m-small">
+                        <h3 class="productName mt-small text-left"></h3>
+                        <h4 class="productName mt-small text-left"></h4>
+                        <p class="productPrice mt-small"></p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </template>
 </main>
 
 <?php
