@@ -5,7 +5,7 @@
 -- Host: 127.0.0.1
 -- Generation Time: Dec 05, 2019 at 12:09 PM
 -- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.8
+-- PHP Version: 7.1.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -34,59 +34,60 @@ BEGIN
 
 
 
+	COMMIT;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `purchaseTransaction` (IN `pnProductID` MEDIUMINT, IN `pnCreditCardID` MEDIUMINT, IN `pnUserID` MEDIUMINT)  NO SQL
+CREATE DEFINER=`root`@`localhost` PROCEDURE `purchaseTransaction` (IN `pnProductID` MEDIUMINT, IN `pnCreditCardID` MEDIUMINT, IN `pnUserID` MEDIUMINT, IN `pnTaxAmount` DECIMAL(4,2))  NO SQL
 BEGIN
+ 	
+    DECLARE vnTaxAmount DECIMAL(4,2);
+    DECLARE vnPrice DECIMAL(4,2);
+   	DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+   		SHOW ERRORS;
+        ROLLBACK;  -- rollback any error in the transaction
+    END;
 
-DECLARE vnTaxAmount DECIMAL(4,2);
-DECLARE vnPrice DECIMAL(4,2);
+    START TRANSACTION;
 
-SELECT nPrice  
-	into vnPrice 
-    FROM tproduct 
-    WHERE pnProductID = nProductID;
+    SELECT nPrice  
+        INTO vnPrice 
+        FROM tproduct 
+        WHERE pnProductID = nProductID;
 
-    
-SELECT tproduct.nPrice * 0.25
-	INTO vnTaxAmount 
-	FROM tproduct
-   WHERE pnProductID = nProductID;
+    SELECT tproduct.nPrice * pnTaxAmount
+        INTO vnTaxAmount 
+        FROM tproduct
+        WHERE pnProductID = nProductID;
 
+        INSERT INTO tpurchase( 
+            nPurchaseID,
+            nProductId,
+            dPurchase,
+            nNetAmount,
+            nTax,
+            nCreditCardID)        
+        VALUES(
+            DEFAULT,
+            pnProductID,
+            DEFAULT,
+            vnPrice,
+            vnTaxAmount,
+            pnCreditCardID);
 
-START TRANSACTION;
-	INSERT INTO tpurchase( 
-        nPurchaseID,
-        nProductId,
-        dPurchase,
-        nNetAmount,
-        nTax,
-        nCreditCardID)
-        
- 	VALUES(
-        DEFAULT,
-        pnProductID,
-        DEFAULT,
-        vnPrice,
-        vnTaxAmount,
-       	pnCreditCardID);
-        
-    
- UPDATE tcreditcard 
-	SET tcreditcard.nTotalPurchaseAmount = tcreditcard.nTotalPurchaseAmount+vnPrice+vnTaxAmount
- 	WHERE nCreditCardID=pnCreditCardID; 
-     
-	UPDATE tproduct
-  	SET tproduct.nStock = nStock-1
-    WHERE nProductID = pnProductID;
-    
-    UPDATE tuser
-  	SET tuser.nTotalPurchaseAmount = tuser.nTotalPurchaseAmount+vnPrice+vnTaxAmount
-    WHERE nUserID = pnUserID;
-    
+        UPDATE tcreditcard 
+        SET tcreditcard.nTotalPurchaseAmount = tcreditcard.nTotalPurchaseAmount+vnPrice+vnTaxAmount
+        WHERE nCreditCardID=pnCreditCardID; 
 
-  
-COMMIT;
+        UPDATE tproduct
+        SET tproduct.nStock = nStock-1
+        WHERE nProductID = pnProductID;
+
+        UPDATE tuser
+        SET tuser.nTotalPurchaseAmount = tuser.nTotalPurchaseAmount+vnPrice+vnTaxAmount
+        WHERE nUserID = pnUserID;
+	
+	COMMIT;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `setDeleteDateSubscription` (IN `pnUserSubscription` INT)  NO SQL
@@ -152,7 +153,9 @@ INSERT INTO `tauditcreditcard` (`nAuditCreditCardID`, `nOldCreditCardID`, `nOldU
 (53, 6, 9, '123456781234567890', '12/2', '123', '239.4800', 6, 9, '123456781234567890', '12/2', '123', '0.0000', 'U', '2019-12-03 14:00:35', 'root', 'localhost'),
 (54, 7, 10, '4555400091110086', '06/2', '888', '187.5000', 7, 10, '4555400091110086', '06/2', '888', '187.0000', 'U', '2019-12-03 14:00:40', 'root', 'localhost'),
 (55, 7, 10, '4555400091110086', '06/2', '888', '187.0000', 7, 10, '4555400091110086', '06/2', '888', '0.0000', 'U', '2019-12-03 14:00:48', 'root', 'localhost'),
-(56, 7, 10, '4555400091110086', '06/2', '888', '0.0000', 7, 10, '4555400091110086', '06/2', '888', '62.5000', 'U', '2019-12-03 14:01:43', 'root', 'localhost');
+(56, 7, 10, '4555400091110086', '06/2', '888', '0.0000', 7, 10, '4555400091110086', '06/2', '888', '62.5000', 'U', '2019-12-03 14:01:43', 'root', 'localhost'),
+(57, 6, 9, '123456781234567890', '12/2', '123', '0.0000', 6, 9, '123456781234567890', '12/2', '123', '43.7500', 'U', '2019-12-05 08:59:31', 'root', 'localhost'),
+(58, 6, 9, '123456781234567890', '12/2', '123', '43.7500', 6, 9, '123456781234567890', '12/2', '123', '62.9500', 'U', '2019-12-05 09:08:29', 'root', 'localhost');
 
 -- --------------------------------------------------------
 
@@ -201,7 +204,9 @@ INSERT INTO `tauditpurchase` (`nAuditPurchaseID`, `nOldPurchaseID`, `nOldProduct
 (85, 56, 1, '2019-12-03 13:45:51', '50.00', '0.99', 7, NULL, 0, NULL, NULL, NULL, NULL, 'D', '2019-12-03 14:00:56', 'root', 'localhost'),
 (86, 57, 1, '2019-12-03 13:47:40', '50.00', '0.99', 7, NULL, 0, NULL, NULL, NULL, NULL, 'D', '2019-12-03 14:00:57', 'root', 'localhost'),
 (87, 60, 1, '2019-12-03 13:58:42', '50.00', '0.99', 7, NULL, 0, NULL, NULL, NULL, NULL, 'D', '2019-12-03 14:00:58', 'root', 'localhost'),
-(88, NULL, 0, NULL, NULL, NULL, NULL, 61, 1, '2019-12-03 14:01:43', '50.00', '0.99', 7, 'I', '2019-12-03 14:01:43', 'root', 'localhost');
+(88, NULL, 0, NULL, NULL, NULL, NULL, 61, 1, '2019-12-03 14:01:43', '50.00', '0.99', 7, 'I', '2019-12-03 14:01:43', 'root', 'localhost'),
+(89, NULL, 0, NULL, NULL, NULL, NULL, 62, 4, '2019-12-05 08:59:31', '35.00', '8.75', 6, 'I', '2019-12-05 08:59:31', 'root', 'localhost'),
+(90, NULL, 0, NULL, NULL, NULL, NULL, 63, 5, '2019-12-05 09:08:29', '12.00', '7.20', 6, 'I', '2019-12-05 09:08:29', 'root', 'localhost');
 
 -- --------------------------------------------------------
 
@@ -246,6 +251,7 @@ CREATE TABLE `taudituser` (
 --
 
 INSERT INTO `taudituser` (`nAuditUserID`, `nOldUserID`, `cOldName`, `cOldSurname`, `cOldEmail`, `cOldUsername`, `cOldPassword`, `cOldAddress`, `nOldCityID`, `cOldPhoneNo`, `dOldNewUser`, `dOldDeleteUser`, `nOldTotalPurchaseAmount`, `nNewUserID`, `cNewName`, `cNewSurname`, `cNewEmail`, `cNewUsername`, `cNewPassword`, `cNewAddress`, `nNewCityID`, `cNewPhoneNo`, `dNewNewUser`, `dNewDeleteUser`, `nNewTotalPurchaseAmount`, `cAction`, `dTimeStamp`, `cDBUser`, `cHost`) VALUES
+(0, 9, 'Anna', 'Nielsen', 'anna@mail.com', 'annaniel', 'a7470858e79c282bc2f6adfd831b132672dfd1224c1e78cbf5bcd057', 'Tagensvej 1, 2400', 1, '54545454', '2019-12-02', NULL, '0.0000', 9, NULL, 'Nielsen', 'anna@mail.com', 'annaniel', 'a7470858e79c282bc2f6adfd831b132672dfd1224c1e78cbf5bcd057', 'Tagensvej 1, 2400', 1, '54545454', '2019-12-02', NULL, '43.7500', 'U', '2019-12-05 08:59:31', 'root', 'localhost'),
 (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 'Jonas', 'Jonassen', 'jonse@jonse.com', 'jonse', 'd63dc919e201d7bc4c825630d2cf25fdc93d4b2f0d46706d29038d01', 'Ryparken 120, 2100', 1, '55555555', '0000-00-00', NULL, '0.0000', 'I', '2019-12-02 16:25:59', 'root', 'localhost'),
 (2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, 'Anna', 'Nielsen', 'anna@mail.com', 'annaniel', 'a7470858e79c282bc2f6adfd831b132672dfd1224c1e78cbf5bcd057', 'Tagensvej 1, 2400', 1, '54545454', '2019-12-02', NULL, '0.0000', 'I', '2019-12-02 22:01:45', 'root', 'localhost'),
 (3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 10, 'Frida', 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-02', NULL, '0.0000', 'I', '2019-12-02 22:02:39', 'root', 'localhost'),
@@ -351,7 +357,7 @@ CREATE TABLE `tcreditcard` (
 --
 
 INSERT INTO `tcreditcard` (`nCreditCardID`, `cIBAN`, `cExpiration`, `cCCV`, `nTotalPurchaseAmount`, `nUserID`) VALUES
-(6, '123456781234567890', '12/2', '123', '0.0000', 9),
+(6, '123456781234567890', '12/2', '123', '62.9500', 9),
 (7, '4555400091110086', '06/2', '888', '62.5000', 10);
 
 --
@@ -506,7 +512,9 @@ CREATE TABLE `tpurchase` (
 --
 
 INSERT INTO `tpurchase` (`nPurchaseID`, `nProductID`, `dPurchase`, `nNetAmount`, `nTax`, `nCreditCardID`) VALUES
-(61, 1, '2019-12-03 14:01:43', '50.00', '12.50', 7);
+(61, 1, '2019-12-03 14:01:43', '50.00', '12.50', 7),
+(62, 4, '2019-12-05 08:59:31', '35.00', '8.75', 6),
+(63, 5, '2019-12-05 09:08:29', '12.00', '7.20', 6);
 
 --
 -- Triggers `tpurchase`
@@ -674,7 +682,7 @@ CREATE TABLE `tuser` (
 
 INSERT INTO `tuser` (`nUserID`, `cName`, `cSurname`, `cEmail`, `cUsername`, `cPassword`, `cAddress`, `nCityID`, `cPhoneNo`, `dNewUser`, `dDeleteUser`, `nTotalPurchaseAmount`) VALUES
 (8, 'Jonas', 'Jonassen', 'jonse@jonse.com', 'jonse', 'd63dc919e201d7bc4c825630d2cf25fdc93d4b2f0d46706d29038d01', 'Ryparken 120, 2100', 1, '55555555', '0000-00-00 00:00:00', NULL, '0.0000'),
-(9, 'Anna', 'Nielsen', 'anna@mail.com', 'annaniel', 'a7470858e79c282bc2f6adfd831b132672dfd1224c1e78cbf5bcd057', 'Tagensvej 1, 2400', 1, '54545454', '2019-12-02 22:01:45', NULL, '0.0000'),
+(9, 'Anna', 'Nielsen', 'anna@mail.com', 'annaniel', 'a7470858e79c282bc2f6adfd831b132672dfd1224c1e78cbf5bcd057', 'Tagensvej 1, 2400', 1, '54545454', '2019-12-02 22:01:45', NULL, '43.7500'),
 (10, 'Frida', 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-02 22:02:39', NULL, '62.5000'),
 (11, 'Pippi', 'Langstromp', 'langstromp@yahoo.com', 'pippi', '03dfe83128ab8c6f0b6406a887f58b8d87b139c5cf040db96e891424', 'Lygten 16, 2400', 1, '43434343', '2019-12-02 22:14:02', NULL, '0.0000'),
 (12, 'Allan', 'Tostrup', 'tostrup@gmail', 'tostr', '079a32e16994cf4c8fcf2de227ccf26990d913b013c60c2e4eef4945', 'Guldbergsgade 120, 2400', 1, '1234599', '2019-12-03 10:49:32', NULL, '0.0000'),
@@ -953,13 +961,13 @@ ALTER TABLE `tusersubscription`
 -- AUTO_INCREMENT for table `tauditcreditcard`
 --
 ALTER TABLE `tauditcreditcard`
-  MODIFY `nAuditCreditCardID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `nAuditCreditCardID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `tauditpurchase`
 --
 ALTER TABLE `tauditpurchase`
-  MODIFY `nAuditPurchaseID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `nAuditPurchaseID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT for table `taudituser`
@@ -995,7 +1003,7 @@ ALTER TABLE `tproduct`
 -- AUTO_INCREMENT for table `tpurchase`
 --
 ALTER TABLE `tpurchase`
-  MODIFY `nPurchaseID` int(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `nPurchaseID` int(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `tsubscriptiontype`

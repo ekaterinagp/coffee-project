@@ -10,13 +10,19 @@ require_once(__DIR__.'/connection.php');
 <div class="adminProducts">
 <?php
     $sql = "SELECT * FROM tProduct";
-    foreach($connection->query($sql) as $row){
+    $statement = $connection->prepare($sql);
+    if($statement->execute()){
+        $products = $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+    
+    foreach($products as $row){
         if($row['bActive']==1){
             
             echo '
-            <div class="product" id="product-'.$row['nProductID'].' ">
-            <h3 class="productName">'.$row['cName'].' </h3>
-            <p class="propertyPrice">'.$row['nPrice'].'kr.</p>
+            <div class="adminProduct" id="product-'.$row['nProductID'].' ">
+            <h3 class="adminProductName">'.$row['cName'].' </h3>
+            <p class="adminPropertyPrice">'.$row['nPrice'].'kr.</p>
             <form method="post" id="frmUpdatePrice"> 
     <label for="">Update Price<input type="text" name="updatePrice"></label> 
     <button type="submit" class="btnUpdatePrice">UPDATE PRICE</button>

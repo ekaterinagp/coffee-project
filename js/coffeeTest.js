@@ -1,7 +1,17 @@
 "use strict";
+const allSubscribeNumberElm = document.querySelectorAll(".subscribeTypeNumber")
+let n = 2;
 const startBtn = document.querySelector("#startBtn");
 
+for(let i=0; i<allSubscribeNumberElm.length;i++){
+  console.log(allSubscribeNumberElm[i]);
+  if(i>=1){
+    allSubscribeNumberElm[i].innerHTML = n++;
+  }
+}
+
 startBtn.addEventListener("click", () => {
+  document.querySelector(".testContainer").classList.remove("hide");
   document.querySelector(".intro").style.display = "none";
   init();
 });
@@ -10,7 +20,7 @@ const questions = [
   {
     id: 1,
     question: "How do you make your coffee?",
-    text: "blablabla blablabla blablabla",
+    text: "",
     type: "radio",
     answerQ: function() {
       let values = [
@@ -54,7 +64,7 @@ const questions = [
       let form = document.createElement("form");
       // form.setAttribute("id", "gridWith3columns");
       // form.setAttribute("class", "listenTo");
-      form.className = "listenTo gridWith3columns";
+      form.className = "listenTo grid grid-three";
       values.forEach(function(value) {
         let divWrapper = document.createElement("div");
         let label = document.createElement("label");
@@ -68,7 +78,7 @@ const questions = [
         theInput.setAttribute("name", "tools");
         theInput.setAttribute("value", value.title);
         let divWrapperP = document.createElement("div");
-        let nameInput = document.createElement("p");
+        let nameInput = document.createElement("h2");
         let img = document.createElement("img");
         nameInput.style.display = "inline";
         divWrapperP.setAttribute("class", "btnRadio");
@@ -94,7 +104,7 @@ const questions = [
   {
     id: 2,
     question: "How do you prefer your roast?",
-    text: "blablabla blablabla blablabla",
+    text: "",
     type: "radio",
     answerQ: function() {
       let values = [
@@ -119,7 +129,7 @@ const questions = [
 
       // form.setAttribute("class", "listenTo");
       // form.setAttribute("class", "gridWith2columns");
-      form.className = "listenTo gridWith2columns";
+      form.className = "listenTo grid grid-two";
       values.forEach(function(value) {
         let divWrapper = document.createElement("div");
         let label = document.createElement("label");
@@ -133,10 +143,10 @@ const questions = [
         theInput.setAttribute("name", "roast");
         theInput.setAttribute("value", value.title);
         let divWrapperP = document.createElement("div");
-        let nameInput = document.createElement("p");
+        let nameInput = document.createElement("h2");
         let description = document.createElement("p");
         nameInput.style.display = "inline";
-        divWrapperP.setAttribute("class", "btnRadio");
+        divWrapperP.setAttribute("class", "btnRadio bigger");
         nameInput.innerHTML = value.title;
         description.textContent = value.desc;
 
@@ -157,7 +167,7 @@ const questions = [
   {
     id: 3,
     question: "How do you drink your coffee?",
-    text: "blablabla blablabla blablabla",
+    text: "",
     type: "radio",
     answerQ: function() {
       let values = [
@@ -182,7 +192,7 @@ const questions = [
 
       // form.setAttribute("class", "listenTo");
       // form.setAttribute("class", "gridWith2columns");
-      form.className = "listenTo gridWith2columns";
+      form.className = "listenTo grid grid-two";
       values.forEach(function(value) {
         let divWrapper = document.createElement("div");
         let label = document.createElement("label");
@@ -196,7 +206,7 @@ const questions = [
         theInput.setAttribute("name", "adds");
         theInput.setAttribute("value", value.title);
         let divWrapperP = document.createElement("div");
-        let nameInput = document.createElement("p");
+        let nameInput = document.createElement("h2");
         let img = document.createElement("img");
         nameInput.style.display = "inline";
         divWrapperP.setAttribute("class", "btnRadio");
@@ -222,7 +232,7 @@ const questions = [
   {
     id: 4,
     question: "Would you like to choose a region of origin?",
-    text: "blablabla blablabla blablabla",
+    text: "",
     type: "radio",
     answerQ: function() {
       let values = [
@@ -249,7 +259,7 @@ const questions = [
       let form = document.createElement("form");
       // form.setAttribute("class", "gridWith2columns");
       // form.setAttribute("class", "listenTo");
-      form.className = "listenTo gridWith2columns textBtns";
+      form.className = "listenTo grid grid-two textBtns";
       values.forEach(function(value) {
         let divWrapper = document.createElement("div");
         let label = document.createElement("label");
@@ -263,7 +273,7 @@ const questions = [
         theInput.setAttribute("name", "origins");
         theInput.setAttribute("value", value.title);
         let divWrapperP = document.createElement("div");
-        let nameInput = document.createElement("p");
+        let nameInput = document.createElement("h2");
         let description = document.createElement("p");
         nameInput.style.display = "inline";
         divWrapperP.setAttribute("class", "btnRadio");
@@ -346,24 +356,27 @@ const questions = [
       let divForResults = document.createElement("div");
       // form.setAttribute("class", "gridWith2columns");
       // form.setAttribute("class", "listenTo");
-      divForResults.className = "testResults";
+      divForResults.className = "testResults grid grid-two";
       let img = document.createElement("img");
       img.setAttribute("class", "imgResults");
       img.setAttribute("src", "img/" + randomChoice.img);
-      let pName = document.createElement("p");
-      pName.textContent = randomChoice.name;
-      let pOrigin = document.createElement("p");
-      pOrigin.textContent = randomChoice.origin;
-      let pTaste = document.createElement("p");
-      pTaste.textContent = randomChoice.pTaste;
+      let randomCoffeeWrapper = document.createElement("div");
+      let h1Name = document.createElement("h1");
+      h1Name.textContent = randomChoice.name;
+      let h3Origin = document.createElement("h3");
+      h3Origin.textContent = randomChoice.origin;
+      let h3Taste = document.createElement("h3");
+      h3Taste.textContent = randomChoice.pTaste;
       let pRoast = document.createElement("p");
       pRoast.textContent = randomChoice.roast;
       let startAgainBtn = document.createElement("button");
+      startAgainBtn.setAttribute("class", "button");  
       startAgainBtn.innerHTML = "Take test again!";
       startAgainBtn.addEventListener("click", () => {
         window.location.reload(true);
       });
-      divForResults.append(img, pName, pOrigin, pTaste, pRoast, startAgainBtn);
+      randomCoffeeWrapper.append(h1Name,h3Origin,pRoast, startAgainBtn)
+      divForResults.append(img, randomCoffeeWrapper);
       return divForResults;
     }
   }
