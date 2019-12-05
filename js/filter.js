@@ -54,7 +54,8 @@ function showFilteredCoffee(products) {
     clone.querySelector(".image").style.backgroundImage =
       "url(img/products/" + product.cName + ".png)";
     checkCoffeeType(product);
-    clone.querySelector("h4").textContent = product.nCoffeeTypeID;
+    clone.querySelector("h4").textContent =
+      "Origin:" + " " + product.nCoffeeTypeID;
     clone.querySelector("p").textContent = product.nPrice;
     document.querySelector(".products-container").appendChild(clone);
   });
