@@ -32,10 +32,11 @@ require_once(__DIR__ . '/components/header.php');
 
         <h2>Shop</h2>
 
-        <form id="formSearch" class="justify-self-right p-medium" action="">
+        <form id="formSearch" class="justify-self-right p-medium">
             <label for="txtSearch" class="mh-small align-self-bottom">Search</label>
             <input id="txtSearch" type="text" name="search" placeholder="Type here to search for products" maxlength="50" minlength="3">
         </form>
+        <div id="results"></div>
 
         <div class="products grid grid-two-thirds-bigger mr-medium">
 
@@ -62,22 +63,22 @@ require_once(__DIR__ . '/components/header.php');
                 <div class="panel filter-origin bg-white color-black">
                     <div class="options">
                         <label for="option1">
-                            <input type="checkbox" name="option1" value="101-150" class="mr-small"> Colombia
+                            <input type="checkbox" name="option1" value="Colombia" class="mr-small"> Colombia
                         </label><br>
                         <label for="option1">
-                            <input type="checkbox" name="option2" value="101-150" class="mr-small"> Ethiopia
+                            <input type="checkbox" name="option2" value="Ethiopia" class="mr-small"> Ethiopia
                         </label><br>
                         <label for="option2">
-                            <input type="checkbox" name="option3" value="101-150" class="mr-small"> Sumatra
+                            <input type="checkbox" name="option3" value="Sumatra" class="mr-small"> Sumatra
                         </label><br>
                         <label for="option3">
-                            <input type="checkbox" name="option4" value="101-150" class="mr-small"> Brazil
+                            <input type="checkbox" name="option4" value="Brazil" class="mr-small"> Brazil
                         </label><br>
                         <label for="option4">
-                            <input type="checkbox" name="option5" value="101-150" class="mr-small"> Nicaragua
+                            <input type="checkbox" name="option5" value="Nicaragua" class="mr-small"> Nicaragua
                         </label><br>
                         <label for="option5">
-                            <input type="checkbox" name="option5" value="101-150" class="mr-small"> Blend
+                            <input type="checkbox" name="option5" value="Blend" class="mr-small"> Blend
                         </label><br>
                     </div>
                 </div>
@@ -89,19 +90,19 @@ require_once(__DIR__ . '/components/header.php');
 
                     $products = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-                    foreach ($products as $row) {
+                    foreach ($products as $product) {
 
-                        $imgUrl = $row['cProductName'];
+                        $imgUrl = $product['cProductName'];
                         $result = strtolower(str_replace(" ", "-", $imgUrl));
 
                         echo '
-            <a href="singleProduct.php?id=' . $row['nProductID'] . '">
-            <div class="product" id="product-' . $row['nProductID'] . '">
+            <a href="singleProduct.php?id=' . $product['nProductID'] . '">
+            <div class="product" id="product-' . $product['nProductID'] . '">
             <div class="image bg-contain" style="background-image: url(img/products/' . $result . '.png)"></div>
             <div class="description m-small">
-                <h3 class="productName mt-small text-left">' . $row['cProductName'] . '</h3>
-                <h4 class="productName mt-small text-left">Origin: ' . $row['cName'] . '</h4>
-                <p class="productPrice mt-small">' . $row['nPrice'] . ' DKK</p>
+                <h3 class="productName mt-small text-left">' . $product['cProductName'] . '</h3>
+                <h4 class="productName mt-small text-left">Origin: ' . $product['cName'] . '</h4>
+                <p class="productPrice mt-small">' . $product['nPrice'] . ' DKK</p>
             </div>
             </div>
             </a>

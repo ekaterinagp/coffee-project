@@ -6,7 +6,6 @@ require_once(__DIR__.'/components/header.php');
 $iProductID = $_GET['id'];
 
 require_once(__DIR__.'/connection.php');
-$sqli = "SELECT * FROM tProduct";
 $sql = "SELECT tProduct.nProductID, tProduct.cName as cProductName, tProduct.nCoffeeTypeID as nProductCoffeeTypeID, tProduct.nPrice, tProduct.nStock, tCoffeeType.nCoffeeTypeID, tCoffeeType.cName FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID";
 $statement = $connection->prepare($sql);
 ?>
