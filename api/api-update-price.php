@@ -13,9 +13,7 @@ if($_POST){
     if(empty($_POST['updatePrice'])){
         sendErrorMessage('Price missing', __LINE__);
     }
-    // if(empty($_POST['updateStock'])){
-    //     sendError('stock missing', __LINE__);
-    // }
+    
     if(empty($_POST['id'])){
         sendErrorMessage('no id', __LINE__);
     }

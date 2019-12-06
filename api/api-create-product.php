@@ -1,12 +1,12 @@
 <?php
-require_once(__DIR__.'/../connection.php');
-require_once(__DIR__.'/../components/functions.php');
-
-$sql = "INSERT INTO tproduct (cName, nPrice, nStock, nCoffeeTypeID) VALUES (:name, :price, :stock, :coffeetype)";
-
-$statement = $connection->prepare($sql);
-
 if($_POST){
+
+    require_once(__DIR__.'/../connection.php');
+    require_once(__DIR__.'/../components/functions.php');
+
+    $sql = "INSERT INTO tproduct (cName, nPrice, nStock, nCoffeeTypeID) VALUES (:name, :price, :stock, :coffeetype)";
+
+    $statement = $connection->prepare($sql);
     
     if(empty($_POST['newPrice'])){
         sendErrorMessage('Price missing', __LINE__);

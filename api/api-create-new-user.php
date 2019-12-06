@@ -1,12 +1,13 @@
 <?php
-require_once(__DIR__ . '/../connection.php');
-require_once(__DIR__ . '/../components/functions.php');
-
-$sql = "INSERT INTO tuser(cName, cSurname, cEmail, cUserName, cPassword, cAddress, nCityID, cPhoneNo) VALUES (:name, :surname, :email, :username, :password, :address, :cityID, :phone)";
-
-$statement = $connection->prepare($sql);
-
 if ($_POST) {
+
+  require_once(__DIR__ . '/../connection.php');
+  require_once(__DIR__ . '/../components/functions.php');
+
+  $sql = "INSERT INTO tuser(cName, cSurname, cEmail, cUserName, cPassword, cAddress, nCityID, cPhoneNo) VALUES (:name, :surname, :email, :username, :password, :address, :cityID, :phone)";
+
+  $statement = $connection->prepare($sql);
+
   if (empty($_POST['inputEmail'])) {
     return;
   }

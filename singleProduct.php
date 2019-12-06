@@ -20,7 +20,7 @@ if($statement->execute()){
 
     foreach($products as $product){
 
-        if($product['bActive']==1){
+        if($product['bActive']!==0){
 
         $nProductID = $product['nProductID'];
         

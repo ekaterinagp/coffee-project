@@ -96,7 +96,7 @@ require_once(__DIR__ . '/components/header.php');
 
                     foreach ($products as $product) {
 
-                        if($product['bActive']==1){
+                        if($product['bActive']!==0){
 
                         $imgUrl = $product['cProductName'];
                         $result = strtolower(str_replace(" ", "-", $imgUrl));
