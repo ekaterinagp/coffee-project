@@ -20,6 +20,8 @@ if($statement->execute()){
 
     foreach($products as $product){
 
+        if($product['bActive']==1){
+
         $nProductID = $product['nProductID'];
         
         if($nProductID == $iProductID){
@@ -82,18 +84,21 @@ if($statement->execute()){
 
 <?php
         }
-        
     }
+}
     
     foreach($products as $product){
+
+        if($product['bActive']==1){
+
         $nProductID = $product['nProductID'];
+        $nRelatedProductCoffeeTypeID = $product['nCoffeeTypeID'];
+
+        if($nRelatedProductCoffeeTypeID == $nCoffeeTypeID && $nProductID != $iProductID){
 
         $imgUrl = $product['cProductName'];
         $result = strtolower(str_replace(" ", "-", $imgUrl));
-
-        $nRelatedProductCoffeeTypeID = $product['nCoffeeTypeID'];
-
-        if($nRelatedProductCoffeeTypeID == $nCoffeeTypeID && $nProductID != $iProductID){?>
+        ?>
 
             <a href="singleProduct.php?id=<?=$product['nProductID'];?>">
                 <div class="product" id="product-<?=$product['nProductID'];?>">
@@ -106,6 +111,7 @@ if($statement->execute()){
                 </div>
             </a>
 <?php
+            }
         }
     }
 }   

@@ -3,12 +3,15 @@ $sTitle = ' | Shop';
 $sCurrentPage = 'shop';
 
 require_once(__DIR__ . '/connection.php');
-$sql = "SELECT tProduct.nProductID, tProduct.cName as cProductName, tProduct.nCoffeeTypeID as nProductCoffeeTypeID, tProduct.nPrice, tProduct.nStock, tCoffeeType.nCoffeeTypeID, tCoffeeType.cName FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID";
+$sql = "SELECT tProduct.nProductID, tProduct.cName as cProductName, tProduct.nCoffeeTypeID as nProductCoffeeTypeID, tProduct.nPrice, tProduct.nStock, tProduct.bActive, tCoffeeType.nCoffeeTypeID, tCoffeeType.cName FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID";
 $statement = $connection->prepare($sql);
 
 require_once(__DIR__ . '/components/header.php');
 
+// HAS TO CHECK FOR SESSION IN ORDER TO ADD TO CART HERE?
+
 ?>
+
 <main class="shop">
 
     <section class="section-one grid mb-small">
@@ -92,21 +95,24 @@ require_once(__DIR__ . '/components/header.php');
 
                     foreach ($products as $product) {
 
+                        if($product['bActive']==1){
+
                         $imgUrl = $product['cProductName'];
                         $result = strtolower(str_replace(" ", "-", $imgUrl));
 
                         echo '
             <a href="singleProduct.php?id=' . $product['nProductID'] . '">
-            <div class="product" id="product-' . $product['nProductID'] . '">
-            <div class="image bg-contain" style="background-image: url(img/products/' . $result . '.png)"></div>
-            <div class="description m-small">
-                <h3 class="productName mt-small text-left">' . $product['cProductName'] . '</h3>
-                <h4 class="productName mt-small text-left">Origin: ' . $product['cName'] . '</h4>
-                <p class="productPrice mt-small">' . $product['nPrice'] . ' DKK</p>
-            </div>
-            </div>
+                <div class="product" id="product-' . $product['nProductID'] . '">
+                    <div class="image bg-contain" style="background-image: url(img/products/' . $result . '.png)"></div>
+                    <div class="description m-small">
+                        <h3 class="productName mt-small text-left">' . $product['cProductName'] . '</h3>
+                        <h4 class="productName mt-small text-left">Origin: ' . $product['cName'] . '</h4>
+                    <p class="productPrice mt-small">' . $product['nPrice'] . ' DKK</p>
+                    </div>
+                </div>
             </a>
             ';
+                        }
                     }
                 }
                 ?>

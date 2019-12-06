@@ -1,9 +1,9 @@
 <?php
 require_once(__DIR__.'/../connection.php');
+require_once(__DIR__.'/../components/functions.php');
 
-
-$stmt = $connection->prepare("UPDATE tproduct SET bActive=0 WHERE nProductID=:id");
-
+$sql = "UPDATE tproduct SET bActive=0 WHERE nProductID=:id";
+$statement = $connection->prepare($sql);
 
 if($_POST){
     $id = $_POST['id'];
@@ -11,17 +11,8 @@ if($_POST){
     $data =[
         'id' => $_POST['id']
         ];
-    $stmt->execute($data);
 
-    echo '{"status":1, "message":"product successfully deleted"}';
-}
-
-
-
-
-
-/****************/
-function sendError($message, $line){
-    echo '{"status":0, "message": '.$message.', "line":'.$line.'}';
-    exit;
+    if($statement->execute($data)){
+        echo '{"status":1, "message":"product successfully deleted"}';
+    }
 }

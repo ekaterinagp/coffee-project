@@ -1,9 +1,9 @@
 <?php
 require_once(__DIR__ . '/../connection.php');
 
-$query = "SELECT * FROM tproduct";
+$sql = "SELECT * FROM tproduct";
 
-$statement = $connection->prepare($query);
+$statement = $connection->prepare($sql);
 
 if ($statement->execute()) {
 

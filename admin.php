@@ -13,8 +13,6 @@ require_once(__DIR__.'/connection.php');
     $statement = $connection->prepare($sql);
     if($statement->execute()){
         $products = $statement->fetchAll(PDO::FETCH_ASSOC);
-    }
-    
     
     foreach($products as $row){
         if($row['bActive']==1){
@@ -36,15 +34,10 @@ require_once(__DIR__.'/connection.php');
             </div>
             ';
         }
-        }   
-
-    
+    }   
+}
 ?>
 </div>
-
-
-
-
 
 <div>
 <h2>Add Coffee products</h2>

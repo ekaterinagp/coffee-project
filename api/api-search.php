@@ -9,8 +9,12 @@ if(empty($_GET['search']) && $_GET['search'] !== '0'){
 
 $sSearchRequest = $_GET['search'];
 
-$query = "SELECT * FROM tproduct";
-$result = $connection->query($query)->fetchAll();
+$sql = "SELECT * FROM tproduct";
+$statement = $connection->prepare($sql);
+
+if ($statement->execute()) {
+
+$result = $connection->query($sql)->fetchAll();
 
 $arrayMatches = [];
 
@@ -23,3 +27,4 @@ foreach($result as $product){
 
 echo json_encode($arrayMatches);
 
+}
