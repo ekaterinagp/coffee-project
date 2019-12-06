@@ -91,14 +91,14 @@ if($statement->execute()){
 
         if($product['bActive']==1){
 
-        $nProductID = $product['nProductID'];
-        $nRelatedProductCoffeeTypeID = $product['nCoffeeTypeID'];
+            $nProductID = $product['nProductID'];
+            $nRelatedProductCoffeeTypeID = $product['nCoffeeTypeID'];
 
-        if($nRelatedProductCoffeeTypeID == $nCoffeeTypeID && $nProductID != $iProductID){
+            if($nRelatedProductCoffeeTypeID == $nCoffeeTypeID && $nProductID != $iProductID){
 
-        $imgUrl = $product['cProductName'];
-        $result = strtolower(str_replace(" ", "-", $imgUrl));
-        ?>
+            $imgUrl = $product['cProductName'];
+            $result = strtolower(str_replace(" ", "-", $imgUrl));
+            ?>
 
             <a href="singleProduct.php?id=<?=$product['nProductID'];?>">
                 <div class="product" id="product-<?=$product['nProductID'];?>">
