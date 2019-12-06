@@ -1,8 +1,65 @@
 "use strict";
 window.addEventListener("load", init);
 
+// VARIABLES WITH DOM ELEMENTS
+
 const acc = document.getElementsByClassName("accordion");
 
+const txtSearch = document.querySelector("#txtSearch");
+const theResults = document.querySelector("#results");
+
+//// Price checkboxes
+let checkFirstOption = document.querySelector(".filter-price [name=option1]");
+let checkSecondOption = document.querySelector(".filter-price [name=option2]");
+let checkThirdOption = document.querySelector(".filter-price [name=option3]");
+
+//// Coffee type checkboxes
+let checkFirstCoffeeOption = document.querySelector(
+  ".filter-origin [name=option1]"
+);
+let checkSecondCoffeeOption = document.querySelector(
+  ".filter-origin [name=option2]"
+);
+let checkThirdCoffeeOption = document.querySelector(
+  ".filter-origin [name=option3]"
+);
+let checkFourthCoffeeOption = document.querySelector(
+  ".filter-origin [name=option4]"
+);
+let checkFifthCoffeeOption = document.querySelector(
+  ".filter-origin [name=option5]"
+);
+let checkSixthCoffeeOption = document.querySelector(
+  ".filter-origin [name=option6]"
+);
+
+function checkCoffeeType(product) {
+  if (product.nCoffeeTypeID == 1) {
+    product.nCoffeeTypeID = "Colombia";
+  }
+  if (product.nCoffeeTypeID == 2) {
+    product.nCoffeeTypeID = "Ethiopia";
+  }
+  if (product.nCoffeeTypeID == 3) {
+    product.nCoffeeTypeID = "Sumatra";
+  }
+  if (product.nCoffeeTypeID == 4) {
+    product.nCoffeeTypeID = "Brazil";
+  }
+  if (product.nCoffeeTypeID == 5) {
+    product.nCoffeeTypeID = "Nicaragua";
+  }
+  if (product.nCoffeeTypeID == 6) {
+    product.nCoffeeTypeID = "Blend";
+  }
+}
+
+function changeFormatForImg(product) {
+  let str = product.cName;
+  product.cName = str.replace(/\s+/g, "-").toLowerCase();
+}
+
+// ACCORDION FUNCTION
 for (let i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function() {
     this.classList.toggle("active");
@@ -15,6 +72,7 @@ for (let i = 0; i < acc.length; i++) {
   });
 }
 
+// PRODUCTS FUNCTION
 function getAllProductsAsJson() {
   let endpoint = "api/api-get-products.php";
   return new Promise((resolve, reject) => {
@@ -42,10 +100,27 @@ function getAllProductsAsJson() {
 //   return product.nPrice > 100;
 // }
 
-let checkFirstOption = document.querySelector("[name=option1]");
-let checkSecondOption = document.querySelector("[name=option2]");
-let checkThirdOption = document.querySelector("[name=option3]");
+//// Coffee types
+function iCoffeeTypeColombia(product) {
+  return product.nCoffeeTypeID == 1;
+}
+function iCoffeeTypeEthiopia(product) {
+  return product.nCoffeeTypeID == 2;
+}
+function iCoffeeTypeSumatra(product) {
+  return product.nCoffeeTypeID == 3;
+}
+function iCoffeeTypeBrazil(product) {
+  return product.nCoffeeTypeID == 4;
+}
+function iCoffeeTypeNicaragua(product) {
+  return product.nCoffeeTypeID == 5;
+}
+function iCoffeeTypeBlend(product) {
+  return product.nCoffeeTypeID == 6;
+}
 
+// FILTERING FUNCTION
 function showFilteredCoffee(products) {
   document.querySelector(".products-container").innerHTML = "";
   let template = document.querySelector("template").content;
@@ -65,9 +140,36 @@ function showFilteredCoffee(products) {
   });
 }
 
-function changeFormatForImg(product) {
-  let str = product.cName;
-  product.cName = str.replace(/\s+/g, "-").toLowerCase();
+// INITIALIZING OF SEARCH FUNCTION ON INPUT
+txtSearch.addEventListener("input", function() {
+  fetchDataForSearch();
+
+  if (txtSearch.value.length == 0) {
+    theResults.style.display = "none";
+  } else {
+    theResults.style.display = "block";
+  }
+});
+
+// SEARCH FUNCTION
+function fetchDataForSearch() {
+  fetch("api/api-search.php?search=" + txtSearch.value)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(arrayMatches) {
+      console.log({ arrayMatches });
+
+      theResults.textContent = "";
+
+      arrayMatches.forEach(function(match) {
+        let a = document.createElement("a");
+        a.href = "singleProduct.php?id=" + match.nProductID;
+        a.textContent = match.cName;
+        let span = document.createElement("br");
+        theResults.append(a, span);
+      });
+    });
 }
 
 // Listen to range change

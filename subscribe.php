@@ -39,20 +39,20 @@ require_once(__DIR__.'/connection.php');
       $imgUrl = $row['cProductName'];
       $result = strtolower(str_replace(" ", "-", $imgUrl));
 // echo $row['nSubscriptionTypeID'];
-echo '<div class="subscriptionItem">
+echo '<div class="subscriptionItem" id="'.$row['nsubscriptionID'].'">
+<div class="subscriptionItemBg">
 <h4 class="subscribeOptiopnP">Option</4>
 <h1 class="subscribeTypeNumber">1</h1>
-  <div class="itemSize coffeeItemimg1" id="'.$row['nsubscriptionID'].'">
   <img src="img/products/'.$result.'.png" alt="">  
     <h2>'.$row['cName'].'</h2>
-    <div class="white-bg-text">
+    </div>
+    <div class="white-text-bg">
     <p class="descSubscription">Lorem ipsum dolor sit amet consectetur 
     adipisicing elit. Voluptate praesentium, inventore deleniti optio nobis
      quasi provident nulla minus odit architecto.</p>
      <h3 class="priceSubscription">'.$row['nSubscriptionPrice'].' DKK</h3>
-  </div>
-  </div>
-</div>' ;   }
+    </div>
+ </div>' ;   }
     ?>
 
 

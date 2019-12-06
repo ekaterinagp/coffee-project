@@ -32,10 +32,11 @@ require_once(__DIR__ . '/components/header.php');
 
         <h2>Shop</h2>
 
-        <form id="formSearch" class="justify-self-right p-medium" action="">
+        <form id="formSearch" class="justify-self-right p-medium">
             <label for="txtSearch" class="mh-small align-self-bottom">Search</label>
             <input id="txtSearch" type="text" name="search" placeholder="Type here to search for products" maxlength="50" minlength="3">
         </form>
+        <div id="results"></div>
 
         <div class="products grid grid-two-thirds-bigger mr-medium">
 
@@ -90,19 +91,19 @@ require_once(__DIR__ . '/components/header.php');
 
                     $products = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-                    foreach ($products as $row) {
+                    foreach ($products as $product) {
 
-                        $imgUrl = $row['cProductName'];
+                        $imgUrl = $product['cProductName'];
                         $result = strtolower(str_replace(" ", "-", $imgUrl));
 
                         echo '
-            <a href="singleProduct.php?id=' . $row['nProductID'] . '">
-            <div class="product" id="product-' . $row['nProductID'] . '">
+            <a href="singleProduct.php?id=' . $product['nProductID'] . '">
+            <div class="product" id="product-' . $product['nProductID'] . '">
             <div class="image bg-contain" style="background-image: url(img/products/' . $result . '.png)"></div>
             <div class="description m-small">
-                <h3 class="productName mt-small text-left">' . $row['cProductName'] . '</h3>
-                <h4 class="productName mt-small text-left">Origin: ' . $row['cName'] . '</h4>
-                <p class="productPrice mt-small">' . $row['nPrice'] . ' DKK</p>
+                <h3 class="productName mt-small text-left">' . $product['cProductName'] . '</h3>
+                <h4 class="productName mt-small text-left">Origin: ' . $product['cName'] . '</h4>
+                <p class="productPrice mt-small">' . $product['nPrice'] . ' DKK</p>
             </div>
             </div>
             </a>
@@ -131,5 +132,5 @@ require_once(__DIR__ . '/components/header.php');
 </main>
 
 <?php
-$sScriptPath = 'js/filter.js';
+$sScriptPath = 'filter.js';
 require_once(__DIR__ . '/components/footer.php');
