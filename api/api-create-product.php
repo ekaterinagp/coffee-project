@@ -1,12 +1,5 @@
 <?php
 if($_POST){
-
-    require_once(__DIR__.'/../connection.php');
-    require_once(__DIR__.'/../components/functions.php');
-
-    $sql = "INSERT INTO tproduct (cName, nPrice, nStock, nCoffeeTypeID) VALUES (:name, :price, :stock, :coffeetype)";
-
-    $statement = $connection->prepare($sql);
     
     if(empty($_POST['newPrice'])){
         sendErrorMessage('Price missing', __LINE__);
@@ -20,6 +13,12 @@ if($_POST){
     if(empty($_POST['newCoffeetype'])){
         sendErrorMessage('coffetype missing', __LINE__);
     }
+
+    require_once(__DIR__.'/../connection.php');
+    require_once(__DIR__.'/../components/functions.php');
+
+    $sql = "INSERT INTO tproduct (cName, nPrice, nStock, nCoffeeTypeID) VALUES (:name, :price, :stock, :coffeetype)";
+    $statement = $connection->prepare($sql);
 
     $data =['name' => $_POST['newName'],
         'price' => $_POST['newPrice'],

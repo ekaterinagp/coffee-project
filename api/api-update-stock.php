@@ -3,6 +3,13 @@
 
 if($_POST){
 
+    if(empty($_POST['updateStock'])){
+        sendErrorMessage('Stock missing', __LINE__);
+    }
+    if(empty($_POST['id'])){
+        sendErrorMessage('no id', __LINE__);
+    }
+
     $id = $_POST['id'];
 
     require_once(__DIR__.'/../connection.php');
@@ -10,13 +17,6 @@ if($_POST){
 
     $sql = "UPDATE tproduct SET nStock=:stock WHERE nProductID=:id";
     $statement = $connection->prepare($sql);
-
-    if(empty($_POST['updateStock'])){
-        sendErrorMessage('Stock missing', __LINE__);
-    }
-    if(empty($_POST['id'])){
-        sendErrorMessage('no id', __LINE__);
-    }
     
     $data =[
         ':stock' => $_POST['updateStock'],
