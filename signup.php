@@ -32,7 +32,7 @@ if ($_SESSION) {
       
     
     <form id="signupForm" class="grid grid-one" method="POST">
-    <h4 class="mt-small">Personal Info</h4>
+    <h4 class="mt-small">Personal Information</h4>
     <div class="frmLine"></div>
 
         <label class="grid grid-one" for="name">First Name<input required minlength="2" maxlength="20" type="text" data-type="string" name="inputName" placeholder="First name">
@@ -82,7 +82,7 @@ if ($_SESSION) {
         <label class="grid grid-one" for="userPhone">Phone number<input required type="text" data-type="string" name="inputPhone" placeholder="phone number" >
           <div class="errorMessage">Must be 8 characters</div>
         </label>
-<h4 class="mt-small">Account Info</h4>
+<h4 class="mt-small">Account Information</h4>
 <div class="frmLine"></div>
         <label class="grid grid-one" for="loginName">Username<input required type="text" data-type="string" name="inputLoginName" placeholder="username">
           <div class="errorMessage">Must be more than 2 and less than 12</div>
