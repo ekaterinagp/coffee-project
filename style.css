@@ -620,10 +620,6 @@ a {
 
 /* GRID  */
 
-.frontpage .section-five .masonry {
-  /* overflow: hidden; */
-}
-
 .section-five .masonry .item {
   min-height: 20vw;
   max-width: 100%;
