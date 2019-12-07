@@ -62,9 +62,11 @@ echo '<div class="subscriptionItem" id="'.$row['nsubscriptionID'].'">
 
   <h2 class="text-center" >In doubt what to choose?</h2>
   <h3 class="text-center" >Wanna get reccomendations? Take a coffee test! </h3>
-  <button id="startBtn" class="button">Start</button>
+  <a href="#test"><button id="startBtn" class="button">Start</button>
+  </a>
 
-  <div class="testContainer hide margin-auto mv-small bg-grey">
+  <div id="test" class="testContainer hide margin-auto mv-small ">
+    <div class="testbg bg-brown"></div>
     <div class="intro">
     </div>
     <div class="testContent">

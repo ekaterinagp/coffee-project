@@ -129,7 +129,7 @@ const questions = [
 
       // form.setAttribute("class", "listenTo");
       // form.setAttribute("class", "gridWith2columns");
-      form.className = "listenTo grid grid-two";
+      form.className = "listenTo grid grid-two smallerFrm";
       values.forEach(function(value) {
         let divWrapper = document.createElement("div");
         let label = document.createElement("label");
@@ -192,7 +192,7 @@ const questions = [
 
       // form.setAttribute("class", "listenTo");
       // form.setAttribute("class", "gridWith2columns");
-      form.className = "listenTo grid grid-two";
+      form.className = "listenTo grid grid-two smallerFrm";
       values.forEach(function(value) {
         let divWrapper = document.createElement("div");
         let label = document.createElement("label");

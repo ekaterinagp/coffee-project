@@ -1,9 +1,9 @@
 <?php
 require_once(__DIR__.'/../connection.php');
 
+
 $id = $_POST['id'];
 $stmt = $connection->prepare("UPDATE tproduct SET nPrice=:price WHERE nProductID=:id");
-
 
 if($_POST){
     if(empty($_POST['updatePrice'])){
