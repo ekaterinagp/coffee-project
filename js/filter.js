@@ -162,14 +162,22 @@ function fetchDataForSearch() {
 
       theResults.textContent = "";
 
+      
+
       arrayMatches.forEach(function(match) {
         let a = document.createElement("a");
         let p = document.createElement("p");
+        let image = document.createElement("div");
+        console.log(match['cName']);
+
         a.href = "singleProduct.php?id=" + match.nProductID;
-        a.appendChild(p);
+        a.classList.add('grid', 'grid-one-fifth', 'align-items-center', 'pt-small');
+        a.append(image, p);
+        image.classList.add('image', 'bg-contain');
+        changeFormatForImg(match);
+        image.style.backgroundImage = "url(img/products/" + match.cName + ".png)";
         p.textContent = match.cName;
-        let span = document.createElement("br");
-        theResults.append(a, span);
+        theResults.append(a);
       });
     });
 }
