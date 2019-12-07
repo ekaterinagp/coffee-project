@@ -79,11 +79,22 @@ svg {
 }
 
 .masonry {
-  column-count: 4;
+  column-count: 2;
+  column-gap: 0px;
+}
+.masonry-row{
+  row-count:
 }
 
 .masonry .image-container {
-  align-items: center;
+  /* align-items: center; */
+  width:25vw;
+  height:25vh;
+}
+.masonry .image-container:nth-child(1),
+.masonry .image-container:nth-child(4)
+{
+  height:30vh;
 }
 
 
@@ -1187,24 +1198,42 @@ a {
   padding:1em;
 }
 
-.loginWelcome {
-  text-align: center;
-  padding-top: 10%;
 
-  /* color: #06a4b7; */
+/*   SIGNUP PAGE   */
+
+.signupBg{
+  background-color: #2b231d;
+  left:0;
+  right:0;
+  top:30%;
+  bottom:30%;
+  position: absolute;
+  z-index: -1;
+}
+.loginWelcome {
+    padding-top: 2em;
+background-color: #815946;
+width:55vw;
+color:white;
 }
 
 .containerSignup {
+  align-items: center;
+  position: relative;
   width: 100%;
-  height: 79%;
+}
+.containerSignup h3, .containerSignup a{
+  color:white;
 }
 
 #signupForm {
   display: grid;
   justify-content: center;
   align-content: center;
-  text-align: center;
   grid-gap: 10px;
+}
+#signupForm label{
+  margin:.5vh 0;
 }
 
 label {
@@ -1212,7 +1241,8 @@ label {
 }
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+select {
   /* width: 100%; */
   border: 0;
   border-radius: 5px;

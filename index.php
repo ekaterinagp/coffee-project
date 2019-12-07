@@ -14,15 +14,15 @@ require_once(__DIR__.'/components/header.php');
         </p>
         <a href="subscribe.php" class="button">Subscribe</a>
     </div>
-    <div class="grid grid-two container masonry">
+    <div class="container masonry">
         <div class="grid image-container bg-light-brown">
             <div class="image bg-contain img1"></div>
         </div>
+            <div class="grid image-container bg-medium-light-brown">
+            <div class="image bg-contain img3"></div>
+        </div>
         <div class="grid image-container bg-brown">
             <div class="image bg-contain img2"></div>  
-        </div>
-        <div class="grid image-container bg-medium-light-brown">
-            <div class="image bg-contain img3"></div>
         </div>
         <div class="grid image-container bg-dark-brown">
             <div class="image bg-contain img4"></div>
