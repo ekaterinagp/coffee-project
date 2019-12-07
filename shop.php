@@ -37,53 +37,45 @@ require_once(__DIR__ . '/components/header.php');
 
         <form id="formSearch" class="justify-self-right p-medium">
             <label for="txtSearch" class="mh-small align-self-bottom">Search</label>
-            <input id="txtSearch" type="text" name="search" placeholder="Type here to search for products" maxlength="50" minlength="3">
+            <input id="txtSearch" type="text" name="search" placeholder="Type here to search for products" maxlength="50" minlength="1" autocomplete="off">
         </form>
-        <div id="results"></div>
+        <div id="results" class="pv-medium grid align-items-center"></div>
 
         <div class="products grid grid-two-thirds-bigger mr-medium">
 
             <div class="filter color-white relative">
                 <h3 class="color-black ph-medium pb-medium">Filters</h3>
-
-                <button class="accordion price bg-medium-light-brown color-white">Price</button>
-                <div class="panel filter-price bg-white color-black">
-                    <div class="options">
-                        <!-- <label for="option1">
-                            <input type="checkbox" name="option1" value="0-50" class="mr-small mb-small">
-                            < 50 DKK </label> <br>
-                                <label for="option2" class="m-small">
-                                    <input type="checkbox" name="option2" value="51-100" class="mr-small mb-small"> 51-100 DKK
-                                </label><br>
-                                <label for="option3" class="m-small">
-                                    <input type="checkbox" name="option3" value="101-150" class="mr-small mb-small"> more than 100 DKK
-                                </label><br> -->
-                        <input type="range" min="0" max="150" id="rangePrice" value="150" step="10"><span id="priceValue"></span>
-
+                <div class="filter-container">
+                    <button class="accordion price bg-medium-light-brown color-white">Price</button>
+                    <div class="panel filter-price bg-white color-black">
+                        <div class="options">
+                        <label for="price">
+                            <input name="price" type="range" min="0" max="150" id="rangePrice" value="150" step="10"><span id="priceValue"></span>
+                        </div>
                     </div>
-                </div>
 
-                <button class="accordion origin bg-medium-light-brown color-white">Origin</button>
-                <div class="panel filter-origin bg-white color-black">
-                    <div class="options" id="coffeeTypesdiv">
-                        <label for="option1">
-                            <input type="checkbox" value="Colombia" class="mr-small"> Colombia
-                        </label><br>
-                        <label for="option1">
-                            <input type="checkbox" value="Ethiopia" class="mr-small"> Ethiopia
-                        </label><br>
-                        <label for="option2">
-                            <input type="checkbox" value="Sumatra" class="mr-small"> Sumatra
-                        </label><br>
-                        <label for="option3">
-                            <input type="checkbox" value="Brazil" class="mr-small"> Brazil
-                        </label><br>
-                        <label for="option4">
-                            <input type="checkbox" value="Nicaragua" class="mr-small"> Nicaragua
-                        </label><br>
-                        <label for="option5">
-                            <input type="checkbox" value="Blend" class="mr-small"> Blend
-                        </label><br>
+                    <button class="accordion origin bg-medium-light-brown color-white">Origin</button>
+                    <div class="panel filter-origin bg-white color-black">
+                        <div class="options" id="coffeeTypesdiv">
+                            <label for="option1">
+                                <input type="checkbox" value="Colombia" class="mr-small"> Colombia
+                            </label><br>
+                            <label for="option1">
+                                <input type="checkbox" value="Ethiopia" class="mr-small"> Ethiopia
+                            </label><br>
+                            <label for="option2">
+                                <input type="checkbox" value="Sumatra" class="mr-small"> Sumatra
+                            </label><br>
+                            <label for="option3">
+                                <input type="checkbox" value="Brazil" class="mr-small"> Brazil
+                            </label><br>
+                            <label for="option4">
+                                <input type="checkbox" value="Nicaragua" class="mr-small"> Nicaragua
+                            </label><br>
+                            <label for="option5">
+                                <input type="checkbox" value="Blend" class="mr-small"> Blend
+                            </label><br>
+                        </div>    
                     </div>
                 </div>
             </div>

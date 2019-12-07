@@ -164,8 +164,10 @@ function fetchDataForSearch() {
 
       arrayMatches.forEach(function(match) {
         let a = document.createElement("a");
+        let p = document.createElement("p");
         a.href = "singleProduct.php?id=" + match.nProductID;
-        a.textContent = match.cName;
+        a.appendChild(p);
+        p.textContent = match.cName;
         let span = document.createElement("br");
         theResults.append(a, span);
       });

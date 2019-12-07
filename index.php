@@ -12,7 +12,7 @@ require_once(__DIR__.'/components/header.php');
         <p class="align-self-top mt-small mb-medium">
         Enhance your everyday coffee experience with a coffee subscription tailored to your taste or discover a world of coffee and let us surprise you!
         </p>
-        <a href="subscribe.php" class="button">Subscribe</a>
+        <a href="subscribe.php" class="button">Learn more</a>
     </div>
     <div class="grid grid-two container masonry">
         <div class="grid image-container bg-light-brown">
@@ -31,8 +31,8 @@ require_once(__DIR__.'/components/header.php');
 </section>
 
 <section class="section-two grid mb-large">
-    <h2>What you get</h2>
-    <h3>We make sure you get the best you wished for and more </h3>
+    <h2 class="mb-small">What you get</h2>
+    <h3>We make sure you get everything you wish for and more </h3>
     <div class="grid grid-two-thirds-reversed container ph-xlarge"> 
         <div class="image bg-contain"></div>
         <div class="list grid align-items-center">
@@ -50,14 +50,14 @@ require_once(__DIR__.'/components/header.php');
                     <p>COFFEE TAILORMADE TO YOUR TASTE - EVERYDAY SINGLE DAY</p>
                 </li>
             </ul>
-            <a href="subscribe.php" class="button">Subscribe</a>
+            <a href="subscribe.php" class="button">Subscribe now</a>
         </div>
     </div>
 </section>
 
 <section class="section-three grid mb-large">
-    <h2>How it works</h2>
-    <h3>We make sure our customers meet their best expectations</h3>
+    <h2 class="mb-small">How it works</h2>
+    <h3>Enhancing your everyday coffee experience has never been easier</h3>
     <div class="grid grid-three container"> 
         <div class="step one bg-light-brown">
             <div class="step-no absolute">
@@ -90,12 +90,12 @@ require_once(__DIR__.'/components/header.php');
             </div>
         </div>
     </div>
-    <a href="subscribe.php" class="button margin-auto mt-medium">Subscribe</a>
+    <a href="subscribe.php" class="button margin-auto mt-medium">Get started</a>
 </section>
 
-<section class="section-four grid mb-xlarge">
-    <h2>Why choose The Proper Pour</h2>
-    <h3>We make sure our customers meet their best expectations</h3>
+<section class="section-four grid mb-large">
+    <h2 class="mb-small">Why choose The Proper Pour</h2>
+    <h3>Get ready to have all your expectations met</h3>
     <div class="grid grid-three container ph-xlarge"> 
         <div class="list one">
             <ul>
@@ -125,10 +125,11 @@ require_once(__DIR__.'/components/header.php');
             </ul>
         </div>
     </div>
+    <a href="subscribe.php" class="button margin-auto mt-large">Subscribe today</a>
 </section>
 
 <section class="section-five grid mb-large">
-    <h2>Enhance your experience</h2>
+    <h2 class="mb-small">Enhance your experience</h2>
     <h3>Tips and tricks to make your best cup of coffee</h3>
     <div class="grid grid-four container masonry"> 
             <div class="flipcontainer item one grid" ontouchstart="this.classList.toggle('hover');">
