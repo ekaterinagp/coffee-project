@@ -25,33 +25,30 @@ if ($_SESSION) {
 
 <body>
 
-  <div class="containerSignup">
-    <div class="loginWelcome">
-
+  <div class="containerSignup section-one grid grid-two">
+    <div class="loginWelcome mh-medium mv-small">
+<div class="signupBg"></div>
       <h2>Please sign up</h2>
-    </div>
-    <form id="signupForm" method="POST">
+      
+    
+    <form id="signupForm" class="grid grid-one" method="POST">
+    <h4 class="mt-small">Personal Information</h4>
+    <div class="frmLine"></div>
 
-
-      <div>
-        <label for="name"><input required minlength="2" maxlength="20" type="text" data-type="string" name="inputName" placeholder="First name">
+        <label class="grid grid-one" for="name">First Name<input required minlength="2" maxlength="20" type="text" data-type="string" name="inputName" placeholder="First name">
           <div class="errorMessage">Name must be more than 1 and less than 20 letters</div>
         </label>
-      </div>
-
-      <div>
-        <label for="lastName"><input required data-type="string" minlength="2" maxlength="20" type="text" name="inputLastName" placeholder="Last name">
+     
+        <label class="grid grid-one" for="lastName">Last Name<input required data-type="string" minlength="2" maxlength="20" type="text" name="inputLastName" placeholder="Last name">
           <div class="errorMessage">Last name must be more than 1 and less than 20 letters</div>
         </label>
-      </div>
-
-      <div>
-        <label for="email"><input required type="email" data-type="email" name="inputEmail" placeholder="email">
+      
+        <label class="grid grid-one" for="email">Email<input required type="email" data-type="email" name="inputEmail" placeholder="email">
           <!-- onchange="fvIsEmailAvailable(this);"  -->
           <div class="errorMessage" id="emailDiv">Must be a valid email address</div>
         </label>
-      </div>
-      <div>
+
+        <label for="cityInput" class="grid grid-one"> City
         <select name="cityInput">
           <option disabled selected value> -- select your city -- </option>
           <option value="1">Copenhagen</option>
@@ -76,42 +73,37 @@ if ($_SESSION) {
           <option value="20">Herlev</option>
           <option value="21">Vanløse</option>
         </select>
-      </div>
-      <div>
-        <label for="userAddress"><input required type="text" data-type="string" name="inputAddress" placeholder="address">
+        </label>
+
+        <label class="grid grid-one" for="userAddress">Address<input required type="text" data-type="string" name="inputAddress" placeholder="address ">
           <div class="errorMessage">Must be more than 12 characters</div>
         </label>
-      </div>
-      <div>
-        <label for="userPhone"><input required type="text" data-type="string" name="inputPhone" placeholder="phone number">
+
+        <label class="grid grid-one" for="userPhone">Phone number<input required type="text" data-type="string" name="inputPhone" placeholder="phone number" >
           <div class="errorMessage">Must be 8 characters</div>
         </label>
-      </div>
-      <div>
-        <label for="loginName"><input required type="text" data-type="string" name="inputLoginName" placeholder="user name">
+<h4 class="mt-small">Account Information</h4>
+<div class="frmLine"></div>
+        <label class="grid grid-one" for="loginName">Username<input required type="text" data-type="string" name="inputLoginName" placeholder="username">
           <div class="errorMessage">Must be more than 2 and less than 12</div>
         </label>
-      </div>
 
-      <div>
-        <label for="password"><input required type="password" data-type="string" minlength="8" maxlength="8" name="password_1" placeholder="password">
+        <label class="grid grid-one" for="password">Password<input required type="password" data-type="string" minlength="8" maxlength="8" name="password_1" placeholder="password">
           <div class="errorMessage">Password must be 8 characters</div>
         </label>
-      </div>
-      <div>
-        <label for="password"><input required type="password" data-type="string" minlength="8" maxlength="8" name="password_2" placeholder="repeat password">
+      
+        <label class="grid grid-one" for="password">Repeat Password<input required type="password" data-type="string" minlength="8" maxlength="8" name="password_2" placeholder="repeat password">
           <div class="errorMessage">Password must match</div>
         </label>
-      </div>
 
 
-      <button name="reg_user" disabled>Sign Up</button>
+      <button name="reg_user" disabled class="button margin-auto mv-small">Sign Up</button>
     </form>
-
+    </div>
     <h3>Already a user? <a href="login.php">Log in </a></h3>
   </div>
   <script src="js/signup.js"></script>
   <?php
-  $sScriptPath = 'js/validation.js';
+  $sScriptPath = 'validation.js';
   require_once(__DIR__ . '/components/footer.php');
   ?>

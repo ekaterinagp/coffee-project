@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2019 at 12:09 PM
+-- Generation Time: Dec 07, 2019 at 07:02 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.1.31
 
@@ -21,23 +21,99 @@ SET time_zone = "+00:00";
 --
 -- Database: `properpour`
 --
-CREATE DATABASE IF NOT EXISTS `properpour` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+DROP DATABASE IF EXISTS `properpour`;
+CREATE DATABASE `properpour` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `properpour`;
 
 DELIMITER $$
 --
 -- Procedures
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `purchaseSubscription` (IN `pnUserID` MEDIUMINT, IN `pnSubscriptionTypeID` INT)  NO SQL
+CREATE DEFINER=`root`@`localhost` PROCEDURE `purchaseSubscription` (IN `pnUserID` MEDIUMINT, IN `pnProductID` INT, IN `pnCreditCardID` MEDIUMINT, IN `pnTaxAmount` DECIMAL(4,2))  NO SQL
 BEGIN
+ 	
+    DECLARE vnTaxAmount DECIMAL(4,2);
+    DECLARE vnPrice DECIMAL(4,2);
+    DECLARE vnSubscriptionTypeID MEDIUMINT;
+     DECLARE vnPurchaseID INT;
+    DECLARE vnUserSubscriptionID INT;
+    
+    
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+   		SHOW ERRORS;
+        ROLLBACK;  -- rollback any error in the transaction
+    END;
+    
+   	START TRANSACTION;
+       
+   	SELECT tproduct.nPrice, tsubscriptiontype.nSubscriptionTypeID 
+      	INTO vnPrice, vnSubscriptionTypeID 
+  		FROM tproduct INNER JOIN tsubscriptiontype ON
+  		tsubscriptiontype.nProductID = tproduct.nProductID
+  		 WHERE pnProductID = tsubscriptiontype.nProductID;   
 
+    SELECT tproduct.nPrice * pnTaxAmount
+        INTO vnTaxAmount 
+        FROM tproduct
+        WHERE pnProductID = nProductID;
+        
+        INSERT INTO tusersubscription(
+                nUserSubscriptionID,
+                nUserID,
+                dSubscription,
+                dCancellation,
+                nSubscriptionTypeID
+            )
+            VALUES(
+                DEFAULT,
+                pnUserID,
+                DEFAULT,
+                DEFAULT,
+                vnSubscriptionTypeID);
+                
+       	SELECT LAST_INSERT_ID() INTO vnUserSubscriptionID;
+          
+        INSERT INTO tpurchase( 
+            nPurchaseID,
+            nProductId,
+            dPurchase,
+            nNetAmount,
+            nTax,
+            nCreditCardID)        
+        VALUES(
+            DEFAULT,
+            pnProductID,
+            DEFAULT,
+            vnPrice,
+            vnTaxAmount,
+            pnCreditCardID);
+            
+        SELECT LAST_INSERT_ID() INTO vnPurchaseID;
+                        
+        INSERT INTO tsubscriptionpurchase(
+                nUserSubscriptionID,
+                nPurchaseID)
+            VALUES(
+                vnUserSubscriptionID,
+            	vnPurchaseID);
+                
+    UPDATE tcreditcard 
+        SET tcreditcard.nTotalPurchaseAmount = tcreditcard.nTotalPurchaseAmount+vnPrice+vnTaxAmount
+        WHERE nCreditCardID=pnCreditCardID; 
 
+     UPDATE tproduct
+        SET tproduct.nStock = nStock-1
+        WHERE nProductID = pnProductID;
 
-
+      UPDATE tuser
+        SET tuser.nTotalPurchaseAmount = tuser.nTotalPurchaseAmount+vnPrice+vnTaxAmount
+        WHERE nUserID = pnUserID;
+	
 	COMMIT;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `purchaseTransaction` (IN `pnProductID` MEDIUMINT, IN `pnCreditCardID` MEDIUMINT, IN `pnUserID` MEDIUMINT, IN `pnTaxAmount` DECIMAL(4,2))  NO SQL
+CREATE DEFINER=`root`@`localhost` PROCEDURE `purchaseTransaction` (IN `pnProductID` INT, IN `pnCreditCardID` MEDIUMINT, IN `pnUserID` MEDIUMINT, IN `pnTaxAmount` DECIMAL(4,2))  NO SQL
 BEGIN
  	
     DECLARE vnTaxAmount DECIMAL(4,2);
@@ -54,39 +130,35 @@ BEGIN
         INTO vnPrice 
         FROM tproduct 
         WHERE pnProductID = nProductID;
-
+        
     SELECT tproduct.nPrice * pnTaxAmount
         INTO vnTaxAmount 
         FROM tproduct
         WHERE pnProductID = nProductID;
-
-        INSERT INTO tpurchase( 
-            nPurchaseID,
+               
+     INSERT INTO tpurchase( 
             nProductId,
-            dPurchase,
             nNetAmount,
             nTax,
             nCreditCardID)        
         VALUES(
-            DEFAULT,
             pnProductID,
-            DEFAULT,
             vnPrice,
             vnTaxAmount,
             pnCreditCardID);
-
-        UPDATE tcreditcard 
-        SET tcreditcard.nTotalPurchaseAmount = tcreditcard.nTotalPurchaseAmount+vnPrice+vnTaxAmount
-        WHERE nCreditCardID=pnCreditCardID; 
-
-        UPDATE tproduct
+                  
+    UPDATE tcreditcard 
+        SET tcreditcard.nTotalPurchaseAmount = tcreditcard.nTotalPurchaseAmount + vnPrice + vnTaxAmount
+        WHERE nCreditCardID = pnCreditCardID; 
+        
+    UPDATE tproduct
         SET tproduct.nStock = nStock-1
         WHERE nProductID = pnProductID;
-
-        UPDATE tuser
+                
+    UPDATE tuser
         SET tuser.nTotalPurchaseAmount = tuser.nTotalPurchaseAmount+vnPrice+vnTaxAmount
         WHERE nUserID = pnUserID;
-	
+
 	COMMIT;
 END$$
 
@@ -155,7 +227,14 @@ INSERT INTO `tauditcreditcard` (`nAuditCreditCardID`, `nOldCreditCardID`, `nOldU
 (55, 7, 10, '4555400091110086', '06/2', '888', '187.0000', 7, 10, '4555400091110086', '06/2', '888', '0.0000', 'U', '2019-12-03 14:00:48', 'root', 'localhost'),
 (56, 7, 10, '4555400091110086', '06/2', '888', '0.0000', 7, 10, '4555400091110086', '06/2', '888', '62.5000', 'U', '2019-12-03 14:01:43', 'root', 'localhost'),
 (57, 6, 9, '123456781234567890', '12/2', '123', '0.0000', 6, 9, '123456781234567890', '12/2', '123', '43.7500', 'U', '2019-12-05 08:59:31', 'root', 'localhost'),
-(58, 6, 9, '123456781234567890', '12/2', '123', '43.7500', 6, 9, '123456781234567890', '12/2', '123', '62.9500', 'U', '2019-12-05 09:08:29', 'root', 'localhost');
+(58, 6, 9, '123456781234567890', '12/2', '123', '43.7500', 6, 9, '123456781234567890', '12/2', '123', '62.9500', 'U', '2019-12-05 09:08:29', 'root', 'localhost'),
+(69, 7, 10, '4555400091110086', '06/2', '888', '62.5000', 7, 10, '4555400091110086', '06/2', '888', '137.5000', 'U', '2019-12-07 17:15:17', 'root', 'localhost'),
+(70, 7, 10, '4555400091110086', '06/2', '888', '137.5000', 7, 10, '4555400091110086', '06/2', '888', '221.8200', 'U', '2019-12-07 17:15:50', 'root', 'localhost'),
+(72, NULL, NULL, NULL, NULL, NULL, NULL, 9, 24, '5656565656565656', '08/3', '345', '0.0000', 'I', '2019-12-07 17:21:50', 'root', 'localhost'),
+(74, 9, 24, '5656565656565656', '08/3', '345', '0.0000', 9, 24, '5656565656565656', '08/3', '345', '55.8000', 'U', '2019-12-07 17:24:42', 'root', 'localhost'),
+(75, 9, 24, '5656565656565656', '08/3', '345', '55.8000', 9, 24, '5656565656565656', '08/3', '345', '84.5500', 'U', '2019-12-07 17:26:37', 'root', 'localhost'),
+(76, NULL, NULL, NULL, NULL, NULL, NULL, 10, 9, '12345678912345666', '01/3', '432', '0.0000', 'I', '2019-12-07 17:35:51', 'root', 'localhost'),
+(77, 10, 9, '12345678912345666', '01/3', '432', '0.0000', 10, 9, '12345678912345666', '01/3', '432', '127.4900', 'U', '2019-12-07 17:36:31', 'root', 'localhost');
 
 -- --------------------------------------------------------
 
@@ -166,19 +245,19 @@ INSERT INTO `tauditcreditcard` (`nAuditCreditCardID`, `nOldCreditCardID`, `nOldU
 CREATE TABLE `tauditpurchase` (
   `nAuditPurchaseID` bigint(20) UNSIGNED NOT NULL,
   `nOldPurchaseID` int(11) DEFAULT NULL,
-  `nOldProductID` mediumint(9) NOT NULL,
+  `nOldProductID` mediumint(9) DEFAULT NULL,
   `dOldPurchase` timestamp NULL DEFAULT NULL,
   `nOldNetAmount` decimal(5,2) DEFAULT NULL,
   `nOldTax` decimal(4,2) DEFAULT NULL,
   `nOldCreditCardID` mediumint(9) DEFAULT NULL,
   `nNewPurchaseID` int(11) DEFAULT NULL,
-  `nNewProductID` mediumint(9) NOT NULL,
+  `nNewProductID` mediumint(9) DEFAULT NULL,
   `dNewPurchase` timestamp NULL DEFAULT NULL,
   `nNewNetAmount` decimal(5,2) DEFAULT NULL,
   `nNewTax` decimal(4,2) DEFAULT NULL,
   `nNewCreditCardID` mediumint(9) DEFAULT NULL,
   `cAction` char(1) NOT NULL,
-  `dTimestamp` timestamp NULL DEFAULT NULL,
+  `dTimestamp` timestamp NULL DEFAULT current_timestamp(),
   `cDBUser` varchar(255) NOT NULL,
   `cHost` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -206,7 +285,15 @@ INSERT INTO `tauditpurchase` (`nAuditPurchaseID`, `nOldPurchaseID`, `nOldProduct
 (87, 60, 1, '2019-12-03 13:58:42', '50.00', '0.99', 7, NULL, 0, NULL, NULL, NULL, NULL, 'D', '2019-12-03 14:00:58', 'root', 'localhost'),
 (88, NULL, 0, NULL, NULL, NULL, NULL, 61, 1, '2019-12-03 14:01:43', '50.00', '0.99', 7, 'I', '2019-12-03 14:01:43', 'root', 'localhost'),
 (89, NULL, 0, NULL, NULL, NULL, NULL, 62, 4, '2019-12-05 08:59:31', '35.00', '8.75', 6, 'I', '2019-12-05 08:59:31', 'root', 'localhost'),
-(90, NULL, 0, NULL, NULL, NULL, NULL, 63, 5, '2019-12-05 09:08:29', '12.00', '7.20', 6, 'I', '2019-12-05 09:08:29', 'root', 'localhost');
+(90, NULL, 0, NULL, NULL, NULL, NULL, 63, 5, '2019-12-05 09:08:29', '12.00', '7.20', 6, 'I', '2019-12-05 09:08:29', 'root', 'localhost'),
+(99, NULL, 0, NULL, NULL, NULL, NULL, 67, 1, '2019-12-07 17:06:07', '1.00', '1.00', 7, 'I', '2019-12-07 17:06:07', 'root', 'localhost'),
+(100, 67, 1, '2019-12-07 17:06:07', '1.00', '1.00', 7, NULL, 0, NULL, NULL, NULL, NULL, 'D', '2019-12-07 17:06:45', 'root', 'localhost'),
+(103, NULL, 0, NULL, NULL, NULL, NULL, 70, 10, '2019-12-07 17:12:22', '55.00', '13.75', 7, 'I', '2019-12-07 17:12:22', 'root', 'localhost'),
+(104, NULL, NULL, NULL, NULL, NULL, NULL, 71, 6, '2019-12-07 17:15:17', '60.00', '15.00', 7, 'I', '2019-12-07 17:15:17', 'root', 'localhost'),
+(105, NULL, NULL, NULL, NULL, NULL, NULL, 72, 5, '2019-12-07 17:15:50', '68.00', '16.32', 7, 'I', '2019-12-07 17:15:50', 'root', 'localhost'),
+(108, NULL, NULL, NULL, NULL, NULL, NULL, 76, 8, '2019-12-07 17:24:42', '45.00', '10.80', 9, 'I', '2019-12-07 17:24:42', 'root', 'localhost'),
+(109, NULL, NULL, NULL, NULL, NULL, NULL, 77, 1, '2019-12-07 17:26:37', '23.00', '5.75', 9, 'I', '2019-12-07 17:26:37', 'root', 'localhost'),
+(110, NULL, NULL, NULL, NULL, NULL, NULL, 78, 3, '2019-12-07 17:36:31', '99.99', '27.50', 10, 'I', '2019-12-07 17:36:31', 'root', 'localhost');
 
 -- --------------------------------------------------------
 
@@ -223,10 +310,10 @@ CREATE TABLE `taudituser` (
   `cOldUsername` varchar(30) DEFAULT NULL,
   `cOldPassword` char(56) DEFAULT NULL,
   `cOldAddress` varchar(255) DEFAULT NULL,
-  `nOldCityID` mediumint(8) UNSIGNED DEFAULT NULL,
+  `nOldCityID` mediumint(9) UNSIGNED DEFAULT NULL,
   `cOldPhoneNo` char(8) DEFAULT NULL,
-  `dOldNewUser` date DEFAULT NULL,
-  `dOldDeleteUser` date DEFAULT NULL,
+  `dOldNewUser` timestamp NULL DEFAULT NULL,
+  `dOldDeleteUser` timestamp NULL DEFAULT NULL,
   `nOldTotalPurchaseAmount` decimal(18,4) DEFAULT NULL,
   `nNewUserID` mediumint(8) UNSIGNED DEFAULT NULL,
   `cNewName` varchar(50) DEFAULT NULL,
@@ -235,10 +322,10 @@ CREATE TABLE `taudituser` (
   `cNewUsername` varchar(30) DEFAULT NULL,
   `cNewPassword` char(56) DEFAULT NULL,
   `cNewAddress` varchar(255) DEFAULT NULL,
-  `nNewCityID` mediumint(8) UNSIGNED DEFAULT NULL,
+  `nNewCityID` mediumint(9) UNSIGNED DEFAULT NULL,
   `cNewPhoneNo` char(8) DEFAULT NULL,
-  `dNewNewUser` date DEFAULT NULL,
-  `dNewDeleteUser` date DEFAULT NULL,
+  `dNewNewUser` timestamp NULL DEFAULT NULL,
+  `dNewDeleteUser` timestamp NULL DEFAULT NULL,
   `nNewTotalPurchaseAmount` decimal(18,4) DEFAULT NULL,
   `cAction` char(1) NOT NULL,
   `dTimeStamp` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -251,30 +338,33 @@ CREATE TABLE `taudituser` (
 --
 
 INSERT INTO `taudituser` (`nAuditUserID`, `nOldUserID`, `cOldName`, `cOldSurname`, `cOldEmail`, `cOldUsername`, `cOldPassword`, `cOldAddress`, `nOldCityID`, `cOldPhoneNo`, `dOldNewUser`, `dOldDeleteUser`, `nOldTotalPurchaseAmount`, `nNewUserID`, `cNewName`, `cNewSurname`, `cNewEmail`, `cNewUsername`, `cNewPassword`, `cNewAddress`, `nNewCityID`, `cNewPhoneNo`, `dNewNewUser`, `dNewDeleteUser`, `nNewTotalPurchaseAmount`, `cAction`, `dTimeStamp`, `cDBUser`, `cHost`) VALUES
-(0, 9, 'Anna', 'Nielsen', 'anna@mail.com', 'annaniel', 'a7470858e79c282bc2f6adfd831b132672dfd1224c1e78cbf5bcd057', 'Tagensvej 1, 2400', 1, '54545454', '2019-12-02', NULL, '0.0000', 9, NULL, 'Nielsen', 'anna@mail.com', 'annaniel', 'a7470858e79c282bc2f6adfd831b132672dfd1224c1e78cbf5bcd057', 'Tagensvej 1, 2400', 1, '54545454', '2019-12-02', NULL, '43.7500', 'U', '2019-12-05 08:59:31', 'root', 'localhost'),
-(1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 'Jonas', 'Jonassen', 'jonse@jonse.com', 'jonse', 'd63dc919e201d7bc4c825630d2cf25fdc93d4b2f0d46706d29038d01', 'Ryparken 120, 2100', 1, '55555555', '0000-00-00', NULL, '0.0000', 'I', '2019-12-02 16:25:59', 'root', 'localhost'),
-(2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, 'Anna', 'Nielsen', 'anna@mail.com', 'annaniel', 'a7470858e79c282bc2f6adfd831b132672dfd1224c1e78cbf5bcd057', 'Tagensvej 1, 2400', 1, '54545454', '2019-12-02', NULL, '0.0000', 'I', '2019-12-02 22:01:45', 'root', 'localhost'),
-(3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 10, 'Frida', 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-02', NULL, '0.0000', 'I', '2019-12-02 22:02:39', 'root', 'localhost'),
-(4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 11, 'Pippi', 'Langstromp', 'langstromp@yahoo.com', 'pippi', '03dfe83128ab8c6f0b6406a887f58b8d87b139c5cf040db96e891424', 'Lygten 16, 2400', 1, '43434343', '2019-12-02', NULL, '0.0000', 'I', '2019-12-02 22:14:02', 'root', 'localhost'),
-(5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 12, 'Allan', 'Tostrup', 'tostrup@gmail', 'tostr', '079a32e16994cf4c8fcf2de227ccf26990d913b013c60c2e4eef4945', 'Guldbergsgade 120, 2400', 1, '1234599', '2019-12-03', NULL, '0.0000', 'I', '2019-12-03 10:49:32', 'root', 'localhost'),
-(6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 13, 'Maria', 'Marense', 'masense@gmail', 'marense', 'c0f41139453b47880ce6757d3f3b5e69722625dd4e0b2d834a0aeaed', 'Rosengade 55, 2800', 3, '45454545', '2019-12-03', NULL, '0.0000', 'I', '2019-12-03 10:50:58', 'root', 'localhost'),
-(7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 14, 'Mike', 'Mikeson', 'mm@mail.com', 'mikeson', 'fb984f4bad7bc64f56f67744cd2dd869ca84968ab620b1d615b724bb', 'Carlsbergsvej 120', 2, '12344321', '2019-12-03', NULL, '0.0000', 'I', '2019-12-03 10:52:04', 'root', 'localhost'),
-(8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 15, 'Lisa', 'Larsen', 'lars@gmail.com', 'lars', 'f67ec754183f332e47f97eb3997ba917da5adca443f41e5be2614f18', 'Jagtvej 564, 2100', 1, '87654321', '2019-12-03', NULL, '0.0000', 'I', '2019-12-03 10:52:50', 'root', 'localhost'),
-(9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 16, 'Raleigh', 'Tyson', 'tyson@yahoo.com', 'tyson', '1bb4b2fcb1ebd6d9de87cfff5e8c78c67bb17ef1981d0356afc27000', 'Lyngybej 120, 2800', 1, '76767676', '2019-12-03', NULL, '0.0000', 'I', '2019-12-03 10:53:44', 'root', 'localhost'),
-(10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 17, 'Sophie', 'Jensen', 'jense@gmail.com', 'sohje', '1d46523873c515fe0303257388bcffb4b32a369ddd79c62a04746744', 'Jensengade 44, 7904', 3, '66778899', '2019-12-03', NULL, '0.0000', 'I', '2019-12-03 10:54:48', 'root', 'localhost'),
-(11, 10, 'Frida', 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-02', NULL, '125.0000', 10, NULL, 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-02', NULL, '187.5000', 'U', '2019-12-03 13:58:42', 'root', 'localhost'),
-(12, 10, 'Frida', 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-02', NULL, '187.5000', 10, NULL, 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-02', NULL, '0.0000', 'U', '2019-12-03 14:01:29', 'root', 'localhost'),
-(13, 10, 'Frida', 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-02', NULL, '0.0000', 10, NULL, 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-02', NULL, '62.5000', 'U', '2019-12-03 14:01:43', 'root', 'localhost'),
-(14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 18, 'Olga', 'Smith', 'olga@olga.com', 'olga1', 'b986a019f4c1cf3fffe37f7cfe9eb60d57b621fe5a28f3df6245fdeb', 'Ovej,1 Koge 1234', 2, '11223344', '2019-12-04', NULL, '0.0000', 'I', '2019-12-04 12:03:57', 'root', 'localhost'),
-(15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 19, 'Olga', 'Smith', 'olga@olga.com', 'olga1', 'b986a019f4c1cf3fffe37f7cfe9eb60d57b621fe5a28f3df6245fdeb', 'Ovej,1 Koge 1234', 2, '11223344', '2019-12-04', NULL, '0.0000', 'I', '2019-12-04 12:04:35', 'root', 'localhost'),
-(16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 20, 'Olga', 'Smith', 'olga@olga.com', 'olga1', 'b986a019f4c1cf3fffe37f7cfe9eb60d57b621fe5a28f3df6245fdeb', 'Ovej,1 Koge 1234', 2, '11223344', '2019-12-04', NULL, '0.0000', 'I', '2019-12-04 12:05:24', 'root', 'localhost'),
-(17, 20, 'Olga', 'Smith', 'olga@olga.com', 'olga1', 'b986a019f4c1cf3fffe37f7cfe9eb60d57b621fe5a28f3df6245fdeb', 'Ovej,1 Koge 1234', 2, '11223344', '2019-12-04', NULL, '0.0000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'D', '2019-12-04 12:05:34', 'root', 'localhost'),
-(18, 19, 'Olga', 'Smith', 'olga@olga.com', 'olga1', 'b986a019f4c1cf3fffe37f7cfe9eb60d57b621fe5a28f3df6245fdeb', 'Ovej,1 Koge 1234', 2, '11223344', '2019-12-04', NULL, '0.0000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'D', '2019-12-04 12:05:43', 'root', 'localhost'),
-(19, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 21, 'Don', 'Jens', 'jens@don.dk', 'donJens', 'bbd2eaa465a570feed6a0f368550b9da88f89194f29466c649920dab', 'Randersvej,12 1234 Randers', 3, '11556438', '2019-12-04', NULL, '0.0000', 'I', '2019-12-04 12:30:04', 'root', 'localhost'),
-(20, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 22, 'Elisabet', 'Coolish', 'cool@cool.com', 'eli', '302c401c2dfb70269d43b24504cb80baad56564f91633a0392001444', 'Ryparken, 11 2100 København', 2, '34563456', '2019-12-04', NULL, '0.0000', 'I', '2019-12-04 12:40:42', 'root', 'localhost'),
-(21, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 23, 'Eleanor', 'Coolish', 'cool@cool.dk', 'eler', '302c401c2dfb70269d43b24504cb80baad56564f91633a0392001444', 'Ryparken 13 2100 København', 2, '34563456', '2019-12-04', NULL, '0.0000', 'I', '2019-12-04 12:41:58', 'root', 'localhost'),
-(22, 22, 'Elisabet', 'Coolish', 'cool@cool.com', 'eli', '302c401c2dfb70269d43b24504cb80baad56564f91633a0392001444', 'Ryparken, 11 2100 København', 2, '34563456', '2019-12-04', NULL, '0.0000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'D', '2019-12-04 12:42:25', 'root', 'localhost'),
-(23, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 24, 'Nina', 'Ricci', 'nina@gmail.com', 'ninaRich', '43f648533b07a340a204b8a9504c75aa457ddc5180209d01aad571e0', 'Coolvej, 14 2387 Nestved', 5, '37809754', '2019-12-04', NULL, '0.0000', 'I', '2019-12-04 12:45:37', 'root', 'localhost');
+(0, 9, 'Anna', 'Nielsen', 'anna@mail.com', 'annaniel', 'a7470858e79c282bc2f6adfd831b132672dfd1224c1e78cbf5bcd057', 'Tagensvej 1, 2400', 1, '54545454', '2019-12-01 23:00:00', NULL, '0.0000', 9, NULL, 'Nielsen', 'anna@mail.com', 'annaniel', 'a7470858e79c282bc2f6adfd831b132672dfd1224c1e78cbf5bcd057', 'Tagensvej 1, 2400', 1, '54545454', '2019-12-01 23:00:00', NULL, '43.7500', 'U', '2019-12-05 08:59:31', 'root', 'localhost'),
+(1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8, 'Jonas', 'Jonassen', 'jonse@jonse.com', 'jonse', 'd63dc919e201d7bc4c825630d2cf25fdc93d4b2f0d46706d29038d01', 'Ryparken 120, 2100', 1, '55555555', '0000-00-00 00:00:00', NULL, '0.0000', 'I', '2019-12-02 16:25:59', 'root', 'localhost'),
+(2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, 'Anna', 'Nielsen', 'anna@mail.com', 'annaniel', 'a7470858e79c282bc2f6adfd831b132672dfd1224c1e78cbf5bcd057', 'Tagensvej 1, 2400', 1, '54545454', '2019-12-01 23:00:00', NULL, '0.0000', 'I', '2019-12-02 22:01:45', 'root', 'localhost'),
+(3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 10, 'Frida', 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-01 23:00:00', NULL, '0.0000', 'I', '2019-12-02 22:02:39', 'root', 'localhost'),
+(4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 11, 'Pippi', 'Langstromp', 'langstromp@yahoo.com', 'pippi', '03dfe83128ab8c6f0b6406a887f58b8d87b139c5cf040db96e891424', 'Lygten 16, 2400', 1, '43434343', '2019-12-01 23:00:00', NULL, '0.0000', 'I', '2019-12-02 22:14:02', 'root', 'localhost'),
+(5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 12, 'Allan', 'Tostrup', 'tostrup@gmail', 'tostr', '079a32e16994cf4c8fcf2de227ccf26990d913b013c60c2e4eef4945', 'Guldbergsgade 120, 2400', 1, '1234599', '2019-12-02 23:00:00', NULL, '0.0000', 'I', '2019-12-03 10:49:32', 'root', 'localhost'),
+(6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 13, 'Maria', 'Marense', 'masense@gmail', 'marense', 'c0f41139453b47880ce6757d3f3b5e69722625dd4e0b2d834a0aeaed', 'Rosengade 55, 2800', 3, '45454545', '2019-12-02 23:00:00', NULL, '0.0000', 'I', '2019-12-03 10:50:58', 'root', 'localhost'),
+(7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 14, 'Mike', 'Mikeson', 'mm@mail.com', 'mikeson', 'fb984f4bad7bc64f56f67744cd2dd869ca84968ab620b1d615b724bb', 'Carlsbergsvej 120', 2, '12344321', '2019-12-02 23:00:00', NULL, '0.0000', 'I', '2019-12-03 10:52:04', 'root', 'localhost'),
+(8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 15, 'Lisa', 'Larsen', 'lars@gmail.com', 'lars', 'f67ec754183f332e47f97eb3997ba917da5adca443f41e5be2614f18', 'Jagtvej 564, 2100', 1, '87654321', '2019-12-02 23:00:00', NULL, '0.0000', 'I', '2019-12-03 10:52:50', 'root', 'localhost'),
+(9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 16, 'Raleigh', 'Tyson', 'tyson@yahoo.com', 'tyson', '1bb4b2fcb1ebd6d9de87cfff5e8c78c67bb17ef1981d0356afc27000', 'Lyngybej 120, 2800', 1, '76767676', '2019-12-02 23:00:00', NULL, '0.0000', 'I', '2019-12-03 10:53:44', 'root', 'localhost'),
+(10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 17, 'Sophie', 'Jensen', 'jense@gmail.com', 'sohje', '1d46523873c515fe0303257388bcffb4b32a369ddd79c62a04746744', 'Jensengade 44, 7904', 3, '66778899', '2019-12-02 23:00:00', NULL, '0.0000', 'I', '2019-12-03 10:54:48', 'root', 'localhost'),
+(11, 10, 'Frida', 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-01 23:00:00', NULL, '125.0000', 10, NULL, 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-01 23:00:00', NULL, '187.5000', 'U', '2019-12-03 13:58:42', 'root', 'localhost'),
+(12, 10, 'Frida', 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-01 23:00:00', NULL, '187.5000', 10, NULL, 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-01 23:00:00', NULL, '0.0000', 'U', '2019-12-03 14:01:29', 'root', 'localhost'),
+(13, 10, 'Frida', 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-01 23:00:00', NULL, '0.0000', 10, NULL, 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-01 23:00:00', NULL, '62.5000', 'U', '2019-12-03 14:01:43', 'root', 'localhost'),
+(14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 18, 'Olga', 'Smith', 'olga@olga.com', 'olga1', 'b986a019f4c1cf3fffe37f7cfe9eb60d57b621fe5a28f3df6245fdeb', 'Ovej,1 Koge 1234', 2, '11223344', '2019-12-03 23:00:00', NULL, '0.0000', 'I', '2019-12-04 12:03:57', 'root', 'localhost'),
+(15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 19, 'Olga', 'Smith', 'olga@olga.com', 'olga1', 'b986a019f4c1cf3fffe37f7cfe9eb60d57b621fe5a28f3df6245fdeb', 'Ovej,1 Koge 1234', 2, '11223344', '2019-12-03 23:00:00', NULL, '0.0000', 'I', '2019-12-04 12:04:35', 'root', 'localhost'),
+(16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 20, 'Olga', 'Smith', 'olga@olga.com', 'olga1', 'b986a019f4c1cf3fffe37f7cfe9eb60d57b621fe5a28f3df6245fdeb', 'Ovej,1 Koge 1234', 2, '11223344', '2019-12-03 23:00:00', NULL, '0.0000', 'I', '2019-12-04 12:05:24', 'root', 'localhost'),
+(17, 20, 'Olga', 'Smith', 'olga@olga.com', 'olga1', 'b986a019f4c1cf3fffe37f7cfe9eb60d57b621fe5a28f3df6245fdeb', 'Ovej,1 Koge 1234', 2, '11223344', '2019-12-03 23:00:00', NULL, '0.0000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'D', '2019-12-04 12:05:34', 'root', 'localhost'),
+(18, 19, 'Olga', 'Smith', 'olga@olga.com', 'olga1', 'b986a019f4c1cf3fffe37f7cfe9eb60d57b621fe5a28f3df6245fdeb', 'Ovej,1 Koge 1234', 2, '11223344', '2019-12-03 23:00:00', NULL, '0.0000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'D', '2019-12-04 12:05:43', 'root', 'localhost'),
+(19, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 21, 'Don', 'Jens', 'jens@don.dk', 'donJens', 'bbd2eaa465a570feed6a0f368550b9da88f89194f29466c649920dab', 'Randersvej,12 1234 Randers', 3, '11556438', '2019-12-03 23:00:00', NULL, '0.0000', 'I', '2019-12-04 12:30:04', 'root', 'localhost'),
+(20, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 22, 'Elisabet', 'Coolish', 'cool@cool.com', 'eli', '302c401c2dfb70269d43b24504cb80baad56564f91633a0392001444', 'Ryparken, 11 2100 København', 2, '34563456', '2019-12-03 23:00:00', NULL, '0.0000', 'I', '2019-12-04 12:40:42', 'root', 'localhost'),
+(21, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 23, 'Eleanor', 'Coolish', 'cool@cool.dk', 'eler', '302c401c2dfb70269d43b24504cb80baad56564f91633a0392001444', 'Ryparken 13 2100 København', 2, '34563456', '2019-12-03 23:00:00', NULL, '0.0000', 'I', '2019-12-04 12:41:58', 'root', 'localhost'),
+(22, 22, 'Elisabet', 'Coolish', 'cool@cool.com', 'eli', '302c401c2dfb70269d43b24504cb80baad56564f91633a0392001444', 'Ryparken, 11 2100 København', 2, '34563456', '2019-12-03 23:00:00', NULL, '0.0000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'D', '2019-12-04 12:42:25', 'root', 'localhost'),
+(23, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 24, 'Nina', 'Ricci', 'nina@gmail.com', 'ninaRich', '43f648533b07a340a204b8a9504c75aa457ddc5180209d01aad571e0', 'Coolvej, 14 2387 Nestved', 5, '37809754', '2019-12-03 23:00:00', NULL, '0.0000', 'I', '2019-12-04 12:45:37', 'root', 'localhost'),
+(24, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 25, 'TEst', 'test', 'test', 'test', '227a85d5903ded14be5bf67cce0eb95295b120142e4358efcb2ad279', 'test', 6, '12345678', '2019-12-06 23:00:00', NULL, '0.0000', 'I', '2019-12-07 17:19:21', 'root', 'localhost'),
+(25, 25, 'TEst', 'test', 'test', 'test', '227a85d5903ded14be5bf67cce0eb95295b120142e4358efcb2ad279', 'test', 6, '12345678', '2019-12-06 23:00:00', NULL, '0.0000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'D', '2019-12-07 17:19:48', 'root', 'localhost'),
+(26, 9, 'Anna', 'Nielsen', 'anna@mail.com', 'annaniel', 'a7470858e79c282bc2f6adfd831b132672dfd1224c1e78cbf5bcd057', 'Tagensvej 1, 2400', 1, '54545454', '2019-12-02 22:01:45', NULL, '43.7500', 9, NULL, 'Nielsen', 'anna@mail.com', 'annaniel', 'a7470858e79c282bc2f6adfd831b132672dfd1224c1e78cbf5bcd057', 'Tagensvej 1, 2400', 1, '54545454', '2019-12-02 22:01:45', NULL, '171.2400', 'U', '2019-12-07 17:36:31', 'root', 'localhost');
 
 -- --------------------------------------------------------
 
@@ -358,7 +448,9 @@ CREATE TABLE `tcreditcard` (
 
 INSERT INTO `tcreditcard` (`nCreditCardID`, `cIBAN`, `cExpiration`, `cCCV`, `nTotalPurchaseAmount`, `nUserID`) VALUES
 (6, '123456781234567890', '12/2', '123', '62.9500', 9),
-(7, '4555400091110086', '06/2', '888', '62.5000', 10);
+(7, '4555400091110086', '06/2', '888', '221.8200', 10),
+(9, '5656565656565656', '08/3', '345', '84.5500', 24),
+(10, '12345678912345666', '01/3', '432', '127.4900', 9);
 
 --
 -- Triggers `tcreditcard`
@@ -480,14 +572,14 @@ CREATE TABLE `tproduct` (
 --
 
 INSERT INTO `tproduct` (`nProductID`, `cName`, `nCoffeeTypeID`, `nPrice`, `nStock`, `bActive`) VALUES
-(1, 'Organic Tierra Del Sol', 5, '23.00', 145, 1),
+(1, 'Organic Tierra Del Sol', 5, '23.00', 144, 1),
 (2, 'Greater Goods', 6, '44.00', 10, 1),
-(3, 'Hugo Melo', 1, '110.00', 200, 1),
+(3, 'Hugo Melo', 1, '110.00', 199, 1),
 (4, 'Light It Up', 4, '35.00', 100, 1),
-(5, 'Full Steam', 3, '68.00', 101, 1),
+(5, 'Full Steam', 3, '68.00', 100, 1),
 (6, 'Coffee Manufactory', 2, '60.00', 100, 1),
 (7, 'Little Nap Coffee Beans', 6, '25.00', 100, 1),
-(8, 'Atlas Coffee', 5, '45.00', 100, 1),
+(8, 'Atlas Coffee', 5, '45.00', 99, 1),
 (9, 'Kintore Coffee', 6, '40.00', 100, 1),
 (10, 'Lavazza', 2, '55.00', 100, 1),
 (21, 'Read Coffee Bag', 1, '35.00', 150, 1);
@@ -514,7 +606,13 @@ CREATE TABLE `tpurchase` (
 INSERT INTO `tpurchase` (`nPurchaseID`, `nProductID`, `dPurchase`, `nNetAmount`, `nTax`, `nCreditCardID`) VALUES
 (61, 1, '2019-12-03 14:01:43', '50.00', '12.50', 7),
 (62, 4, '2019-12-05 08:59:31', '35.00', '8.75', 6),
-(63, 5, '2019-12-05 09:08:29', '12.00', '7.20', 6);
+(63, 5, '2019-12-05 09:08:29', '12.00', '7.20', 6),
+(70, 10, '2019-12-07 17:12:22', '55.00', '13.75', 7),
+(71, 6, '2019-12-07 17:15:17', '60.00', '15.00', 7),
+(72, 5, '2019-12-07 17:15:50', '68.00', '16.32', 7),
+(76, 8, '2019-12-07 17:24:42', '45.00', '10.80', 9),
+(77, 1, '2019-12-07 17:26:37', '23.00', '5.75', 9),
+(78, 3, '2019-12-07 17:36:31', '99.99', '27.50', 10);
 
 --
 -- Triggers `tpurchase`
@@ -630,6 +728,14 @@ CREATE TABLE `tsubscriptionpurchase` (
   `nPurchaseID` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tsubscriptionpurchase`
+--
+
+INSERT INTO `tsubscriptionpurchase` (`nUserSubscriptionID`, `nPurchaseID`) VALUES
+(1, 77),
+(2, 78);
+
 -- --------------------------------------------------------
 
 --
@@ -672,7 +778,7 @@ CREATE TABLE `tuser` (
   `nCityID` mediumint(9) UNSIGNED NOT NULL,
   `cPhoneNo` char(8) NOT NULL,
   `dNewUser` timestamp NOT NULL DEFAULT current_timestamp(),
-  `dDeleteUser` date DEFAULT NULL,
+  `dDeleteUser` timestamp NULL DEFAULT NULL,
   `nTotalPurchaseAmount` decimal(18,4) NOT NULL DEFAULT 0.0000
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -682,7 +788,7 @@ CREATE TABLE `tuser` (
 
 INSERT INTO `tuser` (`nUserID`, `cName`, `cSurname`, `cEmail`, `cUsername`, `cPassword`, `cAddress`, `nCityID`, `cPhoneNo`, `dNewUser`, `dDeleteUser`, `nTotalPurchaseAmount`) VALUES
 (8, 'Jonas', 'Jonassen', 'jonse@jonse.com', 'jonse', 'd63dc919e201d7bc4c825630d2cf25fdc93d4b2f0d46706d29038d01', 'Ryparken 120, 2100', 1, '55555555', '0000-00-00 00:00:00', NULL, '0.0000'),
-(9, 'Anna', 'Nielsen', 'anna@mail.com', 'annaniel', 'a7470858e79c282bc2f6adfd831b132672dfd1224c1e78cbf5bcd057', 'Tagensvej 1, 2400', 1, '54545454', '2019-12-02 22:01:45', NULL, '43.7500'),
+(9, 'Anna', 'Nielsen', 'anna@mail.com', 'annaniel', 'a7470858e79c282bc2f6adfd831b132672dfd1224c1e78cbf5bcd057', 'Tagensvej 1, 2400', 1, '54545454', '2019-12-02 22:01:45', NULL, '171.2400'),
 (10, 'Frida', 'Kahlo', 'frida@mail.com', 'fridak', '7d463f13fa3d3a1525050aaeb08c8b855763ed813553175c6d1f2833', 'Emdrupvej 266, 2100', 1, '12345678', '2019-12-02 22:02:39', NULL, '62.5000'),
 (11, 'Pippi', 'Langstromp', 'langstromp@yahoo.com', 'pippi', '03dfe83128ab8c6f0b6406a887f58b8d87b139c5cf040db96e891424', 'Lygten 16, 2400', 1, '43434343', '2019-12-02 22:14:02', NULL, '0.0000'),
 (12, 'Allan', 'Tostrup', 'tostrup@gmail', 'tostr', '079a32e16994cf4c8fcf2de227ccf26990d913b013c60c2e4eef4945', 'Guldbergsgade 120, 2400', 1, '1234599', '2019-12-03 10:49:32', NULL, '0.0000'),
@@ -694,7 +800,7 @@ INSERT INTO `tuser` (`nUserID`, `cName`, `cSurname`, `cEmail`, `cUsername`, `cPa
 (18, 'Olga', 'Smith', 'olga@olga.com', 'olga1', 'b986a019f4c1cf3fffe37f7cfe9eb60d57b621fe5a28f3df6245fdeb', 'Ovej,1 Koge 1234', 2, '11223344', '2019-12-04 12:03:57', NULL, '0.0000'),
 (21, 'Don', 'Jens', 'jens@don.dk', 'donJens', 'bbd2eaa465a570feed6a0f368550b9da88f89194f29466c649920dab', 'Randersvej,12 1234 Randers', 3, '11556438', '2019-12-04 12:30:04', NULL, '0.0000'),
 (23, 'Eleanor', 'Coolish', 'cool@cool.dk', 'eler', '302c401c2dfb70269d43b24504cb80baad56564f91633a0392001444', 'Ryparken 13 2100 København', 2, '34563456', '2019-12-04 12:41:58', NULL, '0.0000'),
-(24, 'Nina', 'Ricci', 'nina@gmail.com', 'ninaRich', '43f648533b07a340a204b8a9504c75aa457ddc5180209d01aad571e0', 'Coolvej, 14 2387 Nestved', 5, '37809754', '2019-12-04 12:45:37', NULL, '0.0000');
+(24, 'Nina', 'Ricci', 'nina@gmail.com', 'ninaRich', '43f648533b07a340a204b8a9504c75aa457ddc5180209d01aad571e0', 'Coolvej, 14 2387 Nestved', 5, '37809754', '2019-12-04 12:45:37', NULL, '84.5500');
 
 --
 -- Triggers `tuser`
@@ -868,6 +974,14 @@ CREATE TABLE `tusersubscription` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `tusersubscription`
+--
+
+INSERT INTO `tusersubscription` (`nUserSubscriptionID`, `nUserID`, `dSubscription`, `dCancellation`, `nSubscriptionTypeID`) VALUES
+(1, 24, '2019-12-07 17:26:37', NULL, 1),
+(2, 9, '2019-12-07 17:36:31', NULL, 2);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -961,19 +1075,19 @@ ALTER TABLE `tusersubscription`
 -- AUTO_INCREMENT for table `tauditcreditcard`
 --
 ALTER TABLE `tauditcreditcard`
-  MODIFY `nAuditCreditCardID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `nAuditCreditCardID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `tauditpurchase`
 --
 ALTER TABLE `tauditpurchase`
-  MODIFY `nAuditPurchaseID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `nAuditPurchaseID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
 -- AUTO_INCREMENT for table `taudituser`
 --
 ALTER TABLE `taudituser`
-  MODIFY `nAuditUserID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `nAuditUserID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `tcity`
@@ -991,19 +1105,19 @@ ALTER TABLE `tcoffeetype`
 -- AUTO_INCREMENT for table `tcreditcard`
 --
 ALTER TABLE `tcreditcard`
-  MODIFY `nCreditCardID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `nCreditCardID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tproduct`
 --
 ALTER TABLE `tproduct`
-  MODIFY `nProductID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `nProductID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `tpurchase`
 --
 ALTER TABLE `tpurchase`
-  MODIFY `nPurchaseID` int(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `nPurchaseID` int(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `tsubscriptiontype`
@@ -1015,13 +1129,13 @@ ALTER TABLE `tsubscriptiontype`
 -- AUTO_INCREMENT for table `tuser`
 --
 ALTER TABLE `tuser`
-  MODIFY `nUserID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `nUserID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tusersubscription`
 --
 ALTER TABLE `tusersubscription`
-  MODIFY `nUserSubscriptionID` int(8) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `nUserSubscriptionID` int(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
