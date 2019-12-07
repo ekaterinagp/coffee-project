@@ -131,31 +131,62 @@ require_once(__DIR__.'/components/header.php');
     <h2>Enhance your experience</h2>
     <h3>Tips and tricks to make your best cup of coffee</h3>
     <div class="grid grid-four container masonry"> 
-            <a href="#" class="item one bg-dark-brown">
-                    <div class="image bg-contain"></div>
-                    <h5 class="color-white ph-medium relative">How to choose coffee</h5>
-            </a>
+            <div class="flipcontainer item one grid" ontouchstart="this.classList.toggle('hover');">
+                <div class="flipper">
+                    <div  class="front bg-dark-brown">
+                        <div class="image bg-contain"></div>
+                        <h5 class="color-white ph-medium relative">How to choose coffee</h5>
+                    </div>
+                    <div class="back p-medium">Some info</div>
+                </div>
+            </div>
        
-        <a href="#" class="item two bg-light-brown">
-                <div class="image bg-contain"></div>
-                <h5 class="color-white ph-medium relative">How to brew coffee</h5>
-        </a>
-        <a href="#" class="item three bg-brown">
-                <div class="image bg-contain"></div>
-                <h5 class="color-white ph-medium relative">Christmas coffee</h5>
-        </a>
-        <a href="#" class="item four bg-light-brown">
-                <div class="image bg-contain relative"></div>
-                <h5 class="color-white ph-medium relative">Types of coffee you can make at home</h5>
-        </a>
-        <a href="#" class="item five bg-medium-light-brown">
-                <div class="image bg-contain"></div>
-                <h5 class="color-white ph-medium relative">Best coffee equipment</h5>
-        </a>
-        <a href="#" class="item six bg-medium-light-brown">
-                <div class="image bg-contain"></div>
-                <h5 class="color-white ph-medium relative">Sustainability in coffee drinking</h5>
-        </a>
+        <div class="flipcontainer item two grid" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front bg-light-brown">
+                    <div class="image bg-contain"></div>
+                    <h5 class="color-white ph-medium relative">How to brew coffee</h5>
+                </div>
+                <div class="back p-medium">Some info</div>
+            </div>
+        </div>
+        <div class="flipcontainer item three grid" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front bg-medium-light-brown">  
+                    <div class="image bg-contain"></div>
+                    <h5 class="color-white ph-medium relative">Christmas coffee</h5>
+                </div>
+                <div class="back p-medium">Some info</div>
+            </div>
+        </div>
+        <div class="flipcontainer item four grid" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front bg-light-brown">
+                    <div class="image bg-contain relative"></div>
+                    <h5 class="color-white ph-medium relative">Types of coffee you can make at home</h5>
+                </div>
+                <div class="back p-medium">Some info</div>
+            </div>
+        </div>
+        <div class="flipcontainer item five grid" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front bg-medium-light-brown">
+                    <div class="image bg-contain"></div>
+                    <h5 class="color-white ph-medium relative">Best coffee equipment</h5>
+                </div>
+                <div class="back p-medium">Some info</div>
+            </div>
+        </div>
+        
+        <div class="flipcontainer item six grid" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front bg-dark-brown">
+                    <div class="image bg-contain"></div>
+                    <h5 class="color-white ph-medium relative">Sustainability in coffee drinking</h5>
+                </div>
+                <div class="back p-medium">Some info</div>
+            </div>
+        </div>
         
     </div>
 </section>
