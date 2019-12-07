@@ -71,9 +71,10 @@ if($statement->execute()){
 
     <section class="section-two grid mb-large mh-medium">
         <h2 class="mb-medium">You might also like</h2>
-        <h2 class="coffee-type text-left mb-small"><?=$product['cName'];?></h2>
+        <h2 class="coffee-type text-left mb-medium"><?=$product['cName'];?></h2>
+        <div class="container-banner absolute pv-large bg-dark-brown"></div>
         <div class="products-container grid grid-four">  
-
+        
 <?php
             }
         }
@@ -92,16 +93,16 @@ if($statement->execute()){
                 $result = strtolower(str_replace(" ", "-", $imgUrl));
             ?>
 
-            <a href="singleProduct.php?id=<?=$product['nProductID'];?>">
-                <div class="product" id="product-<?=$product['nProductID'];?>">
-                <div class="image bg-contain" style="background-image: url(img/products/<?=$result;?>.png)"></div>
-                <div class="description m-small">
-                    <h3 class="productName mt-small text-left"><?=$product['cProductName'];?></h3>
-                    <h4 class="productName mt-small text-left">Origin: <?=$product['cName'];?></h4>
-                    <p class="productPrice mt-small"><?=$product['nPrice'];?> DKK</p>
-                </div>
-                </div>
-            </a>
+                <a href="singleProduct.php?id=<?=$product['nProductID'];?>">
+                    <div class="product" id="product-<?=$product['nProductID'];?>">
+                    <div class="image bg-contain" style="background-image: url(img/products/<?=$result;?>.png)"></div>
+                    <div class="description m-small">
+                        <h3 class="productName mt-small text-left"><?=$product['cProductName'];?></h3>
+                        <h4 class="productName mt-small text-left">Origin: <?=$product['cName'];?></h4>
+                        <p class="productPrice mt-small"><?=$product['nPrice'];?> DKK</p>
+                    </div>
+                    </div>
+                </a>
 <?php
             }
         }
@@ -113,7 +114,6 @@ if($statement->execute()){
 </main>
 
 <?php
-
 $connection = null;
 
 $sScriptPath = 'js/script.js';

@@ -162,8 +162,6 @@ function fetchDataForSearch() {
 
       theResults.textContent = "";
 
-      
-
       arrayMatches.forEach(function(match) {
         let a = document.createElement("a");
         let p = document.createElement("p");

@@ -911,6 +911,7 @@ a {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     transition: 0.2s ease-in-out;
     padding: 1vw;
+    background-color: #fff;
 }
 
 .shop .product:hover, .single-product .product:hover{
@@ -927,6 +928,13 @@ a {
 {
     padding: 0;
     text-align: left;
+}
+
+.single-product .container-banner{
+  width: 100%;
+  z-index: -1;
+  top: 59.5vw;
+  left: 0;
 }
 
 /***** SINGLE PRODUCT PAGE *****/
