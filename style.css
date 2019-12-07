@@ -153,6 +153,18 @@ svg {
   text-align: left;
 }
 
+.uppercase{
+  text-transform: uppercase;
+}
+
+.bold{
+  font-weight: 900;
+}
+
+.light{
+  font-weight: 300;
+}
+
 /*****   MARGINS & PADDINGS    *****/
 
 .p-small {
@@ -248,6 +260,10 @@ svg {
     margin-right: 1vw;
 }
 
+.ml-small{
+  margin-left: 1vw;
+}
+
 .m-medium {
   margin: 4vw;
 }
@@ -269,6 +285,9 @@ svg {
 .mr-medium{
     margin-right: 4vw;
 }
+.ml-medium{
+  margin-left: 4vw;
+}
 
 .m-large {
   margin: 8vw;
@@ -286,6 +305,14 @@ svg {
 }
 .mt-large {
   margin-top: 8vw;
+}
+
+.mr-small{
+  margin-right: 8vw;
+}
+
+.ml-large{
+  margin-left: 8vw;
 }
 
 .m-xlarge {
@@ -930,13 +957,6 @@ a {
     text-align: left;
 }
 
-.single-product .container-banner{
-  width: 100%;
-  z-index: -1;
-  top: 59.5vw;
-  left: 0;
-}
-
 /***** SINGLE PRODUCT PAGE *****/
 
 .single-product .section-one {
@@ -951,6 +971,23 @@ a {
 .productPrice {
   text-align: left;
 }
+
+.single-product .container-banner{
+  width: 100%;
+  z-index: -1;
+  top: 59.5vw;
+  left: 0;
+}
+
+.single-product .description{
+  grid-gap: 2vw;
+}
+
+.single-product .section-one h3, .single-product .section-one h4{
+  text-align: left;
+  padding-bottom: 0.5vw;
+}
+
 
 /* CHECKBOX */
 

@@ -32,19 +32,31 @@ if($statement->execute()){
                 $result = strtolower(str_replace(" ", "-", $imgUrl));
 ?>
 
-        <div id="product-<?=$product['nProductID'];?>" class="product-info-container grid grid-two mh-large">
+        <div id="product-<?=$product['nProductID'];?>" class="product-info-container grid grid-two ml-large mr-medium">
             <div class="image bg-contain" style="background-image: url(img/products/<?= $result;?>.png)"></div>
-            <div class="description mh-small mv-medium">
+            <div class="description mh-small mv-medium grid grid-two">
+                <div>
                     <h1 class="productName mv-small text-left"><?=$product['cProductName'];?></h1>
-                    <h2 class="coffee-type mv-small text-left"><?=$product['cName'];?></h2>
+                    <h2 class="coffee-type mv-small text-left light"><?=$product['cName'];?></h2>
                     <p class="productPrice mv-small"><?=$product['nPrice'];?> DKK</p>
+                    <p>A soft, velvety body highlights a soft citric acidity and pleasant sweetness, with notes of raspberry, orange and sugar cane.</p>
+                </div>
+                <div class="mv-small">
+                    <h4 class="uppercase bold">Roast level</h4>
+                    <h3 class="uppercase light mb-small">MEDIUM ROAST</h3>
+                    <h4 class="uppercase bold">Type</h4>
+                    <h3 class="uppercase light mb-small"><?=$product['cName'];?></h3>
+                    <h4 class="uppercase bold">Recommmended for</h4>
+                    <h3 class="uppercase light">ESPRESSO</h3>
+                    <h3 class="uppercase light">FRENCH PRESS</h3>
+                </div>
             </div>
         </div>
     
-        <div class="product-purchase-container bg-grey p-medium grid grid-two">   
+        <div class="product-purchase-container bg-grey p-medium grid grid-two ml-medium">   
             <div class="options">
                 <h2 class="p-small">Quantity</h2>
-                <label for="option1" class="mr-small">
+                <label for="option1">
                     <input type="number" name="option1" value="1" class="">
                     <span class="checkmark number">bag</span>    
                 </label>
@@ -52,12 +64,12 @@ if($statement->execute()){
             
                 <h2 class="p-small">Grind</h2>
                 <div class="options">
-                    <label for="option1" class="mr-small">
-                        <input type="radio" name="option1" value="0-50" class="mr-small mb-small">
+                    <label for="option1">
+                        <input type="radio" name="option1" value="0-50" class="mb-small">
                         <span class="checkmark">Whole</span>
                     </label> 
-                    <label for="option1" class="mr-small">
-                        <input type="radio" name="option1" value="0-50" class="mr-small mb-small">
+                    <label for="option1">
+                        <input type="radio" name="option1" value="0-50" class="mb-small">
                         <span class="checkmark">Grind</span>
                     </label>
                 </div>
