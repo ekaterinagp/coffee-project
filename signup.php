@@ -2,24 +2,14 @@
 $sTitle = ' | Signup';
 $sCurrentPage = 'profile';
 require_once(__DIR__ . '/components/header.php');
-
-
-
+require_once(__DIR__ . '/components/functions.php');
 
 session_start();
+
 if ($_SESSION) {
+  // HERE WE HAVE TO HAVE THE ID IN THE SESSION AND USE IT IN THE LOCATION HREF - SAME FOR LOGIN
   header("location:profile.php");
 }
-
-
-
-function sendErrorMessage($txtError, $iLineNumber)
-{
-  echo '{"status":0, "message":"' . $txtError . '", "line":' . $iLineNumber . '}';
-  exit;
-}
-
-
 
 ?>
 
@@ -34,9 +24,6 @@ function sendErrorMessage($txtError, $iLineNumber)
 </head>
 
 <body>
-
-
-
 
   <div class="containerSignup">
     <div class="loginWelcome">

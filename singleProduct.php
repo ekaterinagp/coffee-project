@@ -6,8 +6,7 @@ require_once(__DIR__.'/components/header.php');
 $iProductID = $_GET['id'];
 
 require_once(__DIR__.'/connection.php');
-$sqli = "SELECT * FROM tProduct";
-$sql = "SELECT tProduct.nProductID, tProduct.cName as cProductName, tProduct.nCoffeeTypeID as nProductCoffeeTypeID, tProduct.nPrice, tProduct.nStock, tCoffeeType.nCoffeeTypeID, tCoffeeType.cName FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID";
+$sql = "SELECT tProduct.nProductID, tProduct.cName as cProductName, tProduct.nCoffeeTypeID as nProductCoffeeTypeID, tProduct.nPrice, tProduct.nStock, tProduct.bActive, tCoffeeType.nCoffeeTypeID, tCoffeeType.cName FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID";
 $statement = $connection->prepare($sql);
 ?>
 
@@ -21,14 +20,16 @@ if($statement->execute()){
 
     foreach($products as $product){
 
-        $nProductID = $product['nProductID'];
+        if($product['bActive']!==0){
+
+            $nProductID = $product['nProductID'];
         
-        if($nProductID == $iProductID){
+            if($nProductID == $iProductID){
 
-            $nCoffeeTypeID = $product['nCoffeeTypeID'];
+                $nCoffeeTypeID = $product['nCoffeeTypeID'];
 
-            $imgUrl = $product['cProductName'];
-            $result = strtolower(str_replace(" ", "-", $imgUrl));
+                $imgUrl = $product['cProductName'];
+                $result = strtolower(str_replace(" ", "-", $imgUrl));
 ?>
 
         <div id="product-<?=$product['nProductID'];?>" class="product-info-container grid grid-two mh-large">
@@ -39,18 +40,14 @@ if($statement->execute()){
                     <p class="productPrice mv-small"><?=$product['nPrice'];?> DKK</p>
             </div>
         </div>
-
     
-        <div class="product-purchase-container bg-grey p-medium grid grid-two">
-            
+        <div class="product-purchase-container bg-grey p-medium grid grid-two">   
             <div class="options">
                 <h2 class="p-small">Quantity</h2>
-
                 <label for="option1" class="mr-small">
                     <input type="number" name="option1" value="1" class="">
                     <span class="checkmark number">bag</span>    
                 </label>
-
             </div>
             
                 <h2 class="p-small">Grind</h2>
@@ -59,14 +56,11 @@ if($statement->execute()){
                         <input type="radio" name="option1" value="0-50" class="mr-small mb-small">
                         <span class="checkmark">Whole</span>
                     </label> 
-
                     <label for="option1" class="mr-small">
                         <input type="radio" name="option1" value="0-50" class="mr-small mb-small">
                         <span class="checkmark">Grind</span>
                     </label>
                 </div>
-               
-            
             <div class="payment grid">
                 <h2 class="align-self-bottom">Total amount</h2>
                 <p class="align-self-top"><?=$product['nPrice'];?> DKK</p>
@@ -78,23 +72,25 @@ if($statement->execute()){
     <section class="section-two grid mb-large mh-medium">
         <h2 class="mb-medium">You might also like</h2>
         <h2 class="coffee-type text-left mb-small"><?=$product['cName'];?></h2>
-        <div class="products-container grid grid-four">
-        
+        <div class="products-container grid grid-four">  
 
 <?php
+            }
         }
-        
     }
     
     foreach($products as $product){
-        $nProductID = $product['nProductID'];
 
-        $imgUrl = $product['cProductName'];
-        $result = strtolower(str_replace(" ", "-", $imgUrl));
+        if($product['bActive']!==0){
 
-        $nRelatedProductCoffeeTypeID = $product['nCoffeeTypeID'];
+            $nProductID = $product['nProductID'];
+            $nRelatedProductCoffeeTypeID = $product['nCoffeeTypeID'];
 
-        if($nRelatedProductCoffeeTypeID == $nCoffeeTypeID && $nProductID != $iProductID){?>
+            if($nRelatedProductCoffeeTypeID == $nCoffeeTypeID && $nProductID != $iProductID){
+
+                $imgUrl = $product['cProductName'];
+                $result = strtolower(str_replace(" ", "-", $imgUrl));
+            ?>
 
             <a href="singleProduct.php?id=<?=$product['nProductID'];?>">
                 <div class="product" id="product-<?=$product['nProductID'];?>">
@@ -107,6 +103,7 @@ if($statement->execute()){
                 </div>
             </a>
 <?php
+            }
         }
     }
 }   
@@ -116,5 +113,8 @@ if($statement->execute()){
 </main>
 
 <?php
+
+$connection = null;
+
 $sScriptPath = 'js/script.js';
 require_once(__DIR__.'/components/footer.php');

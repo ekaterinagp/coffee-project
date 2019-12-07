@@ -1,39 +1,32 @@
 <?php
-require_once(__DIR__.'/../connection.php');
-
-$stmt = $connection->prepare("INSERT INTO tproduct (cName, nPrice, nStock, nCoffeeTypeID) VALUES (:name, :price, :stock, :coffeetype)");
-// $stmt= $connection->prepare($sql);
 if($_POST){
     
     if(empty($_POST['newPrice'])){
-        sendError('Price missing', __LINE__);
+        sendErrorMessage('Price missing', __LINE__);
     }
     if(empty($_POST['newStock'])){
-        sendError('stock missing', __LINE__);
+        sendErrorMessage('stock missing', __LINE__);
     }
     if(empty($_POST['newName'])){
-        sendError('name missing', __LINE__);
+        sendErrorMessage('name missing', __LINE__);
     }
     if(empty($_POST['newCoffeetype'])){
-        sendError('coffetype missing', __LINE__);
+        sendErrorMessage('coffetype missing', __LINE__);
     }
 
+    require_once(__DIR__.'/../connection.php');
+    require_once(__DIR__.'/../components/functions.php');
+
+    $sql = "INSERT INTO tproduct (cName, nPrice, nStock, nCoffeeTypeID) VALUES (:name, :price, :stock, :coffeetype)";
+    $statement = $connection->prepare($sql);
 
     $data =['name' => $_POST['newName'],
         'price' => $_POST['newPrice'],
         'stock' => $_POST['newStock'],
         'coffeetype' => $_POST['newCoffeetype']
-        ];
-    $stmt->execute($data);
+    ];
 
-    echo '{"status":1, "message":"Product successfully created"}';
-}
-
-
-
-
-/****************/
-function sendError($message, $line){
-    echo '{"status":0, "message": '.$message.', "line":'.$line.'}';
-    exit;
+    if($statement->execute($data)){
+        echo '{"status":1, "message":"Product successfully created"}';
+    }
 }

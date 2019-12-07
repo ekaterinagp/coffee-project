@@ -14,17 +14,9 @@ $options = [
     PDO::ATTR_EMULATE_PREPARES => false,
 ];
 
-// $sql = "SELECT * FROM TUser";
-//$connection = new PDO($dsn, $username, $password, $options); // PDO connection with own variable - the instance of the PDO
-// new PDO() takes 4 parameters: $dsn (datasourcename), $username, $password, $options
-
 // TEST IF CONNECTION IS SUCCEFUL WITH try catch
-
-
 try{
-    $connection = new PDO($dsn, $username, $password, $options);
-    
-        
+    $connection = new PDO($dsn, $username, $password, $options);      
 } catch(PDOException $e){
     throw new PDOException($e->getMessage(), (int)$e->getCode()); // throw me errors
 }

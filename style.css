@@ -684,6 +684,12 @@ a {
 
 /***** SHOP PAGE *****/
 
+#results{
+  width: 20vw;
+  height: 20vw;
+  display: none;
+}
+
 #txtSearch {
   justify-self: right;
   width: 15vw;

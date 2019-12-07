@@ -27,8 +27,7 @@ require_once(__DIR__.'/components/header.php');
         <div class="grid image-container bg-dark-brown">
             <div class="image bg-contain img4"></div>
         </div>
-    </div>
-    
+    </div>  
 </section>
 
 <section class="section-two grid mb-large">

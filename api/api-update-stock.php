@@ -1,35 +1,29 @@
 <?php
-require_once(__DIR__.'/../connection.php');
-
 
 
 if($_POST){
+
     if(empty($_POST['updateStock'])){
-        sendError('Stock missing', __LINE__);
+        sendErrorMessage('Stock missing', __LINE__);
     }
     if(empty($_POST['id'])){
-        sendError('no id', __LINE__);
+        sendErrorMessage('no id', __LINE__);
     }
-    
-    $id = $_POST['id'];
-    $stmt = $connection->prepare("UPDATE tproduct SET nSTock=:stock WHERE nProductID=:id");
 
+    $id = $_POST['id'];
+
+    require_once(__DIR__.'/../connection.php');
+    require_once(__DIR__.'/../components/functions.php');
+
+    $sql = "UPDATE tproduct SET nStock=:stock WHERE nProductID=:id";
+    $statement = $connection->prepare($sql);
     
     $data =[
-        'stock' => $_POST['updateStock'],
-        'id' => $_POST['id']
-        ];
-    $stmt->execute($data);
-
-    echo '{"status":1, "message":"stock successfully updated"}';
-}
-
-
-
-
-
-/****************/
-function sendError($message, $line){
-    echo '{"status":0, "message": '.$message.', "line":'.$line.'}';
-    exit;
+        ':stock' => $_POST['updateStock'],
+        ':id' => $_POST['id']
+    ];
+    
+    if($statement->execute($data)){
+        echo '{"status":1, "message":"stock successfully updated"}';
+    }
 }

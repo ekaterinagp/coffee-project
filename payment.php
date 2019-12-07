@@ -1,6 +1,8 @@
 <?php 
 $sTitle = ' | Payment';
 $sCurrentPage = 'payment';
+require_once(__DIR__ . '/connection.php');
+require_once(__DIR__ . '/components/functions.php');
 require_once(__DIR__.'/components/header.php');
 ?>
   <main id="paymentMain">
