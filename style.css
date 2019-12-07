@@ -82,9 +82,7 @@ svg {
   column-count: 2;
   column-gap: 0px;
 }
-.masonry-row{
-  row-count:
-}
+
 
 .masonry .image-container {
   /* align-items: center; */
@@ -362,7 +360,9 @@ body {
   color: black;
   max-width: 100vw;
 }
-
+option, select{
+  font-family: "Open sans", sans-serif;
+}
 .color-white {
   color: #fff;
 }
@@ -1222,18 +1222,30 @@ color:white;
   position: relative;
   width: 100%;
 }
-.containerSignup h3, .containerSignup a{
+.containerSignup h3, 
+.containerSignup a,
+.containerSignup h4 {
   color:white;
 }
-
+.containerSignup h4{
+  padding:0;
+  text-align: left;
+  margin-left:-1.5em;
+  width:100%;
+}
+.frmLine{
+  margin-left:-1.5em;
+  border:.1px solid #fff;
+  height:1px;
+  width:100%;
+}
 #signupForm {
   display: grid;
   justify-content: center;
   align-content: center;
-  grid-gap: 10px;
 }
 #signupForm label{
-  margin:.5vh 0;
+  margin:1vh 0;
 }
 
 label {
@@ -1283,7 +1295,7 @@ form .errorMessage {
   max-height: 0;
   transition: all 0.3s;
   overflow: hidden;
-  color: red;
+  color: #e4bebe;
   font-style: italic;
   font-size: 80%;
 }

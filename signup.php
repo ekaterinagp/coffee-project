@@ -29,9 +29,11 @@ if ($_SESSION) {
     <div class="loginWelcome mh-medium mv-small">
 <div class="signupBg"></div>
       <h2>Please sign up</h2>
+      
     
     <form id="signupForm" class="grid grid-one" method="POST">
-
+    <h4 class="mt-small">Personal Info</h4>
+    <div class="frmLine"></div>
 
         <label class="grid grid-one" for="name">First Name<input required minlength="2" maxlength="20" type="text" data-type="string" name="inputName" placeholder="First name">
           <div class="errorMessage">Name must be more than 1 and less than 20 letters</div>
@@ -46,7 +48,7 @@ if ($_SESSION) {
           <div class="errorMessage" id="emailDiv">Must be a valid email address</div>
         </label>
 
-        <label for="cityInput"> City
+        <label for="cityInput" class="grid grid-one"> City
         <select name="cityInput">
           <option disabled selected value> -- select your city -- </option>
           <option value="1">Copenhagen</option>
@@ -80,7 +82,8 @@ if ($_SESSION) {
         <label class="grid grid-one" for="userPhone">Phone number<input required type="text" data-type="string" name="inputPhone" placeholder="phone number" >
           <div class="errorMessage">Must be 8 characters</div>
         </label>
-
+<h4 class="mt-small">Account Info</h4>
+<div class="frmLine"></div>
         <label class="grid grid-one" for="loginName">Username<input required type="text" data-type="string" name="inputLoginName" placeholder="username">
           <div class="errorMessage">Must be more than 2 and less than 12</div>
         </label>
