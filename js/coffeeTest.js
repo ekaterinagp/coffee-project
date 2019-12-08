@@ -11,6 +11,7 @@ for(let i=0; i<allSubscribeNumberElm.length;i++){
 }
 
 startBtn.addEventListener("click", () => {
+  startBtn.disabled = "true";
   document.querySelector(".testContainer").classList.remove("hide");
   document.querySelector(".intro").style.display = "none";
   init();
