@@ -27,7 +27,7 @@ if($_SESSION){
                     <a href="subscribe.php" class="<?php if($sCurrentPage == 'subscribe') echo 'active';?>">Subscribe</a>
                     <a href="shop.php" class="<?php if($sCurrentPage == 'shop') echo 'active';?>">Shop</a>
                     <a href="contact.php" class="<?php if($sCurrentPage == 'contact') echo 'active';?>">Contact</a>
-                    <a class="<?php if($sCurrentPage == 'profile') echo 'active';?>"href="<?=strtolower($menuPath)?>.php"><?=$menuPath?></a>
+                    <a class="<?php if($sCurrentPage == strtolower($menuPath)) echo 'active';?>"href="<?=strtolower($menuPath)?>.php"><?=$menuPath?></a>
                 </a>
                     <a href="cart.php" class=" <?php if($sCurrentPage == 'cart') echo 'active';?>">Cart</a> 
             </nav>
