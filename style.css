@@ -496,7 +496,7 @@ a {
 }
 
 .deskmenu {
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   justify-items: center;
   align-items: center;
 }
@@ -969,7 +969,7 @@ a {
     background-color: #fff;
 }
 
-.shop .product:hover, .single-product .product:hover{
+.shop .product:hover, .single-product .product:hover, .subscriptionItem:hover{
     transform: scale(1.02);
 }
 
@@ -1069,6 +1069,7 @@ a {
   transition: all .3s;
   margin:1em; 
   background:white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .subscribeOptiopnP{
   position: absolute;
