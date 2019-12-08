@@ -6,12 +6,12 @@ require_once(__DIR__.'/connection.php');
 ?>
 
 <main id="subscribePage">
-<div class="grid grid-almost-two section-one container-header align-items-center mt-large bg-grey pv-small ph-large subscribeBanner">
+<div class="grid grid-two-thirds section-one container-header align-items-center mt-large bg-grey pv-small ph-large subscribeBanner">
   <div>
     <h1>Subscribe Now</h1>
     <p class="align-self-top mt-small mb-medium">Get fresh roasted quality coffee delivered to your doorstep so you can enjoy a wonderful cup every morning</p>
   </div>
-  <div class="grid grid-two">
+  <div class="grid grid-two align-items-center">
     <img src="img/hario2.png" alt="">
     <img src="img/french2.png" alt="">
   </div>

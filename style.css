@@ -184,6 +184,13 @@ svg {
 .pt-small {
   padding-top: 1vw;
 }
+.pr-small{
+  padding-right: 1vw;
+}
+
+.pl-small{
+  padding-left: 1vw;
+}
 
 .p-medium {
   padding: 4vw;
@@ -201,6 +208,13 @@ svg {
 }
 .pt-medium {
   padding-top: 4vw;
+}
+.pr-medium{
+  padding-right: 4vw;
+}
+
+.pl-medium{
+  padding-left: 4vw;
 }
 
 .p-large {
@@ -220,6 +234,12 @@ svg {
 .pt-large {
   padding-top: 8vw;
 }
+.pr-large{
+  padding-right: 8vw;
+}
+.pl-large{
+  padding-left: 8vw;
+}
 
 .p-xlarge {
   padding: 12vw;
@@ -237,6 +257,14 @@ svg {
 }
 .pt-xlarge {
   padding-top: 12vw;
+}
+
+.pr-xlarge{
+  padding-right: 12vw;
+}
+
+.pl-xlarge{
+  padding-left: 12vw;
 }
 
 .m-small {
@@ -592,23 +620,8 @@ a {
 }
 /***** FRONTPAGE *****/
 
-.frontpage .section-one .masonry .image-container .img1 {
-  background-image: url(img/coffee-beans-heart-good-coffee-is-good-for-the-health.png);
-}
-.frontpage .section-one .masonry .image-container .img2 {
-  background-image: url(img/coffee-bean-sprout.png);
-}
-.frontpage .section-one .masonry .image-container .img3 {
-  background-image: url(img/hand-holding-caffe-latte.png);
-  align-self: end;
-}
-.frontpage .section-one .masonry .image-container .img4 {
-  background-image: url(img/greater-goods-kickstart-coffeebag.png);
-  transform: rotate(10deg);
-}
-
 .frontpage .section-one .logo {
-  height: 75%;
+  height: 111%;
 }
 
 .frontpage .section-two .image {
@@ -664,7 +677,22 @@ a {
   top: -3vw;
 }
 
-/* GRID */
+/* MASONRY */
+
+.frontpage .section-one .masonry .image-container .img1 {
+  background-image: url(img/coffee-beans-heart-good-coffee-is-good-for-the-health.png);
+}
+.frontpage .section-one .masonry .image-container .img2 {
+  background-image: url(img/coffee-bean-sprout.png);
+}
+.frontpage .section-one .masonry .image-container .img3 {
+  background-image: url(img/hand-holding-caffe-latte.png);
+  align-self: end;
+}
+.frontpage .section-one .masonry .image-container .img4 {
+  background-image: url(img/greater-goods-kickstart-coffeebag.png);
+  transform: rotate(10deg);
+}
 
 .section-five .masonry .item {
   min-height: 20vw;
@@ -1033,15 +1061,9 @@ a {
 
 /***** SUBSCRIBE PAGE *****/
 
-
-.subscribeBanner .grid-two{
-  align-items: end;
-}
-
 .subscriptionItem {
   border: solid 0.1px #00000045;
   position: relative;
-  
   color:white;
   cursor:pointer;
   transition: all .3s;

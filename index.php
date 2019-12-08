@@ -7,7 +7,7 @@ require_once(__DIR__.'/components/header.php');
 <main class="frontpage">
 
 <section class="section-one grid grid-almost-two mb-large">
-    <div class="grid container-header align-items-center p-large">
+    <div class="grid container-header align-items-center pv-large pl-xlarge pr-medium">
         <div class="logo bg-contain align-self-bottom mb-small"><h1>Welcome</h1></div>
         <p class="align-self-top mt-small mb-medium">
         Enhance your everyday coffee experience with a coffee subscription tailored to your taste or discover a world of coffee and let us surprise you!
@@ -18,11 +18,11 @@ require_once(__DIR__.'/components/header.php');
         <div class="grid image-container bg-light-brown">
             <div class="image bg-contain img1"></div>
         </div>
-            <div class="grid image-container bg-medium-light-brown">
-            <div class="image bg-contain img3"></div>
-        </div>
         <div class="grid image-container bg-brown">
             <div class="image bg-contain img2"></div>  
+        </div>
+        <div class="grid image-container bg-medium-light-brown">
+            <div class="image bg-contain img3"></div>
         </div>
         <div class="grid image-container bg-dark-brown">
             <div class="image bg-contain img4"></div>
