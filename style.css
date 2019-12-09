@@ -970,9 +970,15 @@ a {
   grid-gap: 1vw;
 }
 .back-button{
+  cursor: pointer;
   font-size: 300%;
   left:5vw;
   top:10vh;
+  transition: all .3s;
+}
+.back-button:hover{
+  transform: scale(1.3);
+  
 }
 .shop .product,
 .single-product .product {
@@ -986,7 +992,7 @@ a {
 
 .shop .product:hover,
 .single-product .product:hover,
-.subscriptionItem:hover {
+.subscriptionItem:hover{
   transform: scale(1.02);
 }
 
