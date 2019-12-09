@@ -966,7 +966,7 @@ a {
 }
 
 .shop .products-container,
-.single-product .products-container {
+.single-product .products-container, .profile .products-container {
   grid-gap: 1vw;
 }
 .back-button{
@@ -981,7 +981,7 @@ a {
   
 }
 .shop .product,
-.single-product .product {
+.single-product .product, .profile .product {
   height: 25vw;
   border: solid 0.1px #00000045;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -992,12 +992,12 @@ a {
 
 .shop .product:hover,
 .single-product .product:hover,
-.subscriptionItem:hover{
+.subscriptionItem:hover, .profile .product:hover{
   transform: scale(1.02);
 }
 
 .shop .product .image,
-.single-product .product .image {
+.single-product .product .image, .profile .product .image {
   height: 65%;
 }
 
@@ -1005,7 +1005,9 @@ a {
 .shop .product h4,
 .single-product h3,
 .single-product .product h4, 
-.profile-details h3
+.profile-details h3, 
+.profile .product h3,
+.profile .product h4
  {
   padding: 0;
   text-align: left;
@@ -1117,6 +1119,13 @@ input{
 
 #form-profile select::placeholder{
   color: #000;
+}
+
+.profile .container-banner {
+  width: 100%;
+  z-index: -1;
+  top: 213.5vw;
+  left: 0;
 }
 
 /***** SUBSCRIBE PAGE *****/
