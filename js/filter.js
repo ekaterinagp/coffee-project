@@ -130,7 +130,7 @@ function showFilteredCoffee(products) {
       "singleProduct.php?id=" + product.nProductID;
     clone.querySelector("h3").textContent = product.cName;
     changeFormatForImg(product);
-    clone.querySelector(".mb-medium").id = "product-" + product.nProductID;
+    clone.querySelector(".product").id = "product-" + product.nProductID;
     clone.querySelector(".image").style.backgroundImage =
       "url(img/products/" + product.cName + ".png)";
     clone.querySelector("h4").textContent =
@@ -166,15 +166,20 @@ function fetchDataForSearch() {
         let a = document.createElement("a");
         let p = document.createElement("p");
         let image = document.createElement("div");
-        console.log(match['cName']);
+        console.log(match["cName"]);
 
         a.href = "singleProduct.php?id=" + match.nProductID;
-        a.classList.add('grid', 'grid-one-fifth', 'align-items-center', 'pt-small');
+        a.classList.add(
+          "grid",
+          "grid-one-fifth",
+          "align-items-center",
+          "pt-small"
+        );
         a.append(image, p);
-        image.classList.add('image', 'bg-contain');
+        image.classList.add("image", "bg-contain");
         changeFormatForImg(match);
         image.style.backgroundImage = "url(img/products/" + match.cName + ".png)";
-        p.textContent = match.cName;
+        p.innerHTML = '<strong>' + match.cName + '</strong>';
         theResults.append(a);
       });
     });
@@ -182,25 +187,25 @@ function fetchDataForSearch() {
 
 //SEARCh FUNCTION WITH API WITH SPECIFIC QUERY
 
-function fetchDataForSearch() {
-  fetch("api/api-search-sql.php?search=" + txtSearch.value)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(arrayMatches) {
-      console.log({ arrayMatches });
+// function fetchDataForSearch() {
+//   fetch("api/api-search-sql.php?search=" + txtSearch.value)
+//     .then(function(response) {
+//       return response.json();
+//     })
+//     .then(function(arrayMatches) {
+//       console.log({ arrayMatches });
 
-      theResults.textContent = "";
+//       theResults.textContent = "";
 
-      arrayMatches.forEach(function(match) {
-        let a = document.createElement("a");
-        a.href = "singleProduct.php?id=" + match.nProductID;
-        a.textContent = match.cName;
-        let span = document.createElement("br");
-        theResults.append(a, span);
-      });
-    });
-}
+//       arrayMatches.forEach(function(match) {
+//         let a = document.createElement("a");
+//         a.href = "singleProduct.php?id=" + match.nProductID;
+//         a.textContent = match.cName;
+//         let span = document.createElement("br");
+//         theResults.append(a, span);
+//       });
+//     });
+// }
 
 // Listen to range change
 let rangeInput = document.querySelector("#rangePrice");
