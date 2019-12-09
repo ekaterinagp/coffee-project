@@ -1164,23 +1164,24 @@ a {
   transition: all 0.3s;
   text-align: center;
 }
-.smallerFrm {
-  width: 50vw;
-  margin: auto;
+.smallerFrm{
+  width:50vw;
+  margin:auto;
 }
-#timeline {
-  text-align: right;
+#timeline{
+  text-align:right;
 }
-.testContainer.hide {
-  height: 4px;
-}
-.testContainer.hide .testButtons {
-  display: none;
-}
-.testContainer.hide .testbg {
-  left: 30vw;
-  right: 30vw;
-}
+ .testContainer.hide{
+   height:0px;
+   opacity: 0;
+ }
+ .testContainer.hide  .testButtons{
+   display: none;
+ }
+ .testContainer.hide .testbg{
+   left:30vw;
+   right:30vw;
+ }
 .testContent {
   width: 80%;
   height: 80%;
