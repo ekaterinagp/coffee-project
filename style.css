@@ -963,7 +963,11 @@ a {
 .single-product .products-container {
   grid-gap: 1vw;
 }
-
+.back-button{
+  font-size: 300%;
+  left:5vw;
+  top:10vh;
+}
 .shop .product,
 .single-product .product {
   height: 25vw;
@@ -996,6 +1000,7 @@ a {
 /***** SINGLE PRODUCT PAGE *****/
 
 .single-product .section-one {
+  margin-top:130px;
   height: 30vw;
 }
 
@@ -1031,7 +1036,8 @@ a {
   -webkit-appearance: none;
 }
 
-.product-purchase-container .checkmark {
+.product-purchase-container .checkmark,
+.product-purchase-container input[type=number]{
   position: relative;
   text-align: center;
   -webkit-appearance: none;
@@ -1051,10 +1057,9 @@ a {
 }
 
 .product-purchase-container input[type="number"] {
+  font-family: "Lato";
   border: none;
-  width: 2vw;
-  height: 2vw;
-  text-align: center;
+  width: 50%;
 }
 
 .product-purchase-container input[type="number"]:hover,
@@ -1393,6 +1398,11 @@ input:checked + .btnRadio {
 
 label {
   font-weight: bold;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 input[type="text"],
 input[type="email"],

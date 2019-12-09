@@ -12,7 +12,7 @@ $statement = $connection->prepare($sql);
 
 <main class="single-product">
     <section class="section-one grid grid-two-thirds-reversed mb-large">
-
+<div class="back-button color-orange bold absolute">&lt;</div>
 <?php
 
 if($statement->execute()){
@@ -133,5 +133,5 @@ if($statement->execute()){
 <?php
 $connection = null;
 
-$sScriptPath = 'script.js';
+// $sScriptPath = 'script.js';
 require_once(__DIR__.'/components/footer.php');

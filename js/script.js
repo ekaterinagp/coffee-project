@@ -34,3 +34,11 @@ function removeSelected() {
 //     button.remove();
 //   });
 // }
+
+
+if(document.querySelector(".back-button")){
+  console.log("yes");
+  document.querySelector(".back-button").addEventListener("click", function(){
+    window.history.back();
+  })
+}
