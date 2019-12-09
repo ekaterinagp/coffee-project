@@ -37,9 +37,10 @@ require_once(__DIR__ . '/components/header.php');
 
         <form id="formSearch" class="justify-self-right p-medium">
             <label for="txtSearch" class="mh-small align-self-bottom">Search</label>
-            <input id="txtSearch" type="text" name="search" placeholder="Type here to search for products" maxlength="50" minlength="1" autocomplete="off">
-        </form>
+            <input id="txtSearch" type="text" name="search" placeholder="Type here to search for products" maxlength="50" minlength="1" autocomplete="off"><button id="searchBtn">Search</button>
 
+        </form>
+        <div id="forSearch"></div>
         <div id="results" class="pv-small grid align-items-center"></div>
 
         <div class="products grid grid-two-thirds-bigger mr-medium">

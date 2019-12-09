@@ -625,7 +625,7 @@ a {
 }
 
 .button:disabled:hover {
-  transform: scale(1.0);
+  transform: scale(1);
   transform: none;
   border-color: transparent;
   color: white;
@@ -929,7 +929,8 @@ a {
   border-bottom: solid 1px #fff;
 }
 
-.filter .active, .accordion:hover{
+.filter .active,
+.accordion:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -969,16 +970,15 @@ a {
 .single-product .products-container, .profile .products-container {
   grid-gap: 1vw;
 }
-.back-button{
+.back-button {
   cursor: pointer;
   font-size: 300%;
-  left:5vw;
-  top:10vh;
-  transition: all .3s;
+  left: 5vw;
+  top: 10vh;
+  transition: all 0.3s;
 }
-.back-button:hover{
+.back-button:hover {
   transform: scale(1.3);
-  
 }
 .shop .product,
 .single-product .product, .profile .product {
@@ -1016,7 +1016,7 @@ a {
 /***** SINGLE PRODUCT PAGE *****/
 
 .single-product .section-one {
-  margin-top:130px;
+  margin-top: 130px;
   height: 30vw;
 }
 
@@ -1053,7 +1053,7 @@ a {
 }
 
 .product-purchase-container .checkmark,
-.product-purchase-container input[type=number]{
+.product-purchase-container input[type="number"] {
   position: relative;
   text-align: center;
   -webkit-appearance: none;
@@ -1066,7 +1066,8 @@ a {
   transition: 0.5s ease-in-out;
 }
 
-.product-purchase-container .checkmark:hover, .product-purchase-container input:checked + .checkmark{
+.product-purchase-container .checkmark:hover,
+.product-purchase-container input:checked + .checkmark {
   background-color: #2b231d;
   color: #fff;
   transform: scale(1.05);
@@ -1087,26 +1088,26 @@ a {
 /***** PROFILE PAGE  *****/
 
 #form-profile input,
-#form-profile select
-{
+#form-profile select {
   border-radius: 0;
   padding: 1vw;
   background-color: #fff;
 }
 
-input::placeholder, select > option{
+input::placeholder,
+select > option {
   text-transform: uppercase;
 }
 
-.profile-details h3{
+.profile-details h3 {
   color: #fff;
 }
 
-input{
+input {
   padding: 1vw;
 }
 
-.hide-button{
+.hide-button {
   display: none;
 }
 
@@ -1117,7 +1118,7 @@ input{
   color: #000;
 } */
 
-#form-profile select::placeholder{
+#form-profile select::placeholder {
   color: #000;
 }
 
@@ -1192,7 +1193,7 @@ input{
   text-align: center;
   margin: 1.5vh auto;
   visibility: hidden;
-  transition:none;
+  transition: none;
 }
 .white-text-bg {
   padding: 1em 1em 0;
@@ -1204,7 +1205,7 @@ input{
 .containerForSubscriptions {
   max-width: 100vw;
 }
-.priceSubscription{
+.priceSubscription {
   padding-bottom: 0;
 }
 
@@ -1212,7 +1213,7 @@ input{
   transform: scale(1.05);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.selectedItem .paymentButton{
+.selectedItem .paymentButton {
   visibility: initial;
 }
 .testbg {
@@ -1280,7 +1281,7 @@ input:checked + .btnRadio {
   transform: scale(1.1);
 }
 
-.testContainer input:checked + .btnRadio{
+.testContainer input:checked + .btnRadio {
   border: solid 2px orange;
 }
 
@@ -1351,13 +1352,14 @@ input:checked + .btnRadio {
 .imgResults {
   width: auto;
   height: 300px;
-  margin:  1vh auto;
+  margin: 1vh auto;
 }
-.testResults h4, .testResults p{
+.testResults h4,
+.testResults p {
   padding: 1vh;
 }
-.startAgainLink{
-  color:#fb8b23;
+.startAgainLink {
+  color: #fb8b23;
   font-size: 80%;
   font-weight: 300;
   text-decoration: underline;
@@ -1459,10 +1461,10 @@ input:checked + .btnRadio {
 label {
   font-weight: bold;
 }
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 input[type="text"],
 input[type="email"],
@@ -1522,4 +1524,8 @@ input.error {
 .loginDiv {
   padding-top: 10em;
   text-align: center;
+}
+
+.highlight {
+  background-color: yellow;
 }

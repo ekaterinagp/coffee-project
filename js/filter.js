@@ -59,6 +59,19 @@ function changeFormatForImg(product) {
   product.cName = str.replace(/\s+/g, "-").toLowerCase();
 }
 
+function changeFormatForName(product) {
+  let str = product.productName;
+
+  return (
+    str
+      .split(" ")
+      .join("-")
+      .toLowerCase() + ".png"
+  );
+
+  // console.log(product.productName);
+}
+
 // ACCORDION FUNCTION
 for (let i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function() {
@@ -126,16 +139,30 @@ function showFilteredCoffee(products) {
   let template = document.querySelector("template").content;
   products.forEach(product => {
     let clone = template.cloneNode(true);
-    clone.querySelector("a").href =
-      "singleProduct.php?id=" + product.nProductID;
-    clone.querySelector("h3").textContent = product.cName;
-    changeFormatForImg(product);
-    clone.querySelector(".product").id = "product-" + product.nProductID;
-    clone.querySelector(".image").style.backgroundImage =
-      "url(img/products/" + product.cName + ".png)";
-    clone.querySelector("h4").textContent =
-      "Origin:" + " " + product.coffeeTypeName;
-    clone.querySelector("p").textContent = product.nPrice;
+
+    if (product.cName) {
+      clone.querySelector("a").href =
+        "singleProduct.php?id=" + product.nProductID;
+      clone.querySelector("h3").textContent = product.cName;
+      changeFormatForImg(product);
+      clone.querySelector(".product").id = "product-" + product.nProductID;
+      clone.querySelector(".image").style.backgroundImage =
+        "url(img/products/" + product.cName + ".png)";
+      clone.querySelector("h4").textContent =
+        "Origin:" + " " + product.coffeeTypeName;
+      clone.querySelector("p").textContent = product.nPrice;
+    } else {
+      clone.querySelector("a").href =
+        "singleProduct.php?id=" + product.nProductID;
+      clone.querySelector("h3").textContent = product.productName;
+      product.imagePath = changeFormatForName(product);
+      clone.querySelector(".image").style.backgroundImage =
+        "url(img/products/" + product.imagePath + ")";
+      clone.querySelector("h4").textContent =
+        "Origin:" + " " + product.typeName;
+      clone.querySelector("p").textContent = product.nPrice;
+    }
+
     document.querySelector(".products-container").appendChild(clone);
   });
 }
@@ -178,34 +205,72 @@ function fetchDataForSearch() {
         a.append(image, p);
         image.classList.add("image", "bg-contain");
         changeFormatForImg(match);
-        image.style.backgroundImage = "url(img/products/" + match.cName + ".png)";
-        p.innerHTML = '<strong>' + match.cName + '</strong>';
+        image.style.backgroundImage =
+          "url(img/products/" + match.cName + ".png)";
+        p.innerHTML = "<strong>" + match.cName + "</strong>";
         theResults.append(a);
       });
     });
 }
 
 //SEARCh FUNCTION WITH API WITH SPECIFIC QUERY
+document.querySelector("#searchBtn").addEventListener("click", () => {
+  event.preventDefault();
+  fetchDataForSearchBtn();
+});
 
-// function fetchDataForSearch() {
-//   fetch("api/api-search-sql.php?search=" + txtSearch.value)
-//     .then(function(response) {
-//       return response.json();
-//     })
-//     .then(function(arrayMatches) {
-//       console.log({ arrayMatches });
+// let cachedHtml;
 
-//       theResults.textContent = "";
+function fetchDataForSearchBtn() {
+  fetch("api/api-search-sql.php?search=" + txtSearch.value)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(searchResultsArray) {
+      console.log({ searchResultsArray });
+      // document.querySelector(".products-container").innerHTML = "";
+      document.querySelector("#forSearch").innerHTML = "";
+      document.querySelector("#forSearch").innerHTML =
+        "Search results for:" + txtSearch.value;
+      showFilteredCoffee(searchResultsArray);
+      // let inputText = document.querySelector(".products-container");
+      // cachedHtml = inputText.innerHTML;
+      highlight(txtSearch.value);
+      // theResults.textContent = "";
 
-//       arrayMatches.forEach(function(match) {
-//         let a = document.createElement("a");
-//         a.href = "singleProduct.php?id=" + match.nProductID;
-//         a.textContent = match.cName;
-//         let span = document.createElement("br");
-//         theResults.append(a, span);
-//       });
-//     });
-// }
+      // arrayMatches.forEach(function(match) {
+      //   let a = document.createElement("a");
+      //   a.href = "singleProduct.php?id=" + match.nProductID;
+      //   a.textContent = match.cName;
+      //   let span = document.createElement("br");
+      //   theResults.append(a, span);
+      // });
+    });
+}
+
+function highlight(text) {
+  let inputText = document.querySelectorAll(".mt-small");
+  inputText.forEach(input => {
+    let innerHTML = input.textContent;
+    console.log({ innerHTML });
+    let index = innerHTML.indexOf(text);
+    let regexp = new RegExp(text, "gi");
+
+    if (index >= 0) {
+      // innerHTML =
+      //   innerHTML.substring(0, index) +
+      //   "<span class='highlight'>" +
+      //   innerHTML.substring(index, index + text.length) +
+      //   "</span>" +
+      //   innerHTML.substring(index + text.length);
+      input.innerHTML = innerHTML.replace(
+        regexp,
+        `<span class="highlight">${text}</span>`
+      );
+      console.log(input.innerHTML);
+    }
+  });
+}
 
 // Listen to range change
 let rangeInput = document.querySelector("#rangePrice");
@@ -278,7 +343,12 @@ async function init() {
 
   products = await getAllProductsAsJson();
   products = convertProducts(products);
-
+  document.querySelector("#txtSearch").addEventListener("mouseout", () => {
+    if (!document.querySelector("#txtSearch").value) {
+      document.querySelector("#forSearch").innerHTML = "";
+      showFilteredCoffee(products);
+    }
+  });
   //   bActive: 1
   // cName: "Organic Tierra Del Sol"
   // nCoffeeTypeID: 5
