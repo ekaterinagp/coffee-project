@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2019 at 07:02 PM
+-- Generation Time: Dec 09, 2019 at 12:57 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.1.31
 
@@ -20,10 +20,11 @@ SET time_zone = "+00:00";
 
 --
 -- Database: `properpour`
---
+
 DROP DATABASE IF EXISTS `properpour`;
 CREATE DATABASE `properpour` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `properpour`;
+--
 
 DELIMITER $$
 --
@@ -364,7 +365,8 @@ INSERT INTO `taudituser` (`nAuditUserID`, `nOldUserID`, `cOldName`, `cOldSurname
 (23, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 24, 'Nina', 'Ricci', 'nina@gmail.com', 'ninaRich', '43f648533b07a340a204b8a9504c75aa457ddc5180209d01aad571e0', 'Coolvej, 14 2387 Nestved', 5, '37809754', '2019-12-03 23:00:00', NULL, '0.0000', 'I', '2019-12-04 12:45:37', 'root', 'localhost'),
 (24, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 25, 'TEst', 'test', 'test', 'test', '227a85d5903ded14be5bf67cce0eb95295b120142e4358efcb2ad279', 'test', 6, '12345678', '2019-12-06 23:00:00', NULL, '0.0000', 'I', '2019-12-07 17:19:21', 'root', 'localhost'),
 (25, 25, 'TEst', 'test', 'test', 'test', '227a85d5903ded14be5bf67cce0eb95295b120142e4358efcb2ad279', 'test', 6, '12345678', '2019-12-06 23:00:00', NULL, '0.0000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'D', '2019-12-07 17:19:48', 'root', 'localhost'),
-(26, 9, 'Anna', 'Nielsen', 'anna@mail.com', 'annaniel', 'a7470858e79c282bc2f6adfd831b132672dfd1224c1e78cbf5bcd057', 'Tagensvej 1, 2400', 1, '54545454', '2019-12-02 22:01:45', NULL, '43.7500', 9, NULL, 'Nielsen', 'anna@mail.com', 'annaniel', 'a7470858e79c282bc2f6adfd831b132672dfd1224c1e78cbf5bcd057', 'Tagensvej 1, 2400', 1, '54545454', '2019-12-02 22:01:45', NULL, '171.2400', 'U', '2019-12-07 17:36:31', 'root', 'localhost');
+(26, 9, 'Anna', 'Nielsen', 'anna@mail.com', 'annaniel', 'a7470858e79c282bc2f6adfd831b132672dfd1224c1e78cbf5bcd057', 'Tagensvej 1, 2400', 1, '54545454', '2019-12-02 22:01:45', NULL, '43.7500', 9, NULL, 'Nielsen', 'anna@mail.com', 'annaniel', 'a7470858e79c282bc2f6adfd831b132672dfd1224c1e78cbf5bcd057', 'Tagensvej 1, 2400', 1, '54545454', '2019-12-02 22:01:45', NULL, '171.2400', 'U', '2019-12-07 17:36:31', 'root', 'localhost'),
+(27, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 26, 'Jens', 'Jakobsen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '0.0000', 'I', '2019-12-09 11:55:21', 'root', 'localhost');
 
 -- --------------------------------------------------------
 
@@ -800,7 +802,8 @@ INSERT INTO `tuser` (`nUserID`, `cName`, `cSurname`, `cEmail`, `cUsername`, `cPa
 (18, 'Olga', 'Smith', 'olga@olga.com', 'olga1', 'b986a019f4c1cf3fffe37f7cfe9eb60d57b621fe5a28f3df6245fdeb', 'Ovej,1 Koge 1234', 2, '11223344', '2019-12-04 12:03:57', NULL, '0.0000'),
 (21, 'Don', 'Jens', 'jens@don.dk', 'donJens', 'bbd2eaa465a570feed6a0f368550b9da88f89194f29466c649920dab', 'Randersvej,12 1234 Randers', 3, '11556438', '2019-12-04 12:30:04', NULL, '0.0000'),
 (23, 'Eleanor', 'Coolish', 'cool@cool.dk', 'eler', '302c401c2dfb70269d43b24504cb80baad56564f91633a0392001444', 'Ryparken 13 2100 København', 2, '34563456', '2019-12-04 12:41:58', NULL, '0.0000'),
-(24, 'Nina', 'Ricci', 'nina@gmail.com', 'ninaRich', '43f648533b07a340a204b8a9504c75aa457ddc5180209d01aad571e0', 'Coolvej, 14 2387 Nestved', 5, '37809754', '2019-12-04 12:45:37', NULL, '84.5500');
+(24, 'Nina', 'Ricci', 'nina@gmail.com', 'ninaRich', '43f648533b07a340a204b8a9504c75aa457ddc5180209d01aad571e0', 'Coolvej, 14 2387 Nestved', 5, '37809754', '2019-12-04 12:45:37', NULL, '84.5500'),
+(26, 'Jens', 'Jakobsen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '0.0000');
 
 --
 -- Triggers `tuser`
@@ -1087,7 +1090,7 @@ ALTER TABLE `tauditpurchase`
 -- AUTO_INCREMENT for table `taudituser`
 --
 ALTER TABLE `taudituser`
-  MODIFY `nAuditUserID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `nAuditUserID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `tcity`
@@ -1129,7 +1132,7 @@ ALTER TABLE `tsubscriptiontype`
 -- AUTO_INCREMENT for table `tuser`
 --
 ALTER TABLE `tuser`
-  MODIFY `nUserID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `nUserID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `tusersubscription`

@@ -74,13 +74,13 @@ if ($_POST) {
   </div>
   <form id="loginForm" method="POST">
     <div>
-      <label for="email"><input required name="inputEmail" placeholder="email" type="text">
+      <label for="email"><input required name="inputEmail" placeholder="email" type="text" value="jakob@gmail.com">
         <div class="errorMessage" id="emailDiv"></div>
       </label>
     </div>
 
     <div>
-      <label for="password"><input required type="password" data-type="string" minlength="8" maxlength="8" name="password" placeholder="password">
+      <label for="password"><input required type="password" data-type="string" minlength="8" maxlength="8" name="password" placeholder="password" value="12345678">
         <div class="errorMessage">Password must be 8 characters</div>
       </label>
     </div>
