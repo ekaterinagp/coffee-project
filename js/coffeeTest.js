@@ -304,51 +304,57 @@ const questions = [
       const coffees = [
         {
           id: 1,
-          name: "Coffee1",
-          origin: "Brazil",
-          taste: "Nice",
+          name: "ORGANIC TIERRA DEL SOL SUBSCRIPTION",
+          origin: "Nicaragua",
+          taste: "A medium to smooth body and a distinct but mild acidity",
           roast: "Medium",
-          img: "coffe1.png"
+          img: "organic-tierra-del-sol.png",
+          id:1
         },
         {
           id: 2,
-          name: "Coffee2",
-          origin: "Asia",
-          taste: "Very nice",
+          name: "HUGO MELO SUBSCRIPTION",
+          origin: "Colombia",
+          taste: "sweet, nutty and chocolate notes or delightful pear, citrus and floral notes entwined with a mild yet bright acidity.",
           roast: "Light",
-          img: "coffe2.png"
+          img: "hugo-melo.png",
+          id:2
         },
         {
           id: 3,
-          name: "Coffee3",
-          origin: "Africa",
-          taste: "Nice nice",
+          name: "LIGHT IT UP SUBSCRIPTION",
+          origin: "Brazil",
+          taste: "soft, nutty, low acid, with nice bittersweet chocolate tastes. It is also quite an exceptional base for making flavored coffees because of it's softness in the cup.",
           roast: "Dark",
-          img: "coffe3.png"
+          img: "light-it-up.png",
+          id:3
         },
         {
           id: 4,
-          name: "Coffee4",
-          origin: "Argentina",
-          taste: "Nice Mice",
+          name: "FULL STEAM SUBSCRIPTION",
+          origin: "Sumatra",
+          taste: " Syrupy with a subdued acidity and complex and intense tastes, and a chocolate sweet flavor often holds earthy undertones.",
           roast: "Medium",
-          img: "coffe4.png"
+          img: "full-steam.png",
+          id:4
         },
         {
           id: 5,
-          name: "Coffee5",
-          origin: "Thailand",
-          taste: "Pice",
+          name: "COFFEE MANUFACTORY SUBSCRIPTION",
+          origin: "Ethiopia",
+          taste: "Deep, spice and wine or chocolate-like taste and floral aroma.",
           roast: "Light",
-          img: "coffe5.png"
+          img: "coffee-manufactory.png",
+          id:5
         },
         {
           id: 6,
-          name: "Coffee6",
-          origin: "Congo",
-          taste: "Dice",
+          name: "GREATER GOODS SUBSCRIPTION",
+          origin: "Blend",
+          taste: "Roasters choose coffees that complement each other with a delicate, matching.",
           roast: "Dark",
-          img: "coffe6.png"
+          img: "greater-goods.png",
+          id:7
         }
       ];
       let randomChoice = coffees[Math.floor(Math.random() * coffees.length)];
@@ -360,23 +366,29 @@ const questions = [
       divForResults.className = "testResults grid grid-two";
       let img = document.createElement("img");
       img.setAttribute("class", "imgResults");
-      img.setAttribute("src", "img/" + randomChoice.img);
+      img.setAttribute("src", "img/products/" + randomChoice.img);
       let randomCoffeeWrapper = document.createElement("div");
-      let h1Name = document.createElement("h1");
-      h1Name.textContent = randomChoice.name;
-      let h3Origin = document.createElement("h3");
-      h3Origin.textContent = randomChoice.origin;
-      let h3Taste = document.createElement("h3");
-      h3Taste.textContent = randomChoice.pTaste;
-      let pRoast = document.createElement("p");
-      pRoast.textContent = randomChoice.roast;
-      let startAgainBtn = document.createElement("button");
-      startAgainBtn.setAttribute("class", "button");  
-      startAgainBtn.innerHTML = "Take test again!";
-      startAgainBtn.addEventListener("click", () => {
-        window.location.reload(true);
+      let h3Name = document.createElement("h3");
+      h3Name.textContent = randomChoice.name;
+      let h4Origin = document.createElement("h4");
+      h4Origin.setAttribute("class", "uppercase");
+      h4Origin.textContent = "Origin: " + randomChoice.origin;
+      let pTaste = document.createElement("p");
+      pTaste.textContent = randomChoice.taste;
+      let h4Roast = document.createElement("h4");
+      h4Roast.textContent = "Roast Type: " +randomChoice.roast;
+      h4Roast.setAttribute("class", "uppercase");
+      let startAgainLink = document.createElement("a");
+      startAgainLink.setAttribute("href", "subscribe.php/#test");
+      startAgainLink.setAttribute("class", "startAgainLink");
+      startAgainLink.innerHTML="Take Test Again"
+      let toPaymentBtn = document.createElement("button");
+      toPaymentBtn.setAttribute("class", "button paymentButton");  
+      toPaymentBtn.innerHTML = "To Payment";
+      toPaymentBtn.addEventListener("click", () => {
+        window.location = "payment.php/id=" + randomChoice.id;
       });
-      randomCoffeeWrapper.append(h1Name,h3Origin,pRoast, startAgainBtn)
+      randomCoffeeWrapper.append(h3Name,h4Origin,h4Roast,pTaste, toPaymentBtn, startAgainLink)
       divForResults.append(img, randomCoffeeWrapper);
       return divForResults;
     }
