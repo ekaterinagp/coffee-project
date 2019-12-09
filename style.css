@@ -604,15 +604,20 @@ a {
   transition: all 0.3s;
   cursor: pointer;
   border: solid 1px transparent;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .button:hover {
   transform: scale(1.03);
   background-color: #fff;
   color: #fb8b23;
-  border: solid 1px #fb8b23;
+  border: solid 2px orange;
 }
+
 .button:disabled:hover {
+  transform: scale(1.0);
   transform: none;
+  border-color: transparent;
+  color: white;
 }
 .button:disabled {
   background-color: #999;
@@ -791,7 +796,7 @@ a {
 }
 
 .flipcontainer:hover {
-  transform: scale(1.02);
+  transform: scale(1.05);
   z-index: 2;
 }
 
@@ -1209,6 +1214,11 @@ a {
 input:checked + .btnRadio {
   transform: scale(1.1);
 }
+
+.testContainer input:checked + .btnRadio{
+  border: solid 2px orange;
+}
+
 .btnRadio h2 {
   font-size: 1em;
 }

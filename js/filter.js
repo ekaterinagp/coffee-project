@@ -174,7 +174,7 @@ function fetchDataForSearch() {
         image.classList.add('image', 'bg-contain');
         changeFormatForImg(match);
         image.style.backgroundImage = "url(img/products/" + match.cName + ".png)";
-        p.textContent = match.cName;
+        p.innerHTML = '<strong>' + match.cName + '</strong>';
         theResults.append(a);
       });
     });
@@ -182,25 +182,25 @@ function fetchDataForSearch() {
 
 //SEARCh FUNCTION WITH API WITH SPECIFIC QUERY
 
-function fetchDataForSearch() {
-  fetch("api/api-search-sql.php?search=" + txtSearch.value)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(arrayMatches) {
-      console.log({ arrayMatches });
+// function fetchDataForSearch() {
+//   fetch("api/api-search-sql.php?search=" + txtSearch.value)
+//     .then(function(response) {
+//       return response.json();
+//     })
+//     .then(function(arrayMatches) {
+//       console.log({ arrayMatches });
 
-      theResults.textContent = "";
+//       theResults.textContent = "";
 
-      arrayMatches.forEach(function(match) {
-        let a = document.createElement("a");
-        a.href = "singleProduct.php?id=" + match.nProductID;
-        a.textContent = match.cName;
-        let span = document.createElement("br");
-        theResults.append(a, span);
-      });
-    });
-}
+//       arrayMatches.forEach(function(match) {
+//         let a = document.createElement("a");
+//         a.href = "singleProduct.php?id=" + match.nProductID;
+//         a.textContent = match.cName;
+//         let span = document.createElement("br");
+//         theResults.append(a, span);
+//       });
+//     });
+// }
 
 // Listen to range change
 let rangeInput = document.querySelector("#rangePrice");
