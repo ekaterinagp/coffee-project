@@ -7,8 +7,9 @@ $statement = $connection->prepare($sql);
 
 if ($statement->execute()) {
 
-$result = $connection->query($query)->fetchAll();
+$result = $statement->fetchAll();
 $resultArray = json_encode($result);
 
 echo $resultArray;
 }
+

@@ -15,7 +15,9 @@ $statement = $connection->prepare($sql);
 
 if ($statement->execute()) {
 
-    $products = $connection->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+
+    $products = $statement->fetchAll(PDO::FETCH_ASSOC);
+    // $products = $connection->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     $arrayMatches = [];
 
     foreach($products as $product){

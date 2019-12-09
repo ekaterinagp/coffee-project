@@ -6,7 +6,10 @@ require_once(__DIR__ . '/components/header.php');
 
 <main>
 
-  <section class="section-one"></section>
+  <section class="section-one">
+
+  </section>
+  <section class="section-two"></section>
 
 </main>
 

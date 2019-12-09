@@ -1,9 +1,9 @@
 <?php
 session_start();
 $menuPath = "";
-if($_SESSION){
+if ($_SESSION) {
   $menuPath = "Profile";
-}else{
+} else {
   $menuPath = "Login";
 }
 
