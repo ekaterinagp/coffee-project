@@ -55,6 +55,10 @@ svg {
   grid-template-columns: 3fr 2.5fr;
 }
 
+.grid-almost-two-reversed {
+  grid-template-columns: 2.5fr 3fr;
+}
+
 .grid-two-thirds {
   grid-template-columns: 2fr 4fr;
 }
@@ -919,10 +923,7 @@ a {
   border-bottom: solid 1px #fff;
 }
 
-.filter .active,
-.accordion:hover {
-  background-color: #fff;
-  color: black;
+.filter .active, .accordion:hover{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -934,13 +935,8 @@ a {
   margin-left: 5px;
 }
 
-.filter .accordion:hover:after {
-  color: black;
-}
-
 .filter .accordion.active:after {
   content: "\2212";
-  color: #000;
 }
 
 .filter .panel {
@@ -1048,15 +1044,10 @@ a {
   transition: 0.5s ease-in-out;
 }
 
-.product-purchase-container .checkmark:hover {
+.product-purchase-container .checkmark:hover, .product-purchase-container input:checked + .checkmark{
   background-color: #2b231d;
   color: #fff;
   transform: scale(1.05);
-}
-
-.product-purchase-container input:checked + .checkmark {
-  background-color: #6c9972;
-  color: #f7f7f7;
 }
 
 .product-purchase-container input[type="number"] {

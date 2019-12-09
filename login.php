@@ -6,10 +6,6 @@ $sCurrentPage = 'login';
 require_once(__DIR__ . '/connection.php');
 require_once(__DIR__ . '/components/header.php');
 
-if (!isset($_SESSION)) {
-  session_start();
-}
-
 if ($_SESSION) {
   header("location:profile.php");
 }
