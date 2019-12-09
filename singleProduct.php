@@ -64,14 +64,16 @@ if($statement->execute()){
             
                 <h2 class="p-small">Grind</h2>
                 <div class="options">
-                    <label for="option1">
+                    <label>
                         <input type="radio" name="option1" value="0-50" class="mb-small">
-                        <span class="checkmark">Whole</span>
+                        <div class="checkmark">Whole</div>
                     </label> 
-                    <label for="option1">
+                    <label>
                         <input type="radio" name="option1" value="0-50" class="mb-small">
-                        <span class="checkmark">Grind</span>
+                        <div class="checkmark">Grind</div>
                     </label>
+
+                   
                 </div>
             <div class="payment grid">
                 <h2 class="align-self-bottom">Total amount</h2>
@@ -128,5 +130,5 @@ if($statement->execute()){
 <?php
 $connection = null;
 
-$sScriptPath = 'js/script.js';
+$sScriptPath = 'script.js';
 require_once(__DIR__.'/components/footer.php');
