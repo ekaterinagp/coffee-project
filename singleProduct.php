@@ -11,7 +11,7 @@ $statement = $connection->prepare($sql);
 ?>
 
 <main class="single-product">
-    <section class="section-one grid grid-two mb-large">
+    <section class="section-one grid grid-two-thirds-reversed mb-large">
 
 <?php
 
@@ -32,7 +32,7 @@ if($statement->execute()){
                 $result = strtolower(str_replace(" ", "-", $imgUrl));
 ?>
 
-        <div id="product-<?=$product['nProductID'];?>" class="product-info-container grid grid-two ml-large mr-medium">
+        <div id="product-<?=$product['nProductID'];?>" class="product-info-container grid grid-two-thirds ml-medium">
             <div class="image bg-contain" style="background-image: url(img/products/<?= $result;?>.png)"></div>
             <div class="description mh-small mv-medium grid grid-two">
                 <div>
@@ -53,17 +53,19 @@ if($statement->execute()){
             </div>
         </div>
     
-        <div class="product-purchase-container bg-grey p-medium grid grid-two ml-medium">   
-            <div class="options">
-                <h2 class="p-small">Quantity</h2>
-                <label for="option1">
-                    <input type="number" name="option1" value="1" class="">
-                    <span class="checkmark number">bag</span>    
-                </label>
-            </div>
-            
-                <h2 class="p-small">Grind</h2>
+        <div class="product-purchase-container bg-grey p-medium">   
+            <div class="options-container grid grid-two">
                 <div class="options">
+                    <h2 class="pb-small">Quantity</h2>
+                    <label for="option1">
+                        <input type="number" name="option1" value="1" class="">
+                        <span class="checkmark number">bag</span>    
+                    </label>
+                </div>
+            
+                
+                <div class="options">
+                    <h2 class="pb-small">Grind</h2>
                     <label for="option1">
                         <input type="radio" name="option1" value="0-50" class="mb-small">
                         <span class="checkmark">Whole</span>
@@ -73,7 +75,8 @@ if($statement->execute()){
                         <span class="checkmark">Grind</span>
                     </label>
                 </div>
-            <div class="payment grid">
+            </div>
+            <div class="payment">
                 <h2 class="align-self-bottom">Total amount</h2>
                 <p class="align-self-top"><?=$product['nPrice'];?> DKK</p>
                 <a href="payment.php?id=<?=$product['nProductID'];?>" class="button">Add to cart</a>
@@ -128,5 +131,5 @@ if($statement->execute()){
 <?php
 $connection = null;
 
-$sScriptPath = 'js/script.js';
+$sScriptPath = 'script.js';
 require_once(__DIR__.'/components/footer.php');
