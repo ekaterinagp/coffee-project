@@ -31,9 +31,6 @@ if ($_POST) {
   }
 
 
-
-
-
   $statement = "SELECT * FROM tuser";
   $result = $connection->query($statement)->fetchAll();
   // var_dump($result);
@@ -42,13 +39,11 @@ if ($_POST) {
   $emailInput = $_POST['inputEmail'];
 
   foreach ($result as $user) {
-
-
-
     if ($password == $user["cPassword"] && ($emailInput == $user["cEmail"]  || $emailInput == $user['cUsername'])) {
       echo "user found!";
       unset($user['cPassword']);
       $_SESSION['user'] = $user;
+      echo $_SESSION['user'];
 
       header('location:profile.php?name=' . $user['cName'] . '');
     }
