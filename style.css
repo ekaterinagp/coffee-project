@@ -970,16 +970,15 @@ a {
 .single-product .products-container {
   grid-gap: 1vw;
 }
-.back-button{
+.back-button {
   cursor: pointer;
   font-size: 300%;
-  left:5vw;
-  top:10vh;
-  transition: all .3s;
+  left: 5vw;
+  top: 10vh;
+  transition: all 0.3s;
 }
-.back-button:hover{
+.back-button:hover {
   transform: scale(1.3);
-  
 }
 .shop .product,
 .single-product .product {
@@ -993,7 +992,7 @@ a {
 
 .shop .product:hover,
 .single-product .product:hover,
-.subscriptionItem:hover{
+.subscriptionItem:hover {
   transform: scale(1.02);
 }
 
@@ -1005,9 +1004,8 @@ a {
 .shop .product h3,
 .shop .product h4,
 .single-product h3,
-.single-product .product h4, 
-.profile-details h3
- {
+.single-product .product h4,
+.profile-details h3 {
   padding: 0;
   text-align: left;
 }
@@ -1015,7 +1013,7 @@ a {
 /***** SINGLE PRODUCT PAGE *****/
 
 .single-product .section-one {
-  margin-top:130px;
+  margin-top: 130px;
   height: 30vw;
 }
 
@@ -1052,7 +1050,7 @@ a {
 }
 
 .product-purchase-container .checkmark,
-.product-purchase-container input[type=number]{
+.product-purchase-container input[type="number"] {
   position: relative;
   text-align: center;
   -webkit-appearance: none;
@@ -1087,26 +1085,26 @@ a {
 /***** PROFILE PAGE  *****/
 
 #form-profile input,
-#form-profile select
-{
+#form-profile select {
   border-radius: 0;
   padding: 1vw;
   background-color: #fff;
 }
 
-input::placeholder, select > option{
+input::placeholder,
+select > option {
   text-transform: uppercase;
 }
 
-.profile-details h3{
+.profile-details h3 {
   color: #fff;
 }
 
-input{
+input {
   padding: 1vw;
 }
 
-.hide-button{
+.hide-button {
   display: none;
 }
 
@@ -1117,7 +1115,7 @@ input{
   color: #000;
 } */
 
-#form-profile select::placeholder{
+#form-profile select::placeholder {
   color: #000;
 }
 
@@ -1453,10 +1451,10 @@ input:checked + .btnRadio {
 label {
   font-weight: bold;
 }
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 input[type="text"],
 input[type="email"],

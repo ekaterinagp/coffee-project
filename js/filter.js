@@ -219,6 +219,8 @@ document.querySelector("#searchBtn").addEventListener("click", () => {
   fetchDataForSearchBtn();
 });
 
+// let cachedHtml;
+
 function fetchDataForSearchBtn() {
   fetch("api/api-search-sql.php?search=" + txtSearch.value)
     .then(function(response) {
@@ -231,7 +233,9 @@ function fetchDataForSearchBtn() {
       document.querySelector("#forSearch").innerHTML =
         "Search results for:" + txtSearch.value;
       showFilteredCoffee(searchResultsArray);
-      // highlight(txtSearch.value);
+      // let inputText = document.querySelector(".products-container");
+      // cachedHtml = inputText.innerHTML;
+      highlight(txtSearch.value);
       // theResults.textContent = "";
 
       // arrayMatches.forEach(function(match) {
@@ -245,18 +249,27 @@ function fetchDataForSearchBtn() {
 }
 
 function highlight(text) {
-  let inputText = document.querySelector(".products-container");
-  let innerHTML = inputText.innerHTML;
-  let index = innerHTML.indexOf(text);
-  if (index >= 0) {
-    innerHTML =
-      innerHTML.substring(0, index) +
-      "<span class='highlight'>" +
-      innerHTML.substring(index, index + text.length) +
-      "</span>" +
-      innerHTML.substring(index + text.length);
-    inputText.innerHTML = innerHTML;
-  }
+  let inputText = document.querySelectorAll(".mt-small");
+  inputText.forEach(input => {
+    let innerHTML = input.textContent;
+    console.log({ innerHTML });
+    let index = innerHTML.indexOf(text);
+    let regexp = new RegExp(text, "gi");
+
+    if (index >= 0) {
+      // innerHTML =
+      //   innerHTML.substring(0, index) +
+      //   "<span class='highlight'>" +
+      //   innerHTML.substring(index, index + text.length) +
+      //   "</span>" +
+      //   innerHTML.substring(index + text.length);
+      input.innerHTML = innerHTML.replace(
+        regexp,
+        `<span class="highlight">${text}</span>`
+      );
+      console.log(input.innerHTML);
+    }
+  });
 }
 
 // Listen to range change
