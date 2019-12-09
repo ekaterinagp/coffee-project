@@ -66,14 +66,16 @@ if($statement->execute()){
                 
                 <div class="options">
                     <h2 class="pb-small">Grind</h2>
-                    <label for="option1">
+                    <label>
                         <input type="radio" name="option1" value="0-50" class="mb-small">
-                        <span class="checkmark">Whole</span>
+                        <div class="checkmark">Whole</div>
                     </label> 
-                    <label for="option1">
+                    <label>
                         <input type="radio" name="option1" value="0-50" class="mb-small">
-                        <span class="checkmark">Grind</span>
+                        <div class="checkmark">Grind</div>
                     </label>
+
+                   
                 </div>
             </div>
             <div class="payment">
