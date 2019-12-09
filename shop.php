@@ -39,7 +39,7 @@ require_once(__DIR__ . '/components/header.php');
             <label for="txtSearch" class="mh-small align-self-bottom">Search</label>
             <input id="txtSearch" type="text" name="search" placeholder="Type here to search for products" maxlength="50" minlength="1" autocomplete="off">
         </form>
-       
+
         <div id="results" class="pv-small grid align-items-center"></div>
 
         <div class="products grid grid-two-thirds-bigger mr-medium">
@@ -50,8 +50,8 @@ require_once(__DIR__ . '/components/header.php');
                     <button class="accordion price bg-medium-light-brown color-white">Price</button>
                     <div class="panel filter-price bg-white color-black">
                         <div class="options">
-                        <label for="price">
-                            <input name="price" type="range" min="0" max="150" id="rangePrice" value="150" step="10"><span id="priceValue"></span>
+                            <label for="price">
+                                <input name="price" type="range" min="0" max="150" id="rangePrice" value="150" step="10"><span id="priceValue"></span>
                         </div>
                     </div>
 
@@ -76,7 +76,7 @@ require_once(__DIR__ . '/components/header.php');
                             <label for="option5">
                                 <input type="checkbox" value="Blend" class="mr-small"> Blend
                             </label><br>
-                        </div>    
+                        </div>
                     </div>
                 </div>
             </div>
@@ -89,12 +89,12 @@ require_once(__DIR__ . '/components/header.php');
 
                     foreach ($products as $product) {
 
-                        if($product['bActive']!==0){
+                        if ($product['bActive'] !== 0) {
 
-                        $imgUrl = $product['cProductName'];
-                        $result = strtolower(str_replace(" ", "-", $imgUrl));
+                            $imgUrl = $product['cProductName'];
+                            $result = strtolower(str_replace(" ", "-", $imgUrl));
 
-                        echo '
+                            echo '
             <a href="singleProduct.php?id=' . $product['nProductID'] . '">
                 <div class="product" id="product-' . $product['nProductID'] . '">
                     <div class="image bg-contain" style="background-image: url(img/products/' . $result . '.png)"></div>
@@ -115,14 +115,14 @@ require_once(__DIR__ . '/components/header.php');
         </div>
         <template>
             <a href="">
-                <div class="product mb-medium">
-                    <div class="image bg-contain">
-                        <div class="description m-small">
-                            <h3 class="productName mt-small text-left"></h3>
-                            <h4 class="productName mt-small text-left"></h4>
-                            <p class="productPrice mt-small"></p>
-                        </div>
+                <div class="product ">
+                    <div class="image bg-contain"></div>
+                    <div class="description m-small">
+                        <h3 class="productName mt-small text-left"></h3>
+                        <h4 class="productName mt-small text-left"></h4>
+                        <p class="productPrice mt-small"></p>
                     </div>
+
                 </div>
             </a>
         </template>

@@ -130,7 +130,7 @@ function showFilteredCoffee(products) {
       "singleProduct.php?id=" + product.nProductID;
     clone.querySelector("h3").textContent = product.cName;
     changeFormatForImg(product);
-    clone.querySelector(".mb-medium").id = "product-" + product.nProductID;
+    clone.querySelector(".product").id = "product-" + product.nProductID;
     clone.querySelector(".image").style.backgroundImage =
       "url(img/products/" + product.cName + ".png)";
     clone.querySelector("h4").textContent =
@@ -166,14 +166,20 @@ function fetchDataForSearch() {
         let a = document.createElement("a");
         let p = document.createElement("p");
         let image = document.createElement("div");
-        console.log(match['cName']);
+        console.log(match["cName"]);
 
         a.href = "singleProduct.php?id=" + match.nProductID;
-        a.classList.add('grid', 'grid-one-fifth', 'align-items-center', 'pt-small');
+        a.classList.add(
+          "grid",
+          "grid-one-fifth",
+          "align-items-center",
+          "pt-small"
+        );
         a.append(image, p);
-        image.classList.add('image', 'bg-contain');
+        image.classList.add("image", "bg-contain");
         changeFormatForImg(match);
-        image.style.backgroundImage = "url(img/products/" + match.cName + ".png)";
+        image.style.backgroundImage =
+          "url(img/products/" + match.cName + ".png)";
         p.textContent = match.cName;
         theResults.append(a);
       });
