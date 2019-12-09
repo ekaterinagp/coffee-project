@@ -118,13 +118,13 @@ function sendErrorMessage($txtError, $iLineNumber)
       </div>
 
 
-      <button name="reg_user" disabled>Sign Up</button>
+      <button name="reg_user">Sign Up</button>
     </form>
 
     <h3>Already a user? <a href="login.php">Log in </a></h3>
   </div>
   <script src="js/signup.js"></script>
   <?php
-  $sScriptPath = 'js/validation.js';
+  // $sScriptPath = 'js/validation.js';
   require_once(__DIR__ . '/components/footer.php');
   ?>

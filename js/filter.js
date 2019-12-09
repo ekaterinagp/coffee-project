@@ -151,9 +151,31 @@ txtSearch.addEventListener("input", function() {
   }
 });
 
-// SEARCH FUNCTION
+// SEARCH FUNCTION WITH API FOR SELECT *
 function fetchDataForSearch() {
   fetch("api/api-search.php?search=" + txtSearch.value)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(arrayMatches) {
+      console.log({ arrayMatches });
+
+      theResults.textContent = "";
+
+      arrayMatches.forEach(function(match) {
+        let a = document.createElement("a");
+        a.href = "singleProduct.php?id=" + match.nProductID;
+        a.textContent = match.cName;
+        let span = document.createElement("br");
+        theResults.append(a, span);
+      });
+    });
+}
+
+//SEARCh FUNCTION WITH API WITH SPECIFIC QUERY
+
+function fetchDataForSearch() {
+  fetch("api/api-search-sql.php?search=" + txtSearch.value)
     .then(function(response) {
       return response.json();
     })
