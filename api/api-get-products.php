@@ -5,11 +5,13 @@ $sql = "SELECT * FROM tproduct";
 
 $statement = $connection->prepare($sql);
 
+
+
 if ($statement->execute()) {
 
-$result = $statement->fetchAll();
-$resultArray = json_encode($result);
+  $result = $statement->fetchALL();
 
-echo $resultArray;
+  $resultArray = json_encode($result);
+
+  echo $resultArray;
 }
-
