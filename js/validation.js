@@ -73,3 +73,28 @@ function fvGet(sUrl, sHeader, fCallback) {
   }
   ajax.send();
 }
+
+const loginBtn = document.querySelector("#loginBtn");
+loginBtn.addEventListener("click", () => {
+  event.preventDefault();
+  let loginInput = document.querySelector("[name=inputEmail]").value;
+  let formData = new FormData();
+  formData.append("inputEmail", loginInput);
+  let endpoint = "api/api-if-email-registered.php?inputEmail=";
+  fetch(endpoint + loginInput, {
+    method: "POST",
+    body: formData
+  })
+    .then(res => res.text())
+    .then(response => {
+      console.log(response);
+      if (response == 1) {
+        location.href = "profile.php";
+      }
+      if (response == 0) {
+        document.querySelector("#emailDiv").textContent =
+          "User with this email or user name is not found";
+        document.querySelector("#emailDiv").style.maxHeight = "500px";
+      }
+    });
+});
