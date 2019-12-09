@@ -52,13 +52,14 @@ require_once(__DIR__.'/connection.php');
           quasi provident nulla minus odit architecto.</p>
           <h3 class="priceSubscription">'.$row['nSubscriptionPrice'].' DKK</h3>
           </div>
+          <a href=""><button class="paymentButton button">To Payment</button></a>
         </div>' ;   
   }
 }
 ?>
-
   </div>
-
+  
+  
   <h2 class="text-center" >In doubt what to choose?</h2>
   <h3 class="text-center" >Wanna get reccomendations? Take a coffee test! </h3>
   <a href="#test"><button id="startBtn" class="button">Start</button>

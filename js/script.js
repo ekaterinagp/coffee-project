@@ -6,12 +6,12 @@ allSubscriptions.forEach(subscribeOption => {
   subscribeOption.addEventListener("click", () => {
     console.log("click");
     removeSelected();
-    removeButton();
+    // removeButton();
     subscribeOption.classList.add("selectedItem");
-    let buttonToPayment = document.createElement("button");
-    buttonToPayment.className = "paymentButton button";
-    buttonToPayment.textContent = "To Payment";
-    subscribeOption.append(buttonToPayment);
+    // let buttonToPayment = document.createElement("button");
+    // buttonToPayment.className = "paymentButton button";
+    // buttonToPayment.textContent = "To Payment";
+    // subscribeOption.append(buttonToPayment);
 
     document.querySelector(".paymentButton").addEventListener("click", () => {
       let subId = document.querySelector(".paymentButton").parentNode.id;
@@ -29,8 +29,8 @@ function removeSelected() {
   });
 }
 
-function removeButton() {
-  document.querySelectorAll(".paymentButton").forEach(button => {
-    button.remove();
-  });
-}
+// function removeButton() {
+//   document.querySelectorAll(".paymentButton").forEach(button => {
+//     button.remove();
+//   });
+// }
