@@ -7,14 +7,14 @@ require_once(__DIR__.'/components/header.php');
 <main class="frontpage">
 
 <section class="section-one grid grid-almost-two mb-large">
-    <div class="grid container-header align-items-center p-large">
+    <div class="grid container-header align-items-center pv-large pl-xlarge pr-medium">
         <div class="logo bg-contain align-self-bottom mb-small"><h1>Welcome</h1></div>
         <p class="align-self-top mt-small mb-medium">
         Enhance your everyday coffee experience with a coffee subscription tailored to your taste or discover a world of coffee and let us surprise you!
         </p>
-        <a href="subscribe.php" class="button">Subscribe</a>
+        <a href="subscribe.php" class="button">Learn more</a>
     </div>
-    <div class="grid grid-two container masonry">
+    <div class="container masonry">
         <div class="grid image-container bg-light-brown">
             <div class="image bg-contain img1"></div>
         </div>
@@ -27,13 +27,12 @@ require_once(__DIR__.'/components/header.php');
         <div class="grid image-container bg-dark-brown">
             <div class="image bg-contain img4"></div>
         </div>
-    </div>
-    
+    </div>  
 </section>
 
 <section class="section-two grid mb-large">
-    <h2>What you get</h2>
-    <h3>We make sure you get the best you wished for and more </h3>
+    <h2 class="mb-small">What you get</h2>
+    <h3>We make sure you get everything you wish for and more </h3>
     <div class="grid grid-two-thirds-reversed container ph-xlarge"> 
         <div class="image bg-contain"></div>
         <div class="list grid align-items-center">
@@ -51,14 +50,14 @@ require_once(__DIR__.'/components/header.php');
                     <p>COFFEE TAILORMADE TO YOUR TASTE - EVERYDAY SINGLE DAY</p>
                 </li>
             </ul>
-            <a href="subscribe.php" class="button">Subscribe</a>
+            <a href="subscribe.php" class="button">Subscribe now</a>
         </div>
     </div>
 </section>
 
 <section class="section-three grid mb-large">
-    <h2>How it works</h2>
-    <h3>We make sure our customers meet their best expectations</h3>
+    <h2 class="mb-small">How it works</h2>
+    <h3>Enhancing your everyday coffee experience has never been easier</h3>
     <div class="grid grid-three container"> 
         <div class="step one bg-light-brown">
             <div class="step-no absolute">
@@ -91,12 +90,12 @@ require_once(__DIR__.'/components/header.php');
             </div>
         </div>
     </div>
-    <a href="subscribe.php" class="button margin-auto mt-medium">Subscribe</a>
+    <a href="subscribe.php" class="button margin-auto mt-medium">Get started</a>
 </section>
 
-<section class="section-four grid mb-xlarge">
-    <h2>Why choose The Proper Pour</h2>
-    <h3>We make sure our customers meet their best expectations</h3>
+<section class="section-four grid mb-large">
+    <h2 class="mb-small">Why choose The Proper Pour</h2>
+    <h3>Get ready to have all your expectations met</h3>
     <div class="grid grid-three container ph-xlarge"> 
         <div class="list one">
             <ul>
@@ -126,37 +125,69 @@ require_once(__DIR__.'/components/header.php');
             </ul>
         </div>
     </div>
+    <a href="subscribe.php" class="button margin-auto mt-large">Subscribe today</a>
 </section>
 
 <section class="section-five grid mb-large">
-    <h2>Enhance your experience</h2>
+    <h2 class="mb-small">Enhance your experience</h2>
     <h3>Tips and tricks to make your best cup of coffee</h3>
     <div class="grid grid-four container masonry"> 
-            <a href="#" class="item one bg-dark-brown">
-                    <div class="image bg-contain"></div>
-                    <h5 class="color-white ph-medium relative">How to choose coffee</h5>
-            </a>
+            <div class="flipcontainer item one grid" ontouchstart="this.classList.toggle('hover');">
+                <div class="flipper">
+                    <div  class="front bg-dark-brown">
+                        <div class="image bg-contain"></div>
+                        <h5 class="color-white ph-medium relative">How to choose coffee</h5>
+                    </div>
+                    <div class="back p-medium">Some info</div>
+                </div>
+            </div>
        
-        <a href="#" class="item two bg-light-brown">
-                <div class="image bg-contain"></div>
-                <h5 class="color-white ph-medium relative">How to brew coffee</h5>
-        </a>
-        <a href="#" class="item three bg-brown">
-                <div class="image bg-contain"></div>
-                <h5 class="color-white ph-medium relative">Christmas coffee</h5>
-        </a>
-        <a href="#" class="item four bg-light-brown">
-                <div class="image bg-contain relative"></div>
-                <h5 class="color-white ph-medium relative">Types of coffee you can make at home</h5>
-        </a>
-        <a href="#" class="item five bg-medium-light-brown">
-                <div class="image bg-contain"></div>
-                <h5 class="color-white ph-medium relative">Best coffee equipment</h5>
-        </a>
-        <a href="#" class="item six bg-medium-light-brown">
-                <div class="image bg-contain"></div>
-                <h5 class="color-white ph-medium relative">Sustainability in coffee drinking</h5>
-        </a>
+        <div class="flipcontainer item two grid" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front bg-light-brown">
+                    <div class="image bg-contain"></div>
+                    <h5 class="color-white ph-medium relative">How to brew coffee</h5>
+                </div>
+                <div class="back p-medium">Some info</div>
+            </div>
+        </div>
+        <div class="flipcontainer item three grid" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front bg-medium-light-brown">  
+                    <div class="image bg-contain"></div>
+                    <h5 class="color-white ph-medium relative">Christmas coffee</h5>
+                </div>
+                <div class="back p-medium">Some info</div>
+            </div>
+        </div>
+        <div class="flipcontainer item four grid" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front bg-light-brown">
+                    <div class="image bg-contain relative"></div>
+                    <h5 class="color-white ph-medium relative">Types of coffee you can make at home</h5>
+                </div>
+                <div class="back p-medium">Some info</div>
+            </div>
+        </div>
+        <div class="flipcontainer item five grid" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front bg-medium-light-brown">
+                    <div class="image bg-contain"></div>
+                    <h5 class="color-white ph-medium relative">Best coffee equipment</h5>
+                </div>
+                <div class="back p-medium">Some info</div>
+            </div>
+        </div>
+        
+        <div class="flipcontainer item six grid" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front bg-dark-brown">
+                    <div class="image bg-contain"></div>
+                    <h5 class="color-white ph-medium relative">Sustainability in coffee drinking</h5>
+                </div>
+                <div class="back p-medium">Some info</div>
+            </div>
+        </div>
         
     </div>
 </section>

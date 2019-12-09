@@ -1,25 +1,33 @@
 <?php 
+// ISSET checks if the variable has been set // Returns TRUE if the variable exists and has a value other than NULL 
+// EMPTY checks to see if a variable is empty. Empty is interpreted as: "" (string), 0 (integer), 0.0 (float)`, "0" (string), NULL, FALSE, array(), and "$var;" 
 
-require_once(__DIR__.'/../connection.php');
-
-if(empty($_GET['search']) && $_GET['search'] !== '0'){
+if(empty($_GET['search']) && $_GET['search'] !== '0' && !isset($_GET['search'])){ // why the check for !==0?
     echo '[]';
     exit;
 }
 
-$sSearchRequest = $_GET['search'];
+$sSearchRequest = $_GET['search'] ?? '';
 
-$query = "SELECT * FROM tproduct";
-$result = $connection->query($query)->fetchAll();
+require_once(__DIR__.'/../connection.php');
+$sql = "SELECT * FROM tproduct";
+$statement = $connection->prepare($sql);
 
-$arrayMatches = [];
+if ($statement->execute()) {
 
-foreach($result as $product){
+    $products = $connection->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    $arrayMatches = [];
 
-    if(stripos($product['cName'], $sSearchRequest) !== false){
-        array_push($arrayMatches, $product);
+    foreach($products as $product){
+
+        if($product['bActive'] !== 0){
+
+            if(stripos($product['cName'], $sSearchRequest) !== false){
+            array_push($arrayMatches, $product);
+            }
+        }
     }
-}
 
 echo json_encode($arrayMatches);
 
+}

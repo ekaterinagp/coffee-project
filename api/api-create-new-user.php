@@ -1,9 +1,6 @@
 <?php
-require_once(__DIR__ . '/../connection.php');
-
-$statement = $connection->prepare("INSERT INTO tuser(cName, cSurname, cEmail, cUserName, cPassword, cAddress, nCityID, cPhoneNo) VALUES (:name, :surname, :email, :username, :password, :address, :cityID, :phone)");
-
 if ($_POST) {
+
   if (empty($_POST['inputEmail'])) {
     return;
   }
@@ -98,17 +95,26 @@ if ($_POST) {
     return;
   }
 
-  $data = [
-    'name' => $_POST['inputName'],
-    'surname' => $_POST['inputLastName'],
-    'email' => $_POST['inputEmail'],
-    'username' => $_POST['inputLoginName'],
-    'password' => $_POST['password_1'],
-    'address' => $_POST['inputAddress'],
-    'phone' => $_POST['inputPhone'],
-    'cityID' => $_POST['cityInput']
-  ];
-  $statement->execute($data);
+  require_once(__DIR__ . '/../connection.php');
+  require_once(__DIR__ . '/../components/functions.php');
 
+  $sql = "INSERT INTO tuser(cName, cSurname, cEmail, cUserName, cPassword, cAddress, nCityID, cPhoneNo) VALUES (:name, :surname, :email, :username, :password, :address, :cityID, :phone)";
+
+  $statement = $connection->prepare($sql);
+
+  $data = [
+    ':name' => $_POST['inputName'],
+    ':surname' => $_POST['inputLastName'],
+    ':email' => $_POST['inputEmail'],
+    ':username' => $_POST['inputLoginName'],
+    ':password' => $_POST['password_1'],
+    ':address' => $_POST['inputAddress'],
+    ':phone' => $_POST['inputPhone'],
+    ':cityID' => $_POST['cityInput']
+  ];
+
+  if ($statement->execute($data)) {
   echo '{"status":1, "message":"New user created"}';
+}
+
 }

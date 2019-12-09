@@ -1,3 +1,14 @@
+<?php
+session_start();
+$menuPath = "";
+if ($_SESSION) {
+  $menuPath = "Profile";
+} else {
+  $menuPath = "Login";
+}
+
+?>
+
 <html lang="en">
 
 <head>
@@ -17,16 +28,10 @@
       <a href="index.php" class="<?php if ($sCurrentPage == 'frontpage') echo 'active'; ?>">Home</a>
       <a href="subscribe.php" class="<?php if ($sCurrentPage == 'subscribe') echo 'active'; ?>">Subscribe</a>
       <a href="shop.php" class="<?php if ($sCurrentPage == 'shop') echo 'active'; ?>">Shop</a>
-      <a href="how-to.php" class="<?php if ($sCurrentPage == 'how-to') echo 'active'; ?>">How-To</a>
       <a href="contact.php" class="<?php if ($sCurrentPage == 'contact') echo 'active'; ?>">Contact</a>
-      <a href="login.php" class="profile menu-icon <?php if ($sCurrentPage == 'login') echo 'active'; ?>">
-        Profile
-        <?= file_get_contents(__DIR__ . '/../img/profile.svg'); ?>
+      <a class="<?php if ($sCurrentPage == 'profile') echo 'active'; ?>" href="<?= strtolower($menuPath) ?>.php"><?= $menuPath ?></a>
       </a>
-      <a href="cart.php" class="cart menu-icon" <?php if ($sCurrentPage == 'cart') echo 'active'; ?>>
-        Cart
-        <?= file_get_contents(__DIR__ . '/../img/cart.svg'); ?>
-      </a>
+      <a href="cart.php" class=" <?php if ($sCurrentPage == 'cart') echo 'active'; ?>">Cart</a>
     </nav>
 
   </header>
