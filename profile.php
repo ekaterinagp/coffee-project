@@ -166,7 +166,7 @@ if($statementCreditCard->execute([':id' => $nUserID])){
     <h2 class="text-left">Your current subscriptions</h2>
 
 <?php 
-if($statementUserSubscription->execute([':id' => 24])){
+if($statementUserSubscription->execute([':id' => $nUserID])){
   $jUserSubscriptions = $statementUserSubscription->fetchAll(PDO::FETCH_ASSOC);
 
   if(count($jUserSubscriptions)>=1){
