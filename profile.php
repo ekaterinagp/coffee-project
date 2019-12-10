@@ -25,7 +25,7 @@ $sCurrentPage = 'Profile';
 $sqlProducts = "SELECT tProduct.nProductID, tProduct.cName as cProductName, tProduct.nCoffeeTypeID as nProductCoffeeTypeID, tProduct.nPrice, tProduct.nStock, tProduct.bActive, tCoffeeType.nCoffeeTypeID, tCoffeeType.cName FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID";
 $statementProducts = $connection->prepare($sqlProducts);
 
-$sqlSubscriptions =  "SELECT tsubscriptiontype.cName, tproduct.cName as cProductName, tsubscriptiontype.nSubscriptionTypeID as nSubscriptionID, tProduct.nPrice as nSubscriptionPrice FROM tsubscriptiontype INNER JOIN tproduct on tproduct.nProductID=tsubscriptiontype.nProductID";
+$sqlSubscriptions =  "SELECT tsubscriptiontype.cName, tproduct.cName as cProductName, tsubscriptiontype.nSubscriptionTypeID as nSubscriptionID, tProduct.nPrice as nSubscriptionPrice, tProduct.bActive FROM tsubscriptiontype INNER JOIN tproduct on tproduct.nProductID=tsubscriptiontype.nProductID";
 $statementSubscriptions = $connection->prepare($sqlSubscriptions);
 
 $sqlUserSubscription = "SELECT tUserSubscription.nUserSubscriptionID, tSubscriptionType.nSubscriptionTypeID, 
@@ -171,6 +171,9 @@ if($statementUserSubscription->execute([':id' => $nUserID])){
   $jUserSubscriptions = $statementUserSubscription->fetchAll(PDO::FETCH_ASSOC);
 
   if(count($jUserSubscriptions)>=1){
+    $arrayProductID = [];
+    $arrayCoffeeTypeID = [];
+    $arraySubscriptionTypeID = [];
 
     foreach($jUserSubscriptions as $jUserSubscription){
 
@@ -179,15 +182,12 @@ if($statementUserSubscription->execute([':id' => $nUserID])){
         if($jUserSubscription['bActive']!==0){
 
           $nProductID = $jUserSubscription['nProductID'];
-          $arrayProductID = [];
           array_push($arrayProductID, $nProductID);
 
           $nCoffeeTypeID = $jUserSubscription['nCoffeeTypeID'];
-          $arrayCoffeeTypeID = [];
           array_push($arrayCoffeeTypeID, $nCoffeeTypeID);
 
           $nSubscriptionTypeID = $jUserSubscription['nSubscriptionTypeID'];
-          $arraySubscriptionTypeID = [];
           array_push($arraySubscriptionTypeID, $nSubscriptionTypeID);
           
           $imgUrl = $jUserSubscription['cProductName'];
@@ -246,7 +246,6 @@ if($statementProducts->execute()){
     $nRelatedProductCoffeeTypeID = $jProduct['nCoffeeTypeID'];
     
     $nRelatedProductID = $jProduct['nProductID'];
-    // echo json_encode($arrayProductID);
 
       if(!in_array($nRelatedProductID, $arrayProductID)){
         $imgUrl = $jProduct['cProductName'];
@@ -276,7 +275,7 @@ if($statementProducts->execute()){
 
   <section class="section-three mb-large ph-large pt-medium">
   <h2>Want to try something new</h2>
-  <h2 class="coffee-type text-left mb-medium">Products</h2>
+  <h2 class="coffee-type text-left mb-medium">Subscriptions</h2>
   <div class="container-banner absolute pv-large bg-dark-brown"></div>
   <div class="containerForSubscriptions grid grid-three m-medium">
 
@@ -284,12 +283,25 @@ if($statementProducts->execute()){
   
   if($statementSubscriptions->execute()){
     $jSubscriptions = $statementSubscriptions->fetchAll(PDO::FETCH_ASSOC);
+    $arrayRelatedSubscriptionID = [];
+
     foreach($jSubscriptions as $jSubscription){
 
-      // echo json_encode($jSubscription);
+      if($jSubscription['bActive']!==0){
+
+        $nRelatedSubscriptionID = $jSubscription['nSubscriptionID'];
+
+          if(!in_array($nRelatedSubscriptionID, $arraySubscriptionTypeID)){
+
+            array_push($arrayRelatedSubscriptionID, $nRelatedSubscriptionID);
+
+            if(count($arraySubscriptionTypeID) == 3){
+              exit;
+            }
+
       $imgUrl = $jSubscription['cProductName'];
       $result = strtolower(str_replace(" ", "-", $imgUrl));
-;?>
+?>
 
 <div class="subscriptionItem" id="<?= $jSubscription['nSubscriptionTypeID'] ;?>">
           <div class="subscriptionItemBg">
@@ -307,6 +319,9 @@ if($statementProducts->execute()){
           <a href=""><button class="paymentButton button">To Payment</button></a>
         </div>
 <?php
+          
+        }
+      }
     }
   }
 }
