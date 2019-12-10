@@ -133,16 +133,30 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
     <h2 class="color-white">Creditcard Details</h2>
     <form id="form-creditcard" method="post">
     <?php 
-if($statementCreditCard->execute([':id' => 24])){
+
+if($statementCreditCard->execute([':id' => $nUserID])){
   $jUserCreditCards = $statementCreditCard->fetchAll(PDO::FETCH_ASSOC);
 
   if(count($jUserCreditCards)>=1){
 
     foreach($jUserCreditCards as $jUserCreditCard){
 
+      $nCreditCardID = $jUserCreditCard['nCreditCardID'];
+;?>
+    <div id="creditcard-<?=$nCreditCardID;?>">
+      <div class="description mh-small mv-medium">
+        <div class="creditcard-details">
+          <h1 class="mv-small text-left"><?=$jUserCreditCard['cIBAN'];?></h1>
+          <h2 class="mv-small text-left light"><?=$jUserCreditCard['cExpiration'];?></h2>
+        </div>
+      </div>
+      <button class="button-delete button">Delete</button>
+    </div>
 
-  
-    }}};?>
+<?php 
+    }
+  }
+};?>
 
     </form>
   </div>
@@ -198,6 +212,7 @@ if($statementUserSubscription->execute([':id' => 24])){
           <h3 class="uppercase light">FRENCH PRESS</h3>
         </div>
       </div>
+      <button class="button-delete button">Delete</button>
     </div>
   </div>
   <div class="current-subscription-details"></div>
