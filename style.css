@@ -24,7 +24,7 @@ svg {
 }
 
 .section-one {
-  margin-top: 70px;
+  /* margin-top: 70px; */
 }
 
 .list ul {
@@ -968,10 +968,10 @@ a {
 
 .shop .products-container,
 .single-product .products-container,
-.profile .products-container,
-.profile .current-subscriptions .description {
+.profile .products-container {
   grid-gap: 1vw;
 }
+
 .back-button {
   cursor: pointer;
   font-size: 300%;
@@ -1024,6 +1024,10 @@ a {
   height: 30vw;
 }
 
+.profile {
+  margin-top: 130px;
+}
+
 .single-product .image {
   background-position: left;
 }
@@ -1040,7 +1044,9 @@ a {
   left: 0;
 }
 
-.single-product .description {
+.single-product .description,
+.profile .description,
+.profile .section-one {
   grid-gap: 2vw;
 }
 
@@ -1092,7 +1098,6 @@ a {
 }
 
 /***** PROFILE PAGE  *****/
-
 #form-profile input,
 #form-profile select {
   border-radius: 0;
