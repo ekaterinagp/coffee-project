@@ -13,6 +13,15 @@ if($_POST){
     if(empty($_POST['newCoffeetype'])){
         sendErrorMessage('coffetype missing', __LINE__);
     }
+    if(!ctype_digit($_POST['newCoffeetype'])){
+        sendErrorMessage('not a number', __LINE__);
+    }
+    if(!ctype_digit($_POST['newStock'])){
+        sendErrorMessage('not a number', __LINE__);
+    }
+    if(!ctype_digit($_POST['newPrice'])){
+        sendErrorMessage('not a number', __LINE__);
+    }
 
     require_once(__DIR__.'/../connection.php');
     require_once(__DIR__.'/../components/functions.php');
