@@ -139,9 +139,22 @@ if($statementCreditCard->execute([':id' => 24])){
 
     foreach($jUserCreditCards as $jUserCreditCard){
 
+      $nCreditCardID = $jUserCreditCard['nCreditCardID'];
+      
+;?>
 
-  
-    }}};?>
+<div id="creditcard-<?=$nCreditCardID;?>" class="product-info-container grid grid-two-thirds ml-medium">
+      <div class="description mh-small mv-medium grid grid-two">
+        <div class="product-details">
+          <h1 class="productName mv-small text-left"><?=$jUserCreditCard['cIBAN'];?></h1>
+          <h2 class="coffee-type mv-small text-left light"><?=$jUserCreditCard['cExpiration'];?></h2>
+        </div>
+      </div>
+    </div>
+
+
+<?php 
+}}};?>
 
     </form>
   </div>
