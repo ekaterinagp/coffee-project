@@ -70,11 +70,16 @@ require_once(__DIR__ . '/components/header.php');
                         </div>
                         <div class="image bg-contain"></div>
                         <div class="description">
+
                             <h5 class="color-white">Select a coffee you like or take a test to get an advice from us</h5>
                         </div>
                     </div>
                     <div class="back p-medium">
-                        Some text
+
+                        <h5>We have 6 types of subscription</h5>
+
+                        <p>To make sure our subscriptions fit to the different taste of our clients, we generated 6 different subscriptions. You can choose one, but if you still in doubt, go a head and take a test we created, which will provide tailored recommendations</p>
+
                     </div>
                 </div>
             </div>
@@ -87,11 +92,12 @@ require_once(__DIR__ . '/components/header.php');
                         </div>
                         <div class="image bg-contain"></div>
                         <div class="description">
-                            <h5 class="color-white">Choose amount you need and delivery method </h5>
+                            <h5 class="color-white">Create a user profile and choose a delivery method</h5>
                         </div>
                     </div>
                     <div class="back p-medium">
-                        Some text
+                        <h5>Create a user profile and get a discount</h5>
+                        <p>We take our users sensitive data very seriously, that is why we highly recommend you to create a profile and we will protect your data. Also as a new user you get a discount from us as a welcome gift! </p>
                     </div>
                 </div>
             </div>
@@ -108,7 +114,10 @@ require_once(__DIR__ . '/components/header.php');
                         </div>
                     </div>
                     <div class="back p-medium">
-                        Some text
+                        <strong>
+                            <h3>We deliver as fast as we can</h3>
+                        </strong>
+                        <p>We aim to deliver your coffee as soon as possible and the most convineient way. We know how important to get a freshly roasted coffee, that is why we work hard to make your coffee drinking experience as best as possible. </p>
                     </div>
                 </div>
             </div>
