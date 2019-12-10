@@ -9,6 +9,9 @@ if($_POST){
     if(empty($_POST['id'])){
         sendErrorMessage('no id', __LINE__);
     }
+    if(!ctype_digit($_POST['updateStock'])){
+        sendErrorMessage('not a number', __LINE__);
+    }
 
     $id = $_POST['id'];
 
