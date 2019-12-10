@@ -228,7 +228,7 @@ if($statementUserSubscription->execute([':id' => $nUserID])){
 
 <section class="section-three mb-large ph-large pt-medium">
   <h2>Want to try something new</h2>
-
+  <div class="related-products">
   <h2 class="coffee-type text-left mb-medium">Products</h2>
   <div class="container-banner absolute pv-large bg-dark-brown"></div>
   <div class="products-container grid grid-four"> 
@@ -275,8 +275,10 @@ if($statementProducts->execute()){
   }
 
 ;?>
-
   </div>
+  </div>
+
+  <div class="related-subscriptions">
 
   <h2 class="coffee-type text-left mb-medium pt-medium">Subscriptions</h2>
   <div class="container-banner absolute pv-large bg-dark-brown"></div>
@@ -328,7 +330,7 @@ if($statementProducts->execute()){
   }
 }
 ;?>
-
+</div>
     </div>
   </section>
 </main>

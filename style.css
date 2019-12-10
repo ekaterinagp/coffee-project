@@ -1150,7 +1150,7 @@ input {
   color: #000;
 }
 
-.profile .container-banner {
+.profile .related-products .container-banner {
   width: 100%;
   z-index: -1;
   top: 187.5vw;
