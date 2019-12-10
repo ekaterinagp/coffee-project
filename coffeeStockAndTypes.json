@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "name": "Organic Tierra Del Sol",
+    "coffeeTypeId": 5,
+    "priceInDkk": 98,
+    "stock": 145
+  },
+  {
+    "id": 2,
+    "name": "Greater Goods",
+    "coffeeTypeId": 6,
+    "priceInDkk": 47,
+    "stock": 10
+  },
+  {
+    "id": 3,
+    "name": "Hugo Melo",
+    "coffeeTypeId": 1,
+    "priceInDkk": 110,
+    "stock": 200
+  },
+  {
+    "id": 4,
+    "name": "Light It Up",
+    "coffeeTypeId": 4,
+    "priceInDkk": 65,
+    "stock": 100
+  },
+  {
+    "id": 5,
+    "name": "Full Steam",
+    "coffeeTypeId": 3,
+    "priceInDkk": 68,
+    "stock": 101
+  },
+  {
+    "id": 6,
+    "name": "Coffee Manufactory",
+    "coffeeTypeId": 2,
+    "priceInDkk": 60,
+    "stock": 100
+  },
+
+  {
+    "id": 7,
+    "name": "Little Nap Coffee Beans",
+    "coffeeTypeId": 6,
+    "priceInDkk": 77,
+    "stock": 100
+  },
+  {
+    "id": 8,
+    "name": "Atlas Coffee",
+    "coffeeTypeId": 5,
+    "priceInDkk": 115,
+    "stock": 100
+  },
+  {
+    "id": 9,
+    "name": "Kintore Coffee",
+    "coffeeTypeId": 6,
+    "priceInDkk": 79,
+    "stock": 100
+  },
+  {
+    "id": 10,
+    "name": "Lavazza",
+    "coffeeTypeId": 2,
+    "priceInDkk": 55,
+    "stock": 100
+  },
+  {
+    "id": 21,
+    "name": "Read Coffee Bag",
+    "coffeeTypeId": 1,
+    "priceInDkk": 68,
+    "stock": 150
+  }
+]
