@@ -238,16 +238,19 @@ if($statementUserSubscription->execute([':id' => $nUserID])){
 if($statementProducts->execute()){
 
   $jProducts = $statementProducts->fetchAll(PDO::FETCH_ASSOC);
+  $arrayRelatedProducts = [];
 
   foreach($jProducts as $jProduct){
 
     if($jProduct['bActive']!==0){
 
     $nRelatedProductCoffeeTypeID = $jProduct['nCoffeeTypeID'];
-    
     $nRelatedProductID = $jProduct['nProductID'];
 
       if(!in_array($nRelatedProductID, $arrayProductID)){
+
+        array_push($arrayRelatedProducts, $nRelatedProductID);
+
         $imgUrl = $jProduct['cProductName'];
         $result = strtolower(str_replace(" ", "-", $imgUrl));
 ?>
@@ -262,20 +265,20 @@ if($statementProducts->execute()){
         </div>
       </a>
 <?php
+
         }
+      }
+       if(count($arrayRelatedProducts) > 3){
+        break;
       }
     }
   }
 
 ;?>
 
-    </div>
-  </section>
+  </div>
 
-
-  <section class="section-three mb-large ph-large pt-medium">
-  <h2>Want to try something new</h2>
-  <h2 class="coffee-type text-left mb-medium">Subscriptions</h2>
+  <h2 class="coffee-type text-left mb-medium pt-medium">Subscriptions</h2>
   <div class="container-banner absolute pv-large bg-dark-brown"></div>
   <div class="containerForSubscriptions grid grid-three m-medium">
 
@@ -295,12 +298,8 @@ if($statementProducts->execute()){
 
             array_push($arrayRelatedSubscriptionID, $nRelatedSubscriptionID);
 
-            if(count($arraySubscriptionTypeID) == 3){
-              exit;
-            }
-
-      $imgUrl = $jSubscription['cProductName'];
-      $result = strtolower(str_replace(" ", "-", $imgUrl));
+            $imgUrl = $jSubscription['cProductName'];
+            $result = strtolower(str_replace(" ", "-", $imgUrl));
 ?>
 
 <div class="subscriptionItem" id="<?= $jSubscription['nSubscriptionTypeID'] ;?>">
@@ -322,6 +321,9 @@ if($statementProducts->execute()){
           
         }
       }
+        if(count($arrayRelatedSubscriptionID) > 2){
+        break;
+        }
     }
   }
 }
@@ -334,5 +336,3 @@ if($statementProducts->execute()){
 <?php
 $sScriptPath = 'profile.js';
 require_once(__DIR__ . '/components/footer.php');
-
-// GETS ALL PRODUCTS...
