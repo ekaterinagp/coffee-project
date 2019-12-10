@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 10, 2019 at 10:58 AM
+-- Generation Time: Dec 10, 2019 at 11:39 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -21,10 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `properpour`
 --
-
-DROP DATABASE IF EXISTS `properpour`;
-CREATE DATABASE `properpour` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `properpour`;
 
 DELIMITER $$
 --
@@ -160,6 +156,15 @@ BEGIN
         WHERE nUserID = pnUserID;
 
 	COMMIT;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `setDeleteDateCreditCard` (IN `pnCreditCardID` MEDIUMINT)  NO SQL
+BEGIN
+
+UPDATE tcreditcard
+	SET dDeleteCreditcard = CURRENT_TIMESTAMP()
+    WHERE nCreditCardID=pnCreditCardID;
+
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `setDeleteDateSubscription` (IN `pnUserSubscription` INT)  NO SQL
@@ -411,7 +416,8 @@ INSERT INTO `taudituser` (`nAuditUserID`, `nOldUserID`, `cOldName`, `cOldSurname
 (38, 26, 'Jens', 'Jakobsen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '0.0000', 26, NULL, 'Jakobsen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '0.0000', 'U', '2019-12-09 19:01:41', 'root', 'localhost'),
 (39, 24, 'Nina', 'Ricci', 'nina@gmail.com', 'ninaRich', '43f648533b07a340a204b8a9504c75aa457ddc5180209d01aad571e0', 'Coolvej, 14 2387 Nestved', 5, '37809754', '2019-12-04 12:45:37', NULL, '298.3000', 24, NULL, 'Ricci', 'nina@gmail.com', 'ninaRich', '43f648533b07a340a204b8a9504c75aa457ddc5180209d01aad571e0', 'Coolvej, 14 2387 Nestved', 5, '37809754', '2019-12-04 12:45:37', NULL, '298.3000', 'U', '2019-12-10 09:45:02', 'root', 'localhost'),
 (40, 26, 'JENS', 'Jakobsen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '0.0000', 26, 'Jenss', 'Jakobsen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '0.0000', 'U', '2019-12-10 09:57:44', 'root', 'localhost'),
-(41, 26, 'Jenss', 'Jakobsen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '0.0000', 26, 'Jens', 'Jakobsen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '0.0000', 'U', '2019-12-10 09:58:20', 'root', 'localhost');
+(41, 26, 'Jenss', 'Jakobsen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '0.0000', 26, 'Jens', 'Jakobsen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '0.0000', 'U', '2019-12-10 09:58:20', 'root', 'localhost'),
+(42, 26, 'Jens', 'Jakobsen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '0.0000', 26, 'Jens', 'Mortensen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '0.0000', 'U', '2019-12-10 10:00:32', 'root', 'localhost');
 
 -- --------------------------------------------------------
 
@@ -486,34 +492,35 @@ CREATE TABLE `tcreditcard` (
   `cExpiration` char(4) NOT NULL,
   `cCCV` char(3) NOT NULL,
   `nTotalPurchaseAmount` decimal(18,4) NOT NULL DEFAULT 0.0000,
-  `nUserID` mediumint(8) UNSIGNED NOT NULL
+  `nUserID` mediumint(8) UNSIGNED NOT NULL,
+  `dDeleteCreditCard` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tcreditcard`
 --
 
-INSERT INTO `tcreditcard` (`nCreditCardID`, `cIBAN`, `cExpiration`, `cCCV`, `nTotalPurchaseAmount`, `nUserID`) VALUES
-(6, '123456781234567890', '12/2', '123', '62.9500', 9),
-(7, '4555400091110086', '06/2', '888', '221.8200', 10),
-(9, '5656565656565656', '08/3', '345', '84.5500', 24),
-(10, '12345678912345666', '01/3', '432', '127.4900', 9),
-(11, '123456781234560000', '08/3', '665', '0.0000', 10),
-(12, '4555400091110099', '05/2', '987', '213.7500', 24),
-(13, '123456789012345666', '01/2', '777', '85.0000', 8),
-(14, '123456781234567777', '03/2', '876', '28.7500', 8),
-(15, '123435781234567890', '01/3', '657', '43.7500', 18),
-(16, '333456781234567890', '05/2', '432', '68.0000', 18),
-(17, '125556781234567890', '07/2', '345', '0.0000', 16),
-(18, '123486781234567890', '04/3', '243', '0.0000', 16),
-(19, '123455581234567890', '12/3', '098', '0.0000', 23),
-(20, '123456781234567777', '20/2', '443', '0.0000', 23),
-(21, '123456781234567788', '07/3', '990', '0.0000', 15),
-(22, '123456781237767890', '06/5', '890', '0.0000', 15),
-(23, '123456781234561111', '08/2', '554', '0.0000', 26),
-(24, '123456999234567890', '09/2', '767', '0.0000', 26),
-(25, '123456333234567890', '02/2', '090', '0.0000', 21),
-(26, '123393981234567890', '11/2', '656', '0.0000', 21);
+INSERT INTO `tcreditcard` (`nCreditCardID`, `cIBAN`, `cExpiration`, `cCCV`, `nTotalPurchaseAmount`, `nUserID`, `dDeleteCreditCard`) VALUES
+(6, '123456781234567890', '12/2', '123', '62.9500', 9, NULL),
+(7, '4555400091110086', '06/2', '888', '221.8200', 10, NULL),
+(9, '5656565656565656', '08/3', '345', '84.5500', 24, NULL),
+(10, '12345678912345666', '01/3', '432', '127.4900', 9, NULL),
+(11, '123456781234560000', '08/3', '665', '0.0000', 10, NULL),
+(12, '4555400091110099', '05/2', '987', '213.7500', 24, NULL),
+(13, '123456789012345666', '01/2', '777', '85.0000', 8, NULL),
+(14, '123456781234567777', '03/2', '876', '28.7500', 8, NULL),
+(15, '123435781234567890', '01/3', '657', '43.7500', 18, NULL),
+(16, '333456781234567890', '05/2', '432', '68.0000', 18, NULL),
+(17, '125556781234567890', '07/2', '345', '0.0000', 16, NULL),
+(18, '123486781234567890', '04/3', '243', '0.0000', 16, NULL),
+(19, '123455581234567890', '12/3', '098', '0.0000', 23, NULL),
+(20, '123456781234567777', '20/2', '443', '0.0000', 23, NULL),
+(21, '123456781234567788', '07/3', '990', '0.0000', 15, NULL),
+(22, '123456781237767890', '06/5', '890', '0.0000', 15, NULL),
+(23, '123456781234561111', '08/2', '554', '0.0000', 26, NULL),
+(24, '123456999234567890', '09/2', '767', '0.0000', 26, NULL),
+(25, '123456333234567890', '02/2', '090', '0.0000', 21, NULL),
+(26, '123393981234567890', '11/2', '656', '0.0000', 21, NULL);
 
 --
 -- Triggers `tcreditcard`
@@ -878,7 +885,7 @@ INSERT INTO `tuser` (`nUserID`, `cName`, `cSurname`, `cEmail`, `cUsername`, `cPa
 (21, 'Don', 'Jens', 'jens@don.dk', 'donJens', 'bbd2eaa465a570feed6a0f368550b9da88f89194f29466c649920dab', 'Randersvej,12 1234 Randers', 3, '11556438', '2019-12-04 12:30:04', NULL, '0.0000'),
 (23, 'Eleanor', 'Coolish', 'cool@cool.dk', 'eler', '302c401c2dfb70269d43b24504cb80baad56564f91633a0392001444', 'Ryparken 13 2100 København', 2, '34563456', '2019-12-04 12:41:58', NULL, '0.0000'),
 (24, 'Ninna', 'Ricci', 'nina@gmail.com', 'ninaRich', '43f648533b07a340a204b8a9504c75aa457ddc5180209d01aad571e0', 'Coolvej, 14 2387 Nestved', 5, '37809754', '2019-12-04 12:45:37', NULL, '298.3000'),
-(26, 'Jens', 'Jakobsen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '0.0000');
+(26, 'Jens', 'Mortensen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '0.0000');
 
 --
 -- Triggers `tuser`
@@ -1173,7 +1180,7 @@ ALTER TABLE `tauditpurchase`
 -- AUTO_INCREMENT for table `taudituser`
 --
 ALTER TABLE `taudituser`
-  MODIFY `nAuditUserID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `nAuditUserID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `tcity`

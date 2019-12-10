@@ -37,13 +37,18 @@ INNER JOIN tProduct ON tSubscriptionType.nProductID = tProduct.nProductID
 INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID WHERE tuser.nUserID = :id";
 $statementUserSubscription = $connection->prepare($sqlUserSubscription);
 
+$sqlCreditCard = "SELECT * FROM tCreditCard WHERE tCreditCard.nUserID = :id";
+$statementCreditCard = $connection->prepare($sqlCreditCard);
+
 ?>
 
 <main class="profile">
+<h1 class="text-center">Welcome <?= $jLoggedUser['cName'];?></h1>
 <section class="section-one grid grid-two mb-large ph-large pt-medium">
 
-  <h1>Welcome <?= $jLoggedUser['cName'];?></h1>
-  <div class="profile-details bg-medium-light-brown p-medium">
+<div>
+  <div class="profile-details bg-dark-brown p-medium">
+    <h2 class="color-white">Profile Details</h2>
     <form id="form-profile" method="post">
       <label id="cName" class="grid grid-one-fourth" for="name"><h3 class="text-left align-self-center">Name</h3>
         <input class="m-small" minlength="2" maxlength="20" type="text" data-type="string" name="inputName" placeholder="First name" value="<?= $jLoggedUser['cName'];?>">
@@ -107,19 +112,37 @@ $statementUserSubscription = $connection->prepare($sqlUserSubscription);
         <button class="button-save hide-button button">Save</button>
       </label>
 
-      <!-- <label class="grid grid-one-fourth" for="loginName"><h3 class="text-left align-self-center">Username</h3>
-        <input type="text" data-type="string" name="inputLoginName" placeholder="username" value="<?= $jLoggedUser['cUsername'];?>">
+      <label class="grid grid-one-fourth" for="loginName"><h3 class="text-left align-self-center">Username</h3>
+        <input class="m-small" type="text" data-type="string" name="inputLoginName" placeholder="username" value="<?= $jLoggedUser['cUsername'];?>">
           <div class="errorMessage">Must be more than 2 and less than 12</div>
           <button class="button-edit button">Edit</button>
         <button class="button-save hide-button button">Save</button>
         </label>
 
       <label class="grid grid-one-fourth" for="password"><h3 class="text-left align-self-center">Password</h3>
-        <input type="password" data-type="string" minlength="8" maxlength="8" name="password" placeholder="password">
+        <input class="m-small" type="password" data-type="string" minlength="8" maxlength="8" name="password" placeholder="password">
           <div class="errorMessage">Password must be 8 characters</div>
           <button class="button-edit button">Edit</button>
         <button class="button-save hide-button button">Save</button>
-      </label> -->
+      </label>
+    </form>
+  </div>
+  </div>
+  <div class="profile-details creditcard-info bg-light-brown p-medium">
+    <h2 class="color-white">Creditcard Details</h2>
+    <form id="form-creditcard" method="post">
+    <?php 
+if($statementCreditCard->execute([':id' => 24])){
+  $jUserCreditCards = $statementCreditCard->fetchAll(PDO::FETCH_ASSOC);
+
+  if(count($jUserCreditCards)>=1){
+
+    foreach($jUserCreditCards as $jUserCreditCard){
+
+
+  
+    }}};?>
+
     </form>
   </div>
 </section>
