@@ -1582,8 +1582,8 @@ form .errorMessage {
   max-height: 0;
   transition: all 0.3s;
   overflow: hidden;
-  color: #e4bebe;
-  background-color: red;
+  color: #fb4b23;
+  /* background-color: red; */
   font-style: italic;
   font-size: 80%;
 }
