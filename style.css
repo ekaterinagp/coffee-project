@@ -1090,7 +1090,24 @@ a {
 }
 
 /***** PROFILE PAGE  *****/
-
+#form-profile label p{
+  grid-column: 1/-1;
+  margin:0 1vh;
+  color:white;
+}
+#form-profile h3{
+  font-size: 80%;
+}
+#form-profile .button{
+  grid-column: 2;
+  grid-row: 2;
+  width:80%;
+  height: 60%;
+  line-height: 60%;
+}
+#form-profile h3{
+  margin:1vh;
+}
 #form-profile input,
 #form-profile select {
   border-radius: 0;
