@@ -43,7 +43,9 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
 ?>
 
 <main class="profile">
+  <button class="button log-out">Logout</button>
 <h1 class="text-center">Welcome <?= $jLoggedUser['cName'];?></h1>
+<button class="button delete-profile-button">Delete Profile</button>
 <section class="section-one grid grid-two mb-large ph-large pt-medium">
 
 <div>
@@ -71,7 +73,7 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
         <button class="button-save hide-button m-small button">Save</button>
       </label>
       <label id="nCityID" for="cityInput" class="grid grid-two-thirds-reversed"><p class="text-left align-self-center">City</p>
-        <select class="m-small" name="cityInput" value=" <?= $jLoggedUser['nCityID']?>">
+        <select class="m-small" name="cityInput" value="<?= $jLoggedUser['nCityID']?>">
             <option value="1" <?php if($jLoggedUser['nCityID']=1) echo 'selected'?>>Copenhagen</option>
             <option value="2"<?php if($jLoggedUser['nCityID']=2) echo 'selected'?>>Århus</option>
             <option value="3" <?php if($jLoggedUser['nCityID']=3) echo 'selected'?>>Odense</option>
@@ -129,7 +131,7 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
   </div>
   <div class="profile-details creditcard-info bg-light-brown p-medium">
     <h2 class="color-white">Creditcard Details</h2>
-    <form id="form-creditcard" method="post">
+    
     <?php 
 
 if($statementCreditCard->execute([':id' => $nUserID])){
@@ -137,26 +139,28 @@ if($statementCreditCard->execute([':id' => $nUserID])){
 
   if(count($jUserCreditCards)>=1){
 
+    
     foreach($jUserCreditCards as $jUserCreditCard){
-
+      
+      if(!isset($jUserCreditCard['dDeleteCreditCard'])){
       $nCreditCardID = $jUserCreditCard['nCreditCardID'];
-;?>
+    ;?>
     <div id="creditcard-<?=$nCreditCardID;?>">
-      <div class="description mh-small mv-medium">
-        <div class="creditcard-details">
-          <h1 class="mv-small text-left"><?=$jUserCreditCard['cIBAN'];?></h1>
-          <h2 class="mv-small text-left light"><?=$jUserCreditCard['cExpiration'];?></h2>
+        <div class="description mh-small mv-medium">
+          <div class="creditcard-details">
+            <h1 class="mv-small text-left"><?=$jUserCreditCard['cIBAN'];?></h1>
+            <h2 class="mv-small text-left light"><?=$jUserCreditCard['cExpiration'];?></h2>
+          </div>
         </div>
+        <button class="button-delete-card button">Delete</button>
       </div>
-      <button class="button-delete button">Delete</button>
-    </div>
-
-<?php 
+      
+      <?php   
     }
   }
+}
 };?>
 
-    </form>
   </div>
 </section>
 

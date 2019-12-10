@@ -1,0 +1,28 @@
+<?php
+
+session_start();
+require_once(__DIR__.'/../components/functions.php');
+
+if(!$_SESSION){
+    exit;
+}
+
+if($_POST){
+
+    require_once(__DIR__ . '/../connection.php');
+
+    $sql = "UPDATE tCreditCard SET dDeleteCreditCard=CURRENT_TIMESTAMP() WHERE nCreditCardID=:id";
+    
+      $statement = $connection->prepare($sql);  
+      $data =[
+        ':id' => $_POST['nCreditCardID']
+        ];
+
+      if ($statement->execute($data)) {
+
+        echo '1';
+        exit;
+      }
+    echo '0';
+
+}
