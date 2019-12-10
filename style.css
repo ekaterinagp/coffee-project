@@ -967,7 +967,8 @@ a {
 }
 
 .shop .products-container,
-.single-product .products-container, .profile .products-container {
+.single-product .products-container, .profile .products-container, 
+.profile .current-subscriptions .description {
   grid-gap: 1vw;
 }
 .back-button {
@@ -1041,7 +1042,10 @@ a {
 }
 
 .single-product .section-one h3,
-.single-product .section-one h4 {
+.single-product .section-one h4, 
+.profile .section-two h3, 
+.profile .section-two h4 
+ {
   text-align: left;
   padding-bottom: 0.5vw;
 }
