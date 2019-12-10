@@ -38,6 +38,16 @@ if($_SESSION){
             sendErrorMessage('Expiration is invalid', __LINE__);
         }
 
+        if(!ctype_digit($_POST['inputIBAN'])){
+            sendErrorMessage('phonenumber is invald', __LINE__);
+          }
+        if(!ctype_digit($_POST['inputCCV'])){
+            sendErrorMessage('phonenumber is invald', __LINE__);
+        }
+          if(!ctype_digit($_POST['inputExpiration'])){
+            sendErrorMessage('phonenumber is invald', __LINE__);
+        }
+
         require_once(__DIR__.'/../connection.php');
 
         $sql = "INSERT INTO tCreditCard (cIBAN, cCCV, cExpiration, nUserID) VALUES (:iban, :ccv, :expiration, :id)";

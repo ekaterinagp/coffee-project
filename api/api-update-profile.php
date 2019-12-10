@@ -41,6 +41,10 @@ if (strlen($_POST['inputPhone']) !== 8) {
     sendErrorMessage('phonenumber is invald', __LINE__);
 }
 
+if(!ctype_digit($_POST['inputPhone'])){
+  sendErrorMessage('phonenumber is invald', __LINE__);
+}
+
 // ADDRESS
 
   if (empty($_POST['inputAddress'])) {
@@ -56,6 +60,10 @@ if (strlen($_POST['inputPhone']) !== 8) {
 if (empty($_POST['cityInput'])) {
     sendErrorMessage('city is empty', __LINE__);
   }
+
+  if(!ctype_digit($_POST['cityInput'])){
+    sendErrorMessage('city is invalid', __LINE__);
+}
 
 //EMAIL
 
