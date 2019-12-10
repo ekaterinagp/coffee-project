@@ -176,7 +176,7 @@ if($statementCreditCard->execute([':id' => $nUserID])){
       </label>
 
       <label class="grid" for="inputExpiration"><p class="text-left align-self-center mb-small">Expiration date</p>
-        <input class="mb-small" data-type="string" minlength="2" maxlength="20" type="text" name="inputExpiration" placeholder="Expiration date (format mmyy)" value="">
+        <input class="mb-small" data-type="string" minlength="4" maxlength="4" type="text" name="inputExpiration" placeholder="Expiration date (format mmyy)" value="">
         <div class="errorMessage">Expiration date must be 4 digits</div>
       </label>
 
