@@ -12,7 +12,7 @@ $statement = $connection->prepare($sql);
 
 <main class="single-product">
     <section class="section-one grid grid-two-thirds-reversed mb-large">
-        <div class="back-button color-orange bold absolute">&lt;</div>
+        <div class="back-button color-orange bold absolute">Back</div>
         <?php
 
         if ($statement->execute()) {
@@ -67,11 +67,11 @@ $statement = $connection->prepare($sql);
                                 <div class="options">
                                     <h2 class="pb-small">Grind</h2>
                                     <label>
-                                        <input type="radio" name="grindType" value="whole" class="mb-small">
+                                        <input type="radio" name="option1" value="0-50" class="mb-small">
                                         <div class="checkmark">Whole</div>
                                     </label>
                                     <label>
-                                        <input type="radio" name="grindType" value="grind" class="mb-small">
+                                        <input type="radio" name="option1" value="0-50" class="mb-small">
                                         <div class="checkmark">Grind</div>
                                     </label>
 
@@ -81,51 +81,53 @@ $statement = $connection->prepare($sql);
                             <div class="payment">
                                 <h2 class="align-self-bottom">Total amount</h2>
                                 <p class="align-self-top"><?= $product['nPrice']; ?> DKK</p>
-                                <div class="button" id="addToCartBtn">Add to cart</div>
+                                <a href="payment.php?id=<?= $product['nProductID']; ?>" class="button">Add to cart</a>
                             </div>
                         </div>
     </section>
 
-    <section class="section-two grid mb-large mh-medium">
-        <h2 class="mb-medium">You might also like</h2>
-        <h2 class="coffee-type text-left mb-medium"><?= $product['cName']; ?></h2>
-        <div class="container-banner absolute pv-large bg-dark-brown"></div>
-        <div class="products-container grid grid-four">
+    <section class="section-two grid mb-large ph-large pt-medium relative">
+        <div class="relative">
+            <h2 class="mb-medium">You might also like</h2>
+            <h2 class="coffee-type text-left mb-medium"><?= $product['cName']; ?></h2>
+            <div class="container-banner absolute pv-large bg-dark-brown"></div>
+            <div class="products-container grid grid-four">
 
-        <?php
+            <?php
+                        }
                     }
                 }
-            }
 
-            foreach ($products as $product) {
+                foreach ($products as $product) {
 
-                if ($product['bActive'] !== 0) {
+                    if ($product['bActive'] !== 0) {
 
-                    $nProductID = $product['nProductID'];
-                    $nRelatedProductCoffeeTypeID = $product['nCoffeeTypeID'];
+                        $nProductID = $product['nProductID'];
+                        $nRelatedProductCoffeeTypeID = $product['nCoffeeTypeID'];
 
-                    if ($nRelatedProductCoffeeTypeID == $nCoffeeTypeID && $nProductID != $iProductID) {
+                        if ($nRelatedProductCoffeeTypeID == $nCoffeeTypeID && $nProductID != $iProductID) {
 
-                        $imgUrl = $product['cProductName'];
-                        $result = strtolower(str_replace(" ", "-", $imgUrl));
-                        ?>
+                            $imgUrl = $product['cProductName'];
+                            $result = strtolower(str_replace(" ", "-", $imgUrl));
+                            ?>
 
-            <a href="singleProduct.php?id=<?= $product['nProductID']; ?>">
-                <div class="product" id="product-<?= $product['nProductID']; ?>">
-                    <div class="image bg-contain" style="background-image: url(img/products/<?= $result; ?>.png)"></div>
-                    <div class="description m-small">
-                        <h3 class="productName mt-small text-left"><?= $product['cProductName']; ?></h3>
-                        <h4 class="productName mt-small text-left">Origin: <?= $product['cName']; ?></h4>
-                        <p class="productPrice mt-small"><?= $product['nPrice']; ?> DKK</p>
+                <a href="singleProduct.php?id=<?= $product['nProductID']; ?>">
+                    <div class="product" id="product-<?= $product['nProductID']; ?>">
+                        <div class="image bg-contain" style="background-image: url(img/products/<?= $result; ?>.png)"></div>
+                        <div class="description m-small">
+                            <h3 class="productName mt-small text-left"><?= $product['cProductName']; ?></h3>
+                            <h4 class="productName mt-small text-left">Origin: <?= $product['cName']; ?></h4>
+                            <p class="productPrice mt-small"><?= $product['nPrice']; ?> DKK</p>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
 <?php
             }
         }
     }
 }
 ?>
+            </div>
         </div>
     </section>
 </main>

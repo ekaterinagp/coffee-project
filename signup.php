@@ -99,12 +99,13 @@ if ($_SESSION) {
         </label>
 
 
-        <button name="reg_user">Sign Up</button>
+        <button name="reg_user" class="button" disabled>Sign Up</button>
       </form>
     </div>
     <h3>Already a user? <a href="login.php">Log in </a></h3>
   </div>
   <script src="js/signup.js"></script>
+  <script src="js/validation.js"></script>
   <?php
   // $sScriptPath = 'js/validation.js';
   require_once(__DIR__ . '/components/footer.php');
