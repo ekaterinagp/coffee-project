@@ -38,7 +38,7 @@ require_once(__DIR__ . '/components/header.php');
       </section>
 
       <div id="totalsum"></div>
-      <button class="buy">Go to Payment</button>
+      <button class="button buy">Go to Payment</button>
     </div>
   </div>
 </main>

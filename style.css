@@ -610,7 +610,7 @@ a {
   background-color: #fb8b23;
   text-transform: uppercase;
   border: none;
-  width: 15vw;
+  max-width: 18vw;
   line-height: 20%;
   margin-top: 0.5vh;
   align-content: center;
