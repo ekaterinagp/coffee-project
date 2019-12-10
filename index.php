@@ -61,34 +61,55 @@ require_once(__DIR__ . '/components/header.php');
         <h2 class="mb-small">How it works</h2>
         <h3>Enhancing your everyday coffee experience has never been easier</h3>
         <div class="grid grid-three container">
-            <div class="step one bg-light-brown">
-                <div class="step-no absolute">
-                    <h4 class="color-white relative">Step</h4>
-                    <div class="no relative">1</div>
-                </div>
-                <div class="image bg-contain"></div>
-                <div class="description">
-                    <h5 class="color-white">Select a coffee you like or take a test to get an advice from us</h5>
-                </div>
-            </div>
-            <div class="step two bg-medium-light-brown">
-                <div class="step-no absolute">
-                    <h4 class="color-white relative">Step</h4>
-                    <div class="no relative">2</div>
-                </div>
-                <div class="image bg-contain"></div>
-                <div class="description">
-                    <h5 class="color-white">Choose amount you need and delivery method </h5>
+            <div class="flipcontainer  one grid" ontouchstart="this.classList.toggle('hover');">
+                <div class="flipper">
+                    <div class="step one bg-light-brown">
+                        <div class="step-no absolute">
+                            <h4 class="color-white relative">Step</h4>
+                            <div class="no relative">1</div>
+                        </div>
+                        <div class="image bg-contain"></div>
+                        <div class="description">
+                            <h5 class="color-white">Select a coffee you like or take a test to get an advice from us</h5>
+                        </div>
+                    </div>
+                    <div class="back p-medium">
+                        Some text
+                    </div>
                 </div>
             </div>
-            <div class="step three bg-dark-brown">
-                <div class="step-no absolute">
-                    <h4 class="color-white relative">Step</h4>
-                    <div class="no relative">3</div>
+            <div class="flipcontainer  one grid" ontouchstart="this.classList.toggle('hover');">
+                <div class="flipper">
+                    <div class="step two bg-medium-light-brown">
+                        <div class="step-no absolute">
+                            <h4 class="color-white relative">Step</h4>
+                            <div class="no relative">2</div>
+                        </div>
+                        <div class="image bg-contain"></div>
+                        <div class="description">
+                            <h5 class="color-white">Choose amount you need and delivery method </h5>
+                        </div>
+                    </div>
+                    <div class="back p-medium">
+                        Some text
+                    </div>
                 </div>
-                <div class="image bg-contain"></div>
-                <div class="description">
-                    <h5 class="color-white">Get it delivered and enjoy your coffee!</h5>
+            </div>
+            <div class="flipcontainer  one grid" ontouchstart="this.classList.toggle('hover');">
+                <div class="flipper">
+                    <div class="step three bg-dark-brown">
+                        <div class="step-no absolute">
+                            <h4 class="color-white relative">Step</h4>
+                            <div class="no relative">3</div>
+                        </div>
+                        <div class="image bg-contain"></div>
+                        <div class="description">
+                            <h5 class="color-white">Get it delivered and enjoy your coffee!</h5>
+                        </div>
+                    </div>
+                    <div class="back p-medium">
+                        Some text
+                    </div>
                 </div>
             </div>
         </div>
