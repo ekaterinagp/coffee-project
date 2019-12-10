@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "typeName": "Colombia"
+  },
+  {
+    "id": 2,
+    "typeName": "Ethiopia"
+  },
+  {
+    "id": 3,
+    "typeName": "Sumatra"
+  },
+  {
+    "id": 4,
+    "typeName": "Brazil"
+  },
+  {
+    "id": 5,
+    "typeName": "Nicaragua"
+  },
+  {
+    "id": 6,
+    "typeName": "Blend"
+  },
+  {
+    "id": 7,
+    "typeName": "Asian"
+  }
+]
