@@ -1040,11 +1040,21 @@ a {
   text-align: left;
 }
 
-.single-product .container-banner {
-  width: 100%;
+.single-product .container-banner, 
+.profile .related-products .container-banner,
+.profile .related-subscriptions .container-banner {
+  width: 100vw;
   z-index: -1;
-  top: 59.5vw;
-  left: 0;
+  top: 16.5vw;
+  left: -8vw;
+}
+
+.profile .related-products .container-banner {
+  top: 10.5vw;
+}
+
+.profile .related-subscriptions .container-banner{
+  top: 20.5vw;
 }
 
 .single-product .description,
@@ -1154,13 +1164,6 @@ input {
 
 #form-profile select::placeholder {
   color: #000;
-}
-
-.profile .related-products .container-banner {
-  width: 100%;
-  z-index: -1;
-  top: 187.5vw;
-  left: 0;
 }
 
 .product-info-container{

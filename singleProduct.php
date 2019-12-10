@@ -86,7 +86,8 @@ if($statement->execute()){
         </div>
     </section>
 
-    <section class="section-two grid mb-large mh-medium">
+    <section class="section-two grid mb-large ph-large pt-medium relative">
+        <div class="relative">
         <h2 class="mb-medium">You might also like</h2>
         <h2 class="coffee-type text-left mb-medium"><?=$product['cName'];?></h2>
         <div class="container-banner absolute pv-large bg-dark-brown"></div>
@@ -126,6 +127,7 @@ if($statement->execute()){
     }
 }   
 ?>
+            </div>
         </div>
     </section>
 </main>

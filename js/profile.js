@@ -14,12 +14,14 @@ editButtons.forEach(editButton => {
         buttonLabel.querySelector('.button-save').addEventListener('click', function(){
             event.preventDefault();
             
-            let inputName = querySelector('#cName').value;
-            let inputLastName = querySelector('#cSurname').value;
-            let inputEmail = querySelector('#cEmail').value;
-            let inputAddress = querySelector('#cAddress').value;
-            let inputPhoneNo = querySelector('#cPhoneNo').value;
-            let inputCity = querySelector('#nCityID').value;
+            let inputName = querySelector('[name=inputName]').value;
+            let inputLastName = querySelector('name=inputLastName').value;
+            let inputEmail = querySelector('name=inputEmail').value;
+            let inputAddress = querySelector('name=inputAddress').value;
+            let inputPhoneNo = querySelector('name=inputPhone').value;
+            let inputCity = querySelector('name=cityInput').value;
+            let inputUsername = querySelector('name=inputLoginName').value;
+            let inputPassword = querySelector('name=inputPassword').value;
 
             let formData = new formData();
             formData.append('inputName', inputName);
@@ -28,30 +30,26 @@ editButtons.forEach(editButton => {
             formData.append('inputAddress', inputAddress);
             formData.append('inputPhone', inputPhoneNo);
             formData.append('cityInput', inputCity);
+            formData.append('inputLoginName', inputUsername);
+            formData.append('inputPassword', inputPassword);
 
-            // let endpoint = "api/api-update-profile.php";
+            let endpoint = "api/api-update-profile.php";
 
-    // fetch(endpoint, {
-    //     method: "POST",
-    //     body: formData
-    // })
-    // .then(res => res.text())
-    // .then(response => {
-    //   console.log(response);
-    //   if (response == 1) {
-    //     // location.href = "profile.php";
-    //   }
-    //   if (response == 0) {
-    //     document.querySelector("#emailDiv").textContent =
-    //       "User with this email or user name is not found";
-    //     document.querySelector("#emailDiv").style.maxHeight = "500px";
-    //   }
-    // });
-
-
-    
-    
-
+    fetch(endpoint, {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.text())
+    .then(response => {
+      console.log(response);
+      if (response == 1) {
+          
+        
+      }
+      if (response == 0) {
+        
+      }
+    });
 
         });
         
