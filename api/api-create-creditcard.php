@@ -11,7 +11,6 @@ if($_SESSION){
 
     $jLoggedUser = $_SESSION['user'];
     $nUserID = $jLoggedUser['nUserID'];
-    echo $nUserID;
 
     if($_POST){
         echo 'posted';
@@ -38,6 +37,23 @@ if($_SESSION){
 
         if (strlen($_POST['inputExpiration']) !== 4) {
             sendErrorMessage('Expiration is invalid', __LINE__);
+        }
+
+        require_once(__DIR__.'/../connection.php');
+
+        $sql = "INSERT INTO TCreditCard (cIBAN, cCCV, cExpiration, nUserID) VALUES (:iban, :ccv, :expiration, :id)";
+
+        $statement = $connection->prepare($sql);
+    
+        $data =[
+            ':id' => $nUserID,
+            ':iban' => $_POST['inputIBAN'],
+            ':ccv' => $_POST['inputCCV'],
+            ':expiration' => $_POST['inputExpiration']
+        ];
+
+        if($statement->execute($data)){
+        echo '{"status":1, "message":"creditcard is successfully created"}';
         }
 
     }

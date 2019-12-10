@@ -88,9 +88,6 @@ if (strlen($_POST['inputPassword']) !== 8) {
   }
     
     require_once(__DIR__.'/../connection.php');
-    
-
-// password & username
 
     $sql = "UPDATE TUser SET cName=:name, cSurname=:lastName, cEmail=:email, cAddress=:address, nCityID =:cityID, cPhoneNo=:phone, cUsername=:username, cPassword=:password WHERE nUserID=:id";
     $statement = $connection->prepare($sql);

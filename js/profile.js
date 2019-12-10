@@ -43,7 +43,7 @@ editButtons.forEach(editButton => {
     .then(response => {
       console.log(response);
       if (response == 1) {
-          
+
         
       }
       if (response == 0) {
@@ -57,6 +57,7 @@ editButtons.forEach(editButton => {
 });
 
 const deleteSubscriptionBtn = document.querySelectorAll(".product-info-container .button-delete");
+
 deleteSubscriptionBtn.forEach(deleteBtn=>{
     deleteBtn.addEventListener("click", function(){
         let userSubscriptionID = deleteBtn.parentElement.id.substr(deleteBtn.parentElement.id.search("-")+1,deleteBtn.parentElement.id.length)
@@ -64,6 +65,7 @@ deleteSubscriptionBtn.forEach(deleteBtn=>{
     })
     
 })
+
 function deleteSubscription(id){
      // console.log('delte')
         let endpoint = "api/api-delete-subscription.php"
@@ -77,7 +79,6 @@ function deleteSubscription(id){
         .then(response => {
             console.log(response);
         });
-
 }
 
 document.querySelector(".delete-profile-button").addEventListener("click", deleteUser);
@@ -104,6 +105,7 @@ deleteCardBtns.forEach(deleteBtn=>{
         deleteCreditCard(id);
     })
 })
+
 function deleteCreditCard(id){
     let formData = new FormData();
     formData.append('nCreditCardID', id);
@@ -118,6 +120,7 @@ function deleteCreditCard(id){
             document.getElementById("creditcard-"+id).remove();
         });
 }
+
 function logout(){
     let endpoint = "api/api-logout.php";
     // console.log("delte user");

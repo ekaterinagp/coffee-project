@@ -181,7 +181,7 @@ if($statementCreditCard->execute([':id' => $nUserID])){
       </label>
 
       <button class="button-add button">Add creditcard</button>
-      <button class="button-save hide-button button">Save creditcard</button>
+      <!-- <button class="button-save hide-button button">Save creditcard</button> -->
     </form>
   </div>
 </section>
