@@ -11,7 +11,6 @@ if($_SESSION){
 
     $jLoggedUser = $_SESSION['user'];
     $nUserID = $jLoggedUser['nUserID'];
-    echo $nUserID;
  
     if($_POST){
 
@@ -89,9 +88,6 @@ if (strlen($_POST['inputPassword']) !== 8) {
   }
     
     require_once(__DIR__.'/../connection.php');
-    
-
-// password & username
 
     $sql = "UPDATE TUser SET cName=:name, cSurname=:lastName, cEmail=:email, cAddress=:address, nCityID =:cityID, cPhoneNo=:phone, cUsername=:username, cPassword=:password WHERE nUserID=:id";
     $statement = $connection->prepare($sql);
@@ -111,6 +107,9 @@ if (strlen($_POST['inputPassword']) !== 8) {
 
         if($statement->execute($data)){
         echo '{"status":1, "message":"user successfully updated"}';
+        }
+        else{
+            echo '{"status":0, "message":"something went wrong"}';
         }
 
     }
