@@ -13,7 +13,6 @@ if($_SESSION){
     $nUserID = $jLoggedUser['nUserID'];
 
     if($_POST){
-        echo 'posted';
 
         if (empty($_POST['inputIBAN'])) {
             sendErrorMessage('IBAN is empty', __LINE__);
@@ -41,7 +40,7 @@ if($_SESSION){
 
         require_once(__DIR__.'/../connection.php');
 
-        $sql = "INSERT INTO TCreditCard (cIBAN, cCCV, cExpiration, nUserID) VALUES (:iban, :ccv, :expiration, :id)";
+        $sql = "INSERT INTO tCreditCard (cIBAN, cCCV, cExpiration, nUserID) VALUES (:iban, :ccv, :expiration, :id)";
 
         $statement = $connection->prepare($sql);
     
@@ -54,6 +53,9 @@ if($_SESSION){
 
         if($statement->execute($data)){
         echo '{"status":1, "message":"creditcard is successfully created"}';
+        }
+        else{
+            echo '{"status":0, "message":"something went wrong"}';
         }
 
     }

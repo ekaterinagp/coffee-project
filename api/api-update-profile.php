@@ -108,6 +108,9 @@ if (strlen($_POST['inputPassword']) !== 8) {
         if($statement->execute($data)){
         echo '{"status":1, "message":"user successfully updated"}';
         }
+        else{
+            echo '{"status":0, "message":"something went wrong"}';
+        }
 
     }
 
