@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2019 at 01:57 PM
+-- Generation Time: Dec 10, 2019 at 03:04 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.1.31
 
@@ -20,6 +20,7 @@ SET time_zone = "+00:00";
 
 --
 -- Database: `properpour`
+--
 DROP DATABASE IF EXISTS properpour;
 CREATE DATABASE properpour DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE properpour;
@@ -242,7 +243,12 @@ INSERT INTO `tauditcreditcard` (`nAuditCreditCardID`, `nOldCreditCardID`, `nOldU
 (102, 15, 18, '123435781234567890', '01/3', '657', '0.0000', 15, 18, '123435781234567890', '01/3', '657', '43.7500', 'U', '2019-12-09 14:05:29', 'root', 'localhost'),
 (103, 14, 8, '123456781234567777', '03/2', '876', '0.0000', 14, 8, '123456781234567777', '03/2', '876', '28.7500', 'U', '2019-12-09 14:09:06', 'root', 'localhost'),
 (104, 23, 26, '123456781234561111', '08/2', '554', '0.0000', 23, 26, '123456781234561111', '08/2', '554', '43.7500', 'U', '2019-12-10 10:50:22', 'root', 'localhost'),
-(105, 24, 26, '123456999234567890', '09/2', '767', '0.0000', 24, 26, '123456999234567890', '09/2', '767', '124.9900', 'U', '2019-12-10 10:50:39', 'root', 'localhost');
+(105, 24, 26, '123456999234567890', '09/2', '767', '0.0000', 24, 26, '123456999234567890', '09/2', '767', '124.9900', 'U', '2019-12-10 10:50:39', 'root', 'localhost'),
+(106, NULL, NULL, NULL, NULL, NULL, NULL, 27, 26, '434534534534534534', '34/6', '234', '0.0000', 'I', '2019-12-10 13:45:53', 'root', 'localhost'),
+(107, 27, 26, '434534534534534534', '34/6', '234', '0.0000', 27, 26, '434534534534534534', '34/6', '234', '0.0000', 'U', '2019-12-10 13:47:32', 'root', 'localhost'),
+(108, 27, 26, '434534534534534534', '34/6', '234', '0.0000', 27, 26, '434534534534534534', '34/6', '234', '0.0000', 'U', '2019-12-10 13:49:44', 'root', 'localhost'),
+(109, 27, 26, '434534534534534534', '34/6', '234', '0.0000', 27, 26, '434534534534534534', '34/6', '234', '0.0000', 'U', '2019-12-10 13:49:49', 'root', 'localhost'),
+(110, 27, 26, '434534534534534534', '34/6', '234', '0.0000', 27, 26, '434534534534534534', '34/6', '234', '0.0000', 'U', '2019-12-10 13:58:17', 'root', 'localhost');
 
 -- --------------------------------------------------------
 
@@ -402,7 +408,17 @@ INSERT INTO `taudituser` (`nAuditUserID`, `nOldUserID`, `cOldName`, `cOldSurname
 (43, 26, 'Jens', 'Mortensen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '0.0000', 26, 'Jen', 'Mortensen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '0.0000', 'U', '2019-12-10 10:49:55', 'root', 'localhost'),
 (44, 26, 'Jen', 'Mortensen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '0.0000', 26, 'Jens', 'Mortensen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '0.0000', 'U', '2019-12-10 10:50:01', 'root', 'localhost'),
 (45, 26, 'Jens', 'Mortensen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '0.0000', 26, 'Jens', 'Mortensen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '43.7500', 'U', '2019-12-10 10:50:22', 'root', 'localhost'),
-(46, 26, 'Jens', 'Mortensen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '43.7500', 26, 'Jens', 'Mortensen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '168.7400', 'U', '2019-12-10 10:50:39', 'root', 'localhost');
+(46, 26, 'Jens', 'Mortensen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '43.7500', 26, 'Jens', 'Mortensen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '168.7400', 'U', '2019-12-10 10:50:39', 'root', 'localhost'),
+(47, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 27, 'TEST', 'TEST', 'test@test.com', 'test', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'address 121, 2100', 17, '12345678', '2019-12-10 13:23:48', NULL, '0.0000', 'I', '2019-12-10 13:23:48', 'root', 'localhost'),
+(48, 27, 'TEST', 'TEST', 'test@test.com', 'test', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'address 121, 2100', 17, '12345678', '2019-12-10 13:23:48', NULL, '0.0000', 27, 'TEST', 'TEST', 'test@test.com', 'test', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'address 121, 2100', 17, '12345678', '2019-12-10 13:23:48', '2019-12-10 13:30:25', '0.0000', 'U', '2019-12-10 13:30:25', 'root', 'localhost'),
+(49, 27, 'TEST', 'TEST', 'test@test.com', 'test', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'address 121, 2100', 17, '12345678', '2019-12-10 13:23:48', '2019-12-10 13:30:25', '0.0000', 27, 'TEST', 'TEST', 'test@test.com', 'test', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'address 121, 2100', 17, '12345678', '2019-12-10 13:23:48', NULL, '0.0000', 'U', '2019-12-10 13:31:05', 'root', 'localhost'),
+(50, 27, 'TEST', 'TEST', 'test@test.com', 'test', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'address 121, 2100', 17, '12345678', '2019-12-10 13:23:48', NULL, '0.0000', 27, 'TEST', 'TEST', 'test@test.com', 'test', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'address 121, 2100', 17, '12345678', '2019-12-10 13:23:48', '2019-12-10 13:31:53', '0.0000', 'U', '2019-12-10 13:31:53', 'root', 'localhost'),
+(51, 27, 'TEST', 'TEST', 'test@test.com', 'test', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'address 121, 2100', 17, '12345678', '2019-12-10 13:23:48', '2019-12-10 13:31:53', '0.0000', 27, 'TEST', 'TEST', 'test@test.com', 'test', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'address 121, 2100', 17, '12345678', '2019-12-10 13:23:48', NULL, '0.0000', 'U', '2019-12-10 13:32:09', 'root', 'localhost'),
+(52, 27, 'TEST', 'TEST', 'test@test.com', 'test', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'address 121, 2100', 17, '12345678', '2019-12-10 13:23:48', NULL, '0.0000', 27, 'TEST', 'TEST', 'test@test.com', 'test', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'address 121, 2100', 17, '12345678', '2019-12-10 13:23:48', '2019-12-10 13:32:13', '0.0000', 'U', '2019-12-10 13:32:13', 'root', 'localhost'),
+(53, 27, 'TEST', 'TEST', 'test@test.com', 'test', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'address 121, 2100', 17, '12345678', '2019-12-10 13:23:48', '2019-12-10 13:32:13', '0.0000', 27, 'TEST', 'TEST', 'test@test.com', 'test', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'address 121, 2100', 17, '12345678', '2019-12-10 13:23:48', NULL, '0.0000', 'U', '2019-12-10 13:33:37', 'root', 'localhost'),
+(54, 27, 'TEST', 'TEST', 'test@test.com', 'test', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'address 121, 2100', 17, '12345678', '2019-12-10 13:23:48', NULL, '0.0000', 27, 'TEST', 'TEST', 'test@test.com', 'test', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'address 121, 2100', 17, '12345678', '2019-12-10 13:23:48', '2019-12-10 13:33:43', '0.0000', 'U', '2019-12-10 13:33:43', 'root', 'localhost'),
+(55, 27, 'TEST', 'TEST', 'test@test.com', 'test', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'address 121, 2100', 17, '12345678', '2019-12-10 13:23:48', '2019-12-10 13:33:43', '0.0000', 27, 'TEST', 'TEST', 'test@test.com', 'test', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'address 121, 2100', 17, '12345678', '2019-12-10 13:23:48', NULL, '0.0000', 'U', '2019-12-10 13:35:30', 'root', 'localhost'),
+(56, 27, 'TEST', 'TEST', 'test@test.com', 'test', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'address 121, 2100', 17, '12345678', '2019-12-10 13:23:48', NULL, '0.0000', 27, 'TEST', 'TEST', 'test@test.com', 'test', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'address 121, 2100', 17, '12345678', '2019-12-10 13:23:48', '2019-12-10 13:35:40', '0.0000', 'U', '2019-12-10 13:35:40', 'root', 'localhost');
 
 -- --------------------------------------------------------
 
@@ -505,7 +521,8 @@ INSERT INTO `tcreditcard` (`nCreditCardID`, `cIBAN`, `cExpiration`, `cCCV`, `nTo
 (23, '123456781234561111', '08/2', '554', '43.7500', 26, NULL),
 (24, '123456999234567890', '09/2', '767', '124.9900', 26, NULL),
 (25, '123456333234567890', '02/2', '090', '0.0000', 21, NULL),
-(26, '123393981234567890', '11/2', '656', '0.0000', 21, NULL);
+(26, '123393981234567890', '11/2', '656', '0.0000', 21, NULL),
+(27, '434534534534534534', '34/6', '234', '0.0000', 26, '2019-12-10 13:58:17');
 
 --
 -- Triggers `tcreditcard`
@@ -874,7 +891,8 @@ INSERT INTO `tuser` (`nUserID`, `cName`, `cSurname`, `cEmail`, `cUsername`, `cPa
 (21, 'Don', 'Jens', 'jens@don.dk', 'donJens', 'bbd2eaa465a570feed6a0f368550b9da88f89194f29466c649920dab', 'Randersvej,12 1234 Randers', 3, '11556438', '2019-12-04 12:30:04', NULL, '0.0000'),
 (23, 'Eleanor', 'Coolish', 'cool@cool.dk', 'eler', '302c401c2dfb70269d43b24504cb80baad56564f91633a0392001444', 'Ryparken 13 2100 København', 2, '34563456', '2019-12-04 12:41:58', NULL, '0.0000'),
 (24, 'Ninna', 'Ricci', 'nina@gmail.com', 'ninaRich', '43f648533b07a340a204b8a9504c75aa457ddc5180209d01aad571e0', 'Coolvej, 14 2387 Nestved', 5, '37809754', '2019-12-04 12:45:37', NULL, '298.3000'),
-(26, 'Jens', 'Mortensen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '168.7400');
+(26, 'Jens', 'Mortensen', 'jakob@gmail.com', 'jensssss', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'Ulvej 156, 2100', 15, '12345699', '2019-12-09 11:55:21', NULL, '168.7400'),
+(27, 'TEST', 'TEST', 'test@test.com', 'test', '7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1', 'address 121, 2100', 17, '12345678', '2019-12-10 13:23:48', '2019-12-10 13:35:40', '0.0000');
 
 --
 -- Triggers `tuser`
@@ -1158,7 +1176,7 @@ ALTER TABLE `tusersubscription`
 -- AUTO_INCREMENT for table `tauditcreditcard`
 --
 ALTER TABLE `tauditcreditcard`
-  MODIFY `nAuditCreditCardID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `nAuditCreditCardID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
 -- AUTO_INCREMENT for table `tauditpurchase`
@@ -1170,7 +1188,7 @@ ALTER TABLE `tauditpurchase`
 -- AUTO_INCREMENT for table `taudituser`
 --
 ALTER TABLE `taudituser`
-  MODIFY `nAuditUserID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `nAuditUserID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `tcity`
@@ -1188,7 +1206,7 @@ ALTER TABLE `tcoffeetype`
 -- AUTO_INCREMENT for table `tcreditcard`
 --
 ALTER TABLE `tcreditcard`
-  MODIFY `nCreditCardID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `nCreditCardID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `tproduct`
@@ -1212,7 +1230,7 @@ ALTER TABLE `tsubscriptiontype`
 -- AUTO_INCREMENT for table `tuser`
 --
 ALTER TABLE `tuser`
-  MODIFY `nUserID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `nUserID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `tusersubscription`
