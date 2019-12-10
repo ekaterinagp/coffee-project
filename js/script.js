@@ -1,27 +1,29 @@
 "use strict";
+window.addEventListener("load", init);
+function init() {
+  let allSubscriptions = document.querySelectorAll(".subscriptionItem");
 
-let allSubscriptions = document.querySelectorAll(".subscriptionItem");
+  allSubscriptions.forEach(subscribeOption => {
+    subscribeOption.addEventListener("click", () => {
+      console.log("click");
+      removeSelected();
+      // removeButton();
+      subscribeOption.classList.add("selectedItem");
+      // let buttonToPayment = document.createElement("button");
+      // buttonToPayment.className = "paymentButton button";
+      // buttonToPayment.textContent = "To Payment";
+      // subscribeOption.append(buttonToPayment);
 
-allSubscriptions.forEach(subscribeOption => {
-  subscribeOption.addEventListener("click", () => {
-    console.log("click");
-    removeSelected();
-    // removeButton();
-    subscribeOption.classList.add("selectedItem");
-    // let buttonToPayment = document.createElement("button");
-    // buttonToPayment.className = "paymentButton button";
-    // buttonToPayment.textContent = "To Payment";
-    // subscribeOption.append(buttonToPayment);
-
-    document.querySelector(".paymentButton").addEventListener("click", () => {
-      let subId = document.querySelector(".paymentButton").parentNode.id;
-      console.log("subId", subId);
-      // let a = document.createElement("a");
-      window.location = "payment.php/id=" + subId;
-      // document.querySelector(".paymentButton").appendChild(a);
+      document.querySelector(".paymentButton").addEventListener("click", () => {
+        let subId = document.querySelector(".paymentButton").parentNode.id;
+        console.log("subId", subId);
+        // let a = document.createElement("a");
+        window.location = "payment.php/id=" + subId;
+        // document.querySelector(".paymentButton").appendChild(a);
+      });
     });
   });
-});
+}
 
 function removeSelected() {
   document.querySelectorAll(".selectedItem").forEach(name => {
@@ -29,15 +31,23 @@ function removeSelected() {
   });
 }
 
-// function removeButton() {
-//   document.querySelectorAll(".paymentButton").forEach(button => {
-//     button.remove();
-//   });
-// }
-
 if (document.querySelector(".back-button")) {
   console.log("yes");
   document.querySelector(".back-button").addEventListener("click", function() {
     window.history.back();
   });
 }
+
+let numberOfItem = document.querySelector(".numberOfItems");
+function checkCart() {
+  let cart = JSON.parse(sessionStorage.getItem("cart"));
+
+  if (cart && cart.length > 0) {
+    numberOfItem.innerHTML = cart.length;
+    numberOfItem.setAttribute("style", "display:block;");
+  } else {
+    numberOfItem.setAttribute("style", "display: none;");
+  }
+}
+
+checkCart();

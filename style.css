@@ -490,7 +490,7 @@ header {
   background: rgba(255, 255, 255, 0.95);
   max-width: 100vw;
   width: 100%;
-  position: fixed;
+  position: sticky;
   z-index: 80;
   top: 0;
   display: grid;
@@ -615,7 +615,7 @@ a {
   transition: all 0.3s;
   cursor: pointer;
   border: solid 1px transparent;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 .button:hover {
   transform: scale(1.03);
@@ -817,8 +817,8 @@ a {
 }
 
 .flipcontainer:hover .back {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-   /* transform: scale(1.5); */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  /* transform: scale(1.5); */
 }
 
 .flipcontainer,
@@ -863,7 +863,7 @@ a {
   right: 4vw;
   background-color: #fff;
   top: 40vw;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   border: solid 0.1px #00000045;
 }
 
@@ -888,7 +888,8 @@ a {
   padding: 1vw;
   text-align: right;
   border: solid 0.1px #00000045;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);}
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
 
 #txtSearch::placeholder {
   font-family: "Open sans", sans-serif;
@@ -910,7 +911,7 @@ a {
 }
 
 .filter-container {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .filter .accordion {
@@ -986,7 +987,7 @@ a {
 .profile .product {
   height: 25vw;
   border: solid 0.1px #00000045;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   transition: 0.2s ease-in-out;
   padding: 1vw;
   background-color: #fff;
@@ -1097,23 +1098,23 @@ a {
 }
 
 /***** PROFILE PAGE  *****/
-#form-profile label p{
+#form-profile label p {
   grid-column: 1/-1;
-  margin:0 1vh;
-  color:white;
+  margin: 0 1vh;
+  color: white;
 }
-#form-profile h3{
+#form-profile h3 {
   font-size: 80%;
 }
-#form-profile .button{
+#form-profile .button {
   grid-column: 2;
   grid-row: 2;
-  width:80%;
+  width: 80%;
   height: 60%;
   line-height: 60%;
 }
-#form-profile h3{
-  margin:1vh;
+#form-profile h3 {
+  margin: 1vh;
 }
 #form-profile input,
 #form-profile select {
@@ -1129,10 +1130,6 @@ select > option {
 
 .profile-details h3 {
   color: #fff;
-}
-
-input {
-  padding: 1vw;
 }
 
 .hide-button {
@@ -1167,7 +1164,8 @@ input {
   transition: all 0.3s;
   margin: 1em;
   background: white;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);}
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
 .subscribeOptiopnP {
   position: absolute;
   top: 4vh;
@@ -1238,7 +1236,8 @@ input {
 
 .selectedItem {
   transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);}
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
 .selectedItem .paymentButton {
   visibility: initial;
 }
@@ -1341,7 +1340,7 @@ input:checked + .btnRadio {
   border: solid 0.1px #00000045;
   width: 15em;
   background-color: white;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);/* -webkit-box-shadow: 5px 2px 10px 3px rgba(176, 168, 132, 0.7);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); /* -webkit-box-shadow: 5px 2px 10px 3px rgba(176, 168, 132, 0.7);
   -moz-box-shadow: 5px 2px 10px 3px rgba(176, 168, 132, 0.7);
   box-shadow: 5px 2px 10px 3px rgba(176, 168, 132, 0.7); */
 }
@@ -1390,8 +1389,8 @@ input:checked + .btnRadio {
   text-decoration: underline;
 }
 .testResults {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-   border: solid 0.1px #00000045;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  border: solid 0.1px #00000045;
   background-color: white;
   width: 60vw;
   margin: auto;
@@ -1553,4 +1552,28 @@ input.error {
 
 .highlight {
   background-color: yellow;
+}
+
+.img_cart {
+  width: 20vw;
+  height: auto;
+  justify-self: end;
+  margin-top: 2em;
+}
+
+.cartTotal {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  padding-top: 3em;
+  min-height: 80vh;
+}
+
+input.title_cart,
+input.type_cart_grind,
+input.price_cart {
+  border: none;
+  display: inline;
+  font-family: inherit;
+  font-size: inherit;
+  padding: none;
 }
