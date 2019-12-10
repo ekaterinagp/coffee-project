@@ -158,7 +158,7 @@ if($statementUserSubscription->execute([':id' => 24])){
     <div id="subscription-<?=$jUserSubscription['nUserSubscriptionID'];?>" class="product-info-container grid grid-two-thirds ml-medium">
       <div class="image bg-contain" style="background-image: url('img/products/<?= $result;?>.png')"></div>
       <div class="description mh-small mv-medium grid grid-two">
-        <div>
+        <div class="product-details">
           <h1 class="productName mv-small text-left"><?=$jUserSubscription['cProductName'];?></h1>
           <h2 class="coffee-type mv-small text-left light"><?=$jUserSubscription['cName'];?></h2>
           <p class="productPrice mv-small"><?=$jUserSubscription['nPrice'];?> DKK</p>
