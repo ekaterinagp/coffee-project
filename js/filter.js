@@ -231,11 +231,18 @@ function fetchDataForSearchBtn() {
       // document.querySelector(".products-container").innerHTML = "";
       document.querySelector("#forSearch").innerHTML = "";
       document.querySelector("#forSearch").innerHTML =
-        "Search results for:" + txtSearch.value;
+        "Search results for:" +
+        txtSearch.value +
+        ":" +
+        searchResultsArray.length;
       showFilteredCoffee(searchResultsArray);
       // let inputText = document.querySelector(".products-container");
       // cachedHtml = inputText.innerHTML;
-      highlight(txtSearch.value);
+      highlight(
+        document.querySelector(".products-container"),
+        txtSearch.value,
+        "highlight"
+      );
       // theResults.textContent = "";
 
       // arrayMatches.forEach(function(match) {
@@ -248,28 +255,39 @@ function fetchDataForSearchBtn() {
     });
 }
 
-function highlight(text) {
-  let inputText = document.querySelectorAll(".mt-small");
-  inputText.forEach(input => {
-    let innerHTML = input.textContent;
-    console.log({ innerHTML });
-    let index = innerHTML.indexOf(text);
-    let regexp = new RegExp(text, "gi");
+// function highlight(text) {
+//   let inputText = document.querySelectorAll(".mt-small");
+//   inputText.forEach(input => {
+//     let innerHTML = input.textContent;
+//     console.log({ innerHTML });
+//     let index = innerHTML.indexOf(text);
+//     let regexp = new RegExp(text, "gi");
 
-    if (index >= 0) {
-      // innerHTML =
-      //   innerHTML.substring(0, index) +
-      //   "<span class='highlight'>" +
-      //   innerHTML.substring(index, index + text.length) +
-      //   "</span>" +
-      //   innerHTML.substring(index + text.length);
-      input.innerHTML = innerHTML.replace(
-        regexp,
-        `<span class="highlight">${text}</span>`
-      );
-      console.log(input.innerHTML);
-    }
-  });
+//     if (index >= 0) {
+//       // innerHTML =
+//       //   innerHTML.substring(0, index) +
+//       //   "<span class='highlight'>" +
+//       //   innerHTML.substring(index, index + text.length) +
+//       //   "</span>" +
+//       //   innerHTML.substring(index + text.length);
+//       input.innerHTML = innerHTML.replace(
+//         regexp,
+//         `<span class="highlight">${text}</span>`
+//       );
+//       console.log(input.innerHTML);
+//     }
+//   });
+// }
+
+function highlight(container, what, spanClass) {
+  var content = container.innerHTML,
+    pattern = new RegExp("(>[^<.]*)(" + what + ")([^<.]*)", "g"),
+    replaceWith =
+      "$1<span " +
+      (spanClass ? 'class="' + spanClass + '"' : "") +
+      '">$2</span>$3',
+    highlighted = content.replace(pattern, replaceWith);
+  return (container.innerHTML = highlighted) !== content;
 }
 
 // Listen to range change
