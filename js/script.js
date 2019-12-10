@@ -35,10 +35,9 @@ function removeSelected() {
 //   });
 // }
 
-
-if(document.querySelector(".back-button")){
+if (document.querySelector(".back-button")) {
   console.log("yes");
-  document.querySelector(".back-button").addEventListener("click", function(){
+  document.querySelector(".back-button").addEventListener("click", function() {
     window.history.back();
-  })
+  });
 }

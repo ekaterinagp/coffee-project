@@ -849,7 +849,7 @@ a {
 
 .back {
   transform: rotateY(180deg);
-  background: #fff;
+  background-color: #ebd3c7;
 }
 
 /***** SHOP PAGE *****/
