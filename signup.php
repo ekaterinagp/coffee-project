@@ -3,8 +3,10 @@ $sTitle = ' | Signup';
 $sCurrentPage = 'profile';
 require_once(__DIR__ . '/components/header.php');
 require_once(__DIR__ . '/components/functions.php');
+if (!isset($_SESSION)) {
+  session_start();
+}
 
-session_start();
 
 if ($_SESSION) {
   // HERE WE HAVE TO HAVE THE ID IN THE SESSION AND USE IT IN THE LOCATION HREF - SAME FOR LOGIN
@@ -97,12 +99,13 @@ if ($_SESSION) {
         </label>
 
 
-        <button name="reg_user">Sign Up</button>
+        <button name="reg_user" class="button" disabled>Sign Up</button>
       </form>
     </div>
     <h3>Already a user? <a href="login.php">Log in </a></h3>
   </div>
   <script src="js/signup.js"></script>
+  <script src="js/validation.js"></script>
   <?php
   // $sScriptPath = 'js/validation.js';
   require_once(__DIR__ . '/components/footer.php');

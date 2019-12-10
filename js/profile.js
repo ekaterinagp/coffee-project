@@ -60,6 +60,7 @@ deleteSubscriptionBtn.forEach(deleteBtn=>{
     deleteBtn.addEventListener("click", function(){
         let userSubscriptionID = deleteBtn.parentElement.id.substr(deleteBtn.parentElement.id.search("-")+1,deleteBtn.parentElement.id.length)
         deleteSubscription(userSubscriptionID)
+        // console.log("delete!")
     })
     
 })
@@ -131,6 +132,16 @@ function logout(){
         });
 }
 
+let modalBtn = document.querySelector(".modalBtn");
+let modal = document.querySelector(".modal")
+let closeBtn = document.querySelector(".close");
+modalBtn.addEventListener("click", function(){
+    modal.style.display = "block";
+});
+closeBtn.addEventListener("click", function(){
+    modal.style.display = "none";
+
+});
 const addCreditCardButton = document.querySelector(".button-add");
 addCreditCardButton.addEventListener("click", addCreditCard);
 

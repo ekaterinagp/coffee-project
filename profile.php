@@ -43,9 +43,16 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
 ?>
 
 <main class="profile">
+<div class="modal">
+  <div class="modalContainer grid grid-two p-medium">
+  <h3>Are you sure you want to delete your user account?</h3>
+  <button class="button close">No</button>
+  <button class="button delete-profile-button">Yes</button>
+</div>
+</div>
   <button class="button log-out">Logout</button>
 <h1 class="text-center">Welcome <?= $jLoggedUser['cName'];?></h1>
-<button class="button delete-profile-button">Delete Profile</button>
+<button class="button modalBtn">Delete Profile</button>
 <section class="section-one grid grid-two mb-large ph-large pt-medium">
 
 <div>
