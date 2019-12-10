@@ -44,7 +44,7 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
 
 <main class="profile">
 <h1 class="text-center">Welcome <?= $jLoggedUser['cName'];?></h1>
-<section class="section-one grid grid-two mb-large ph-large pt-medium">
+<section class="section-one grid grid-two mb-large ph-large">
 
 <div>
   <div class="profile-details bg-dark-brown p-medium">
@@ -160,9 +160,10 @@ if($statementCreditCard->execute([':id' => $nUserID])){
   </div>
 </section>
 
-<h2 class="text-left">Your current subscriptions</h2> 
-<section class="section-two grid grid-two mb-large ph-medium pt-medium current-subscription">
-  <div class="current-subscriptions">
+
+<section class="section-two mb-large ph-medium pt-medium current-subscription">
+  <h2 class=" text-left mb-medium">Your current subscriptions</h2> 
+  <div class="current-subscriptions grid grid-two">
 
 <?php 
 if($statementUserSubscription->execute([':id' => $nUserID])){
@@ -203,7 +204,6 @@ if($statementUserSubscription->execute([':id' => $nUserID])){
         </div>
       <button class="button-delete button">Delete</button>
     </div>
-  </div>
 
 <?php
         }
@@ -212,13 +212,14 @@ if($statementUserSubscription->execute([':id' => $nUserID])){
   }
 }
 ?>
+ </div>
 </section>
 
 <section class="section-three mb-large ph-large pt-medium">
   <h2>Want to try something new</h2>
-  <div class="related-products">
+  <div class="related-products relative">
   <h2 class="coffee-type text-left mb-medium">Products</h2>
-  <div class="container-banner absolute pv-large bg-dark-brown"></div>
+  <div class="container-banner absolute pv-large bg-medium-light-brown"></div>
   <div class="products-container grid grid-four"> 
 
 <?php
@@ -266,7 +267,7 @@ if($statementProducts->execute()){
   </div>
   </div>
 
-  <div class="related-subscriptions">
+  <div class="related-subscriptions relative">
 
   <h2 class="coffee-type text-left mb-medium pt-medium">Subscriptions</h2>
   <div class="container-banner absolute pv-large bg-dark-brown"></div>
