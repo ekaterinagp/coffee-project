@@ -1,3 +1,5 @@
+// UPDATE USER
+
 const editButtons = document.querySelectorAll('.button-edit');
 const saveButtons = document.querySelectorAll('.button-save');
 
@@ -23,7 +25,7 @@ editButtons.forEach(editButton => {
             let inputUsername = document.querySelector("[name=inputLoginName]").value;
             let inputPassword = document.querySelector("[name=inputPassword]").value;
 
-            let formData = new formData();
+            let formData = new FormData();
             formData.append('inputName', inputName);
             formData.append('inputLastName', inputLastName);
             formData.append('inputEmail', inputEmail);
@@ -140,8 +142,10 @@ modalBtn.addEventListener("click", function(){
 });
 closeBtn.addEventListener("click", function(){
     modal.style.display = "none";
-
 });
+
+// ADD CREDITCARD
+
 const addCreditCardButton = document.querySelector(".button-add");
 addCreditCardButton.addEventListener("click", addCreditCard);
 
@@ -155,8 +159,6 @@ function addCreditCard(){
 
     saveCreditCardButton.addEventListener('click', function(){
         event.preventDefault();
-
-        console.log('credit card saved');
         
         let IBAN = document.querySelector("[name=inputIBAN]").value;
         let CCV = document.querySelector("[name=inputCCV]").value;
@@ -175,9 +177,9 @@ function addCreditCard(){
           })
             .then(res => res.text())
             .then(response => {
-              console.log(response);
+            //   console.log(response);
               if (response) {
-                console.log('new creditcard added');
+                // console.log('new creditcard added');
 
                 // let creditCardContainer = document.createElement("div");
                 // creditCardContainer.setAttribute("id", "creditcard-") // can I add the ID here?

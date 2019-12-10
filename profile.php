@@ -114,7 +114,7 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
       </label>
 
       <label id="cPhoneNo" class="grid grid-two-thirds-reversed" for="userPhone"><p class="text-left align-self-center mb-small">Phone</p>
-        <input class="mb-small" type="text" data-type="string" name="inputPhone" placeholder="phone number" value="<?= $jLoggedUser['cPhoneNo'];?>">
+        <input class="mb-small" type="number" data-type="string" name="inputPhone" placeholder="phone number" value="<?= $jLoggedUser['cPhoneNo'];?>">
         <div class="errorMessage">Must be 8 characters</div>
         <button class="button-edit ml-small button">Edit</button>
         <button class="button-save hide-button ml-small button">Save</button>
@@ -128,7 +128,7 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
         </label>
 
       <label class="grid grid-two-thirds-reversed" for="password"><p class="text-left align-self-center mb-small">Password</p>
-        <input class="mb-small" type="password" data-type="string" minlength="8" maxlength="8" name="password" placeholder="password">
+        <input class="mb-small" type="password" data-type="string" minlength="8" maxlength="8" name="inputPassword" placeholder="password">
           <div class="errorMessage">Password must be 8 characters</div>
           <button class="button-edit ml-small button">Edit</button>
         <button class="button-save hide-button ml-small button">Save</button>
@@ -173,17 +173,17 @@ if($statementCreditCard->execute([':id' => $nUserID])){
     <form id="form-creditcard" method="post" class="mt-small">
 
       <label class="grid" for="inputIBAN"><p class="text-left align-self-center mb-small">IBAN</p>
-        <input class="mb-small" minlength="18" maxlength="18" type="text" data-type="string" name="inputIBAN" placeholder="IBAN (format 123456789123456789)" value="">
+        <input class="mb-small" minlength="18" maxlength="18" type="number" data-type="string" name="inputIBAN" placeholder="IBAN (format 123456789123456789)" value="">
         <div class="errorMessage">IBAN must be 18 digits</div>
       </label>
 
       <label class="grid" for="inputCCV"><p class="text-left align-self-center mb-small">CCV</p>
-        <input class="mb-small" data-type="string" minlength="3" maxlength="3" type="text" name="inputCCV" placeholder="CCV (format 123)" value="">
+        <input class="mb-small" data-type="string" minlength="3" maxlength="3" type="number" name="inputCCV" placeholder="CCV (format 123)" value="">
         <div class="errorMessage">CCV must be 3 digits</div>
       </label>
 
       <label class="grid" for="inputExpiration"><p class="text-left align-self-center mb-small">Expiration date</p>
-        <input class="mb-small" data-type="string" minlength="4" maxlength="4" type="text" name="inputExpiration" placeholder="Expiration date (format mmyy)" value="">
+        <input class="mb-small" data-type="string" minlength="4" maxlength="4" type="number" name="inputExpiration" placeholder="Expiration date (format mmyy)" value="">
         <div class="errorMessage">Expiration date must be 4 digits</div>
       </label>
 
