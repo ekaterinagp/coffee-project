@@ -58,3 +58,22 @@ editButtons.forEach(editButton => {
     });
 });
 
+const deleteSubscriptionBtn = document.querySelectorAll(".product-info-container .button-delete");
+deleteSubscriptionBtn.forEach(deleteBtn=>{
+    deleteBtn.addEventListener("click", function(){
+
+        
+        let userSubscriptionID = deleteBtn.parentElement.id.substr(deleteBtn.parentElement.id.search("-")+1,deleteBtn.parentElement.id.length)
+        let endpoint = "api/api-delete-subscription.php"
+        let formData = new FormData();
+        formData.append('userSubscriptionID',userSubscriptionID)
+        fetch(endpoint, {
+            method: "POST",
+            body: formData
+        })
+        .then(res => res.text())
+        .then(response => {
+            console.log(response);
+        });
+    })
+})

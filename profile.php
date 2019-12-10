@@ -28,7 +28,7 @@ $statementProducts = $connection->prepare($sqlProducts);
 $sqlSubscriptions =  "SELECT tsubscriptiontype.cName, tproduct.cName as cProductName, tsubscriptiontype.nSubscriptionTypeID as nSubscriptionID, tProduct.nPrice as nSubscriptionPrice FROM tsubscriptiontype INNER JOIN tproduct on tproduct.nProductID=tsubscriptiontype.nProductID";
 $statementSubscriptions = $connection->prepare($sqlSubscriptions);
 
-$sqlUserSubscription = "SELECT tUserSubscription.nUserSubscriptionID, tSubscriptionType.nSubscriptionTypeID, 
+$sqlUserSubscription = "SELECT tUserSubscription.nUserSubscriptionID, tUserSubscription.dCancellation, tSubscriptionType.nSubscriptionTypeID, 
 tProduct.nProductID, tProduct.cName as cProductName, tProduct.nPrice, tProduct.nStock, tProduct.bActive, tCoffeeType.nCoffeeTypeID, tCoffeeType.cName  
 FROM tUser
 INNER JOIN tUserSubscription ON tUser.nUserID = tUserSubscription.nUserID 
@@ -50,8 +50,6 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
   <div class="profile-details bg-dark-brown p-medium">
     <h2 class="color-white">Profile Details</h2>
     <form id="form-profile" method="post">
-      <h3>Update your personal information</h3>
-      <div class="frmLine"></div>
       <label id="cName" class="grid grid-two-thirds-reversed" for="name"><p class="text-left align-self-center">Name</p>
         <input class="m-small" minlength="2" maxlength="20" type="text" data-type="string" name="inputName" placeholder="First name" value="<?= $jLoggedUser['cName'];?>">
         <div class="errorMessage">Name must be more than 1 and less than 20 letters</div>
@@ -113,18 +111,18 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
         <button class="button-save hide-button m-small button">Save</button>
       </label>
 
-      <label class="grid grid-one-fourth" for="loginName"><h3 class="text-left align-self-center">Username</h3>
+      <label class="grid grid-two-thirds-reversed" for="loginName"><p class="text-left align-self-center">Username</p>
         <input class="m-small" type="text" data-type="string" name="inputLoginName" placeholder="username" value="<?= $jLoggedUser['cUsername'];?>">
           <div class="errorMessage">Must be more than 2 and less than 12</div>
-          <button class="button-edit button">Edit</button>
-        <button class="button-save hide-button button">Save</button>
+          <button class="button-edit m-small button">Edit</button>
+        <button class="button-save hide-button m-small button">Save</button>
         </label>
 
-      <label class="grid grid-one-fourth" for="password"><h3 class="text-left align-self-center">Password</h3>
+      <label class="grid grid-two-thirds-reversed" for="password"><p class="text-left align-self-center">Password</p>
         <input class="m-small" type="password" data-type="string" minlength="8" maxlength="8" name="password" placeholder="password">
           <div class="errorMessage">Password must be 8 characters</div>
-          <button class="button-edit button">Edit</button>
-        <button class="button-save hide-button button">Save</button>
+          <button class="button-edit m-small button">Edit</button>
+        <button class="button-save hide-button m-small button">Save</button>
       </label>
     </form>
   </div>
@@ -162,9 +160,9 @@ if($statementCreditCard->execute([':id' => $nUserID])){
   </div>
 </section>
 
+<h2 class="text-left">Your current subscriptions</h2> 
 <section class="section-two grid grid-two mb-large ph-medium pt-medium current-subscription">
   <div class="current-subscriptions">
-    <h2 class="text-left">Your current subscriptions</h2>
 
 <?php 
 if($statementUserSubscription->execute([':id' => 24])){
@@ -175,6 +173,7 @@ if($statementUserSubscription->execute([':id' => 24])){
     foreach($jUserSubscriptions as $jUserSubscription){
 
       if(!isset($jUserSubscription['dCancellation'])){
+        echo $jUserSubscription['dCancellation'];
           
         if($jUserSubscription['bActive']!==0){
 
@@ -193,29 +192,18 @@ if($statementUserSubscription->execute([':id' => 24])){
           $imgUrl = $jUserSubscription['cProductName'];
           $result = strtolower(str_replace(" ", "-", $imgUrl));
 ;?>
-    <div id="subscription-<?=$jUserSubscription['nUserSubscriptionID'];?>" class="product-info-container grid grid-two-thirds ml-medium">
+    <div id="subscription-<?=$jUserSubscription['nUserSubscriptionID'];?>" class="product-info-container grid grid-two">
       <div class="image bg-contain" style="background-image: url('img/products/<?= $result;?>.png')"></div>
       <div class="description mh-small mv-medium grid grid-two">
         <div class="product-details">
           <h1 class="productName mv-small text-left"><?=$jUserSubscription['cProductName'];?></h1>
           <h2 class="coffee-type mv-small text-left light"><?=$jUserSubscription['cName'];?></h2>
           <p class="productPrice mv-small"><?=$jUserSubscription['nPrice'];?> DKK</p>
-          <p>A soft, velvety body highlights a soft citric acidity and pleasant sweetness, with notes of raspberry, orange and sugar cane.</p>
+         </div>
         </div>
-        <div class="mv-small">
-          <h4 class="uppercase bold">Roast level</h4>
-          <h3 class="uppercase light mb-small">MEDIUM ROAST</h3>
-          <h4 class="uppercase bold">Type</h4>
-          <h3 class="uppercase light mb-small"><?=$jUserSubscription['cName'];?></h3>
-          <h4 class="uppercase bold">Recommmended for</h4>
-          <h3 class="uppercase light">ESPRESSO</h3>
-          <h3 class="uppercase light">FRENCH PRESS</h3>
-        </div>
-      </div>
       <button class="button-delete button">Delete</button>
     </div>
   </div>
-  <div class="current-subscription-details"></div>
 
 <?php
         }

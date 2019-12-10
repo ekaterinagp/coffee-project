@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2019 at 11:50 AM
+-- Generation Time: Dec 10, 2019 at 01:57 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.1.31
 
@@ -159,32 +159,6 @@ BEGIN
         WHERE nUserID = pnUserID;
 
 	COMMIT;
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `setDeleteDateCreditCard` (IN `pnCreditCardID` MEDIUMINT)  NO SQL
-BEGIN
-
-UPDATE tcreditcard
-	SET dDeleteCreditcard = CURRENT_TIMESTAMP()
-    WHERE nCreditCardID=pnCreditCardID;
-
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `setDeleteDateSubscription` (IN `pnUserSubscription` INT)  NO SQL
-BEGIN
-
-UPDATE tusersubscription
-	SET dCancellation= CURRENT_TIMESTAMP()
-    WHERE nUserSubscriptionID=pnUserSubscription;
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `setDeleteUserDate` (IN `pnUserId` INT(50))  NO SQL
-BEGIN
-
-UPDATE tuser
-	SET dDeleteUser= CURRENT_TIMESTAMP()
-    WHERE nUserID=pnUserId;
-
 END$$
 
 DELIMITER ;
@@ -1070,7 +1044,7 @@ CREATE TABLE `tusersubscription` (
   `nUserSubscriptionID` int(8) UNSIGNED NOT NULL,
   `nUserID` mediumint(8) UNSIGNED NOT NULL,
   `dSubscription` timestamp NOT NULL DEFAULT current_timestamp(),
-  `dCancellation` date DEFAULT NULL,
+  `dCancellation` timestamp NULL DEFAULT NULL,
   `nSubscriptionTypeID` mediumint(8) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1081,7 +1055,7 @@ CREATE TABLE `tusersubscription` (
 INSERT INTO `tusersubscription` (`nUserSubscriptionID`, `nUserID`, `dSubscription`, `dCancellation`, `nSubscriptionTypeID`) VALUES
 (1, 24, '2019-12-07 17:26:37', NULL, 1),
 (2, 9, '2019-12-07 17:36:31', NULL, 2),
-(4, 24, '2019-12-09 13:47:54', NULL, 7),
+(4, 24, '2019-12-09 13:47:54', '2019-12-09 23:00:00', 7),
 (5, 24, '2019-12-09 13:49:47', NULL, 5),
 (6, 8, '2019-12-09 13:51:37', NULL, 4),
 (7, 18, '2019-12-09 13:52:29', NULL, 4),
