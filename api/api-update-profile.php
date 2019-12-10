@@ -114,6 +114,7 @@ if($_SESSION){
     // echo json_encode($_POST);
     
     $data =[
+        ':id' => $nUserID,
         ':name' => $_POST['inputName'],
         ':lastName' => $_POST['inputLastName'],
         ':id'=> $nUserID
