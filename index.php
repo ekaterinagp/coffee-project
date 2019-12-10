@@ -160,16 +160,12 @@ require_once(__DIR__ . '/components/header.php');
                         <div class="image bg-contain"></div>
                         <h5 class="color-white ph-medium relative">How to brew coffee</h5>
                     </div>
-                    <div class="back p-medium">Make sure that your tools — from bean grinders and filters to coffee makers— are thoroughly cleaned after each use.
-                        Rinse with clear, hot water (or wipe down thoroughly), and dry with an absorbent towel. It’s important to check that no grounds have been left to collect and that there’s no build-up of coffee oil (caffeol), which can make future cups of coffee taste bitter and rancid.
-                        Great coffee starts with great beans. The quality and flavor of your coffee is not only determined by your favorite brewing process, but also by the type of coffee you select.
-                        Purchase coffee as soon as possible after it’s roasted. Fresh-roasted coffee is essential to a quality cup, so buy your coffee in small amounts (ideally every one to two weeks).
-                        If you buy whole bean coffee, always grind your beans as close to the brew time as possible for maximum freshness. A burr or mill grinder is best because the coffee is ground to a consistent size.
+                    <div class="back p-medium">Make sure that your tools — from bean grinders and filters to coffee makers— are cleaned and rinsed with hot water. It’s important to check that no grounds have been left to collect and that there’s no build-up of coffee, which can make future cups of coffee taste bitter and rancid.
+                        Great coffee starts with great beans: the flavour of your coffee is not only determined by your favourite brewing process, but also by the type of coffee you select.
+                        Purchase coffee as soon as possible after it’s roasted. Fresh-roasted coffee is essential to a quality cup, so buy your coffee in small amounts (ideally every two weeks).
                         The size of the grind is hugely important to the taste of your coffee. If your coffee tastes bitter, it may be over-extracted, or ground too fine. On the other hand, if your coffee tastes flat, it may be under-extracted, meaning your grind is too coarse.
-                        The water you use is very important to the quality of your coffee. Use filtered or bottled water if your tap water is not good or has a strong odor or taste, such as chlorine.
                         If you’re using tap water, let it run a few seconds before filling your coffee pot, and be sure to use cold water. Avoid distilled or softened water.
-                        The amount of time that the water is in contact with the coffee grounds is another important flavor factor.
-                        In a drip system, the contact time should be approximately 5 minutes. If you are making your coffee using a French Press, the contact time should be 2-4 minutes. Espresso has an especially brief brew time — the coffee is in contact with the water for only 20-30 seconds. Cold brew, on the other hand, should steep overnight (about 12 hours).
+
                     </div>
                 </div>
             </div>
@@ -207,7 +203,12 @@ require_once(__DIR__ . '/components/header.php');
                         <div class="image bg-contain"></div>
                         <h5 class="color-white ph-medium relative">Best coffee equipment</h5>
                     </div>
-                    <div class="back p-medium">Some info</div>
+                    <div class="back p-medium">Our favourite coffee equipment in 2019
+                        1. Home Coffee Grinder has easily adjustable grind settings, a solid burr set, good solid construction, and overall value for the money.
+                        2. Automatic Brewer have been some of our favourites for years, mainly because they match great brewing performance with an affordable price.
+                        3. Home Espresso Machine allows you to fully tweak how your shot pulls, so it is absolutely perfect for espresso nerds like us.
+                        All these amazing equipment can be bought at our friends’ shop: friendsshop/shop
+                    </div>
                 </div>
             </div>
 
@@ -217,7 +218,11 @@ require_once(__DIR__ . '/components/header.php');
                         <div class="image bg-contain"></div>
                         <h5 class="color-white ph-medium relative">Sustainability in coffee drinking</h5>
                     </div>
-                    <div class="back p-medium">Some info</div>
+                    <div class="back p-medium">3 ways to be a more sustainable coffee drinker
+                        1. Lok for brands that support of sustainable coffee producers and environment. (All our brands are from the Sustainable Coffee Challenge partners!)
+                        2. Disposable coffee cups, single-serve capsules and pods take a serious toll on the environment. Try to avoid disposable, plastic and paper in your coffee making or at least go for recycled. Here you can check our friends’ tools for coffee making in a sustainable way: linkToFriends/sustainable
+                        3. Coffee grounds are biodegradable, which means you can use them to fertilize your plants. It is also an all-natural repellent against slugs and snails. If you do not have a garden or house plants, make a hair or skin mask!
+                    </div>
                 </div>
             </div>
 
