@@ -11,7 +11,6 @@ if($_SESSION){
 
     $jLoggedUser = $_SESSION['user'];
     $nUserID = $jLoggedUser['nUserID'];
-    echo $nUserID;
  
     if($_POST){
 

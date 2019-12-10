@@ -52,28 +52,28 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
   <div class="profile-details bg-dark-brown p-medium">
     <h2 class="color-white">Profile Details</h2>
     <form id="form-profile" method="post">
-      <label id="cName" class="grid grid-two-thirds-reversed" for="name"><p class="text-left align-self-center">Name</p>
-        <input class="m-small" minlength="2" maxlength="20" type="text" data-type="string" name="inputName" placeholder="First name" value="<?= $jLoggedUser['cName'];?>">
+      <label id="cName" class="grid grid-two-thirds-reversed" for="name"><p class="text-left align-self-center mb-small">Name</p>
+        <input class="mb-small" minlength="2" maxlength="20" type="text" data-type="string" name="inputName" placeholder="First name" value="<?= $jLoggedUser['cName'];?>">
         <div class="errorMessage">Name must be more than 1 and less than 20 letters</div>
-        <button class="button-edit m-small button">Edit</button>
-        <button class="button-save hide-button m-small button">Save</button>
+        <button class="button-edit ml-small button">Edit</button>
+        <button class="button-save hide-button ml-small button">Save</button>
       </label>
 
-      <label id="cSurname" class="grid grid-two-thirds-reversed" for="lastName"><p class="text-left align-self-center">Last Name</p>
-        <input class="m-small" data-type="string" minlength="2" maxlength="20" type="text" name="inputLastName" placeholder="Last name" value="<?= $jLoggedUser['cSurname'];?>">
+      <label id="cSurname" class="grid grid-two-thirds-reversed" for="lastName"><p class="text-left align-self-center mb-small">Last Name</p>
+        <input class="mb-small" data-type="string" minlength="2" maxlength="20" type="text" name="inputLastName" placeholder="Last name" value="<?= $jLoggedUser['cSurname'];?>">
         <div class="errorMessage">Last name must be more than 1 and less than 20 letters</div>
-        <button class="button-edit m-small button">Edit</button>
-        <button class="button-save hide-button m-small button">Save</button>
+        <button class="button-edit ml-small button">Edit</button>
+        <button class="button-save hide-button ml-small button">Save</button>
       </label>
 
-      <label id="cEmail" class="grid grid-two-thirds-reversed" for="email"><p class="text-left align-self-center">Email</p>
-        <input class="m-small" type="email" data-type="email" name="inputEmail" placeholder="email" value="<?= $jLoggedUser['cEmail'];?>">
+      <label id="cEmail" class="grid grid-two-thirds-reversed" for="email"><p class="text-left align-self-center mb-small">Email</p>
+        <input class="mb-small" type="email" data-type="email" name="inputEmail" placeholder="email" value="<?= $jLoggedUser['cEmail'];?>">
         <div class="errorMessage" id="emailDiv">Must be a valid email address</div>
-        <button class="button-edit m-small button">Edit</button>
-        <button class="button-save hide-button m-small button">Save</button>
+        <button class="button-edit ml-small button">Edit</button>
+        <button class="button-save hide-button ml-small button">Save</button>
       </label>
-      <label id="nCityID" for="cityInput" class="grid grid-two-thirds-reversed"><p class="text-left align-self-center">City</p>
-        <select class="m-small" name="cityInput" value="<?= $jLoggedUser['nCityID']?>">
+      <label id="nCityID" for="cityInput" class="grid grid-two-thirds-reversed"><p class="text-left align-self-center mb-small">City</p>
+        <select class="mb-small" name="cityInput" value="<?= $jLoggedUser['nCityID']?>">
             <option value="1" <?php if($jLoggedUser['nCityID']=1) echo 'selected'?>>Copenhagen</option>
             <option value="2"<?php if($jLoggedUser['nCityID']=2) echo 'selected'?>>Århus</option>
             <option value="3" <?php if($jLoggedUser['nCityID']=3) echo 'selected'?>>Odense</option>
@@ -99,32 +99,32 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
           <button class="button-edit m-small button">Edit</button>
           <button class="button-save hide-button m-small button">Save</button>
         </label>
-      <label id="cAddress" class="grid grid-two-thirds-reversed" for="userAddress"><p class="text-left align-self-center">Address</p>
-        <input class="m-small" type="text" data-type="string" name="inputAddress" placeholder="Address" value="<?= $jLoggedUser['cAddress'];?>">
+      <label id="cAddress" class="grid grid-two-thirds-reversed" for="userAddress"><p class="text-left align-self-center mb-small">Address</p>
+        <input class="mb-small" type="text" data-type="string" name="inputAddress" placeholder="Address" value="<?= $jLoggedUser['cAddress'];?>">
         <div class="errorMessage">Must be more than 12 characters</div>
-        <button class="button-edit m-small button">Edit</button>
-        <button class="button-save hide-button m-small button">Save</button>
+        <button class="button-edit ml-small button">Edit</button>
+        <button class="button-save hide-button ml-small button">Save</button>
       </label>
 
-      <label id="cPhoneNo" class="grid grid-two-thirds-reversed" for="userPhone"><p class="text-left align-self-center">Phone</p>
-        <input class="m-small" type="text" data-type="string" name="inputPhone" placeholder="phone number" value="<?= $jLoggedUser['cPhoneNo'];?>">
+      <label id="cPhoneNo" class="grid grid-two-thirds-reversed" for="userPhone"><p class="text-left align-self-center mb-small">Phone</p>
+        <input class="mb-small" type="text" data-type="string" name="inputPhone" placeholder="phone number" value="<?= $jLoggedUser['cPhoneNo'];?>">
         <div class="errorMessage">Must be 8 characters</div>
-        <button class="button-edit m-small button">Edit</button>
-        <button class="button-save hide-button m-small button">Save</button>
+        <button class="button-edit ml-small button">Edit</button>
+        <button class="button-save hide-button ml-small button">Save</button>
       </label>
 
-      <label class="grid grid-two-thirds-reversed" for="loginName"><p class="text-left align-self-center">Username</p>
-        <input class="m-small" type="text" data-type="string" name="inputLoginName" placeholder="username" value="<?= $jLoggedUser['cUsername'];?>">
+      <label class="grid grid-two-thirds-reversed" for="loginName"><p class="text-left align-self-center mb-small">Username</p>
+        <input class="mb-small" type="text" data-type="string" name="inputLoginName" placeholder="username" value="<?= $jLoggedUser['cUsername'];?>">
           <div class="errorMessage">Must be more than 2 and less than 12</div>
-          <button class="button-edit m-small button">Edit</button>
-        <button class="button-save hide-button m-small button">Save</button>
+          <button class="button-edit ml-small button">Edit</button>
+        <button class="button-save hide-button ml-small button">Save</button>
         </label>
 
-      <label class="grid grid-two-thirds-reversed" for="password"><p class="text-left align-self-center">Password</p>
-        <input class="m-small" type="password" data-type="string" minlength="8" maxlength="8" name="password" placeholder="password">
+      <label class="grid grid-two-thirds-reversed" for="password"><p class="text-left align-self-center mb-small">Password</p>
+        <input class="mb-small" type="password" data-type="string" minlength="8" maxlength="8" name="password" placeholder="password">
           <div class="errorMessage">Password must be 8 characters</div>
-          <button class="button-edit m-small button">Edit</button>
-        <button class="button-save hide-button m-small button">Save</button>
+          <button class="button-edit ml-small button">Edit</button>
+        <button class="button-save hide-button ml-small button">Save</button>
       </label>
     </form>
   </div>
@@ -145,11 +145,13 @@ if($statementCreditCard->execute([':id' => $nUserID])){
       if(!isset($jUserCreditCard['dDeleteCreditCard'])){
       $nCreditCardID = $jUserCreditCard['nCreditCardID'];
     ;?>
-    <div id="creditcard-<?=$nCreditCardID;?>">
-        <div class="description mh-small mv-medium">
+    <div id="creditcard-<?=$nCreditCardID;?>" class="mb-medium mt-small">
+        <div class="description">
           <div class="creditcard-details">
-            <h1 class="mv-small text-left"><?=$jUserCreditCard['cIBAN'];?></h1>
-            <h2 class="mv-small text-left light"><?=$jUserCreditCard['cExpiration'];?></h2>
+            <h3 class="color-white">IBAN</h3>
+            <p class="mv-small text-left color-white"><?=$jUserCreditCard['cIBAN'];?></p>
+            <h3 class="color-white">Expiration</h3>
+            <p class="mv-small text-left color-white"><?=$jUserCreditCard['cExpiration'];?></p>
           </div>
         </div>
         <button class="button-delete-card button">Delete</button>
@@ -160,7 +162,27 @@ if($statementCreditCard->execute([':id' => $nUserID])){
   }
 }
 };?>
+  <h2 class="color-white">Add creditcard</h2>
+    <form id="form-creditcard" method="post" class="mt-small">
 
+      <label class="grid" for="inputIBAN"><p class="text-left align-self-center mb-small">IBAN</p>
+        <input class="mb-small" minlength="18" maxlength="18" type="text" data-type="string" name="inputIBAN" placeholder="IBAN (format 123456789123456789)" value="">
+        <div class="errorMessage">IBAN must be 18 digits</div>
+      </label>
+
+      <label class="grid" for="inputCCV"><p class="text-left align-self-center mb-small">CCV</p>
+        <input class="mb-small" data-type="string" minlength="3" maxlength="3" type="text" name="inputCCV" placeholder="CCV (format 123)" value="">
+        <div class="errorMessage">CCV must be 3 digits</div>
+      </label>
+
+      <label class="grid" for="inputExpiration"><p class="text-left align-self-center mb-small">Expiration date</p>
+        <input class="mb-small" data-type="string" minlength="2" maxlength="20" type="text" name="inputCCV" placeholder="Expiration date (format mmyy)" value="">
+        <div class="errorMessage">Expiration date must be 4 digits</div>
+      </label>
+
+      <button class="button-add button">Add creditcard</button>
+      <button class="button-save hide-button button">Save creditcard</button>
+    </form>
   </div>
 </section>
 

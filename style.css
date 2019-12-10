@@ -611,6 +611,8 @@ a {
   text-transform: uppercase;
   border: none;
   width: 15vw;
+  line-height: 20%;
+  margin-top: .5vh;
   align-content: center;
   transition: all 0.3s;
   cursor: pointer;
@@ -1059,7 +1061,8 @@ a {
 
 .single-product .description,
 .profile .description,
-.profile .section-one {
+.profile .section-one, 
+.current-subscriptions {
   grid-gap: 2vw;
 }
 
@@ -1111,27 +1114,28 @@ a {
 }
 
 /***** PROFILE PAGE  *****/
-#form-profile label p{
+#form-profile label p, #form-creditcard label p{
   grid-column: 1/-1;
-  margin:0 1vh;
+  /* margin:0 1vh; */
   color:white;
 }
+
 #form-profile h3{
   font-size: 80%;
 }
 #form-profile .button{
   grid-column: 2;
   grid-row: 2;
-  width:80%;
+  width:90%;
   height: 60%;
-  line-height: 20%;
-  margin-top: .5vh;
 }
 #form-profile h3{
   margin:1vh;
 }
 #form-profile input,
-#form-profile select {
+#form-profile select,
+#form-creditcard input,
+#form-creditcard select{
   border-radius: 0;
   padding: 1vw;
   margin-top:.5vh;
@@ -1143,9 +1147,6 @@ select > option {
   text-transform: uppercase;
 }
 
-.profile-details h3 {
-  color: #fff;
-}
 
 input {
   padding: 1vw;
