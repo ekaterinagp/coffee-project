@@ -852,7 +852,7 @@ a {
 
 .back {
   transform: rotateY(180deg);
-  background: #fff;
+  background-color: #ebd3c7;
 }
 
 /***** SHOP PAGE *****/
@@ -1156,10 +1156,10 @@ input {
   color: #000;
 }
 
-.profile .container-banner {
+.profile .related-products .container-banner {
   width: 100%;
   z-index: -1;
-  top: 228.5vw;
+  top: 187.5vw;
   left: 0;
 }
 
