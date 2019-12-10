@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+require_once(__DIR__.'/../components/functions.php');
 
 if(!$_SESSION){
     exit;
@@ -10,6 +11,7 @@ if($_SESSION){
 
     $jLoggedUser = $_SESSION['user'];
     $nUserID = $jLoggedUser['nUserID'];
+    echo $nUserID;
  
     if($_POST){
 
@@ -102,18 +104,20 @@ if($_SESSION){
 //   }
     
     require_once(__DIR__.'/../connection.php');
-    require_once(__DIR__.'/../components/functions.php');
+    
 
 // password & username
 
     $sql = "UPDATE TUser SET cName=:name, cSurname=:lastName WHERE nUserID=:id";
     // $sql = "UPDATE TUser SET cName=:name, cSurname=:lastName, cEmail=:email, cAddress=:address, cPhone=:phone, cUsername=:username, cPassword=:password WHERE nUserID=:id";
     $statement = $connection->prepare($sql);
-    echo json_encode($_POST);
+    // echo json_encode($_POST);
     
     $data =[
+        ':id' => $nUserID,
         ':name' => $_POST['inputName'],
-        ':lastName' => $_POST['inputLastName']
+        ':lastName' => $_POST['inputLastName'],
+        ':id'=> $nUserID
 
         // ':email' => $_POST['inputEmail'],
         // ':address' => $_POST['inputAddress'],
@@ -125,7 +129,7 @@ if($_SESSION){
         ];
 
         if($statement->execute($data)){
-        echo '{"status":1, "message":"price successfully updated"}';
+        echo '{"status":1, "message":"user successfully updated"}';
         }
 
     }
