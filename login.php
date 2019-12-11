@@ -10,56 +10,6 @@ if ($_SESSION) {
   header("location:profile.php");
 }
 
-// if ($_POST) {
-
-
-//   if (empty($_POST['inputEmail'])) {
-//     return;
-//   }
-//   // if (!filter_var($_POST['inputEmail'], FILTER_VALIDATE_EMAIL)) {
-//   //   sendErrorMessage('email is empty', __LINE__);
-//   //   return;
-//   // }
-//   if (empty($_POST['password'])) {
-//     sendErrorMessage('email is empty', __LINE__);
-//     // return;
-//     echo 'empty';
-//   }
-//   if (strlen($_POST['password']) !== 8) {
-//     sendErrorMessage('email is empty', __LINE__);
-//     return;
-//   }
-
-
-//   $statement = "SELECT * FROM tuser";
-//   $result = $connection->query($statement)->fetchAll();
-//   // var_dump($result);
-//   // $correctUser=null;
-//   $password = hash("sha224", $_POST['password']);
-//   $emailInput = $_POST['inputEmail'];
-
-//   foreach ($result as $user) {
-//     if ($password == $user["cPassword"] && ($emailInput == $user["cEmail"]  || $emailInput == $user['cUsername'])) {
-//       echo "user found!";
-//       unset($user['cPassword']);
-//       $_SESSION['user'] = $user;
-//       echo $_SESSION['user'];
-
-//       header('location:profile.php?name=' . $user['cName'] . '');
-//     }
-//   }
-
-  // if ($emailInput == !$user["cEmail"]) {
-  //   //turn to frontendnormalvalidation
-
-  //   echo "user with this email is not found";
-  // }
-
-
-//   if ($emailInput == $user["cEmail"] && $password !== $user["cPassword"]) {
-//     echo "wrong password";
-//   }
-// }
 ?>
 
 <div class="loginDiv">
@@ -69,13 +19,17 @@ if ($_SESSION) {
   </div>
   <form id="loginForm" method="POST">
     <div>
-      <label for="email"><input required name="inputEmail" placeholder="email" type="text" value="jakob@gmail.com">
-        <div class="errorMessage" id="emailDiv"></div>
+      <label for="email">
+        <p class="text-left align-self-center mb-small">Email | Username</p>
+        <input required data-type="string" data-min="2" data-max="255" name="inputEmail" placeholder="email" type="text" value="jakob@gmail.com">
+        <div class="errorMessage" id="emailDiv">Please enter a valid e-mail or username</div>
       </label>
     </div>
 
     <div>
-      <label for="password"><input required type="password" data-type="string" minlength="8" maxlength="8" name="password" placeholder="password" value="12345678">
+      <label for="password">
+        <p class="text-left align-self-center mb-small">Password</p>
+        <input required data-type="string" data-min="8" data-max="8" type="password" name="password" placeholder="password" value="12345678">
         <div class="errorMessage">Password must be 8 characters</div>
       </label>
     </div>

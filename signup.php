@@ -3,13 +3,8 @@ $sTitle = ' | Signup';
 $sCurrentPage = 'profile';
 require_once(__DIR__ . '/components/header.php');
 require_once(__DIR__ . '/components/functions.php');
-if (!isset($_SESSION)) {
-  session_start();
-}
-
 
 if ($_SESSION) {
-  // HERE WE HAVE TO HAVE THE ID IN THE SESSION AND USE IT IN THE LOCATION HREF - SAME FOR LOGIN
   header("location:profile.php");
 }
 
