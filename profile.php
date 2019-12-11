@@ -22,19 +22,29 @@ if($_SESSION){
 $sTitle = ' | Your profile'; 
 $sCurrentPage = 'Profile';
 
-$sqlProducts = "SELECT tProduct.nProductID, tProduct.cName as cProductName, tProduct.nCoffeeTypeID as nProductCoffeeTypeID, tProduct.nPrice, tProduct.nStock, tProduct.bActive, tCoffeeType.nCoffeeTypeID, tCoffeeType.cName FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID";
+$sqlProducts = "SELECT tProduct.nProductID, tProduct.cName AS cProductName, 
+                tProduct.nCoffeeTypeID AS nProductCoffeeTypeID, tProduct.nPrice, 
+                tProduct.nStock, tProduct.bActive, tCoffeeType.nCoffeeTypeID, tCoffeeType.cName 
+                FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID";
 $statementProducts = $connection->prepare($sqlProducts);
 
-$sqlSubscriptions =  "SELECT tsubscriptiontype.cName, tproduct.cName as cProductName, tsubscriptiontype.nSubscriptionTypeID as nSubscriptionID, tProduct.nPrice as nSubscriptionPrice, tProduct.bActive FROM tsubscriptiontype INNER JOIN tproduct on tproduct.nProductID=tsubscriptiontype.nProductID";
+$sqlSubscriptions =  "SELECT tSubscriptiontype.cName, tSubscriptiontype.nSubscriptionTypeID AS nSubscriptionID, 
+                    tProduct.cName AS cProductName, tProduct.nPrice AS nSubscriptionPrice, tProduct.bActive,
+                    tCoffeeType.cName AS cCoffeeTypeName 
+                    FROM tSubscriptiontype 
+                    INNER JOIN tProduct ON tProduct.nProductID=tsubscriptiontype.nProductID
+                    INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID";
 $statementSubscriptions = $connection->prepare($sqlSubscriptions);
 
-$sqlUserSubscription = "SELECT tUserSubscription.nUserSubscriptionID, tUserSubscription.dCancellation, tSubscriptionType.nSubscriptionTypeID, 
-tProduct.nProductID, tProduct.cName as cProductName, tProduct.nPrice, tProduct.nStock, tProduct.bActive, tCoffeeType.nCoffeeTypeID, tCoffeeType.cName  
-FROM tUser
-INNER JOIN tUserSubscription ON tUser.nUserID = tUserSubscription.nUserID 
-INNER JOIN tSubscriptionType ON tUserSubscription.nSubscriptionTypeID = tSubscriptionType.nSubscriptionTypeID 
-INNER JOIN tProduct ON tSubscriptionType.nProductID = tProduct.nProductID 
-INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID WHERE tuser.nUserID = :id";
+$sqlUserSubscription = "SELECT tUserSubscription.nUserSubscriptionID, tUserSubscription.dCancellation, 
+                        tSubscriptionType.nSubscriptionTypeID, tSubscriptionType.cName AS cSubscriptionName,
+                        tProduct.nProductID, tProduct.cName AS cProductName, tProduct.nPrice, tProduct.nStock, tProduct.bActive, 
+                        tCoffeeType.nCoffeeTypeID, tCoffeeType.cName  
+                        FROM tUser
+                        INNER JOIN tUserSubscription ON tUser.nUserID = tUserSubscription.nUserID 
+                        INNER JOIN tSubscriptionType ON tUserSubscription.nSubscriptionTypeID = tSubscriptionType.nSubscriptionTypeID 
+                        INNER JOIN tProduct ON tSubscriptionType.nProductID = tProduct.nProductID 
+                        INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID WHERE tuser.nUserID = :id";
 $statementUserSubscription = $connection->prepare($sqlUserSubscription);
 
 $sqlCreditCard = "SELECT * FROM tCreditCard WHERE tCreditCard.nUserID = :id";
@@ -43,46 +53,33 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
 ?>
 
 <main class="profile">
-<div class="modal">
-  <div class="modalContainer grid grid-two p-medium">
-  <h3>Are you sure you want to delete your user account?</h3>
-  <button class="button close">No</button>
-  <button class="button delete-profile-button">Yes</button>
-</div>
-</div>
   <button class="button log-out">Logout</button>
 <h1 class="text-center">Welcome <?= $jLoggedUser['cName'];?></h1>
-<button class="button modalBtn">Delete Profile</button>
+<button class="button button-delete-profile">Delete Profile</button>
 <section class="section-one grid grid-two mb-large ph-large pt-medium">
 
 <div>
   <div class="profile-details bg-dark-brown p-medium">
     <h2 class="color-white">Profile Details</h2>
     <form id="form-profile" method="post">
-      <label id="cName" class="grid grid-two-thirds-reversed" for="name">
+      <label id="cName" class="grid" for="name">
         <p class="text-left align-self-center mb-small">Name</p>
         <input class="mb-small" data-type="string" data-min="2" data-max="20" type="text" data-type="string" name="inputName" placeholder="First name" value="<?= $jLoggedUser['cName'];?>">
         <div class="errorMessage">Name must be more than 1 and less than 20 letters</div>
-        <button class="button-edit ml-small button">Edit</button>
-        <button class="button-save hide-button ml-small button">Save</button>
       </label>
 
-      <label id="cSurname" class="grid grid-two-thirds-reversed" for="lastName">
+      <label id="cSurname" class="grid" for="lastName">
         <p class="text-left align-self-center mb-small">Last Name</p>
         <input class="mb-small" data-type="string" data-min="2" data-max="20" type="text" name="inputLastName" placeholder="Last name" value="<?= $jLoggedUser['cSurname'];?>">
         <div class="errorMessage">Last name must be more than 1 and less than 20 letters</div>
-        <button class="button-edit ml-small button">Edit</button>
-        <button class="button-save hide-button ml-small button">Save</button>
       </label>
 
-      <label id="cEmail" class="grid grid-two-thirds-reversed" for="email">
+      <label id="cEmail" class="grid" for="email">
         <p class="text-left align-self-center mb-small">Email</p>
         <input class="mb-small" type="email" data-type="email" name="inputEmail" placeholder="email" value="<?= $jLoggedUser['cEmail'];?>">
         <div class="errorMessage" id="emailDiv">Must be a valid email address</div>
-        <button class="button-edit ml-small button">Edit</button>
-        <button class="button-save hide-button ml-small button">Save</button>
       </label>
-      <label id="nCityID" for="cityInput" class="grid grid-two-thirds-reversed">
+      <label id="nCityID" for="cityInput" class="grid">
         <p class="text-left align-self-center mb-small">City</p>
         <select class="mb-small" data-type="integer" data-min="0" data-max="999" name="cityInput" value="<?= $jLoggedUser['nCityID']?>">
             <option value="1" <?php if($jLoggedUser['nCityID']=1) echo 'selected'?>>Copenhagen</option>
@@ -107,40 +104,33 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
             <option value="20" <?php if($jLoggedUser['nCityID']=20) echo 'selected'?>>Herlev</option>
             <option value="21" <?php if($jLoggedUser['nCityID']=21) echo 'selected'?>>Vanløse</option>
           </select>
-          <button class="button-edit m-small button">Edit</button>
-          <button class="button-save hide-button m-small button">Save</button>
         </label>
-      <label id="cAddress" class="grid grid-two-thirds-reversed" for="userAddress">
+      <label id="cAddress" class="grid" for="userAddress">
         <p class="text-left align-self-center mb-small">Address</p>
         <input class="mb-small" type="text" data-type="string" data-min="12" data-max="9999999999" name="inputAddress" placeholder="Address" value="<?= $jLoggedUser['cAddress'];?>">
         <div class="errorMessage">Must be more than 12 characters</div>
-        <button class="button-edit ml-small button">Edit</button>
-        <button class="button-save hide-button ml-small button">Save</button>
       </label>
 
-      <label id="cPhoneNo" class="grid grid-two-thirds-reversed" for="userPhone">
+      <label id="cPhoneNo" class="grid" for="userPhone">
         <p class="text-left align-self-center mb-small">Phone</p>
         <input class="mb-small" type="number" data-type="string" data-min="9999999" data-max="99999999" name="inputPhone" placeholder="phone number" value="<?= $jLoggedUser['cPhoneNo'];?>">
         <div class="errorMessage">Must be 8 characters</div>
-        <button class="button-edit ml-small button">Edit</button>
-        <button class="button-save hide-button ml-small button">Save</button>
       </label>
 
-      <label class="grid grid-two-thirds-reversed" for="loginName">
+      <label class="grid" for="loginName">
         <p class="text-left align-self-center mb-small">Username</p>
         <input class="mb-small" type="text" data-type="string" data-min="2" data-max="12" name="inputLoginName" placeholder="username" value="<?= $jLoggedUser['cUsername'];?>">
           <div class="errorMessage">Must be more than 2 and less than 12</div>
-          <button class="button-edit ml-small button">Edit</button>
-        <button class="button-save hide-button ml-small button">Save</button>
         </label>
 
-      <!-- <label class="grid grid-two-thirds-reversed" for="password">
+      <!-- <label class="grid" for="password">
         <p class="text-left align-self-center mb-small">Password</p>
         <input class="mb-small" type="password" data-type="string" data-type="string" data-min="8" data-max="8" name="inputPassword" placeholder="password">
           <div class="errorMessage">Password must be 8 characters</div>
-          <button class="button-edit ml-small button">Edit</button>
-        <button class="button-save hide-button ml-small button">Save</button>
       </label> -->
+
+      <button class="button-edit button">Edit information</button>
+      <button class="button-save hide-button button">Save information</button>
     </form>
   </div>
   </div>
@@ -168,7 +158,7 @@ if($statementCreditCard->execute([':id' => $nUserID])){
             <p class="mv-small text-left color-white"><?=$jUserCreditCard['cExpiration'];?></p>
           </div>
         </div>
-        <button class="button-delete-card button">Delete</button>
+        <button class="button-delete-card button">Delete creditcard</button>
       </div>
       
       <?php   
@@ -206,7 +196,7 @@ if($statementCreditCard->execute([':id' => $nUserID])){
 
 <section class="section-two mb-large ph-medium pt-medium current-subscription">
   <h2 class=" text-left mb-medium">Your current subscriptions</h2> 
-  <div class="current-subscriptions grid grid-two">
+  <div class="current-subscriptions containerForSubscriptions  grid grid-three m-medium">
 
 <?php 
 if($statementUserSubscription->execute([':id' => $nUserID])){
@@ -236,17 +226,23 @@ if($statementUserSubscription->execute([':id' => $nUserID])){
           $imgUrl = $jUserSubscription['cProductName'];
           $result = strtolower(str_replace(" ", "-", $imgUrl));
 ;?>
-    <div id="subscription-<?=$jUserSubscription['nUserSubscriptionID'];?>" class="product-info-container grid grid-two">
-      <div class="image bg-contain" style="background-image: url('img/products/<?= $result;?>.png')"></div>
-      <div class="description mh-small mv-medium grid grid-two">
-        <div class="product-details">
-          <h1 class="productName mv-small text-left"><?=$jUserSubscription['cProductName'];?></h1>
-          <h2 class="coffee-type mv-small text-left light"><?=$jUserSubscription['cName'];?></h2>
-          <p class="productPrice mv-small"><?=$jUserSubscription['nPrice'];?> DKK</p>
-         </div>
+
+    <div class="subscriptionItem" id="<?= $jUserSubscription['nUserSubscriptionID'] ;?>">
+          <div class="subscriptionItemBg">
+            <h4 class="subscribeOptiopnP">Option</4>
+            <h1 class="subscribeTypeNumber"><?= $jUserSubscription['nSubscriptionTypeID'] ?></h1>
+            <img src="img/products/<?= $result ;?>.png" alt="">  
+            <h2><?= $jUserSubscription['cSubscriptionName'];?></h2>
+            <h3><?= $jUserSubscription['cName'];?></h3>
+          </div>
+        <div class="white-text-bg">
+          <p class="descSubscription p-small">Lorem ipsum dolor sit amet consectetur 
+          adipisicing elit. Voluptate praesentium, inventore deleniti optio nobis
+          quasi provident nulla minus odit architecto.</p>
+          <h3 class="priceSubscription p-small"><?= $jUserSubscription['nPrice'] ;?> DKK / Month</h3>
+          </div>
+          <a href=""><button class="paymentButton button">To Payment</button></a>
         </div>
-      <button class="button-delete button">Delete</button>
-    </div>
 
 <?php
         }
@@ -336,18 +332,19 @@ if($statementProducts->execute()){
             $result = strtolower(str_replace(" ", "-", $imgUrl));
 ?>
 
-<div class="subscriptionItem" id="<?= $jSubscription['nSubscriptionTypeID'] ;?>">
+        <div class="subscriptionItem" id="<?= $jSubscription['nSubscriptionID'] ;?>">
           <div class="subscriptionItemBg">
             <h4 class="subscribeOptiopnP">Option</4>
             <h1 class="subscribeTypeNumber"><?= $jSubscription['nSubscriptionID'] ?></h1>
             <img src="img/products/<?= $result ;?>.png" alt="">  
             <h2><?= $jSubscription['cName'];?></h2>
+            <h3><?= $jSubscription['cCoffeeTypeName'];?></h3>
           </div>
         <div class="white-text-bg">
-          <p class="descSubscription">Lorem ipsum dolor sit amet consectetur 
+          <p class="descSubscription p-small">Lorem ipsum dolor sit amet consectetur 
           adipisicing elit. Voluptate praesentium, inventore deleniti optio nobis
           quasi provident nulla minus odit architecto.</p>
-          <h3 class="priceSubscription"><?= $jSubscription['nSubscriptionPrice'] ;?> DKK</h3>
+          <h3 class="priceSubscription p-small"><?= $jSubscription['nSubscriptionPrice'] ;?> DKK / Month</h3>
           </div>
           <a href=""><button class="paymentButton button">To Payment</button></a>
         </div>

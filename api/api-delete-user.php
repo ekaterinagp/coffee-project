@@ -6,8 +6,9 @@ require_once(__DIR__.'/../components/functions.php');
 if(!$_SESSION){
     sendErrorMessage('no user signed in', __LINE__);
 }
+
+if($_SESSION){
     $userID = $_SESSION['user']['nUserID'];
-    // echo $userID;
 
     require_once(__DIR__ . '/../connection.php');
 
@@ -16,12 +17,15 @@ if(!$_SESSION){
       $statement = $connection->prepare($sql);  
       $data =[
         ':id' => $userID
-        ];
+      ];
 
       if ($statement->execute($data)) {
-
-        echo '1';
+        echo 1;
         session_destroy();
         exit;
       }
-    echo '0';
+      else{
+        echo 0;
+        exit;
+      }  
+}

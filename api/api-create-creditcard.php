@@ -62,10 +62,10 @@ if($_SESSION){
         ];
 
         if($statement->execute($data)){
-        echo '{"status":1, "message":"creditcard is successfully created"}';
+        echo 1;
         }
         else{
-            echo '{"status":0, "message":"something went wrong"}';
+            echo 0;
         }
 
     }

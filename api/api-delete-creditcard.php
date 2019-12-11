@@ -19,10 +19,12 @@ if($_POST){
         ];
 
       if ($statement->execute($data)) {
-
-        echo '1';
+        echo 1;
         exit;
       }
-    echo '0';
+      else{
+        echo 0;
+      }
+    
 
 }

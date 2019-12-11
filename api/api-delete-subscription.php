@@ -19,7 +19,10 @@ $sql = "UPDATE tUserSubscription SET dCancellation=CURRENT_TIMESTAMP() WHERE nUs
     ':id' => $_POST['userSubscriptionID']
     ];
   if ($statement->execute($data)) {
-    echo '{"status":1, "message":"Subscription deleted"}';
+    echo 1;
+  }
+  else{
+    echo 0;
   }
 
 }
