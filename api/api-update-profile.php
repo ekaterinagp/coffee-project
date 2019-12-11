@@ -87,17 +87,17 @@ if (empty($_POST['inputLoginName'])) {
 
 // PASSWORD
 
-if (empty($_POST['inputPassword'])) {
-    sendErrorMessage('password is empty', __LINE__);
-  }
+// if (empty($_POST['inputPassword'])) {
+//     sendErrorMessage('password is empty', __LINE__);
+//   }
 
-if (strlen($_POST['inputPassword']) !== 8) {
-    sendErrorMessage('password is invalid', __LINE__);
-  }
+// if (strlen($_POST['inputPassword']) !== 8) {
+//     sendErrorMessage('password is invalid', __LINE__);
+//   }
     
     require_once(__DIR__.'/../connection.php');
 
-    $sql = "UPDATE TUser SET cName=:name, cSurname=:lastName, cEmail=:email, cAddress=:address, nCityID =:cityID, cPhoneNo=:phone, cUsername=:username, cPassword=:password WHERE nUserID=:id";
+    $sql = "UPDATE TUser SET cName=:name, cSurname=:lastName, cEmail=:email, cAddress=:address, nCityID =:cityID, cPhoneNo=:phone, cUsername=:username WHERE nUserID=:id"; // removed the password from the update statement
     $statement = $connection->prepare($sql);
     
     $data =[
@@ -110,7 +110,7 @@ if (strlen($_POST['inputPassword']) !== 8) {
         ':phone' => $_POST['inputPhone'],
 
         ':username' => $_POST['inputLoginName'],
-        ':password' => $_POST['inputPassword']
+        // ':password' => $_POST['inputPassword']
         ];
 
         if($statement->execute($data)){

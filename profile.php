@@ -9,15 +9,15 @@ if(!$_SESSION){
   exit;
 }
 
-if(isset($jUserSubscription['dDeleteUser'])){
-  header('Location: login.php');
-  exit;
-}
-
 if($_SESSION){
 
-$jLoggedUser = $_SESSION['user'];
-$nUserID = $jLoggedUser['nUserID'];
+  $jLoggedUser = $_SESSION['user'];
+  $nUserID = $jLoggedUser['nUserID'];
+
+  if(isset($jLoggedUser['dDeleteUser'])){
+    header('Location: login.php');
+    exit;
+  }
 
 $sTitle = ' | Your profile'; 
 $sCurrentPage = 'Profile';
@@ -59,28 +59,32 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
   <div class="profile-details bg-dark-brown p-medium">
     <h2 class="color-white">Profile Details</h2>
     <form id="form-profile" method="post">
-      <label id="cName" class="grid grid-two-thirds-reversed" for="name"><p class="text-left align-self-center mb-small">Name</p>
-        <input class="mb-small" minlength="2" maxlength="20" type="text" data-type="string" name="inputName" placeholder="First name" value="<?= $jLoggedUser['cName'];?>">
+      <label id="cName" class="grid grid-two-thirds-reversed" for="name">
+        <p class="text-left align-self-center mb-small">Name</p>
+        <input class="mb-small" data-type="string" data-min="2" data-max="20" type="text" data-type="string" name="inputName" placeholder="First name" value="<?= $jLoggedUser['cName'];?>">
         <div class="errorMessage">Name must be more than 1 and less than 20 letters</div>
         <button class="button-edit ml-small button">Edit</button>
         <button class="button-save hide-button ml-small button">Save</button>
       </label>
 
-      <label id="cSurname" class="grid grid-two-thirds-reversed" for="lastName"><p class="text-left align-self-center mb-small">Last Name</p>
-        <input class="mb-small" data-type="string" minlength="2" maxlength="20" type="text" name="inputLastName" placeholder="Last name" value="<?= $jLoggedUser['cSurname'];?>">
+      <label id="cSurname" class="grid grid-two-thirds-reversed" for="lastName">
+        <p class="text-left align-self-center mb-small">Last Name</p>
+        <input class="mb-small" data-type="string" data-min="2" data-max="20" type="text" name="inputLastName" placeholder="Last name" value="<?= $jLoggedUser['cSurname'];?>">
         <div class="errorMessage">Last name must be more than 1 and less than 20 letters</div>
         <button class="button-edit ml-small button">Edit</button>
         <button class="button-save hide-button ml-small button">Save</button>
       </label>
 
-      <label id="cEmail" class="grid grid-two-thirds-reversed" for="email"><p class="text-left align-self-center mb-small">Email</p>
+      <label id="cEmail" class="grid grid-two-thirds-reversed" for="email">
+        <p class="text-left align-self-center mb-small">Email</p>
         <input class="mb-small" type="email" data-type="email" name="inputEmail" placeholder="email" value="<?= $jLoggedUser['cEmail'];?>">
         <div class="errorMessage" id="emailDiv">Must be a valid email address</div>
         <button class="button-edit ml-small button">Edit</button>
         <button class="button-save hide-button ml-small button">Save</button>
       </label>
-      <label id="nCityID" for="cityInput" class="grid grid-two-thirds-reversed"><p class="text-left align-self-center mb-small">City</p>
-        <select class="mb-small" name="cityInput" value="<?= $jLoggedUser['nCityID']?>">
+      <label id="nCityID" for="cityInput" class="grid grid-two-thirds-reversed">
+        <p class="text-left align-self-center mb-small">City</p>
+        <select class="mb-small" data-type="integer" data-min="0" data-max="999" name="cityInput" value="<?= $jLoggedUser['nCityID']?>">
             <option value="1" <?php if($jLoggedUser['nCityID']=1) echo 'selected'?>>Copenhagen</option>
             <option value="2"<?php if($jLoggedUser['nCityID']=2) echo 'selected'?>>Århus</option>
             <option value="3" <?php if($jLoggedUser['nCityID']=3) echo 'selected'?>>Odense</option>
@@ -106,29 +110,33 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
           <button class="button-edit m-small button">Edit</button>
           <button class="button-save hide-button m-small button">Save</button>
         </label>
-      <label id="cAddress" class="grid grid-two-thirds-reversed" for="userAddress"><p class="text-left align-self-center mb-small">Address</p>
-        <input class="mb-small" type="text" data-type="string" name="inputAddress" placeholder="Address" value="<?= $jLoggedUser['cAddress'];?>">
+      <label id="cAddress" class="grid grid-two-thirds-reversed" for="userAddress">
+        <p class="text-left align-self-center mb-small">Address</p>
+        <input class="mb-small" type="text" data-type="string" data-min="12" data-max="9999999999" name="inputAddress" placeholder="Address" value="<?= $jLoggedUser['cAddress'];?>">
         <div class="errorMessage">Must be more than 12 characters</div>
         <button class="button-edit ml-small button">Edit</button>
         <button class="button-save hide-button ml-small button">Save</button>
       </label>
 
-      <label id="cPhoneNo" class="grid grid-two-thirds-reversed" for="userPhone"><p class="text-left align-self-center mb-small">Phone</p>
-        <input class="mb-small" type="number" data-type="string" name="inputPhone" placeholder="phone number" value="<?= $jLoggedUser['cPhoneNo'];?>">
+      <label id="cPhoneNo" class="grid grid-two-thirds-reversed" for="userPhone">
+        <p class="text-left align-self-center mb-small">Phone</p>
+        <input class="mb-small" type="number" data-type="string" data-min="9999999" data-max="99999999" name="inputPhone" placeholder="phone number" value="<?= $jLoggedUser['cPhoneNo'];?>">
         <div class="errorMessage">Must be 8 characters</div>
         <button class="button-edit ml-small button">Edit</button>
         <button class="button-save hide-button ml-small button">Save</button>
       </label>
 
-      <label class="grid grid-two-thirds-reversed" for="loginName"><p class="text-left align-self-center mb-small">Username</p>
-        <input class="mb-small" type="text" data-type="string" name="inputLoginName" placeholder="username" value="<?= $jLoggedUser['cUsername'];?>">
+      <label class="grid grid-two-thirds-reversed" for="loginName">
+        <p class="text-left align-self-center mb-small">Username</p>
+        <input class="mb-small" type="text" data-type="string" data-min="2" data-max="12" name="inputLoginName" placeholder="username" value="<?= $jLoggedUser['cUsername'];?>">
           <div class="errorMessage">Must be more than 2 and less than 12</div>
           <button class="button-edit ml-small button">Edit</button>
         <button class="button-save hide-button ml-small button">Save</button>
         </label>
 
-      <!-- <label class="grid grid-two-thirds-reversed" for="password"><p class="text-left align-self-center mb-small">Password</p>
-        <input class="mb-small" type="password" data-type="string" minlength="8" maxlength="8" name="inputPassword" placeholder="password">
+      <!-- <label class="grid grid-two-thirds-reversed" for="password">
+        <p class="text-left align-self-center mb-small">Password</p>
+        <input class="mb-small" type="password" data-type="string" data-type="string" data-min="8" data-max="8" name="inputPassword" placeholder="password">
           <div class="errorMessage">Password must be 8 characters</div>
           <button class="button-edit ml-small button">Edit</button>
         <button class="button-save hide-button ml-small button">Save</button>
@@ -145,8 +153,7 @@ if($statementCreditCard->execute([':id' => $nUserID])){
   $jUserCreditCards = $statementCreditCard->fetchAll(PDO::FETCH_ASSOC);
 
   if(count($jUserCreditCards)>=1){
-
-    
+   
     foreach($jUserCreditCards as $jUserCreditCard){
       
       if(!isset($jUserCreditCard['dDeleteCreditCard'])){
@@ -172,18 +179,21 @@ if($statementCreditCard->execute([':id' => $nUserID])){
   <h2 class="color-white">Add creditcard</h2>
     <form id="form-creditcard" method="post" class="mt-small">
 
-      <label class="grid" for="inputIBAN"><p class="text-left align-self-center mb-small">IBAN</p>
-        <input class="mb-small" minlength="18" maxlength="18" type="number" data-type="string" name="inputIBAN" placeholder="IBAN (format 123456789123456789)" value="">
+      <label class="grid" for="inputIBAN">
+        <p class="text-left align-self-center mb-small">IBAN</p>
+        <input class="mb-small" data-type="integer" data-min="99999999999999999" data-max="999999999999999999" type="text" data-type="string" name="inputIBAN" placeholder="IBAN (format 123456789123456789)" value="">
         <div class="errorMessage">IBAN must be 18 digits</div>
       </label>
 
-      <label class="grid" for="inputCCV"><p class="text-left align-self-center mb-small">CCV</p>
-        <input class="mb-small" data-type="string" minlength="3" maxlength="3" type="number" name="inputCCV" placeholder="CCV (format 123)" value="">
+      <label class="grid" for="inputCCV">
+        <p class="text-left align-self-center mb-small">CCV</p>
+        <input class="mb-small" data-type="integer" data-min="99" data-max="999" type="text" name="inputCCV" placeholder="CCV (format 123)" value="">
         <div class="errorMessage">CCV must be 3 digits</div>
       </label>
 
-      <label class="grid" for="inputExpiration"><p class="text-left align-self-center mb-small">Expiration date</p>
-        <input class="mb-small" data-type="string" minlength="4" maxlength="4" type="number" name="inputExpiration" placeholder="Expiration date (format mmyy)" value="">
+      <label class="grid" for="inputExpiration">
+        <p class="text-left align-self-center mb-small">Expiration date</p>
+        <input class="mb-small" data-type="integer" data-min="999" data-max="9999" type="text" name="inputExpiration" placeholder="Expiration date (format mmyy)" value="">
         <div class="errorMessage">Expiration date must be 4 digits</div>
       </label>
 

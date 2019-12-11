@@ -67,11 +67,11 @@ $statement = $connection->prepare($sql);
                                 <div class="options">
                                     <h2 class="pb-small">Grind</h2>
                                     <label>
-                                        <input type="radio" name="option1" value="0-50" class="mb-small">
+                                        <input type="radio" name="grindType" value="whole" class="mb-small">
                                         <div class="checkmark">Whole</div>
                                     </label>
                                     <label>
-                                        <input type="radio" name="option1" value="0-50" class="mb-small">
+                                        <input type="radio" name="grindType" value="grind" class="mb-small">
                                         <div class="checkmark">Grind</div>
                                     </label>
 
@@ -81,7 +81,7 @@ $statement = $connection->prepare($sql);
                             <div class="payment">
                                 <h2 class="align-self-bottom">Total amount</h2>
                                 <p class="align-self-top"><?= $product['nPrice']; ?> DKK</p>
-                                <a href="payment.php?id=<?= $product['nProductID']; ?>" id="addToCartBtn" class="button">Add to cart</a>
+                                <div class="button" id="addToCartBtn">Add to cart</div>
                             </div>
                         </div>
     </section>
