@@ -1540,6 +1540,7 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="text"],
 input[type="email"],
 input[type="password"],
+input[type="number"],
 select {
   /* width: 100%; */
   border: 0;
@@ -1550,7 +1551,8 @@ select {
 }
 input[type="text"]:valid,
 input[type="email"]:valid,
-input[type="password"]:valid {
+input[type="password"]:valid,
+input[type="number"]:valid{
   /* background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/check.svg); */
   background-size: 20px;
   background-repeat: no-repeat;
@@ -1558,19 +1560,25 @@ input[type="password"]:valid {
 }
 input[type="text"]:valid + label,
 input[type="email"]:valid + label,
-input[type="password"]:valid + label {
+input[type="password"]:valid + label,
+input[type="number"]:valid + label
+
+ {
   opacity: 0;
 }
 input[type="text"]:invalid:not(:focus):not(:placeholder-shown),
 input[type="email"]:invalid:not(:focus):not(:placeholder-shown),
-input[type="password"]:invalid:not(:focus):not(:placeholder-shown) {
+input[type="password"]:invalid:not(:focus):not(:placeholder-shown),
+input[type="number"]:invalid:not(:focus):not(:placeholder-shown){
   background: pink;
 }
 
 input[type="text"]:invalid:not(:focus):not(:placeholder-shown) ~ .errorMessage,
 input[type="email"]:invalid:not(:focus):not(:placeholder-shown) ~ .errorMessage,
 input[type="password"]:invalid:not(:focus):not(:placeholder-shown)
-  ~ .errorMessage {
+  ~ .errorMessage,
+input[type="number"]:invalid:not(:focus):not(:placeholder-shown)
+  ~ .errorMessage{
   max-height: 200px;
   padding: 3px 10px 10px 30px;
 }
@@ -1588,7 +1596,7 @@ form .errorMessage {
   font-size: 80%;
 }
 
-input.error {
+input:not(:focus).error {
   background-color: rgba(198, 38, 65, 0.1);
 }
 

@@ -1,9 +1,17 @@
+// UPDATE USER
+
 const editButtons = document.querySelectorAll('.button-edit');
 const saveButtons = document.querySelectorAll('.button-save');
 
 editButtons.forEach(editButton => {
+ 
     editButton.addEventListener('click', function(){
         event.preventDefault();
+        showSaveButton(editButton);
+    });
+});
+
+function showSaveButton(editButton){
         const buttonLabel = editButton.parentElement;
 
         buttonLabel.querySelector('input').focus();
@@ -11,48 +19,50 @@ editButtons.forEach(editButton => {
         buttonLabel.querySelector('.button-save').classList.remove('hide-button');
         buttonLabel.querySelector('.button-edit').classList.add('hide-button');
 
-        buttonLabel.querySelector('.button-save').addEventListener('click', function(){
-            event.preventDefault();
+        buttonLabel.querySelector('.button-save').addEventListener('click', updateUser);    
+}
+
+function updateUser(){
+        event.preventDefault();
+        
+        let inputName = document.querySelector("[name=inputName]").value;
+        let inputLastName = document.querySelector("[name=inputLastName]").value;
+        let inputEmail = document.querySelector("[name=inputEmail]").value;
+        let inputAddress = document.querySelector("[name=inputAddress]").value;
+        let inputPhoneNo = document.querySelector("[name=inputPhone]").value;
+        let inputCity = document.querySelector("[name=cityInput]").value;
+        let inputUsername = document.querySelector("[name=inputLoginName]").value;
+        // let inputPassword = document.querySelector("[name=inputPassword]").value;
+
+        let formData = new FormData();
+        formData.append('inputName', inputName);
+        formData.append('inputLastName', inputLastName);
+        formData.append('inputEmail', inputEmail);
+        formData.append('inputAddress', inputAddress);
+        formData.append('inputPhone', inputPhoneNo);
+        formData.append('cityInput', inputCity);
+        formData.append('inputLoginName', inputUsername);
+        // formData.append('inputPassword', inputPassword);
+
+        let endpoint = "api/api-update-profile.php";
+
+        fetch(endpoint, {
+            method: "POST",
+            body: formData
+        })
+        .then(res => res.text())
+        .then(response => {
+        console.log(response);
+        if (response == 1) {
+
+            // NOTIFICATION GOES HERE
             
-            let inputName = document.querySelector("[name=inputName]").value;
-            let inputLastName = document.querySelector("[name=inputLastName]").value;
-            let inputEmail = document.querySelector("[name=inputEmail]").value;
-            let inputAddress = document.querySelector("[name=inputAddress]").value;
-            let inputPhoneNo = document.querySelector("[name=inputPhone]").value;
-            let inputCity = document.querySelector("[name=cityInput]").value;
-            let inputUsername = document.querySelector("[name=inputLoginName]").value;
-            let inputPassword = document.querySelector("[name=inputPassword]").value;
-
-            let formData = new formData();
-            formData.append('inputName', inputName);
-            formData.append('inputLastName', inputLastName);
-            formData.append('inputEmail', inputEmail);
-            formData.append('inputAddress', inputAddress);
-            formData.append('inputPhone', inputPhoneNo);
-            formData.append('cityInput', inputCity);
-            formData.append('inputLoginName', inputUsername);
-            formData.append('inputPassword', inputPassword);
-
-            let endpoint = "api/api-update-profile.php";
-
-            fetch(endpoint, {
-                method: "POST",
-                body: formData
-            })
-            .then(res => res.text())
-            .then(response => {
-            console.log(response);
-            if (response == 1) {
-
-                
-            }
-            if (response == 0) {
-                
-            }
-            });
-        });    
-    });
-});
+        }
+        if (response == 0) {
+            
+        }
+        });
+}
 
 const deleteSubscriptionBtn = document.querySelectorAll(".product-info-container .button-delete");
 
@@ -140,8 +150,10 @@ modalBtn.addEventListener("click", function(){
 });
 closeBtn.addEventListener("click", function(){
     modal.style.display = "none";
-
 });
+
+// ADD CREDITCARD
+
 const addCreditCardButton = document.querySelector(".button-add");
 addCreditCardButton.addEventListener("click", addCreditCard);
 
@@ -155,8 +167,6 @@ function addCreditCard(){
 
     saveCreditCardButton.addEventListener('click', function(){
         event.preventDefault();
-
-        console.log('credit card saved');
         
         let IBAN = document.querySelector("[name=inputIBAN]").value;
         let CCV = document.querySelector("[name=inputCCV]").value;
@@ -175,9 +185,9 @@ function addCreditCard(){
           })
             .then(res => res.text())
             .then(response => {
-              console.log(response);
+            //   console.log(response);
               if (response) {
-                console.log('new creditcard added');
+                // console.log('new creditcard added');
 
                 // let creditCardContainer = document.createElement("div");
                 // creditCardContainer.setAttribute("id", "creditcard-") // can I add the ID here?

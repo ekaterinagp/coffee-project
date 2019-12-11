@@ -1,24 +1,23 @@
-function checkIfFormValid(idForm) {
-  console.log({ idForm });
-  let form = document.querySelector(idForm);
-  console.log({ form });
-  let allInputs = document.querySelectorAll("input");
-  allInputs.forEach(input => {
-    input.addEventListener("input", function() {
-      // console.log(form.checkValidity());
-      if (form.checkValidity()) {
-        form.querySelector("button").removeAttribute("disabled");
-      } else {
-        form.querySelector("button").setAttribute("disabled", true);
-      }
-    });
-  });
-}
-if (document.querySelector("#signupForm")) {
-  checkIfFormValid("#signupForm");
-}
+// function checkIfFormValid(idForm) {
+//   console.log({ idForm });
+//   let form = document.querySelector(idForm);
+//   console.log({ form });
+//   let allInputs = document.querySelectorAll("input");
+//   allInputs.forEach(input => {
+//     input.addEventListener("input", function() {
+//       // console.log(form.checkValidity());
+//       if (form.checkValidity()) {
+//         form.querySelector("button").removeAttribute("disabled");
+//       } else {
+//         form.querySelector("button").setAttribute("disabled", true);
+//       }
+//     });
+//   });
+// }
+// if (document.querySelector("#signupForm")) {
+//   checkIfFormValid("#signupForm");
+// }
 if (document.querySelector("#loginForm")) {
-
   checkIfFormValid("#loginForm");
   const loginBtn = document.querySelector("#loginBtn");
 loginBtn.addEventListener("click", () => {
@@ -27,43 +26,43 @@ loginBtn.addEventListener("click", () => {
 });
 }
 
-function fvIsEmailAvailable(oElement) {
-  console.log({ oElement });
-  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  if (re.test(String(oElement.value).toLowerCase())) {
-    console.log(re.test(String(oElement.value).toLowerCase()))
-    // oElement.classList.add('error')
-    fvGet(
-      "api/api-is-user-registered.php?email=" + oElement.value,
-      "",
-      function(sData) {
-        console.log({ sData });
-        var jData = JSON.parse(sData);
-        console.log({ jData });
-        if (jData) {
-          // console.log('error')
-          document.querySelector("#emailDiv").innerText =
-            "email already registered";
-          oElement.setCustomValidity("Invalid field.");
-          oElement.classList.add("error");
-          signUpForm.querySelector("button").setAttribute("disabled", true);
-          return;
-        }
-        // console.log('ok')
-        oElement.setCustomValidity("");
-        document.querySelector("#emailDiv").innerText =
-          "email available for registration";
-        oElement.classList.remove("error");
-        signUpForm.querySelector("button").removeAttribute("disabled");
-      }
-    );
-  }
+// function fvIsEmailAvailable(oElement) {
+//   console.log({ oElement });
+//   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//   if (re.test(String(oElement.value).toLowerCase())) {
+//     console.log(re.test(String(oElement.value).toLowerCase()))
+//     // oElement.classList.add('error')
+//     fvGet(
+//       "api/api-is-user-registered.php?email=" + oElement.value,
+//       "",
+//       function(sData) {
+//         console.log({ sData });
+//         var jData = JSON.parse(sData);
+//         console.log({ jData });
+//         if (jData) {
+//           // console.log('error')
+//           document.querySelector("#emailDiv").innerText =
+//             "email already registered";
+//           oElement.setCustomValidity("Invalid field.");
+//           oElement.classList.add("error");
+//           signUpForm.querySelector("button").setAttribute("disabled", true);
+//           return;
+//         }
+//         // console.log('ok')
+//         oElement.setCustomValidity("");
+//         document.querySelector("#emailDiv").innerText =
+//           "email available for registration";
+//         oElement.classList.remove("error");
+//         signUpForm.querySelector("button").removeAttribute("disabled");
+//       }
+//     );
+//   }
   // else {
   //   // not valid email yet
   //   document.querySelector("#emailDiv").innerText = "email";
   //   oElement.classList.remove("error");
   // }
-}
+// }
 
 function fvGet(sUrl, sHeader, fCallback) {
   var ajax = new XMLHttpRequest();
@@ -107,44 +106,72 @@ function doLogin(){
 
 
 
-// let form = document.querySelector('form');
-// let allInputs = document.querySelectorAll('[data-type=string]');
-// let emailInput = document.querySelector('input[data-type=email]');
-// const submitBtn = document.querySelector('input[type=submit]');
-// const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-// emailInput.addEventListener("input", function(){
-//   let form = emailInput.parentElement.parentElement;
-//   if(re.test(String(emailInput.value).toLowerCase())){
-//     emailInput.classList.remove('error')
-//     emailInput.classList.add('valid')
-//   }else{
-//     emailInput.classList.add('error')
-//     emailInput.classList.remove('valid')
-//     } 
-// })
 
-// allInputs.forEach(input => {
-//   input.addEventListener('input', function(){
-//     let form = input.parentElement.parentElement;
-//      let formInputlength = form.querySelectorAll("input").length;
-//     console.log(formInputlength);
-//     let sValue = input.value
-//     let iMin = input.getAttribute('data-min') 
-//     let iMax = input.getAttribute('data-max')
-//     if( sValue.length < iMin || sValue.length > iMax ){ 
-//       input.classList.add('error')
-//       input.classList.remove('valid')
-//     }else{
-//       input.classList.remove("error");
-//       input.classList.add("valid")
-//     }
-//     if( document.querySelectorAll('.error').length===0 && document.querySelectorAll(".valid").length===formInputlength ){
-//       // console.log("valid")
-//       // console.log(document.querySelectorAll("input.valid").length)
-//        form.querySelector("button").disabled=false;
-//       }else{
-//         form.querySelector("button").disabled=true;
-//     }
-//   })
-// });
+if (document.querySelector("#signupForm")) {
+  let form = document.querySelector("#signupForm");
+  if( checkInputFields(form)){
+    
+  }else{
+    console.log("false")
+  // }  // checkIfFormValid2(form);
+}
+
+
+function checkInputFields(form){
+  allInputs = form.querySelectorAll("[data-type]");
+  allInputs.forEach(input=>{
+    input.addEventListener('input', function(){
+      
+  // console.log(input)
+  let sValue = input.value;
+  let sDataType = input.getAttribute("data-type")
+  let iMin = input.getAttribute('data-min') 
+  let iMax = input.getAttribute('data-max')
+  switch(sDataType){
+    case 'string':
+      if( sValue.length < iMin || sValue.length > iMax ){ 
+        input.classList.add('error')
+        input.classList.remove('valid')
+      }else{
+        input.classList.add('valid');
+        input.classList.remove('error');
+      }   
+    break
+    case 'integer':
+      if( !parseInt(sValue) || parseInt(sValue) < parseInt(iMin) || parseInt(sValue) > parseInt(iMax) ){ 
+        input.classList.add('error')
+        input.classList.remove('valid')
+      }else{
+        input.classList.add('valid');
+        input.classList.remove('error');
+      }   
+    break
+    case 'email':
+      const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if( re.test(String(sValue).toLowerCase()) == false ){ 
+        input.classList.add('error')
+        input.classList.remove('valid')
+      }else{
+        input.classList.add('valid');
+        input.classList.remove('error');
+      }   
+    break      
+    default:        
+  }
+  checkIfFormValid2(form)
+ 
+})
+});
+}   
+}
+
+
+function checkIfFormValid2(form){
+  let formInputlength = form.querySelectorAll("[data-type]").length;
+  if( form.querySelectorAll('.error').length==0 && form.querySelectorAll(".valid").length==formInputlength ){
+    form.querySelector("button").disabled=false;
+      }else{
+        form.querySelector("button").disabled=true;
+  }
+}
