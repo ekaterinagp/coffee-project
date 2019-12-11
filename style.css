@@ -1596,7 +1596,7 @@ form .errorMessage {
   font-size: 80%;
 }
 
-input.error {
+input:not(:focus).error {
   background-color: rgba(198, 38, 65, 0.1);
 }
 

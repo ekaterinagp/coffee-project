@@ -356,6 +356,7 @@ if($statementProducts->execute()){
     </div>
   </section>
 </main>
+<script src="js/validation.js"></script>
 
 <?php
 $sScriptPath = 'profile.js';
