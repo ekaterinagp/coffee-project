@@ -32,14 +32,14 @@ function removeSelected() {
 }
 
 if (document.querySelector(".back-button")) {
-  console.log("yes");
+  // console.log("yes");
   document.querySelector(".back-button").addEventListener("click", function() {
     window.history.back();
   });
 }
 
-let numberOfItem = document.querySelector(".numberOfItems");
 function checkCart() {
+  let numberOfItem = document.querySelector(".numberOfItems");
   let cart = JSON.parse(sessionStorage.getItem("cart"));
 
   if (cart && cart.length > 0) {
@@ -50,4 +50,4 @@ function checkCart() {
   }
 }
 
-checkCart();
+// checkCart();

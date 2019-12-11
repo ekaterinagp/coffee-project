@@ -28,7 +28,7 @@ if ($_SESSION) {
 <body>
 
   <div class="containerSignup section-one grid grid-two">
-    <div class="loginWelcome mh-medium mv-small">
+    <div class="loginWelcome mh-medium mv-small bg-grey">
       <div class="signupBg"></div>
       <h2>Please sign up</h2>
 

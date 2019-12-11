@@ -81,7 +81,7 @@ $statement = $connection->prepare($sql);
                             <div class="payment">
                                 <h2 class="align-self-bottom">Total amount</h2>
                                 <p class="align-self-top"><?= $product['nPrice']; ?> DKK</p>
-                                <a href="payment.php?id=<?= $product['nProductID']; ?>" class="button">Add to cart</a>
+                                <a href="payment.php?id=<?= $product['nProductID']; ?>" id="addToCartBtn" class="button">Add to cart</a>
                             </div>
                         </div>
     </section>

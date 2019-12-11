@@ -1,22 +1,22 @@
-// function checkIfFormValid(idForm) {
-//   console.log({ idForm });
-//   let form = document.querySelector(idForm);
-//   console.log({ form });
-//   let allInputs = document.querySelectorAll("input");
-//   allInputs.forEach(input => {
-//     input.addEventListener("input", function() {
-//       // console.log(form.checkValidity());
-//       if (form.checkValidity()) {
-//         form.querySelector("button").removeAttribute("disabled");
-//       } else {
-//         form.querySelector("button").setAttribute("disabled", true);
-//       }
-//     });
-//   });
-// }
-// if (document.querySelector("#signupForm")) {
-//   checkIfFormValid("#signupForm");
-// }
+function checkIfFormValid(idForm) {
+  console.log({ idForm });
+  let form = document.querySelector(idForm);
+  console.log({ form });
+  let allInputs = document.querySelectorAll("input");
+  allInputs.forEach(input => {
+    input.addEventListener("input", function() {
+      // console.log(form.checkValidity());
+      if (form.checkValidity()) {
+        form.querySelector("button").removeAttribute("disabled");
+      } else {
+        form.querySelector("button").setAttribute("disabled", true);
+      }
+    });
+  });
+}
+if (document.querySelector("#signupForm")) {
+  checkIfFormValid("#signupForm");
+}
 if (document.querySelector("#loginForm")) {
   checkIfFormValid("#loginForm");
   const loginBtn = document.querySelector("#loginBtn");
