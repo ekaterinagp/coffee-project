@@ -37,11 +37,11 @@ if ($_SESSION) {
         <h4 class="mt-small">Personal Information</h4>
         <div class="frmLine"></div>
 
-        <label class="grid grid-one" for="name">First Name<input required minlength="2" maxlength="20" type="text" data-type="string" name="inputName" placeholder="First name">
+        <label class="grid grid-one" for="name">First Name<input required data-min="2" data-max="20" type="text" data-type="string" name="inputName" placeholder="First name">
           <div class="errorMessage">Name must be more than 1 and less than 20 letters</div>
         </label>
 
-        <label class="grid grid-one" for="lastName">Last Name<input required data-type="string" minlength="2" maxlength="20" type="text" name="inputLastName" placeholder="Last name">
+        <label class="grid grid-one" for="lastName">Last Name<input required data-type="string" data-min="2" data-max="20" type="text" name="inputLastName" placeholder="Last name">
           <div class="errorMessage">Last name must be more than 1 and less than 20 letters</div>
         </label>
 
@@ -51,7 +51,7 @@ if ($_SESSION) {
         </label>
 
         <label for="cityInput" class="grid grid-one"> City
-          <select name="cityInput">
+          <select name="cityInput" data-min="0" data-max="99" data-type="integer">
             <option disabled selected value> -- select your city -- </option>
             <option value="1">Copenhagen</option>
             <option value="2">Århus</option>
@@ -77,24 +77,24 @@ if ($_SESSION) {
           </select>
         </label>
 
-        <label class="grid grid-one" for="userAddress">Address<input required type="text" data-type="string" name="inputAddress" placeholder="address ">
+        <label class="grid grid-one" for="userAddress">Address<input required type="text" data-type="string" data-min="12" data-max="9999999999"  name="inputAddress" placeholder="address ">
           <div class="errorMessage">Must be more than 12 characters</div>
         </label>
 
-        <label class="grid grid-one" for="userPhone">Phone number<input required type="text" data-type="string" name="inputPhone" placeholder="phone number">
+        <label class="grid grid-one" for="userPhone">Phone number<input required type="text" data-type="integer" data-min="9999999" data-max="999999999" name="inputPhone" placeholder="phone number">
           <div class="errorMessage">Must be 8 characters</div>
         </label>
         <h4 class="mt-small">Account Information</h4>
         <div class="frmLine"></div>
-        <label class="grid grid-one" for="loginName">Username<input required type="text" data-type="string" name="inputLoginName" placeholder="username">
+        <label class="grid grid-one" for="loginName">Username<input required type="text" data-type="string" data-min="2" data-max="12"  name="inputLoginName" placeholder="username">
           <div class="errorMessage">Must be more than 2 and less than 12</div>
         </label>
 
-        <label class="grid grid-one" for="password">Password<input required type="password" data-type="string" minlength="8" maxlength="8" name="password_1" placeholder="password">
+        <label class="grid grid-one" for="password">Password<input required type="password" data-type="string" data-min="8" data-max="8" name="password_1" placeholder="password">
           <div class="errorMessage">Password must be 8 characters</div>
         </label>
 
-        <label class="grid grid-one" for="password">Repeat Password<input required type="password" data-type="string" minlength="8" maxlength="8" name="password_2" placeholder="repeat password">
+        <label class="grid grid-one" for="password">Repeat Password<input required type="password" data-type="string" data-min="8" data-max="8" name="password_2" placeholder="repeat password">
           <div class="errorMessage">Password must match</div>
         </label>
 
