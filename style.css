@@ -14,7 +14,7 @@ img {
 }
 
 .image {
-  height: 95%;
+  height: 100%;
   background-position: center;
 }
 
@@ -91,21 +91,71 @@ svg {
   grid-template-columns: 1fr 4fr;
 }
 
-.masonry {
+/* .masonry {
   column-count: 2;
   column-gap: 0px;
   height: 60vh;
+} */
+
+.gridForAboveTheFold {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 11rem 4rem 11rem;
 }
 
-.masonry .image-container {
-  /* align-items: center; */
+.gridForAboveTheFold .box1 {
+  grid-row: span 2;
+}
+
+.gridForAboveTheFold .box2 {
+  grid-row: span 1;
+}
+
+.gridForAboveTheFold .box3 {
+  grid-row: span 2;
+}
+
+.gridForAboveTheFold .box1 .image {
+  background-image: url(img/coffee-beans-heart-good-coffee-is-good-for-the-health.png);
+}
+
+.gridForAboveTheFold .box2 .image {
+  background-image: url(img/coffee-bean-sprout.png);
+}
+
+.gridForAboveTheFold .box3 .image {
+  background-image: url(img/hand-holding-caffe-latte.png);
+}
+
+.gridForAboveTheFold .box4 .image {
+  background-image: url(img/greater-goods-kickstart-coffeebag.png);
+  transform: rotate(10deg);
+}
+
+/* .frontpage .section-one .masonry .image-container .img1 {
+  background-image: url(img/coffee-beans-heart-good-coffee-is-good-for-the-health.png);
+}
+.frontpage .section-one .masonry .image-container .img2 {
+  background-image: url(img/coffee-bean-sprout.png);
+}
+.frontpage .section-one .masonry .image-container .img3 {
+  background-image: url(img/hand-holding-caffe-latte.png);
+  align-self: end;
+}
+.frontpage .section-one .masonry .image-container .img4 {
+  background-image: url(img/greater-goods-kickstart-coffeebag.png);
+  transform: rotate(10deg);
+} */
+
+/* .gridForAboveTheFold .image-container {
   width: 25vw;
   height: 25vh;
-}
-.masonry .image-container:nth-child(1),
+} */
+
+/* .masonry .image-container:nth-child(1),
 .masonry .image-container:nth-child(4) {
   height: 35vh;
-}
+} */
 
 /***** POSITIONING *****/
 
@@ -1570,8 +1620,8 @@ input:checked + .btnRadio {
   width: 100%;
 }
 .containerSignup h3,
- .containerSignup a{
-  color:white;
+.containerSignup a {
+  color: white;
 }
 .containerSignup a,
 .containerSignup h4 {
@@ -1622,7 +1672,7 @@ select {
 input[type="text"].valid,
 input[type="email"].valid,
 input[type="password"].valid,
-input[type="number"].valid{
+input[type="number"].valid {
   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/check.svg);
   background-size: 20px;
   background-color: white;
@@ -1632,8 +1682,7 @@ input[type="number"].valid{
 input[type="text"]:valid + label,
 input[type="email"]:valid + label,
 input[type="password"]:valid + label,
-input[type="number"]:valid + label
-{
+input[type="number"]:valid + label {
   opacity: 0;
 }
 
@@ -1645,7 +1694,7 @@ input[type="number"]:invalid:not(:focus):not(:placeholder-shown)
   ~ .errorMessage,
   input[type="text"]:invalid:not(:focus):not(:placeholder-shown) ~ .errorMessage,
 textarea:invalid:not(:focus) ~ .errorMessage, */
-.error:not(:focus):not(:placeholder-shown) ~ .errorMessage{
+.error:not(:focus):not(:placeholder-shown) ~ .errorMessage {
   max-height: 200px;
   padding: 3px 10px 10px 30px;
 }
@@ -1661,7 +1710,7 @@ form .errorMessage {
 }
 
 input:not(:focus).error {
-  border:1px solid #fb4b23;
+  border: 1px solid #fb4b23;
 }
 
 .loginDiv {
