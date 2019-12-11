@@ -3,13 +3,8 @@ $sTitle = ' | Signup';
 $sCurrentPage = 'profile';
 require_once(__DIR__ . '/components/header.php');
 require_once(__DIR__ . '/components/functions.php');
-if (!isset($_SESSION)) {
-  session_start();
-}
-
 
 if ($_SESSION) {
-  // HERE WE HAVE TO HAVE THE ID IN THE SESSION AND USE IT IN THE LOCATION HREF - SAME FOR LOGIN
   header("location:profile.php");
 }
 
@@ -28,7 +23,7 @@ if ($_SESSION) {
 <body>
 
   <div class="containerSignup section-one grid grid-two">
-    <div class="loginWelcome mh-medium mv-small">
+    <div class="loginWelcome mh-medium mv-small bg-grey">
       <div class="signupBg"></div>
       <h2>Please sign up</h2>
 

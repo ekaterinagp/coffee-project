@@ -1191,7 +1191,6 @@ a {
   border-radius: 0;
   padding: 1vw;
   margin-top: 0.5vh;
-  background-color: #fff;
 }
 
 input::placeholder,
@@ -1543,9 +1542,9 @@ input:checked + .btnRadio {
 }
 .loginWelcome {
   padding-top: 2em;
-  background-color: #815946;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   width: 55vw;
-  color: white;
+  /* color: white; */
 }
 
 .containerSignup {
@@ -1554,11 +1553,15 @@ input:checked + .btnRadio {
   width: 100%;
 }
 .containerSignup h3,
+.containerSignup a {
+  color: white;
+}
 .containerSignup a,
 .containerSignup h4 {
-  color: white;
+  text-align: left;
   text-align: left;
 }
+
 .containerSignup h4 {
   padding: 0;
   margin-left: -1.5em;
@@ -1566,7 +1569,7 @@ input:checked + .btnRadio {
 }
 .frmLine {
   margin-left: -1.5em;
-  border: 0.1px solid #fff;
+  border: 0.1px solid #000;
   height: 1px;
   width: 100%;
 }
@@ -1597,14 +1600,15 @@ select {
   border-radius: 5px;
   height: 35px;
   padding: 10px 10px 10px 30px;
-  background: #eee;
+  background: #fff;
 }
-input[type="text"]:valid,
-input[type="email"]:valid,
-input[type="password"]:valid,
-input[type="number"]:valid {
-  /* background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/check.svg); */
+input[type="text"].valid,
+input[type="email"].valid,
+input[type="password"].valid,
+input[type="number"].valid {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/check.svg);
   background-size: 20px;
+  background-color: white;
   background-repeat: no-repeat;
   background-position: 5px 6px;
 }
@@ -1614,38 +1618,32 @@ input[type="password"]:valid + label,
 input[type="number"]:valid + label {
   opacity: 0;
 }
-input[type="text"]:invalid:not(:focus):not(:placeholder-shown),
-input[type="email"]:invalid:not(:focus):not(:placeholder-shown),
-input[type="password"]:invalid:not(:focus):not(:placeholder-shown),
-input[type="number"]:invalid:not(:focus):not(:placeholder-shown) {
-  background: pink;
-}
 
-input[type="text"]:invalid:not(:focus):not(:placeholder-shown) ~ .errorMessage,
+/* input[type="text"]:invalid:not(:focus):not(:placeholder-shown) ~ .errorMessage,
 input[type="email"]:invalid:not(:focus):not(:placeholder-shown) ~ .errorMessage,
 input[type="password"]:invalid:not(:focus):not(:placeholder-shown)
   ~ .errorMessage,
 input[type="number"]:invalid:not(:focus):not(:placeholder-shown)
-  ~ .errorMessage {
+  ~ .errorMessage,
+  input[type="text"]:invalid:not(:focus):not(:placeholder-shown) ~ .errorMessage,
+textarea:invalid:not(:focus) ~ .errorMessage, */
+.error:not(:focus):not(:placeholder-shown) ~ .errorMessage {
   max-height: 200px;
   padding: 3px 10px 10px 30px;
 }
 
 form .errorMessage {
   padding: 0 30px 0 50px;
-
-  color: #999;
   max-height: 0;
   transition: all 0.3s;
   overflow: hidden;
   color: #fb4b23;
-  /* background-color: red; */
   font-style: italic;
   font-size: 80%;
 }
 
 input:not(:focus).error {
-  background-color: rgba(198, 38, 65, 0.1);
+  border: 1px solid #fb4b23;
 }
 
 .loginDiv {
