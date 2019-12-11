@@ -46,7 +46,7 @@ require_once(__DIR__ . '/components/header.php');
         </template>
       </section>
       <div id="totalsum"></div>
-      <a href="payment.php"><button class="button" >Go to Payment</button></a>
+      <a href="payment"><button class="button" >Go to Payment</button></a>
         
   </div>
 </main>

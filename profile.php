@@ -8,7 +8,7 @@ require_once(__DIR__ . '/connection.php');
 require_once(__DIR__ . '/components/functions.php');
 
 if(!$_SESSION){
-  header('Location: login.php');
+  header('Location: log-in');
   exit;
 }
 
@@ -18,7 +18,7 @@ if($_SESSION){
   $nUserID = $jLoggedUser['nUserID'];
 
   if(isset($jLoggedUser['dDeleteUser'])){
-    header('Location: login.php');
+    header('Location: log-in');
     exit;
   }
 
@@ -283,7 +283,7 @@ if($statementProducts->execute()){
         $imgUrl = $jProduct['cProductName'];
         $result = strtolower(str_replace(" ", "-", $imgUrl));
 ?>
-      <a href="singleProduct.php?id=<?=$jProduct['nProductID'];?>">
+      <a href="singleProduct?id=<?=$jProduct['nProductID'];?>">
         <div class="product" id="product-<?=$jProduct['nProductID'];?>">
           <div class="image bg-contain" style="background-image: url(img/products/<?=$result;?>.png)"></div>
           <div class="description m-small">

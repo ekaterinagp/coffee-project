@@ -14,7 +14,7 @@ require_once(__DIR__ . '/components/header.php');
             <p class="align-self-top mt-small mb-medium">
                 Enhance your everyday coffee experience with a coffee subscription tailored to your taste or discover a world of coffee and let us surprise you!
             </p>
-            <a href="subscribe.php" class="button">Learn more</a>
+            <a href="subscribe" class="button">Learn more</a>
         </div>
         <div class="gridForAboveTheFold">
             <div class=" image-container bg-light-brown box1">
@@ -52,7 +52,7 @@ require_once(__DIR__ . '/components/header.php');
                         <p>COFFEE TAILORMADE TO YOUR TASTE - EVERYDAY SINGLE DAY</p>
                     </li>
                 </ul>
-                <a href="subscribe.php" class="button">Subscribe now</a>
+                <a href="subscribe" class="button">Subscribe now</a>
             </div>
         </div>
     </section>
@@ -122,7 +122,7 @@ require_once(__DIR__ . '/components/header.php');
                 </div>
             </div>
         </div>
-        <a href="subscribe.php" class="button margin-auto mt-medium">Get started</a>
+        <a href="subscribe" class="button margin-auto mt-medium">Get started</a>
     </section>
 
     <section class="section-four grid mb-large">
@@ -157,7 +157,7 @@ require_once(__DIR__ . '/components/header.php');
                 </ul>
             </div>
         </div>
-        <a href="subscribe.php" class="button margin-auto mt-large">Subscribe today</a>
+        <a href="subscribe" class="button margin-auto mt-large">Subscribe today</a>
     </section>
 
     <section class="section-five grid mb-large">

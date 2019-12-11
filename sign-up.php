@@ -5,7 +5,7 @@ require_once(__DIR__ . '/components/header.php');
 require_once(__DIR__ . '/components/functions.php');
 
 if ($_SESSION) {
-  header("location:profile.php");
+  header("location:profile");
 }
 ?>
   <div class="containerSignup  grid grid-two">
@@ -83,7 +83,7 @@ if ($_SESSION) {
         <button name="reg_user" class="button" disabled>Sign Up</button>
       </form>
     </div>
-    <h3>Already a user? <a href="login.php">Log in </a></h3>
+    <h3>Already a user? <a href="login">Log in </a></h3>
   </div>
   <script src="js/signup.js"></script>
   <script src="js/validation.js"></script>

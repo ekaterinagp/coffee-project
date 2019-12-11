@@ -18,7 +18,7 @@ function init() {
       //   let subId = document.querySelector(".addSubToCartBtn").parentNode.id;
       //   console.log("subId", subId);
       //   // let a = document.createElement("a");
-      //   window.location = "payment.php/id=" + subId;
+      //   window.location = "payment?id=" + subId;
         // document.querySelector(".paymentButton").appendChild(a);
       // });
     });

@@ -96,7 +96,7 @@ require_once(__DIR__ . '/components/header.php');
                             $result = strtolower(str_replace(" ", "-", $imgUrl));
 
                             echo '
-            <a href="singleProduct.php?id=' . $product['nProductID'] . '">
+            <a href="singleProduct?id=' . $product['nProductID'] . '">
                 <div class="product" id="product-' . $product['nProductID'] . '">
                     <div class="image bg-contain" style="background-image: url(img/products/' . $result . '.png)"></div>
                     <div class="description m-small">

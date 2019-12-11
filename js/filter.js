@@ -142,7 +142,7 @@ function showFilteredCoffee(products) {
 
     if (product.cName) {
       clone.querySelector("a").href =
-        "singleProduct.php?id=" + product.nProductID;
+        "singleProduct?id=" + product.nProductID;
       clone.querySelector("h3").textContent = product.cName;
       changeFormatForImg(product);
       clone.querySelector(".product").id = "product-" + product.nProductID;
@@ -153,7 +153,7 @@ function showFilteredCoffee(products) {
       clone.querySelector("p").textContent = product.nPrice;
     } else {
       clone.querySelector("a").href =
-        "singleProduct.php?id=" + product.nProductID;
+        "singleProduct?id=" + product.nProductID;
       clone.querySelector("h3").textContent = product.productName;
       product.imagePath = changeFormatForName(product);
       clone.querySelector(".image").style.backgroundImage =
@@ -195,7 +195,7 @@ function fetchDataForSearch() {
         let image = document.createElement("div");
         console.log(match["cName"]);
 
-        a.href = "singleProduct.php?id=" + match.nProductID;
+        a.href = "singleProduct?id=" + match.nProductID;
         a.classList.add(
           "grid",
           "grid-one-fifth",

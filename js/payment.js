@@ -93,7 +93,7 @@ console.log(endpoint)
             if (response===1) {
         console.log("yes")
         sessionStorage.removeItem("cart");
-        location.href="thankyou.php";
+        location.href="thankyou";
             }else{
           console.log("something went wrong")
         }

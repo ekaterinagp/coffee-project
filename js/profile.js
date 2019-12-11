@@ -285,7 +285,7 @@ function logout(){
         })
         .then(res => res.text())
         .then(response => {
-            window.location.href = "index.php";
+            window.location.href = "index";
         });
 }
 

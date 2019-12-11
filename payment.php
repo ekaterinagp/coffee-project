@@ -24,8 +24,8 @@ if($_SESSION){
         <div class="mv-medium">
   
       <p>To make a purchase you need to be signed in</p>
-      <a href="login.php" class="link mv-small">Go to Login</a>
-      <a href="signup.php" class="link mv-small">Go to Signup</a>
+      <a href="log-in" class="link mv-small">Go to Login</a>
+      <a href="sign-up" class="link mv-small">Go to Signup</a>
       </div>
     <?php
     } ?>
