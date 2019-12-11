@@ -1342,11 +1342,15 @@ select > option {
 }
 
 .subscriptionItem h3 {
-  color: white;
+  color: #fff;
   height: 8vh;
   font-size: 1em;
   text-transform: uppercase;
   padding-top: 3vw;
+}
+
+.subscriptionItem h3.priceSubscription{
+  color: black;
 }
 
 .subscriptionItem img {
@@ -1389,12 +1393,11 @@ select > option {
 }
 .priceSubscription {
   text-align: right;
+  color: #000;
+  padding-bottom: 0;
 }
 .containerForSubscriptions {
   max-width: 100vw;
-}
-.priceSubscription {
-  padding-bottom: 0;
 }
 
 .selectedItem {
