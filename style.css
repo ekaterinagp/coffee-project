@@ -1509,7 +1509,9 @@ input:checked + .btnRadio {
 .containerSignup a,
 .containerSignup h4 {
   text-align: left;
+  text-align: left;
 }
+
 .containerSignup h4 {
   padding: 0;
   margin-left: -1.5em;
