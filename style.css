@@ -600,7 +600,12 @@ footer svg {
 a {
   color: black;
 }
-
+.link{
+  display: block;
+  color:#fb8b23;
+  text-decoration: underline;
+  text-align: left;
+}
 .button {
   display: grid;
   padding: 1.5vw;
@@ -989,8 +994,7 @@ a {
 }
 .shop .product,
 .single-product .product,
-.profile .product,
-.product-info-container {
+.profile .product, .current-subscriptions .product-info-container {
   height: 25vw;
   border: solid 0.1px #00000045;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -1445,10 +1449,7 @@ input:checked + .btnRadio {
 .testResults button {
   margin: 1vh auto;
 }
-#paymentMain {
-  display: grid;
-  grid-template-columns: 2fr 4fr;
-}
+
 
 /*   ADMIN PAGE   */
 
@@ -1485,8 +1486,8 @@ input:checked + .btnRadio {
   background-color: #2b231d;
   left: 0;
   right: 0;
-  top: 30%;
-  bottom: 30%;
+  top: 20%;
+  bottom: 50%;
   position: absolute;
   z-index: -1;
 }
@@ -1498,17 +1499,19 @@ input:checked + .btnRadio {
 }
 
 .containerSignup {
-  align-items: center;
   position: relative;
   width: 100%;
 }
 .containerSignup h3,
  .containerSignup a{
   color:white;
-}
-.containerSignup a,
-.containerSignup h4 {
+  margin-top:60%;
   text-align: left;
+}
+.containerSignup a{
+  align-self: top;
+}
+.containerSignup h4 {
   text-align: left;
 }
 
@@ -1605,7 +1608,7 @@ input:not(:focus).error {
 .highlight {
   background-color: yellow;
 }
-
+/*  CART PAGE  */
 .img_cart {
   width: 20vw;
   height: auto;
@@ -1616,8 +1619,8 @@ input:not(:focus).error {
 .cartTotal {
   display: grid;
   grid-template-columns: 2fr 2fr;
-  padding-top: 3em;
-  min-height: 80vh;
+  align-items: center;
+  justify-content: center;
 }
 
 input.title_cart,
@@ -1628,4 +1631,13 @@ input.price_cart {
   font-family: inherit;
   font-size: inherit;
   padding: none;
+}
+
+.hiddenPaymentForm{
+    width:50vw;
+  transition: all .3s;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.hiddenPaymentForm button{
+  margin:auto;
 }
