@@ -2,6 +2,7 @@
 
 let cart = JSON.parse(sessionStorage.getItem("cart"));
 console.log("cart", cart);
+
 if(cart){
     console.log(cart)
     let title = document.querySelector("#youSelected");
@@ -13,24 +14,20 @@ if(cart){
     let price = cart[0].price.substr(0, cart[0].price.search(" "))
     console.log(price)
     sumToPay.textContent= (price * 1.25 ) + " DKK";
-}
 
-
-
-
-
-  document.querySelector(".hiddenPaymentForm").classList.add("showFrm");
   let purchaseBtn = document.querySelector(".purchaseBtn");
   purchaseBtn.addEventListener("click", function(){
     event.preventDefault();
     let id = document.querySelector("[name=userCreditCards]").value;
     purchaseItem(id);
   })
-  // let showAddCardFrm = document.querySelector(".showAddCardFrm");
-  // // showAddCardFrm.addEventListener("click", )
+  let showAddCardFrm = document.querySelector(".show-newCardFrm");
+  showAddCardFrm.addEventListener("click", function(){
+      document.querySelector("#newCardFrm").classList.add("showFrm");
+  })
   let registerCardBtn = document.querySelector(".addCreditCard")
   registerCardBtn.addEventListener("click", registerCard);
-
+}
 
 function registerCard(){
 event.preventDefault();
@@ -63,32 +60,42 @@ console.log(IBAN, CCV, expiration)
 });
 }
 
-  function purchaseItem(cardID){
+
+
+function purchaseItem(cardID){
     console.log("doPurvhase")
-// let itemToBePurchased = document.querySelector(".cartDiv").id
-let productID = cart[0].id;
-let creditCardID = cardID;
-let taxPercentage = 0.25;
-let formData = new FormData();
-formData.append("productID",productID)
-formData.append("creditCardID",creditCardID)
-formData.append("taxPercentage",taxPercentage)
-let endpoint = "api/api-purchase-product.php";
 
-  fetch(endpoint, {
-      method: "POST",
-      body: formData
-    })
-      .then(res => res.text())
-      .then(response => {
-      //   console.log(response);
-        if (response==1) {
-      console.log("yes")
-      sessionStorage.removeItem("cart");
-      location.href="thankyou.php";
-        }else{
-          console.log("something went wront")
+    // let itemToBePurchased = document.querySelector(".cartDiv").id
+    let productID = cart[0].id;
+    let creditCardID = cardID;
+    let taxPercentage = 0.25;
+    console.log(cardID)
+    let formData = new FormData();
+    let endpoint;
+    formData.append("creditCardID",creditCardID)
+    formData.append("taxPercentage",taxPercentage)
+    formData.append("productID",productID)
+
+    if(cart[0].purchaseType=="subscription"){
+        endpoint = "api/api-purchase-subscription.php"
+    }
+    else{
+        endpoint = "api/api-purchase-product.php";
+    }
+console.log(endpoint)
+    fetch(endpoint, {
+        method: "POST",
+        body: formData
+        })
+        .then(res => res.text())
+        .then(response => {
+        //   console.log(response);
+            if (response===1) {
+        console.log("yes")
+        sessionStorage.removeItem("cart");
+        location.href="thankyou.php";
+            }else{
+          console.log("something went wrong")
         }
-});
-
-}
+    })
+  }

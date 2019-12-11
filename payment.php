@@ -7,6 +7,7 @@ if($_SESSION){
   $nUserID= $_SESSION['user']['nUserID'];
 }
 ?>
+ <div class="back-button color-orange absolute">Back</div>
   <main id="paymentMain">
     <h2>Checkout </h2>
   <div class="grid grid-two m-medium">
@@ -30,9 +31,9 @@ if($_SESSION){
     } ?>
     </div>
   
-  <div class="hiddenPaymentForm p-medium bg-grey">
-  <form method="POST">
-      <h3>Payment Details</h3>
+  <div class="paymentForm p-medium bg-grey">
+    <h2>Payment Details</h2>
+  <form method="POST" id="savedCardFrm" class=" mb-medium grid grid-two-thirds-reversed">
     <?php
     require_once(__DIR__ . '/connection.php');
     $sql = "SELECT * FROM tCreditCard WHERE tCreditCard.nUserID = :id";
@@ -40,7 +41,7 @@ if($_SESSION){
   if($statementCreditCard->execute([':id' => $nUserID])){
       $userCreditCards = $statementCreditCard->fetchAll(PDO::FETCH_ASSOC);
       if($userCreditCards>=1){
-    ?><label for=""><p>Choose from your saved credit cards</p>
+    ?><label><p class="text-left align-self-center mt-medium mb-small">Choose from your saved credit cards</p>
     <select name="userCreditCards" id="">
       <?php
       foreach($userCreditCards as $userCreditCard){
@@ -55,9 +56,9 @@ if($_SESSION){
     </select>
     </label>
     <button class="button purchaseBtn ">Purchase</button>
-    </form>
-    <button class="button">Add New</button>
-<form method="POST">
+    </form><h4>Or pay with another credit card</h4>
+    <button class="button show-newCardFrm">Add New</button>
+<form method="POST" id="newCardFrm">
     <label class="grid" for="inputIBAN">
         <p class="text-left align-self-center mb-small">IBAN</p>
         <input class="mb-small" data-type="integer" data-min="99999999999999999" data-max="999999999999999999" type="text" data-type="string" name="inputIBAN" placeholder="IBAN (format 123456789123456789)" value="">
@@ -82,6 +83,7 @@ if($_SESSION){
     
   </main>
 <script src="js/payment.js"></script>
+<script src="js/validation.js"></script>
 <?php
 $sScriptPath = 'script.js';
 

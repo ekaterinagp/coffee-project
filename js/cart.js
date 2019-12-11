@@ -26,6 +26,10 @@ if (cart) {
   });
 } else {
   emptyTotal();
+  displayGoBuyMessage();
+}
+function displayGoBuyMessage(){
+  console.log("go buy")
 }
 
 function removeItem(cartItemId) {
@@ -79,80 +83,3 @@ function emptyTotal() {
 
 // checkCart();
 
-let openPaymentFrmBtn = document.querySelector("#openPurchaseFrm");
-openPaymentFrmBtn.addEventListener("click", openPaymentFrm);
-
-function openPaymentFrm(){
-  document.querySelector(".hiddenPaymentForm").classList.add("showFrm");
-  let purchaseBtn = document.querySelector(".purchaseBtn");
-  purchaseBtn.addEventListener("click", function(){
-    event.preventDefault();
-    let id = document.querySelector("[name=userCreditCards]").value;
-    purchaseItem(id);
-  })
-  // let showAddCardFrm = document.querySelector(".showAddCardFrm");
-  // // showAddCardFrm.addEventListener("click", )
-  let registerCardBtn = document.querySelector(".addCreditCard")
-  registerCardBtn.addEventListener("click", registerCard);
-
-}
-function registerCard(){
-event.preventDefault();
-  let IBAN = document.querySelector("[name=inputIBAN]").value;
-  let CCV = document.querySelector("[name=inputCCV]").value;
-  let expiration = document.querySelector("[name=inputExpiration]").value;
-
-console.log(IBAN, CCV, expiration)
-  let formData = new FormData();
-  formData.append('inputIBAN', IBAN);
-  formData.append('inputCCV', CCV);
-  formData.append('inputExpiration', expiration);
-
-  let endpoint = "api/api-create-creditcard.php";
-
-  fetch(endpoint, {
-      method: "POST",
-      body: formData
-    })
-      .then(res => res.text())
-      .then(response => {
-      //   console.log(response);
-        if (response!=0) {
-          
-          purchaseItem(response)
-          console.log(response);
-        }else{
-          console.log("wrong")
-        }
-});
-}
-
-  function purchaseItem(cardID){
-    console.log("doPurvhase")
-// let itemToBePurchased = document.querySelector(".cartDiv").id
-let productID = Number(document.querySelector(".cartDiv").id);
-let creditCardID = cardID;
-let taxPercentage = 0.25;
-let formData = new FormData();
-formData.append("productID",productID)
-formData.append("creditCardID",creditCardID)
-formData.append("taxPercentage",taxPercentage)
-let endpoint = "api/api-purchase-product.php";
-
-  fetch(endpoint, {
-      method: "POST",
-      body: formData
-    })
-      .then(res => res.text())
-      .then(response => {
-      //   console.log(response);
-        if (response==1) {
-      console.log("yes")
-      sessionStorage.removeItem("cart");
-      location.href="thankyou.php";
-        }else{
-          console.log("something went wront")
-        }
-});
-
-}

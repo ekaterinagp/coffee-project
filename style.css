@@ -984,10 +984,11 @@ a {
 
 .back-button {
   cursor: pointer;
-  font-size: 300%;
+  font-size: 150%;
   left: 5vw;
-  top: 10vh;
+  top: 11vh;
   transition: all 0.3s;
+  text-decoration: underline;
 }
 .back-button:hover {
   transform: scale(1.3);
@@ -1264,7 +1265,7 @@ select > option {
 .subscriptionItem:nth-child(6) .subscriptionItemBg {
   background-color: #d8b69c;
 }
-.subscriptionItem .paymentButton {
+.subscriptionItem .addSubToCartBtn {
   text-align: center;
   margin: 1.5vh auto;
   visibility: hidden;
@@ -1288,7 +1289,7 @@ select > option {
   transform: scale(1.05);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
-.selectedItem .paymentButton {
+.selectedItem .addSubToCartBtn {
   visibility: initial;
 }
 .testbg {
@@ -1633,11 +1634,23 @@ input.price_cart {
   padding: none;
 }
 
-.hiddenPaymentForm{
+.paymentForm{
     width:50vw;
   transition: all .3s;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
-.hiddenPaymentForm button{
+.paymentForm button{
   margin:auto;
+}
+#newCardFrm{
+  max-height:0;
+  overflow: hidden;
+}
+#newCardfrm.showFrm{
+  max-height:100vh;
+  overflow: auto;
+  transition: all .2s;
+}
+#savedCardFrm p{
+grid-column: 1/-1;
 }
