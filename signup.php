@@ -8,19 +8,6 @@ if ($_SESSION) {
   header("location:profile.php");
 }
 ?>
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://api.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js"></script>
-  <link href="https://api.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css" rel="stylesheet" />
-
-</head>
-
-<body>
-
   <div class="containerSignup  grid grid-two">
     <div class="loginWelcome mh-medium mv-small bg-grey">
       <div class="signupBg"></div>

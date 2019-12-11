@@ -560,9 +560,13 @@ a {
 }
 
 .deskmenu {
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   justify-items: center;
   align-items: center;
+}
+
+.deskmenu.logged{
+  grid-template-columns: repeat(6, 1fr);
 }
 
 .deskmenu svg {
@@ -1305,7 +1309,7 @@ select > option {
   grid-gap: 5vh;
 }
 
-.button-log-out, .button-delete-profile{
+.button-delete-profile{
   background-color: #000;
 }
 
