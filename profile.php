@@ -134,8 +134,9 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
     </form>
   </div>
   </div>
-  <div class="profile-details creditcard-info bg-light-brown p-medium">
-    <h2 class="color-white">Creditcard Details</h2>
+  <div class="profile-details bg-light-brown p-medium">
+    <div class="creditcard-info"> 
+      <h2 class="color-white">Creditcard Details</h2>
     
     <?php 
 
@@ -149,23 +150,25 @@ if($statementCreditCard->execute([':id' => $nUserID])){
       if(!isset($jUserCreditCard['dDeleteCreditCard'])){
       $nCreditCardID = $jUserCreditCard['nCreditCardID'];
     ;?>
-    <div id="creditcard-<?=$nCreditCardID;?>" class="mb-medium mt-small">
-        <div class="description">
-          <div class="creditcard-details">
-            <h3 class="color-white">IBAN</h3>
-            <p class="mv-small text-left color-white"><?=$jUserCreditCard['cIBAN'];?></p>
-            <h3 class="color-white">Expiration</h3>
-            <p class="mv-small text-left color-white"><?=$jUserCreditCard['cExpiration'];?></p>
+      <div id="creditcard-<?=$nCreditCardID;?>" class="mb-medium mt-small">
+          <div class="description">
+            <div class="creditcard-details">
+              <h3 class="color-white">IBAN</h3>
+              <p class="mv-small text-left color-white"><?=$jUserCreditCard['cIBAN'];?></p>
+              <h3 class="color-white">Expiration</h3>
+              <p class="mv-small text-left color-white"><?=$jUserCreditCard['cExpiration'];?></p>
+            </div>
           </div>
+          <button class="button-delete-card button">Delete creditcard</button>
         </div>
-        <button class="button-delete-card button">Delete creditcard</button>
-      </div>
       
       <?php   
     }
   }
 }
 };?>
+
+</div>
   <h2 class="color-white">Add creditcard</h2>
     <form id="form-creditcard" method="post" class="mt-small">
 

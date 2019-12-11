@@ -321,7 +321,15 @@ function addCreditCard(){
           })
             .then(res => res.text())
             .then(response => {
-              if (response == 1) {
+
+            if(response == 0){
+                    let text = "Something went wrong, please try again";
+                    let responseClass = "fail";
+                    
+                    showNotification(text, responseClass);
+            }
+
+              if (response) {
 
             let text = "Your creditcard has been added";
             let responseClass = "success";
@@ -330,60 +338,46 @@ function addCreditCard(){
             saveCreditCardButton.classList.add('hide-button');
 
             showNotification(text, responseClass);
+            
+            console.log('new creditcard added');
+
+                let creditCardContainer = document.createElement("div");
+                creditCardContainer.setAttribute("id", "creditcard-" + response) // can I add the ID here?
+                creditCardContainer.classList.add("mb-medium", "mt-small"); 
+
+                let creditCardDescriptionContainer = document.createElement("div");
+                creditCardDescriptionContainer.classList.add("description");
+
+                let creditCardDetailsContainer = document.createElement("div");
+                creditCardDetailsContainer.classList.add("creditcard-details");
+
+                let h3IBAN = document.createElement("h3");
+                h3IBAN.classList.add("color-white");
+                h3IBAN.textContent = "IBAN";
+
+                let pIBAN = document.createElement("p");
+                pIBAN.classList.add("mv-small", "text-left", "color-white");
+                pIBAN.textContent = IBAN;
+
+                let h3Expiration = document.createElement("h3");
+                h3Expiration.classList.add("color-white");
+                h3Expiration.textContent = "Expiration";
+
+                let pExpiration = document.createElement("p");
+                pExpiration.classList.add("mv-small", "text-left", "color-white");
+                pExpiration.textContent = expiration;
+
+                let button = document.createElement("button");
+                button.classList.add("button-delete-card", "button");
+                button.textContent = "Delete creditcard";
+
+                creditCardDetailsContainer.append(h3IBAN, pIBAN, h3Expiration, pExpiration);
+                creditCardDescriptionContainer.append(creditCardDetailsContainer);
+                creditCardContainer.append(creditCardDescriptionContainer, button);
+
+                document.querySelector(".creditcard-info").appendChild(creditCardContainer);
             }
-
-                // console.log('new creditcard added');
-
-                // let creditCardContainer = document.createElement("div");
-                // creditCardContainer.setAttribute("id", "creditcard-") // can I add the ID here?
-                // creditCardContainer.classList.add("mb-medium", "mt-small"); 
-
-                // let creditCardDescriptionContainer = document.createElement("div");
-                // creditCardDescriptionContainer.classList.add("description");
-
-                // let creditCardDetailsContainer = document.createElement("div");
-                // creditCardDetailsContainer.classList.add("creditcard-details");
-
-                // let h3IBAN = document.createElement("h3");
-                // h3IBAN.classList.add("color-white");
-
-                // let pIBAN = document.createElement("p");
-                // pIBAN.classList.add("mv-small", "text-left", "color-white");
-
-                // let h3Expiration = document.createElement("h3");
-                // h3Expiration.classList.add("color-white");
-
-                // let pExpiration = document.createElement("p");
-                // pExpiration.classList.add("mv-small", "text-left", "color-white");
-
-                // let button = document.createElement("button");
-                // button.classList.add("button-delete-card", "button");
-
-                // creditCardDetailsContainer.append(h3IBAN, pIBAN, h3Expiration, pExpiration);
-                // creditCardDescriptionContainer.append(creditCardDetailsContainer);
-                // creditCardContainer.append(creditCardDescriptionContainer, button);
-                
-                // document.querySelector('.creditcard-info').append('
-                //<div id="creditcard-<?=$nCreditCardID;?>" class="mb-medium mt-small">
-                //<div class="description">
-                //<div class="creditcard-details">
-                //<h3 class="color-white">IBAN</h3>
-                //<p class="mv-small text-left color-white"><?=$jUserCreditCard["cIBAN"];?></p>
-                //<h3 class="color-white">Expiration</h3>
-                //<p class="mv-small text-left color-white"><?=$jUserCreditCard["cExpiration"];?></p>
-                //</div></div>
-                //<button class="button-delete-card button">Delete</button></div>');
-
-                // document.querySelector(".creditcard-info").appendChild(creditCardContainer);
-             
-                if(response == 0){
-                    let text = "Something went wrong, please try again";
-                    let responseClass = "fail";
-                    
-                    showNotification(text, responseClass);
-                }
-             
-            });
+        });
     });
 
 }
