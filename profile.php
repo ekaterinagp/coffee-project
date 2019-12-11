@@ -127,12 +127,12 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
         <button class="button-save hide-button ml-small button">Save</button>
         </label>
 
-      <label class="grid grid-two-thirds-reversed" for="password"><p class="text-left align-self-center mb-small">Password</p>
+      <!-- <label class="grid grid-two-thirds-reversed" for="password"><p class="text-left align-self-center mb-small">Password</p>
         <input class="mb-small" type="password" data-type="string" minlength="8" maxlength="8" name="inputPassword" placeholder="password">
           <div class="errorMessage">Password must be 8 characters</div>
           <button class="button-edit ml-small button">Edit</button>
         <button class="button-save hide-button ml-small button">Save</button>
-      </label>
+      </label> -->
     </form>
   </div>
   </div>
