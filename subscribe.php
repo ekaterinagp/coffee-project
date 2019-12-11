@@ -21,12 +21,14 @@ require_once(__DIR__.'/connection.php');
 <div class="containerForSubscriptions grid grid-three m-medium">
 
   <?php
-    $sql = "SELECT tsubscriptiontype.cName, tproduct.cName as cProductName,
-                 tsubscriptiontype.nSubscriptionTypeID as nsubscriptionID, 
-                 tProduct.nPrice as nSubscriptionPrice 
-                 FROM tsubscriptiontype 
-                 INNER JOIN tproduct 
-                 on tproduct.nProductID=tsubscriptiontype.nProductID";
+    $sql = "SELECT tSubscriptiontype.cName, tProduct.cName AS cProductName, tCoffeeType.cName AS cCoffeeTypeName,
+                 tSubscriptiontype.nSubscriptionTypeID AS nSubscriptionID, 
+                 tProduct.nPrice AS nSubscriptionPrice  
+                 FROM tSubscriptiontype 
+                 INNER JOIN tProduct 
+                 ON tProduct.nProductID = tSubscriptiontype.nProductID
+                 INNER JOIN tCoffeeType
+                 ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID";
     
     $statement = $connection->prepare($sql);
     if($statement->execute()){
@@ -39,7 +41,7 @@ require_once(__DIR__.'/connection.php');
         // echo $row['nSubscriptionTypeID'];
 
         echo 
-        '<div class="subscriptionItem" id="'.$row['nsubscriptionID'].'">
+        '<div class="subscriptionItem" id="'.$row['nSubscriptionID'].'">
           <div class="subscriptionItemBg">
             <h4 class="subscribeOptiopnP">Option</4>
             <h1 class="subscribeTypeNumber">1</h1>
@@ -47,10 +49,10 @@ require_once(__DIR__.'/connection.php');
             <h2 class="subscriptionName">'.$row['cName'].'</h2>
           </div>
         <div class="white-text-bg">
-          <p class="descSubscription">Lorem ipsum dolor sit amet consectetur 
+          <p class="descSubscription p-small">Lorem ipsum dolor sit amet consectetur 
           adipisicing elit. Voluptate praesentium, inventore deleniti optio nobis
           quasi provident nulla minus odit architecto.</p>
-          <h3 class="priceSubscription">'.$row['nSubscriptionPrice'].' DKK</h3>
+          <h3 class="priceSubscription p-small">'.$row['nSubscriptionPrice'].' DKK / Month</h3>
           </div>
           <a href=""><button class="addSubToCartBtn button">Add to Cart</button></a>
         </div>' ;   

@@ -66,7 +66,7 @@ if($_SESSION){
             echo $last_id;
         }
         else{
-            echo '{"status":0, "message":"something went wrong"}';
+            echo 0;
         }
     }
 

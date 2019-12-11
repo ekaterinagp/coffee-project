@@ -16,17 +16,17 @@ require_once(__DIR__ . '/components/header.php');
             </p>
             <a href="subscribe.php" class="button">Learn more</a>
         </div>
-        <div class="container masonry">
-            <div class="grid image-container bg-light-brown">
+        <div class="gridForAboveTheFold">
+            <div class=" image-container bg-light-brown box1">
                 <div class="image bg-contain img1"></div>
             </div>
-            <div class="grid image-container bg-brown">
+            <div class=" image-container bg-brown box2">
                 <div class="image bg-contain img2"></div>
             </div>
-            <div class="grid image-container bg-medium-light-brown">
+            <div class=" image-container bg-medium-light-brown box3">
                 <div class="image bg-contain img3"></div>
             </div>
-            <div class="grid image-container bg-dark-brown">
+            <div class=" image-container bg-dark-brown box4">
                 <div class="image bg-contain img4"></div>
             </div>
         </div>
@@ -171,14 +171,14 @@ require_once(__DIR__ . '/components/header.php');
                         <h5 class="color-white ph-medium relative">How to choose coffee</h5>
                     </div>
                     <div class="back p-medium ">
-                        <h3>Sometimes it can be hard to choose a coffee you will like, check out main simple tips!</h3>
+                        <!-- <h3>Sometimes it can be hard to choose a coffee you will like, check out main simple tips!</h3>
 
                         <div>If you prefer coffee with a smooth taste without bitterness, then look for dry, light coloured coffee beans, which are roasted for a shorter time.
                             If you like a strong, bold cofee, buy beans,that roasted longer and are dark and shiny in appearance.
 
                         </div>
                         <div>Light roasted coffee beans contain the highest level of caffeine, then medium and then dark roasted. Coffee beans that are used to make Espresso are usually in the medium roast and if you are looking for increase your caffeine intake, you are better going for light or medium roasted beans. </div>
-                        <div>Freshness is important, so check the roast date on the label before buying coffee! If you don’t have a coffee grinder in your house, go for the whole bean bag and ask the supermarket or café to grind them for you.</div>
+                        <div>Freshness is important, so check the roast date on the label before buying coffee! If you don’t have a coffee grinder in your house, go for the whole bean bag and ask the supermarket or café to grind them for you.</div> -->
 
                     </div>
                 </div>
@@ -190,13 +190,13 @@ require_once(__DIR__ . '/components/header.php');
                         <div class="image bg-contain"></div>
                         <h5 class="color-white ph-medium relative">How to brew coffee</h5>
                     </div>
-                    <div class="back p-medium">Make sure that your tools — from bean grinders and filters to coffee makers— are cleaned and rinsed with hot water. It’s important to check that no grounds have been left to collect and that there’s no build-up of coffee, which can make future cups of coffee taste bitter and rancid.
+                    <!-- <div class="back p-medium">Make sure that your tools — from bean grinders and filters to coffee makers— are cleaned and rinsed with hot water. It’s important to check that no grounds have been left to collect and that there’s no build-up of coffee, which can make future cups of coffee taste bitter and rancid.
                         Great coffee starts with great beans: the flavour of your coffee is not only determined by your favourite brewing process, but also by the type of coffee you select.
                         Purchase coffee as soon as possible after it’s roasted. Fresh-roasted coffee is essential to a quality cup, so buy your coffee in small amounts (ideally every two weeks).
                         The size of the grind is hugely important to the taste of your coffee. If your coffee tastes bitter, it may be over-extracted, or ground too fine. On the other hand, if your coffee tastes flat, it may be under-extracted, meaning your grind is too coarse.
                         If you’re using tap water, let it run a few seconds before filling your coffee pot, and be sure to use cold water. Avoid distilled or softened water.
 
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="flipcontainer item three grid" ontouchstart="this.classList.toggle('hover');">
@@ -216,7 +216,7 @@ require_once(__DIR__ . '/components/header.php');
                         <div class="image bg-contain relative"></div>
                         <h5 class="color-white ph-medium relative">4 Tips for Serving Good Coffee for a Crowd</h5>
                     </div>
-                    <div class="back p-medium"><strong>Buy good beans</strong>
+                    <!-- <div class="back p-medium"><strong>Buy good beans</strong>
                         Just because you’re serving a crowd does not mean that you should spare. Make sure your guests are happy about what they are drinking
                         <strong>Choose a method that works for a crowd</strong>
                         You will be very tired, using your espresso or AeroPress, serving for the crowd! We recommend you buy a large French press, to be sure that you can serve many cups at a time.
@@ -224,7 +224,7 @@ require_once(__DIR__ . '/components/header.php');
                         If you have guests for coffee, you do not want to run from kitchen to table but want to enjoy it. We recommend you invest in a good thermos if you like long weekend brunches at your home.
                         <strong>Have the proper additions at hands</strong>
                         Be sure that milk, sugar and water are on the table, some of your guests may even be vegans, remember almond milk!
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="flipcontainer item five grid" ontouchstart="this.classList.toggle('hover');">
@@ -233,12 +233,12 @@ require_once(__DIR__ . '/components/header.php');
                         <div class="image bg-contain"></div>
                         <h5 class="color-white ph-medium relative">Best coffee equipment</h5>
                     </div>
-                    <div class="back p-medium">Our favourite coffee equipment in 2019
+                    <!-- <div class="back p-medium">Our favourite coffee equipment in 2019
                         1. Home Coffee Grinder has easily adjustable grind settings, a solid burr set, good solid construction, and overall value for the money.
                         2. Automatic Brewer have been some of our favourites for years, mainly because they match great brewing performance with an affordable price.
                         3. Home Espresso Machine allows you to fully tweak how your shot pulls, so it is absolutely perfect for espresso nerds like us.
                         All these amazing equipment can be bought at our friends’ shop: friendsshop/shop
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -248,11 +248,11 @@ require_once(__DIR__ . '/components/header.php');
                         <div class="image bg-contain"></div>
                         <h5 class="color-white ph-medium relative">Sustainability in coffee drinking</h5>
                     </div>
-                    <div class="back p-medium">3 ways to be a more sustainable coffee drinker
+                    <!-- <div class="back p-medium">3 ways to be a more sustainable coffee drinker
                         1. Lok for brands that support of sustainable coffee producers and environment. (All our brands are from the Sustainable Coffee Challenge partners!)
                         2. Disposable coffee cups, single-serve capsules and pods take a serious toll on the environment. Try to avoid disposable, plastic and paper in your coffee making or at least go for recycled. Here you can check our friends’ tools for coffee making in a sustainable way: linkToFriends/sustainable
                         3. Coffee grounds are biodegradable, which means you can use them to fertilize your plants. It is also an all-natural repellent against slugs and snails. If you do not have a garden or house plants, make a hair or skin mask!
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -262,5 +262,5 @@ require_once(__DIR__ . '/components/header.php');
 </main>
 
 <?php
-$sScriptPath = 'script.js';
+// $sScriptPath = 'script.js';
 require_once(__DIR__ . '/components/footer.php');
