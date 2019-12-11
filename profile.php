@@ -53,10 +53,10 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
 ?>
 
 <main class="profile">
-  <button class="button log-out">Logout</button>
-<h1 class="text-center">Welcome <?= $jLoggedUser['cName'];?></h1>
-<button class="button button-delete-profile">Delete Profile</button>
-<section class="section-one grid grid-two mb-large ph-large pt-medium">
+  <button class="button button-log-out absolute">Logout</button>
+<h1 class="text-center pt-medium">Welcome <?= $jLoggedUser['cName'];?></h1>
+<button class="button button-delete-profile absolute">Delete Profile</button>
+<section class="section-one grid grid-two mb-large ph-large mt-medium">
 
 <div>
   <div class="profile-details bg-dark-brown p-medium">

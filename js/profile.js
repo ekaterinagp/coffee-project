@@ -274,7 +274,7 @@ function deleteUser(){
 
 // LOGOUT
 
-document.querySelector(".log-out").addEventListener("click", logout);
+document.querySelector(".button-log-out").addEventListener("click", logout);
 
 function logout(){
     let endpoint = "api/api-logout.php";
