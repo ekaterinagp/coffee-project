@@ -1,5 +1,8 @@
 <?php
 
+$sTitle = '| Your profile'; 
+$sCurrentPage = 'profile';
+
 require_once(__DIR__ . '/components/header.php');
 require_once(__DIR__ . '/connection.php');
 require_once(__DIR__ . '/components/functions.php');
@@ -18,9 +21,6 @@ if($_SESSION){
     header('Location: login.php');
     exit;
   }
-
-$sTitle = ' | Your profile'; 
-$sCurrentPage = 'Profile';
 
 $sqlProducts = "SELECT tProduct.nProductID, tProduct.cName AS cProductName, 
                 tProduct.nCoffeeTypeID AS nProductCoffeeTypeID, tProduct.nPrice, 
@@ -149,7 +149,7 @@ if($statementCreditCard->execute([':id' => $nUserID])){
       
       if(!isset($jUserCreditCard['dDeleteCreditCard'])){
       $nCreditCardID = $jUserCreditCard['nCreditCardID'];
-    ;?>
+    ?>
       <div id="creditcard-<?=$nCreditCardID;?>" class="mb-medium mt-small">
           <div class="description">
             <div class="creditcard-details">
@@ -166,7 +166,7 @@ if($statementCreditCard->execute([':id' => $nUserID])){
     }
   }
 }
-};?>
+}?>
 
 </div>
   <h2 class="color-white">Add creditcard</h2>
@@ -244,7 +244,6 @@ if($statementUserSubscription->execute([':id' => $nUserID])){
           quasi provident nulla minus odit architecto.</p>
           <h3 class="priceSubscription p-small"><?= $jUserSubscription['nPrice'] ;?> DKK / Month</h3>
           </div>
-          <a href=""><button class="paymentButton button">To Payment</button></a>
         </div>
 
 <?php
@@ -349,7 +348,7 @@ if($statementProducts->execute()){
           quasi provident nulla minus odit architecto.</p>
           <h3 class="priceSubscription p-small"><?= $jSubscription['nSubscriptionPrice'] ;?> DKK / Month</h3>
           </div>
-          <a href=""><button class="paymentButton button">To Payment</button></a>
+          <a href=""><button class="addSubToCartBtn button">Add to Cart</button></a>
         </div>
 <?php
           
