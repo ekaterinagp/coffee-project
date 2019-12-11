@@ -26,6 +26,10 @@ if (cart) {
   });
 } else {
   emptyTotal();
+  displayGoBuyMessage();
+}
+function displayGoBuyMessage(){
+  console.log("go buy")
 }
 
 function removeItem(cartItemId) {
@@ -78,3 +82,4 @@ function emptyTotal() {
 // }
 
 // checkCart();
+

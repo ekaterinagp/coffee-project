@@ -62,12 +62,12 @@ if($_SESSION){
         ];
 
         if($statement->execute($data)){
-        echo 1;
+            $last_id = $connection->lastInsertId();
+            echo $last_id;
         }
         else{
             echo 0;
         }
-
     }
 
 }

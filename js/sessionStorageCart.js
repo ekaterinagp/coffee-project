@@ -2,6 +2,7 @@
 
 let addToCartBtn = document.querySelector("#addToCartBtn");
 let cartItem = document.querySelector("#cartItem");
+let addSubToCartBtn = document.querySelectorAll(".addSubToCartBtn")
 // let numberOfItem = document.querySelector(".numberOfItems");
 // checkCart();
 
@@ -35,9 +36,27 @@ function getCartItem() {
   cartItem.typeGrind = checkedValue;
   let amountSelected = document.querySelector('input[name="option1"]').value;
   cartItem.amount = amountSelected;
+  let purchaseType = "product";
+  cartItem.purchaseType = purchaseType;
   console.log(cartItem);
   currentCartItem = cartItem;
 }
+function getSubCartItem(id){
+  let parent = document.getElementById(id);
+  let cartItem =createCartItem();
+  let itemID = id;
+  cartItem.id = itemID
+  let itemName = parent.querySelector(".subscriptionName").innerHTML;
+  cartItem.name = itemName
+  let imgElm = parent.querySelector("img");
+  let img = imgElm.getAttribute("src");
+  cartItem.img = img;
+  let price = parent.querySelector(".priceSubscription").innerHTML;
+  cartItem.price = price;
+  let purchaseType = "subscription";
+  cartItem.purchaseType = purchaseType;
+  currentCartItem = cartItem;
+  }
 
 function changeFormatForName(str) {
   return (
@@ -58,11 +77,29 @@ function changeFormatForName(str) {
 //     numberOfItem.setAttribute("style", "display: none;");
 //   }
 // }
+if(addSubToCartBtn){
+  addSubToCartBtn.forEach(subToCartBtn=>{
+    subToCartBtn.addEventListener("click",()=>{
+      event.preventDefault();
+      let parentID = event.target.parentElement.parentElement.id;
+      getSubCartItem(parentID)
+      initialiseCart();
+    })
+  })
+}
 
+
+
+if(addToCartBtn){
 addToCartBtn.addEventListener("click", () => {
   getCartItem();
-  let cart = JSON.parse(sessionStorage.getItem("cart"));
+  initialiseCart()
+ });
+}
 
+function initialiseCart(){
+  
+  let cart = JSON.parse(sessionStorage.getItem("cart"));
   if (cart) {
     //adds one or more elements to the array cart
     cart.push(currentCartItem);
@@ -74,4 +111,4 @@ addToCartBtn.addEventListener("click", () => {
   }
 
   checkCart();
-});
+}

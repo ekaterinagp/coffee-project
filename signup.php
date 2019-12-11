@@ -7,7 +7,6 @@ require_once(__DIR__ . '/components/functions.php');
 if ($_SESSION) {
   header("location:profile.php");
 }
-
 ?>
 
 <head>
@@ -22,7 +21,7 @@ if ($_SESSION) {
 
 <body>
 
-  <div class="containerSignup section-one grid grid-two">
+  <div class="containerSignup  grid grid-two">
     <div class="loginWelcome mh-medium mv-small bg-grey">
       <div class="signupBg"></div>
       <h2>Please sign up</h2>

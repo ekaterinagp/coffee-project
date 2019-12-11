@@ -12,7 +12,7 @@ $statement = $connection->prepare($sql);
 
 <main class="single-product">
     <section class="section-one grid grid-two-thirds-reversed mb-large">
-        <div class="back-button color-orange bold absolute">Back</div>
+        <div class="back-button color-orange absolute">Back</div>
         <?php
 
         if ($statement->execute()) {

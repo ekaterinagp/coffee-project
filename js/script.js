@@ -5,7 +5,7 @@ function init() {
 
   allSubscriptions.forEach(subscribeOption => {
     subscribeOption.addEventListener("click", () => {
-      console.log("click");
+      // console.log("click");
       removeSelected();
       // removeButton();
       subscribeOption.classList.add("selectedItem");
@@ -14,13 +14,13 @@ function init() {
       // buttonToPayment.textContent = "To Payment";
       // subscribeOption.append(buttonToPayment);
 
-      document.querySelector(".paymentButton").addEventListener("click", () => {
-        let subId = document.querySelector(".paymentButton").parentNode.id;
-        console.log("subId", subId);
-        // let a = document.createElement("a");
-        window.location = "payment.php/id=" + subId;
+      // document.querySelector(".addSubToCartBtn").addEventListener("click", () => {
+      //   let subId = document.querySelector(".addSubToCartBtn").parentNode.id;
+      //   console.log("subId", subId);
+      //   // let a = document.createElement("a");
+      //   window.location = "payment.php/id=" + subId;
         // document.querySelector(".paymentButton").appendChild(a);
-      });
+      // });
     });
   });
 }

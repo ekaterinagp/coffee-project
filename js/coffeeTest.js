@@ -383,10 +383,10 @@ const questions = [
       startAgainLink.setAttribute("class", "startAgainLink");
       startAgainLink.innerHTML="Take Test Again"
       let toPaymentBtn = document.createElement("button");
-      toPaymentBtn.setAttribute("class", "button paymentButton");  
-      toPaymentBtn.innerHTML = "To Payment";
+      toPaymentBtn.setAttribute("class", "button addSubToCartBtn");  
+      toPaymentBtn.innerHTML = "Add to Cart";
       toPaymentBtn.addEventListener("click", () => {
-        window.location = "payment.php/id=" + randomChoice.id;
+        window.location = "cart.php/id=" + randomChoice.id;
       });
       randomCoffeeWrapper.append(h3Name,h4Origin,h4Roast,pTaste, toPaymentBtn, startAgainLink)
       divForResults.append(img, randomCoffeeWrapper);

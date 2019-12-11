@@ -46,8 +46,7 @@ require_once(__DIR__.'/connection.php');
             <h4 class="subscribeOptiopnP">Option</4>
             <h1 class="subscribeTypeNumber">1</h1>
             <img src="img/products/'.$result.'.png" alt="">  
-            <h2>'.$row['cName'].'</h2>
-            <h3>'.$row['cCoffeeTypeName'].'</h3>
+            <h2 class="subscriptionName">'.$row['cName'].'</h2>
           </div>
         <div class="white-text-bg">
           <p class="descSubscription p-small">Lorem ipsum dolor sit amet consectetur 
@@ -55,7 +54,7 @@ require_once(__DIR__.'/connection.php');
           quasi provident nulla minus odit architecto.</p>
           <h3 class="priceSubscription p-small">'.$row['nSubscriptionPrice'].' DKK / Month</h3>
           </div>
-          <a href=""><button class="paymentButton button">To Payment</button></a>
+          <a href=""><button class="addSubToCartBtn button">Add to Cart</button></a>
         </div>' ;   
   }
 }
@@ -64,7 +63,7 @@ require_once(__DIR__.'/connection.php');
   
   
   <h2 class="text-center" >In doubt what to choose?</h2>
-  <h3 class="text-center" >Wanna get reccomendations? Take a coffee test! </h3>
+  <h3 class="text-center" >Want to get reccomendations? Take a coffee test! </h3>
   <a href="#test"><button id="startBtn" class="button">Start</button>
   </a>
 
@@ -84,7 +83,7 @@ require_once(__DIR__.'/connection.php');
       <button id="nextBtn" class="button" disabled>Next</button></div>
   </div>
 </main>
-
+<script src="js/sessionStorageCart.js"></script>
 <?php
 $sScriptPath = 'coffeeTest.js';
 require_once(__DIR__.'/components/footer.php');
