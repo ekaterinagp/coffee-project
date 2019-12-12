@@ -94,7 +94,11 @@ function doLogin(){
     .then(response => {
       console.log(response);
       if (response == 1) {
-        location.href = "profile.php";
+        if(document.referrer.indexOf("cart")!=-1){
+          location.href = "cart";
+        }else{
+          location.href = "profile";
+        }
       }
       if (response == 0) {
         document.querySelector("#emailDiv").textContent =

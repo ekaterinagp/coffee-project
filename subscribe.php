@@ -3,10 +3,19 @@ $sTitle = ' | Subscribe';
 $sCurrentPage = 'subscribe';
 require_once(__DIR__.'/components/header.php');
 require_once(__DIR__.'/connection.php');
+$sql = "SELECT tSubscriptiontype.cName, tProduct.cName AS cProductName, tCoffeeType.cName AS cCoffeeTypeName,
+                 tSubscriptiontype.nSubscriptionTypeID AS nSubscriptionID, 
+                 tProduct.nPrice AS nSubscriptionPrice  
+                 FROM tSubscriptiontype 
+                 INNER JOIN tProduct 
+                 ON tProduct.nProductID = tSubscriptiontype.nProductID
+                 INNER JOIN tCoffeeType
+                 ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID";
+$statement = $connection->prepare($sql);
 ?>
 
 <main id="subscribePage">
-<div class="grid grid-almost-two section-one container-header align-items-center mt-large bg-grey pv-medium ph-xlarge subscribeBanner">
+<div class="grid grid-almost-two section-one container-header align-items-center bg-grey pv-medium ph-xlarge subscribeBanner">
   <div>
     <h1>Subscribe Now</h1>
     <p class="align-self-top mt-small mb-medium mr-medium">Get fresh roasted quality coffee delivered to your doorstep so you can enjoy a wonderful cup every morning</p>
@@ -18,17 +27,9 @@ require_once(__DIR__.'/connection.php');
 </div>
 
   <h2 class="text-center mv-medium ">Six great ways to subscribe</h2>
-<div class="containerForSubscriptions grid grid-three m-medium">
+  <div class="containerForSubscriptions grid grid-three m-medium">
 
   <?php
-    $sql = "SELECT tsubscriptiontype.cName, tproduct.cName as cProductName,
-                 tsubscriptiontype.nSubscriptionTypeID as nsubscriptionID, 
-                 tProduct.nPrice as nSubscriptionPrice 
-                 FROM tsubscriptiontype 
-                 INNER JOIN tproduct 
-                 on tproduct.nProductID=tsubscriptiontype.nProductID";
-    
-    $statement = $connection->prepare($sql);
     if($statement->execute()){
       
         $products = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -39,20 +40,20 @@ require_once(__DIR__.'/connection.php');
         // echo $row['nSubscriptionTypeID'];
 
         echo 
-        '<div class="subscriptionItem" id="'.$row['nsubscriptionID'].'">
+        '<div class="subscriptionItem" id="'.$row['nSubscriptionID'].'">
           <div class="subscriptionItemBg">
             <h4 class="subscribeOptiopnP">Option</4>
             <h1 class="subscribeTypeNumber">1</h1>
             <img src="img/products/'.$result.'.png" alt="">  
-            <h2>'.$row['cName'].'</h2>
+            <h2 class="subscriptionName">'.$row['cName'].'</h2>
           </div>
         <div class="white-text-bg">
-          <p class="descSubscription">Lorem ipsum dolor sit amet consectetur 
+          <p class="descSubscription p-small">Lorem ipsum dolor sit amet consectetur 
           adipisicing elit. Voluptate praesentium, inventore deleniti optio nobis
           quasi provident nulla minus odit architecto.</p>
-          <h3 class="priceSubscription">'.$row['nSubscriptionPrice'].' DKK</h3>
+          <h3 class="priceSubscription p-small">'.$row['nSubscriptionPrice'].' DKK / Month</h3>
           </div>
-          <a href=""><button class="paymentButton button">To Payment</button></a>
+          <a href=""><button class="addSubToCartBtn button">Add to Cart</button></a>
         </div>' ;   
   }
 }
@@ -61,7 +62,7 @@ require_once(__DIR__.'/connection.php');
   
   
   <h2 class="text-center" >In doubt what to choose?</h2>
-  <h3 class="text-center" >Wanna get reccomendations? Take a coffee test! </h3>
+  <h3 class="text-center" >Want to get reccomendations? Take a coffee test! </h3>
   <a href="#test"><button id="startBtn" class="button">Start</button>
   </a>
 
@@ -81,7 +82,7 @@ require_once(__DIR__.'/connection.php');
       <button id="nextBtn" class="button" disabled>Next</button></div>
   </div>
 </main>
-
+<script src="js/sessionStorageCart.js"></script>
 <?php
 $sScriptPath = 'coffeeTest.js';
 require_once(__DIR__.'/components/footer.php');

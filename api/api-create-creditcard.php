@@ -62,12 +62,12 @@ if($_SESSION){
         ];
 
         if($statement->execute($data)){
-        echo '{"status":1, "message":"creditcard is successfully created"}';
+            $last_id = $connection->lastInsertId();
+            echo $last_id;
         }
         else{
-            echo '{"status":0, "message":"something went wrong"}';
+            echo 0;
         }
-
     }
 
 }

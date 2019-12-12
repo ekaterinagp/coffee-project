@@ -39,7 +39,12 @@ function addNewUser() {
     .then(response => {
       console.log(response);
       if (response) {
-        location.href = "profile.php";
+        if(document.referrer.indexOf("cart")!=-1){
+          location.href = "cart";
+        }else{
+          location.href = "profile";
+        }
+
       }
     });
 }

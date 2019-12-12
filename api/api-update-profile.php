@@ -13,7 +13,6 @@ if($_SESSION){
     $nUserID = $jLoggedUser['nUserID'];
  
     if($_POST){
-
 // NAMES
 
         if (empty($_POST['inputName'])) {
@@ -114,10 +113,18 @@ if (empty($_POST['inputLoginName'])) {
         ];
 
         if($statement->execute($data)){
-        echo '{"status":1, "message":"user successfully updated"}';
+          echo 1;
+          
+          $_SESSION['user']['cName'] = $_POST['inputName'];
+          $_SESSION['user']['cSurname'] = $_POST['inputLastName'];
+          $_SESSION['user']['cEmail'] = $_POST['inputEmail'];
+          $_SESSION['user']['cAddress'] = $_POST['inputAddress'];
+          $_SESSION['user']['nCityID'] = $_POST['cityInput'];
+          $_SESSION['user']['cPhoneNo'] = $_POST['inputPhone'];
+
         }
         else{
-            echo '{"status":0, "message":"something went wrong"}';
+          echo 0;
         }
 
     }

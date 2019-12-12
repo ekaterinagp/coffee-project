@@ -12,7 +12,7 @@ $statement = $connection->prepare($sql);
 
 <main class="single-product">
     <section class="section-one grid grid-two-thirds-reversed mb-large">
-        <div class="back-button color-orange bold absolute">Back</div>
+        <div class="back-button color-orange absolute">Back</div>
         <?php
 
         if ($statement->execute()) {
@@ -111,7 +111,7 @@ $statement = $connection->prepare($sql);
                             $result = strtolower(str_replace(" ", "-", $imgUrl));
                             ?>
 
-                <a href="singleProduct.php?id=<?= $product['nProductID']; ?>">
+                <a href="singleProduct?id=<?= $product['nProductID']; ?>">
                     <div class="product" id="product-<?= $product['nProductID']; ?>">
                         <div class="image bg-contain" style="background-image: url(img/products/<?= $result; ?>.png)"></div>
                         <div class="description m-small">

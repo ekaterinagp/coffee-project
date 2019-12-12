@@ -2,10 +2,18 @@
 $sTitle = ' | Your cart';
 $sCurrentPage = 'cart';
 require_once(__DIR__ . '/components/header.php');
+
+
 ?>
 
 <main>
-  <div class="cartTotal">
+
+<?php
+
+
+?>
+
+  <div class="cartTotal mv-medium mh-large">
     <section id="cartItems">
       <template id="cartItemTemplate">
         <div id="" class="cartDiv">
@@ -30,16 +38,16 @@ require_once(__DIR__ . '/components/header.php');
     <div class="total">
       <p class="">Your cart</p>
       <section id="totalItemsSection">
+        
         <template id="totalItemsTemplate">
           <div id="" class="totalDiv">
             <!-- <p class="totalItemsName"></p> -->
           </div>
         </template>
       </section>
-
       <div id="totalsum"></div>
-      <button class="button buy">Go to Payment</button>
-    </div>
+      <a href="payment"><button class="button" >Go to Payment</button></a>
+        
   </div>
 </main>
 

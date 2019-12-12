@@ -5,24 +5,10 @@ require_once(__DIR__ . '/components/header.php');
 require_once(__DIR__ . '/components/functions.php');
 
 if ($_SESSION) {
-  header("location:profile.php");
+  header("location:profile");
 }
-
 ?>
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://api.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js"></script>
-  <link href="https://api.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css" rel="stylesheet" />
-
-</head>
-
-<body>
-
-  <div class="containerSignup section-one grid grid-two">
+  <div class="containerSignup  grid grid-two">
     <div class="loginWelcome mh-medium mv-small bg-grey">
       <div class="signupBg"></div>
       <h2>Please sign up</h2>
@@ -97,7 +83,7 @@ if ($_SESSION) {
         <button name="reg_user" class="button" disabled>Sign Up</button>
       </form>
     </div>
-    <h3>Already a user? <a href="login.php">Log in </a></h3>
+    <h3>Already a user? <a href="login">Log in </a></h3>
   </div>
   <script src="js/signup.js"></script>
   <script src="js/validation.js"></script>
