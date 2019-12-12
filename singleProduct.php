@@ -11,6 +11,9 @@ $sql = "SELECT tProduct.nProductID, tProduct.cName as cProductName, tProduct.nCo
         tCoffeeType.nCoffeeTypeID, tCoffeeType.cName 
         FROM tProduct INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID 
         WHERE tProduct.bActive != 0 AND tProduct.nProductID = :id";
+
+// $sqlRelatedProducts = "";
+
 $statement = $connection->prepare($sql);
 ?>
 

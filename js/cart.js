@@ -71,6 +71,10 @@ function selectQ() {
   });
   document.getElementById("totalsum").innerHTML =
     "Total: " + totalPrice + "DKK";
+
+     if(cart.length == 0){
+      displayGoBuyMessage();
+    }
 }
 
 function emptyTotal() {

@@ -4,6 +4,10 @@
   margin: 0;
 }
 
+main {
+  min-height: 58vh;
+}
+
 li {
   text-decoration: none;
 }
@@ -22,7 +26,7 @@ h2 {
 }
 
 header .logo {
-  width: 7vw;
+  width: 10vw;
 }
 
 .image {
@@ -185,6 +189,91 @@ svg {
   height: 35vh;
 } */
 
+input[type="range"] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type="range"]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+/*Styling the thumb in Chrome*/
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #815946;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  /* box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;  */
+}
+
+/*Styling the track in Chrome*/
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #815946, 0px 0px 1px #815946;
+  background: #815946;
+  border-radius: 1.3px;
+  /* border: 0.2px solid #010101; */
+}
+
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: #fb8b23;
+}
+
+/*checkboxes  */
+.checkbox {
+  display: inline-flex;
+  cursor: pointer;
+  position: relative;
+}
+
+.checkbox > span {
+  color: #34495e;
+  padding: 0.5rem 0.25rem;
+}
+
+.checkbox > input {
+  height: 25px;
+  width: 25px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border: 1px solid #fb8b23;
+  border-radius: 4px;
+  outline: none;
+  transition-duration: 0.3s;
+  /* background-color: #41b883; */
+  cursor: pointer;
+}
+
+.checkbox > input:checked + span::before {
+  content: "\2713";
+  display: block;
+  text-align: center;
+  color: #fb8b23;
+  position: absolute;
+  left: 0.5rem;
+  top: 0.1rem;
+}
+
+.checkbox > input:active {
+  border: 2px solid #34495e;
+}
+
+#priceValue {
+  padding-left: 1em;
+}
 /***** POSITIONING *****/
 
 .absolute {
@@ -227,6 +316,10 @@ svg {
 
 .justify-self-right {
   justify-self: right;
+}
+
+.justify-self-center {
+  justify-self: center;
 }
 
 .text-center {
@@ -1098,9 +1191,9 @@ a {
   height: auto;
   display: none;
   position: absolute;
-  right: 4vw;
+  right: 28vw;
   background-color: #fff;
-  top: 40vw;
+  top: 29vw;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   border: solid 0.1px #00000045;
 }
@@ -1122,7 +1215,7 @@ a {
   border-radius: 0;
   background-color: white;
   justify-self: right;
-  width: 22vw;
+  width: 50vw;
   padding: 1vw;
   text-align: right;
   border: solid 0.1px #00000045;
@@ -1135,10 +1228,20 @@ a {
   font-style: italic;
 }
 
+#searchBtn {
+  display: inline-block;
+  margin-left: 1em;
+  padding: 1em;
+}
+
+#forSearch {
+  justify-self: center;
+}
+
 .shop .section-one .image {
   background-image: url(img/caffe-latte-with-saucer.png);
   height: 30vh;
-  width: 100%;
+  width: 50%;
   top: 6vw;
   right: -30vw;
 }
@@ -1146,6 +1249,7 @@ a {
 .filter {
   width: 90%;
   top: -5.5vw;
+  padding-top: 5em;
 }
 
 .filter-container {
@@ -1698,13 +1802,13 @@ input:checked + .btnRadio {
   padding: 1em;
 }
 /*  LOGIN PAGE    */
-  #loginForm{
-  width:50%;
-  margin:auto;
-  }
-  #loginForm button{
-    margin : 2vh 0;
-  }
+#loginForm {
+  width: 50%;
+  margin: auto;
+}
+#loginForm button {
+  margin: 2vh 0;
+}
 /*   SIGNUP PAGE   */
 
 .signupBg {
@@ -1821,8 +1925,6 @@ form .errorMessage {
 input:not(:focus).error {
   border: 1px solid #fb4b23;
 }
-
-
 
 .highlight {
   background-color: yellow;
