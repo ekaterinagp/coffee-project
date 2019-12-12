@@ -25,7 +25,7 @@ if($_SESSION){
 $sqlProducts = "SELECT tProduct.nProductID, tProduct.cName AS cProductName, 
                 tProduct.nCoffeeTypeID AS nProductCoffeeTypeID, tProduct.nPrice, 
                 tProduct.nStock, tProduct.bActive, tCoffeeType.nCoffeeTypeID, tCoffeeType.cName 
-                FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID";
+                FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID WHERE tProduct.bActive != 0 LIMIT 4";
 $statementProducts = $connection->prepare($sqlProducts);
 
 $sqlSubscriptions =  "SELECT tSubscriptiontype.cName, tSubscriptiontype.nSubscriptionTypeID AS nSubscriptionID, 
@@ -33,7 +33,8 @@ $sqlSubscriptions =  "SELECT tSubscriptiontype.cName, tSubscriptiontype.nSubscri
                     tCoffeeType.cName AS cCoffeeTypeName 
                     FROM tSubscriptiontype 
                     INNER JOIN tProduct ON tProduct.nProductID=tsubscriptiontype.nProductID
-                    INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID";
+                    INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID WHERE tProduct.bActive != 0";
+                    
 $statementSubscriptions = $connection->prepare($sqlSubscriptions);
 
 $sqlUserSubscription = "SELECT tUserSubscription.nUserSubscriptionID, tUserSubscription.dCancellation, 
@@ -44,10 +45,12 @@ $sqlUserSubscription = "SELECT tUserSubscription.nUserSubscriptionID, tUserSubsc
                         INNER JOIN tUserSubscription ON tUser.nUserID = tUserSubscription.nUserID 
                         INNER JOIN tSubscriptionType ON tUserSubscription.nSubscriptionTypeID = tSubscriptionType.nSubscriptionTypeID 
                         INNER JOIN tProduct ON tSubscriptionType.nProductID = tProduct.nProductID 
-                        INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID WHERE tuser.nUserID = :id";
+                        INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID 
+                        WHERE tuser.nUserID = :id AND tUserSubscription.dCancellation IS NULL AND tProduct.bActive != 0";
+
 $statementUserSubscription = $connection->prepare($sqlUserSubscription);
 
-$sqlCreditCard = "SELECT * FROM tCreditCard WHERE tCreditCard.nUserID = :id";
+$sqlCreditCard = "SELECT * FROM tCreditCard WHERE tCreditCard.nUserID = :id AND dDeleteCreditCard IS NULL";
 $statementCreditCard = $connection->prepare($sqlCreditCard);
 
 ?>
@@ -146,8 +149,6 @@ if($statementCreditCard->execute([':id' => $nUserID])){
   if(count($jUserCreditCards)>=1){
    
     foreach($jUserCreditCards as $jUserCreditCard){
-      
-      if(!isset($jUserCreditCard['dDeleteCreditCard'])){
       $nCreditCardID = $jUserCreditCard['nCreditCardID'];
     ?>
       <div id="creditcard-<?=$nCreditCardID;?>" class="mb-medium mt-small">
@@ -163,7 +164,6 @@ if($statementCreditCard->execute([':id' => $nUserID])){
         </div>
       
       <?php   
-    }
   }
 }
 }?>
@@ -213,10 +213,10 @@ if($statementUserSubscription->execute([':id' => $nUserID])){
 
     foreach($jUserSubscriptions as $jUserSubscription){
 
-      if(!isset($jUserSubscription['dCancellation'])){
-        echo $jUserSubscription['dCancellation'];
-          
-        if($jUserSubscription['bActive']!==0){
+      // if(!isset($jUserSubscription['dCancellation'])){
+      // echo $jUserSubscription['dCancellation'];
+   
+      // if($jUserSubscription['bActive']!==0){
 
           $nProductID = $jUserSubscription['nProductID'];
           array_push($arrayProductID, $nProductID);
@@ -249,8 +249,8 @@ if($statementUserSubscription->execute([':id' => $nUserID])){
         </div>
 
 <?php
-        }
-      }
+        // }
+      // }
     }
   }
 }
@@ -261,9 +261,9 @@ if($statementUserSubscription->execute([':id' => $nUserID])){
 <section class="section-three mb-large ph-large pt-medium">
   <h2>Want to try something new</h2>
   <div class="related-products relative">
-  <h2 class="coffee-type text-left mb-medium">Products</h2>
-  <div class="container-banner absolute pv-large bg-medium-light-brown"></div>
-  <div class="products-container grid grid-four"> 
+    <h2 class="coffee-type text-left mb-medium">Products</h2>
+    <div class="container-banner absolute pv-large bg-medium-light-brown"></div>
+    <div class="products-container grid grid-four"> 
 
 <?php
 
@@ -275,14 +275,12 @@ if($statementProducts->execute()){
 
   foreach($jProducts as $jProduct){
 
-    if($jProduct['bActive']!==0){
+    // $nRelatedProductCoffeeTypeID = $jProduct['nCoffeeTypeID'];
+    // $nRelatedProductID = $jProduct['nProductID'];
 
-    $nRelatedProductCoffeeTypeID = $jProduct['nCoffeeTypeID'];
-    $nRelatedProductID = $jProduct['nProductID'];
+      // if(!in_array($nRelatedProductID, $arrayProductID)){
 
-      if(!in_array($nRelatedProductID, $arrayProductID)){
-
-        array_push($arrayRelatedProducts, $nRelatedProductID);
+        // array_push($arrayRelatedProducts, $nRelatedProductID);
 
         $imgUrl = $jProduct['cProductName'];
         $result = strtolower(str_replace(" ", "-", $imgUrl));
@@ -299,11 +297,7 @@ if($statementProducts->execute()){
       </a>
 <?php
 
-        }
-      }
-       if(count($arrayRelatedProducts) > 3){
-        break;
-      }
+        // }
     }
 }
 
