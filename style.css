@@ -4,6 +4,10 @@
   margin: 0;
 }
 
+li {
+  text-decoration: none;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -11,6 +15,14 @@ html {
 
 img {
   width: 100%;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+header .logo {
+  width: 7vw;
 }
 
 .image {
@@ -29,6 +41,22 @@ svg {
 
 .list ul {
   list-style-type: none;
+}
+
+.list {
+  padding: 1em 0 2em 3em;
+  color: white;
+  display: grid;
+  grid-template-rows: 2fr 2fr 2fr 2fr;
+  grid-gap: 1em;
+}
+
+.list1 {
+  padding: 1em 0 2em 3em;
+  color: white;
+  display: grid;
+  grid-template-rows: 2fr 2fr 2fr;
+  grid-gap: 1em;
 }
 
 .list li {
@@ -100,7 +128,7 @@ svg {
 .gridForAboveTheFold {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 11rem 4rem 11rem;
+  grid-template-rows: 15fr 8fr 15fr;
 }
 
 .gridForAboveTheFold .box1 {
@@ -230,6 +258,10 @@ svg {
 .p-small {
   padding: 1vw;
 }
+.p-smallest {
+  padding: 5px;
+  font-size: 0.9em;
+}
 .ph-small {
   padding-left: 1vw;
   padding-right: 1vw;
@@ -253,7 +285,7 @@ svg {
 }
 
 .p-medium {
-  padding: 4vw;
+  padding: 2vw;
 }
 .ph-medium {
   padding-left: 4vw;
@@ -285,7 +317,7 @@ svg {
   padding-right: 8vw;
 }
 .pv-large {
-  padding-top: 8vw;
+  padding-top: 15vw;
   padding-bottom: 8vw;
 }
 .pb-large {
@@ -338,9 +370,9 @@ svg {
   margin-top: 1vw;
   margin-bottom: 1vw;
 }
-/* .mb-small {
-  margin-bottom: 1vw;
-} */
+.mb-small {
+  padding-top: 3em;
+}
 .mt-small {
   margin-top: 1vw;
 }
@@ -425,8 +457,7 @@ svg {
 
 h1,
 h2,
-h5,
-a,
+h5 a,
 .step-no .no,
 .frontpage h2,
 #formSearch label,
@@ -471,6 +502,7 @@ a p {
 
 h5 {
   padding-bottom: 0.5vw;
+  font-size: 1.2em;
 }
 
 p {
@@ -527,6 +559,28 @@ select {
   background-color: #815946;
 }
 
+.colorBlock {
+  width: 350px;
+  height: 400px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.16), 0 10px 10px rgba(0, 0, 0, 0.23);
+}
+
+#btnInside {
+  float: left;
+  margin-top: 15px;
+}
+
+.colorBlock1 {
+  width: 350px;
+  height: 500px;
+  justify-self: end;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.16), 0 10px 10px rgba(0, 0, 0, 0.23);
+}
+
+.cupImage {
+  bottom: 8vh;
+}
+
 .bg-brown {
   background-color: #483c32;
 }
@@ -572,6 +626,11 @@ a {
 .deskmenu svg {
   position: relative;
   top: -20;
+}
+
+.alignTextCenter {
+  text-align: center;
+  padding-bottom: 2em;
 }
 
 .deskmenu a.active {
@@ -668,6 +727,7 @@ a {
 }
 .button {
   width: 13vw;
+  text-align: center;
   display: grid;
   padding: 1.5vw 0.2vw;
   font-size: calc(0.8em + 10%);
@@ -802,7 +862,8 @@ a {
 
 .frontpage .section-three .step {
   padding-top: 5vh;
-  height: 30vw;
+  height: 25vw;
+  margin: 2em;
 }
 .step-no {
   top: -1vh;
@@ -811,12 +872,13 @@ a {
   color: #fff;
   font-size: calc(6vw + 10%);
   left: 4vw;
+  top: 2vw;
 }
 
 .step-no h4 {
   transform: rotate(-90deg);
   padding: 0;
-  top: 5vw;
+  top: 7vw;
   left: 1vw;
 }
 
@@ -843,8 +905,17 @@ a {
 
 .frontpage .section-four .image {
   background-image: url(img/coffee-cup-splashing.png);
-  height: 135%;
-  top: -3vw;
+  /* height: 135%;
+  top: -3vw; */
+}
+
+.paddingTop {
+  padding-top: 1em;
+}
+
+.positionOnFlipper {
+  text-align: center;
+  font-size: 1.1em;
 }
 
 /* MASONRY */
@@ -919,6 +990,11 @@ a {
 }
 .section-five .masonry .item.four .image {
   left: -5vw;
+  top: -4vw;
+}
+
+.bg-for-how {
+  background-color: #937c6b;
 }
 .section-five .masonry .item.six .image {
   height: 35vw;
@@ -951,9 +1027,13 @@ a {
 }
 .section-five .masonry .item.five .image {
   background-image: url(img/bialetti-espresso-moka-pot-coffee-maker.png);
+  background-size: 60%;
+  background-position: top;
 }
 .section-five .masonry .item.six .image {
   background-image: url(img/coffee-plant-in-soil.png);
+
+  background-position: top;
 }
 
 /* GRID FLIPANIMATION */
@@ -1005,6 +1085,7 @@ a {
 .back {
   transform: rotateY(180deg);
   background-color: #ebd3c7;
+  grid-gap: 1em;
 }
 
 /***** SHOP PAGE *****/
@@ -1308,7 +1389,7 @@ select > option {
 }
 
 .section-two {
-  grid-gap: 5vh;
+  grid-gap: 2vh;
 }
 
 .button-delete-profile {
