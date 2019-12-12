@@ -1607,10 +1607,6 @@ a {
   font-size: 1em;
   padding-top: 2vw;
 } */
-.subscriptionItem h3 {
-  color: #fff;
-  font-size: 1em;
-}
 .subscriptionItem h3, .subscriptionItem h4{
   color: #fff;
   text-transform: uppercase;
@@ -1618,7 +1614,7 @@ a {
 
 .subscriptionItem h3 {
   font-weight: 900;
-  padding: 2vw 4vw;
+  padding: 1vw 4vw;
 }
 
 .subscriptionItem h4 {
