@@ -283,11 +283,12 @@ addCreditCardButton.addEventListener("click", addCreditCard);
 
 function addCreditCard(){
     event.preventDefault();
-    const addCreditCardForm = addCreditCardButton.parentElement;
+    const addCreditCardForm = document.querySelector("#form-creditcard");
     const saveCreditCardButton = addCreditCardForm.querySelector(".button-save");
 
     saveCreditCardButton.classList.remove('hide-button');
     addCreditCardButton.classList.add('hide-button');
+    addCreditCardForm.style.maxHeight = "100vh";
 
     saveCreditCardButton.addEventListener('click', function(){
         event.preventDefault();
@@ -324,13 +325,14 @@ function addCreditCard(){
 
             addCreditCardButton.classList.remove('hide-button');
             saveCreditCardButton.classList.add('hide-button');
+            addCreditCardForm.style.maxHeight = "0";
 
             showNotification(text, responseClass);
             
             console.log('new creditcard added');
 
                 let creditCardContainer = document.createElement("div");
-                creditCardContainer.setAttribute("id", "creditcard-" + response) // can I add the ID here?
+                creditCardContainer.setAttribute("id", "creditcard-" + response)
                 creditCardContainer.classList.add("mb-medium", "mt-small"); 
 
                 let creditCardDescriptionContainer = document.createElement("div");

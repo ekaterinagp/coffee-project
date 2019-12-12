@@ -872,7 +872,7 @@ a {
   background-color: #000;
 }
 
-.subscriptionItem .button-delete{
+.subscriptionItem .button-delete, .profile-details .button-add{
   margin: 2vw auto;
 }
 
@@ -1540,6 +1540,11 @@ a {
   border-radius: 0;
   padding: 1vw;
   margin-top: 0.5vh;
+}
+
+#form-creditcard {
+  max-height: 0;
+  overflow: hidden;
 }
 
 .hide-button {

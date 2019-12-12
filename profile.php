@@ -174,9 +174,8 @@ if($statementCreditCard->execute([':id' => $nUserID])){
   }
 }
 }?>
-
 </div>
-  <h2 class="color-white">Add creditcard</h2>
+<button class="button-add button">Add creditcard</button>
     <form id="form-creditcard" method="post" class="mt-small">
 
       <label class="grid" for="inputIBAN">
@@ -197,7 +196,7 @@ if($statementCreditCard->execute([':id' => $nUserID])){
         <div class="errorMessage">Expiration date must be 4 digits</div>
       </label>
 
-      <button class="button-add button">Add creditcard</button>
+      
       <button class="button-save hide-button button">Save creditcard</button>
     </form>
   </div>
