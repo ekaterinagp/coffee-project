@@ -1086,7 +1086,7 @@ a {
 
 .back {
   transform: rotateY(180deg);
-  background-color: #ebd3c7;
+  background-color: white;
   grid-gap: 1em;
 }
 
@@ -1444,10 +1444,8 @@ select > option {
   font-size: 1em;
   padding-top: 2vw;
 }
-
 .subscriptionItem h3 {
   color: #fff;
-  height: 8vh;
   font-size: 1em;
   text-transform: uppercase;
 }
@@ -1486,7 +1484,7 @@ select > option {
 }
 .subscriptionItem .addSubToCartBtn {
   text-align: center;
-  margin: 1.5vh auto;
+  margin: 2.5vh auto;
   visibility: hidden;
   transition: none;
 }
@@ -1532,6 +1530,10 @@ select > option {
 .smallerFrm {
   width: 50vw;
   margin: auto;
+}
+.btnRadio.noGrid{
+  grid-template-columns: 1fr;
+  height:20vh;
 }
 #timeline {
   text-align: right;
@@ -1638,13 +1640,11 @@ input:checked + .btnRadio {
 
 .textBtns .btnRadio {
   display: block;
-  height: 21vh;
+  height: 25vh;
   width: 23em;
 }
 
 .imgResults {
-  width: auto;
-  height: 300px;
   margin: 1vh auto;
 }
 .testResults h4,
