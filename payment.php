@@ -7,33 +7,23 @@ if($_SESSION){
   $nUserID= $_SESSION['user']['nUserID'];
 }
 ?>
- <div class="back-button color-orange absolute">Back</div>
   <main id="paymentMain">
+    <a href="cart" class=" link color-orange mt-medium ml-large">Back to Cart</a>
     <h2>Checkout </h2>
   <div class="grid grid-two m-medium">
     <div id="paymentOverview" class="p-medium  grid grid-two">
-    <img src="" />  
-    <div>
+    <img src="" class="align-self-center"/>  
+    <div class="align-self-center">
     <h3 id="youSelected"> </h3>
     <h4>Total Amount to Pay:</h4>
            <h2 id="sumTopay"></h2>
            </div>
-      <?php
-      if(!$_SESSION){
-        ?>
-        <div class="mv-medium">
-  
-      <p>To make a purchase you need to be signed in</p>
-      <a href="log-in" class="link mv-small">Go to Login</a>
-      <a href="sign-up" class="link mv-small">Go to Signup</a>
-      </div>
-    <?php
-    } ?>
+     
     </div>
   
   <div class="paymentForm p-medium bg-grey">
     <h2>Payment Details</h2>
-  <form method="POST" id="savedCardFrm" class=" mb-medium grid grid-two-thirds-reversed">
+  <form method="POST" id="savedCardFrm" class=" mv-medium grid grid-two-thirds-reversed">
     <?php
     require_once(__DIR__ . '/connection.php');
     $sql = "SELECT * FROM tCreditCard WHERE tCreditCard.nUserID = :id";
@@ -41,7 +31,7 @@ if($_SESSION){
   if($statementCreditCard->execute([':id' => $nUserID])){
       $userCreditCards = $statementCreditCard->fetchAll(PDO::FETCH_ASSOC);
       if($userCreditCards>=1){
-    ?><label><p class="text-left align-self-center mt-medium mb-small">Choose from your saved credit cards</p>
+    ?><label><p class="text-left align-self-center mv-small">Choose from your saved credit cards</p>
     <select name="userCreditCards" id="">
       <?php
       foreach($userCreditCards as $userCreditCard){

@@ -44,10 +44,10 @@ function checkCart() {
 
   if (cart && cart.length > 0) {
     numberOfItem.innerHTML = cart.length;
-    numberOfItem.setAttribute("style", "display:block;");
+    numberOfItem.setAttribute("style", "display:inline;");
   } else {
     numberOfItem.setAttribute("style", "display: none;");
   }
 }
 
-// checkCart();
+checkCart();

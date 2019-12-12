@@ -16,7 +16,7 @@ require_once(__DIR__ . '/components/header.php');
   <div class="cartTotal mv-medium mh-large">
     <section id="cartItems">
       <template id="cartItemTemplate">
-        <div id="" class="cartDiv">
+        <div id="" class="cartDiv grid grid-two mb-small">
           <img class="img_cart" src="" />
           <div class="cart_desc">
             <input class="title_cart" name="coffeeName">
@@ -36,7 +36,7 @@ require_once(__DIR__ . '/components/header.php');
     </section>
 
     <div class="total">
-      <p class="">Your cart</p>
+      <h2 class="">Your cart</h2>
       <section id="totalItemsSection">
         
         <template id="totalItemsTemplate">
@@ -45,7 +45,7 @@ require_once(__DIR__ . '/components/header.php');
           </div>
         </template>
       </section>
-      <div id="totalsum"></div>
+      <div id="totalsum" class="pv-small"></div>
       <a href="payment"><button class="button" <?php if(!$_SESSION) echo'disabled';?>>Go to Payment</button></a>
       <?php
       if(!$_SESSION){
@@ -58,6 +58,12 @@ require_once(__DIR__ . '/components/header.php');
       </div>
     <?php
     } ?>
+  </div>
+  </div>
+  <div class="noCart">
+    <h1 class="mt-large text-center"> Your cart seems to be empty</h1>
+    <a href="shop" class="link text-center m-medium">Check out our Coffee products</a>
+    <a href="subscribe" class="link text-center m-medium">Check out our Subscription options</a>
   </div>
 </main>
 

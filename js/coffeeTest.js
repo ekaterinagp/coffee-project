@@ -11,11 +11,20 @@ for(let i=0; i<allSubscribeNumberElm.length;i++){
 }
 
 startBtn.addEventListener("click", () => {
+  showTest();
+ });
+ 
+ function showTest(){
   startBtn.disabled = "true";
   document.querySelector(".testContainer").classList.remove("hide");
   document.querySelector(".intro").style.display = "none";
   init();
-});
+ }
+ function startAgain(){
+    console.log("take test again")
+    location.reload();
+    window.location.href("subscribe#php");
+  }
 
 const questions = [
   {
@@ -379,8 +388,10 @@ const questions = [
       h4Roast.textContent = "Roast Type: " +randomChoice.roast;
       h4Roast.setAttribute("class", "uppercase");
       let startAgainLink = document.createElement("a");
-      startAgainLink.setAttribute("href", "subscribe.php/#test");
+      
+      // startAgainLink.setAttribute("href", "subscribe.php/#test");
       startAgainLink.setAttribute("class", "startAgainLink");
+      startAgainLink.addEventListener("click", startAgain)
       startAgainLink.innerHTML="Take Test Again"
       let toPaymentBtn = document.createElement("button");
       toPaymentBtn.setAttribute("class", "button addSubToCartBtn");  
@@ -390,7 +401,7 @@ const questions = [
       });
       randomCoffeeWrapper.append(h3Name,h4Origin,h4Roast,pTaste, toPaymentBtn, startAgainLink)
       divForResults.append(img, randomCoffeeWrapper);
-      return divForResults;
+       return divForResults;
     }
   }
 ];
@@ -402,7 +413,7 @@ const answer = document.querySelector("#answer");
 let currentQuestionIndex = 0;
 
 function insertIntoDOM() {
-  document.querySelector("#back ").style.display = "none";
+  document.querySelector("#backBtn").style.display = "none";
 
   questionTitle.textContent = questions[currentQuestionIndex].question;
   questionText.textContent = questions[currentQuestionIndex].text;
