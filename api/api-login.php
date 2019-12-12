@@ -14,7 +14,6 @@ session_start();
     }
     if (strlen($_POST['password']) !== 8) {
       sendErrorMessage('password is wrong length', __LINE__);
-      return;
     }
   
     $statement = "SELECT * FROM tuser";
@@ -28,8 +27,11 @@ session_start();
         unset($user['cPassword']);
         $_SESSION['user'] = $user;
         echo '1';
+        $connection = null;
         exit;
       }
     }
   }
   echo '0';
+  $connection = null;
+  exit;

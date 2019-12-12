@@ -12,10 +12,7 @@ $sSearchInput = $_GET['search'];
 $query = "SELECT tproduct.cName AS productName, tproduct.nProductID,tproduct.nPrice, tcoffeetype.cName AS typeName, tcoffeetype.nCoffeeTypeID FROM  tproduct LEFT JOIN tcoffeetype ON tproduct.nCoffeeTypeID=tcoffeetype.nCoffeeTypeID HAVING  productName LIKE '%" . $sSearchInput . "%'
 OR  typeName LIKE '%" . $sSearchInput . "%'";
 
-
 $statement = $connection->prepare($query);
-
-
 
 if ($statement->execute()) {
   $result = $statement->fetchALL();
@@ -25,7 +22,13 @@ if ($statement->execute()) {
 
     if ($searchResult !== false) {
       array_push($arrayMatches, $searchResult);
+      $connection = null;
     }
   }
   echo json_encode($arrayMatches);
+  exit;
 }
+
+echo 0;
+$connection = null;
+exit;

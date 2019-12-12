@@ -14,24 +14,22 @@ require_once(__DIR__ . '/components/header.php');
 
 <main class="shop">
 
-    <section class="section-one grid mb-small">
-        <div class="container-banner mv-medium pv-medium ph-xlarge bg-dark-brown">
-            <div class="content-container grid grid-almost-two">
-                <div class="grid container-header align-items-center color-white">
-                    <div class="align-self-bottom mb-small">
-                        <h1>COFFEE FOR EVERY OCCASION</h1>
-                    </div>
+    <div class="section-one grid mb-small">
+        <div class="container-banner mb-medium p-small ph-large bg-dark-brown">
+            <div class="content-container">
+                <div class=" container-header align-items-center color-white">
+                     <h1>COFFEE FOR EVERY OCCASION</h1>
                     <p class="align-self-top mt-small mb-medium">
                         Choose From Our Wide Collection of Quality Coffee
                     </p>
                 </div>
-                <div class="grid image bg-contain relative">
+                <div class="grid image bg-contain absolute">
                 </div>
             </div>
         </div>
-    </section>
+</div>
 
-    <section class="section-two grid mb-large">
+    <section class=" grid mb-large">
 
         <h2>Shop</h2>
 
@@ -87,6 +85,7 @@ require_once(__DIR__ . '/components/header.php');
                 if ($statement->execute()) {
 
                     $products = $statement->fetchAll(PDO::FETCH_ASSOC);
+                    $connection = null;
 
                     foreach ($products as $product) {
 
@@ -107,9 +106,9 @@ require_once(__DIR__ . '/components/header.php');
                 </div>
             </a>
             ';
-                        }
                     }
                 }
+            }
                 ?>
             </div>
 

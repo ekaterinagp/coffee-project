@@ -1,4 +1,25 @@
 "use strict";
+
+// LOGOUT
+
+document.querySelector(".button-log-out").addEventListener("click", logout);
+
+function logout(){
+    console.log('click');
+    let endpoint = "api/api-logout.php";
+    // console.log("delte user");
+        fetch(endpoint, {
+            method: "POST"
+        })
+        .then(res => res.text())
+        .then(response => {
+            window.location.href = "index";
+        });
+}
+
+// TEST
+
+
 window.addEventListener("load", init);
 function init() {
   let allSubscriptions = document.querySelectorAll(".subscriptionItem");
@@ -44,10 +65,10 @@ function checkCart() {
 
   if (cart && cart.length > 0) {
     numberOfItem.innerHTML = cart.length;
-    numberOfItem.setAttribute("style", "display:block;");
+    numberOfItem.setAttribute("style", "display:inline;");
   } else {
     numberOfItem.setAttribute("style", "display: none;");
   }
 }
 
-// checkCart();
+checkCart();

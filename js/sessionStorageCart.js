@@ -81,7 +81,8 @@ if(addSubToCartBtn){
   addSubToCartBtn.forEach(subToCartBtn=>{
     subToCartBtn.addEventListener("click",()=>{
       event.preventDefault();
-      let parentID = event.target.parentElement.parentElement.id;
+      let parentID = event.target.parentElement.id;
+  // console.log(event.target.parentElement)
       getSubCartItem(parentID)
       initialiseCart();
     })

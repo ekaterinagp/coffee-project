@@ -54,13 +54,13 @@ $statement = $connection->prepare($sql);
                         </div>
 
                         <div class="product-purchase-container bg-grey p-medium">
-                            <div class="options-container grid grid-two">
-                                <div class="options">
+                            <div class="options-container grid mb-small">
+                                <div class="options ">
                                     <h2 class="pb-small">Quantity</h2>
-                                    <label for="option1">
-                                        <input type="number" name="option1" value="1" class="">
-                                        <span class="checkmark number">bag</span>
-                                    </label>
+                                    <div class="grid grid-two">
+                                    <p class="text-center">1</p>
+                                    <p>Bag</p>
+                                    </div>
                                 </div>
 
 
@@ -126,6 +126,8 @@ $statement = $connection->prepare($sql);
         }
     }
 }
+
+$connection = null;
 ?>
             </div>
         </div>

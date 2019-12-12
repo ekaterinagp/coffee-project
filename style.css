@@ -723,9 +723,9 @@ a {
   display: block;
   color: #fb8b23;
   text-decoration: underline;
-  text-align: left;
 }
 .button {
+  text-align: center;
   width: 13vw;
   text-align: center;
   display: grid;
@@ -745,6 +745,7 @@ a {
   border: solid 1px transparent;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
+
 .button:hover {
   transform: scale(1.03);
   background-color: #fff;
@@ -1134,11 +1135,11 @@ a {
 }
 
 .shop .section-one .image {
-  background-image: url(img/coffee-cup-splashing.png);
-  height: 330%;
-  top: -13vw;
-  left: 3vw;
-  transform: rotate(45deg);
+  background-image: url(img/caffe-latte-with-saucer.png);
+  height: 30vh;
+  width: 100%;
+  top: 6vw;
+  right: -30vw;
 }
 
 .filter {
@@ -1222,7 +1223,8 @@ a {
 .shop .product,
 .single-product .product,
 .profile .product,
-.current-subscriptions .product-info-container {
+.current-subscriptions .product-info-container,
+.cartDiv {
   height: 25vw;
   border: solid 0.1px #00000045;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -1256,6 +1258,12 @@ a {
 }
 
 /***** SINGLE PRODUCT PAGE *****/
+.options-container {
+  grid-gap: 1vh;
+}
+#addToCartBtn {
+  margin: 3vh auto 0;
+}
 
 .single-product .section-one {
   margin-top: 130px;
@@ -1270,7 +1278,9 @@ a {
 .productPrice {
   text-align: left;
 }
-
+.container-banner {
+  height: 20vh;
+}
 .single-product .container-banner,
 .profile .related-products .container-banner,
 .profile .related-subscriptions .container-banner {
@@ -1333,7 +1343,8 @@ a {
 .product-purchase-container input[type="number"] {
   font-family: "Lato";
   border: none;
-  width: 50%;
+  width: 20%;
+  height: 150%;
 }
 
 .product-purchase-container input[type="number"]:hover,
@@ -1407,6 +1418,11 @@ select > option {
   margin: 1em;
   background: white;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.subscribeBanner img {
+  width: 18vw;
+  right: 10vw;
+  top: 15vh;
 }
 .subscribeOptiopnP {
   position: absolute;
@@ -1753,6 +1769,9 @@ select {
   padding: 10px 10px 10px 30px;
   background: #fff;
 }
+select {
+  padding: 8px 8px 8px 30px;
+}
 input[type="text"].valid,
 input[type="email"].valid,
 input[type="password"].valid,
@@ -1806,11 +1825,23 @@ input:not(:focus).error {
   background-color: yellow;
 }
 /*  CART PAGE  */
-.img_cart {
-  width: 20vw;
+.numberOfItems {
+  background-color: #fb8b23;
+  border-radius: 50%;
+  padding: 0.5vh 0.6vw;
+  font-size: 70%;
+  color: white;
+}
+.cartDiv {
   height: auto;
-  justify-self: end;
-  margin-top: 2em;
+}
+.total {
+  justify-self: center;
+}
+.img_cart {
+  height: 10vw;
+  width: auto;
+  justify-self: center;
 }
 
 .cartTotal {
@@ -1829,6 +1860,10 @@ input.price_cart {
   font-size: inherit;
   padding: none;
 }
+.noCart {
+  display: none;
+}
+/*    PAYMENT PAGE    */
 
 .paymentForm {
   width: 50vw;

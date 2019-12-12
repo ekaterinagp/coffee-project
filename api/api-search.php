@@ -14,8 +14,6 @@ $sql = "SELECT * FROM tproduct";
 $statement = $connection->prepare($sql);
 
 if ($statement->execute()) {
-
-
     $products = $statement->fetchAll(PDO::FETCH_ASSOC);
     $arrayMatches = [];
 
@@ -30,5 +28,10 @@ if ($statement->execute()) {
     }
 
 echo json_encode($arrayMatches);
-
+$connection = null;
+exit;
 }
+
+echo 0;
+$connection = null;
+exit;

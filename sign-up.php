@@ -6,6 +6,7 @@ require_once(__DIR__ . '/components/functions.php');
 
 if ($_SESSION) {
   header("location:profile");
+  exit;
 }
 ?>
   <div class="containerSignup  grid grid-two">
@@ -86,8 +87,7 @@ if ($_SESSION) {
     <h3>Already a user? <a href="login">Log in </a></h3>
   </div>
   <script src="js/signup.js"></script>
-  <script src="js/validation.js"></script>
   <?php
-  // $sScriptPath = 'js/validation.js';
+  $sScriptPath = 'validation.js';
   require_once(__DIR__ . '/components/footer.php');
   ?>

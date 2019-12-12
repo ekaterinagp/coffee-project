@@ -25,11 +25,15 @@ if (cart) {
     cartSection.appendChild(clone);
   });
 } else {
-  emptyTotal();
+    emptyTotal();
+}
+if(cart.length ==0){
   displayGoBuyMessage();
 }
 function displayGoBuyMessage(){
-  console.log("go buy")
+  console.log("go buy");
+  document.querySelector(".cartTotal").style.display = "none";
+  document.querySelector(".noCart").style.display = "block";
 }
 
 function removeItem(cartItemId) {

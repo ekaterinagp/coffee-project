@@ -141,6 +141,7 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
 
 if($statementCreditCard->execute([':id' => $nUserID])){
   $jUserCreditCards = $statementCreditCard->fetchAll(PDO::FETCH_ASSOC);
+  $connection = null;
 
   if(count($jUserCreditCards)>=1){
    
@@ -203,6 +204,7 @@ if($statementCreditCard->execute([':id' => $nUserID])){
 <?php 
 if($statementUserSubscription->execute([':id' => $nUserID])){
   $jUserSubscriptions = $statementUserSubscription->fetchAll(PDO::FETCH_ASSOC);
+  $connection = null;
 
   if(count($jUserSubscriptions)>=1){
     $arrayProductID = [];
@@ -242,6 +244,7 @@ if($statementUserSubscription->execute([':id' => $nUserID])){
           adipisicing elit. Voluptate praesentium, inventore deleniti optio nobis
           quasi provident nulla minus odit architecto.</p>
           <h3 class="priceSubscription p-small"><?= $jUserSubscription['nPrice'] ;?> DKK / Month</h3>
+          <button class="button button-delete">Delete subscription</button>
           </div>
         </div>
 
@@ -267,6 +270,7 @@ if($statementUserSubscription->execute([':id' => $nUserID])){
 if($statementProducts->execute()){
 
   $jProducts = $statementProducts->fetchAll(PDO::FETCH_ASSOC);
+  $connection = null;
   $arrayRelatedProducts = [];
 
   foreach($jProducts as $jProduct){
@@ -301,7 +305,7 @@ if($statementProducts->execute()){
         break;
       }
     }
-  }
+}
 
 ;?>
   </div>
@@ -317,6 +321,7 @@ if($statementProducts->execute()){
   
   if($statementSubscriptions->execute()){
     $jSubscriptions = $statementSubscriptions->fetchAll(PDO::FETCH_ASSOC);
+    $connection = null;
     $arrayRelatedSubscriptionID = [];
 
     foreach($jSubscriptions as $jSubscription){
@@ -358,6 +363,8 @@ if($statementProducts->execute()){
         }
     }
   }
+
+  $connection = null;
 }
 ;?>
 </div>
