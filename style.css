@@ -600,20 +600,20 @@ h1{
 }
 
 h2{
-  font-size: calc(1.5vw + 30%);
+  font-size: calc(1.5vw + 45%);
 }
 
 h3{
-  font-size: calc(1vw + 30%);
+  font-size: calc(1vw + 45%);
 }
 
 h4{
-  font-size: calc(0.8vw + 30%);
+  font-size: calc(0.8vw + 45%);
 }
 
 h5, button {
   padding-bottom: 0.5vw;
-  font-size: calc(0.6vw + 30%);
+  font-size: calc(0.6vw + 45%);
 }
 
 p, input::placeholder,
@@ -622,14 +622,14 @@ input[type="text"],
 input[type="email"], 
 input[type="password"], 
 input[type="number"], select{
-  font-size: calc(0.6vw + 30%);
+  font-size: calc(0.6vw + 45%);
 }
 
 h2.banner-message{
   font-weight: 300;
   text-transform: inherit;
   text-align: left;
-  font-size: calc(1vw + 30%);
+  font-size: calc(1vw + 45%);
 }
 
 body {
