@@ -57,10 +57,11 @@ $statement = $connection->prepare($sql);
                             <div class="options-container grid mb-small">
                                 <div class="options ">
                                     <h2 class="pb-small">Quantity</h2>
-                                    <div class="grid grid-two">
-                                    <p class="text-center">1</p>
-                                    <p>Bag</p>
-                                    </div>
+                                   
+                                    <label for="option1" class=" grid grid-two-thirds">
+                                        <input type="number" name="option1" value="1" class="">
+                                        <p>bag</p>
+                                    </label>
                                 </div>
 
 

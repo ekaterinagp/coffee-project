@@ -1343,8 +1343,7 @@ a {
 .product-purchase-container input[type="number"] {
   font-family: "Lato";
   border: none;
-  width: 20%;
-  height: 150%;
+  width: 50%;
 }
 
 .product-purchase-container input[type="number"]:hover,
