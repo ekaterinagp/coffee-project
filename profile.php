@@ -233,8 +233,6 @@ if($statementUserSubscription->execute([':id' => $nUserID])){
 
     <div class="subscriptionItem" id="<?= $jUserSubscription['nUserSubscriptionID'] ;?>">
           <div class="subscriptionItemBg">
-            <h4 class="subscribeOptiopnP">Option</4>
-            <h1 class="subscribeTypeNumber"><?= $jUserSubscription['nSubscriptionTypeID'] ?></h1>
             <img src="img/products/<?= $result ;?>.png" alt="">  
             <h2><?= $jUserSubscription['cSubscriptionName'];?></h2>
             <h3><?= $jUserSubscription['cName'];?></h3>

@@ -84,7 +84,7 @@ if ($_SESSION) {
         <button name="reg_user" class="button" disabled>Sign Up</button>
       </form>
     </div>
-    <h3>Already a user? <a href="login">Log in </a></h3>
+    <h3 class="text-left mt-Xlarge pt-large">Already a user? <strong><a href="log-in">Log in </a></strong></h3>
   </div>
   <script src="js/signup.js"></script>
   <?php

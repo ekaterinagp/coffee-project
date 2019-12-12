@@ -1697,7 +1697,14 @@ input:checked + .btnRadio {
   border: 1px solid black;
   padding: 1em;
 }
-
+/*  LOGIN PAGE    */
+  #loginForm{
+  width:50%;
+  margin:auto;
+  }
+  #loginForm button{
+    margin : 2vh 0;
+  }
 /*   SIGNUP PAGE   */
 
 .signupBg {
@@ -1815,10 +1822,7 @@ input:not(:focus).error {
   border: 1px solid #fb4b23;
 }
 
-.loginDiv {
-  padding-top: 10em;
-  text-align: center;
-}
+
 
 .highlight {
   background-color: yellow;
