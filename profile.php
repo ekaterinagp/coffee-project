@@ -335,8 +335,6 @@ $data =[
 
         <div class="subscriptionItem" id="<?= $jSubscription['nSubscriptionID'] ;?>">
           <div class="subscriptionItemBg">
-            <h4 class="subscribeOptiopnP">Option</4>
-            <h1 class="subscribeTypeNumber"><?= $jSubscription['nSubscriptionID'] ?></h1>
             <img src="img/products/<?= $result ;?>.png" alt="">  
             <h2><?= $jSubscription['cName'];?></h2>
             <h3><?= $jSubscription['cCoffeeTypeName'];?></h3>
