@@ -1052,11 +1052,11 @@ a {
 }
 
 .shop .section-one .image {
-  background-image: url(img/coffee-cup-splashing.png);
-  height: 330%;
-  top: -13vw;
-  left: 3vw;
-  transform: rotate(45deg);
+  background-image: url(img/caffe-latte-with-saucer.png);
+  height: 30vh;
+  width: 100%;
+  top: 6vw;
+  right: -30vw;
 }
 
 .filter {
@@ -1187,7 +1187,9 @@ a {
 .productPrice {
   text-align: left;
 }
-
+.container-banner{
+  height:20vh;
+}
 .single-product .container-banner,
 .profile .related-products .container-banner,
 .profile .related-subscriptions .container-banner {
@@ -1324,6 +1326,11 @@ select > option {
   margin: 1em;
   background: white;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.subscribeBanner img{
+  width: 18vw;
+  right: 10vw;
+  top: 15vh;
 }
 .subscribeOptiopnP {
   position: absolute;
