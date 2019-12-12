@@ -4,6 +4,10 @@
   margin: 0;
 }
 
+main {
+  min-height: 58vh;
+}
+
 li {
   text-decoration: none;
 }
