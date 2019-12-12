@@ -65,6 +65,7 @@ if (document.querySelector(".back-button")) {
 }
 
 function checkCart() {
+  // console.log("check cart")
   let numberOfItem = document.querySelector(".numberOfItems");
   let cart = JSON.parse(sessionStorage.getItem("cart"));
 

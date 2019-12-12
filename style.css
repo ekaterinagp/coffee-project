@@ -718,6 +718,7 @@ footer svg {
 
 a {
   color: black;
+  cursor:pointer;
 }
 .link {
   display: block;
@@ -1449,7 +1450,6 @@ select > option {
   height: 8vh;
   font-size: 1em;
   text-transform: uppercase;
-  padding-top: 3vw;
 }
 
 .subscriptionItem h3.priceSubscription {
