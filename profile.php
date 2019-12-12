@@ -61,7 +61,6 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
 
 <main class="profile">
 <h1 class="text-center pt-medium">Welcome <?= $jLoggedUser['cName'];?></h1>
-<button class="button button-delete-profile absolute">Delete Profile</button>
 <section class="section-one grid grid-two mb-large ph-large mt-medium">
 
 <div>
@@ -134,9 +133,14 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
         <input class="mb-small" type="password" data-type="string" data-type="string" data-min="8" data-max="8" name="inputPassword" placeholder="password">
           <div class="errorMessage">Password must be 8 characters</div>
       </label> -->
-
-      <button class="button-edit button">Edit information</button>
-      <button class="button-save hide-button button">Save information</button>
+      <div class="grid grid-two">
+        <div>
+          <button class="button-edit button">Edit information</button>
+          <button class="button-save hide-button button">Save information</button>
+        </div>
+        <button class="button button-delete-profile">Delete Profile</button>
+      </div>
+      
     </form>
   </div>
   </div>
@@ -236,14 +240,14 @@ if($statementUserSubscription->execute([':id' => $nUserID])){
     <div class="subscriptionItem" id="<?= $jUserSubscription['nUserSubscriptionID'] ;?>">
           <div class="subscriptionItemBg">
             <img src="img/products/<?= $result ;?>.png" alt="">  
-            <h2><?= $jUserSubscription['cSubscriptionName'];?></h2>
-            <h3><?= $jUserSubscription['cName'];?></h3>
+            <h3><?= $jUserSubscription['cSubscriptionName'];?></h3>
+            <h4><?= $jUserSubscription['cName'];?></h4>
           </div>
         <div class="white-text-bg">
           <p class="descSubscription p-small">Lorem ipsum dolor sit amet consectetur 
           adipisicing elit. Voluptate praesentium, inventore deleniti optio nobis
           quasi provident nulla minus odit architecto.</p>
-          <h3 class="priceSubscription p-small"><?= $jUserSubscription['nPrice'] ;?> DKK / Month</h3>
+          <h4 class="priceSubscription p-small"><?= $jUserSubscription['nPrice'] ;?> DKK / Month</h4>
           <button class="button button-delete">Delete subscription</button>
           </div>
         </div>
@@ -290,7 +294,7 @@ if($statementProducts->execute()){
           <div class="description m-small">
             <h3 class="productName mt-small text-left"><?=$jProduct['cProductName'];?></h3>
             <h4 class="productName mt-small text-left">Origin: <?=$jProduct['cName'];?></h4>
-            <p class="productPrice mt-small"><?=$jProduct['nPrice'];?> DKK</p>
+            <h4 class="priceProduct mt-small"><?=$jProduct['nPrice'];?> DKK</h4>
           </div>
         </div>
       </a>
@@ -336,14 +340,14 @@ $data =[
         <div class="subscriptionItem" id="<?= $jSubscription['nSubscriptionID'] ;?>">
           <div class="subscriptionItemBg">
             <img src="img/products/<?= $result ;?>.png" alt="">  
-            <h2><?= $jSubscription['cName'];?></h2>
-            <h3><?= $jSubscription['cCoffeeTypeName'];?></h3>
+            <h3><?= $jSubscription['cName'];?></h3>
+            <h4><?= $jSubscription['cCoffeeTypeName'];?></h4>
           </div>
         <div class="white-text-bg">
           <p class="descSubscription p-small">Lorem ipsum dolor sit amet consectetur 
           adipisicing elit. Voluptate praesentium, inventore deleniti optio nobis
           quasi provident nulla minus odit architecto.</p>
-          <h3 class="priceSubscription p-small"><?= $jSubscription['nSubscriptionPrice'] ;?> DKK / Month</h3>
+          <h4 class="priceSubscription p-small"><?= $jSubscription['nSubscriptionPrice'] ;?> DKK / Month</h4>
           </div>
           <a href=""><button class="addSubToCartBtn button">Add to Cart</button></a>
         </div>

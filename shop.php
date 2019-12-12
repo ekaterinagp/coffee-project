@@ -18,16 +18,15 @@ require_once(__DIR__ . '/components/header.php');
 
 <main class="shop">
     <section class="section-one grid mb-small">
-        <div class="container-banner mb-medium p-small ph-large bg-dark-brown">
-            <div class="content-container">
-                <div class=" container-header align-items-center color-white">
+        <div class="container-banner mb-medium p-small ph-xlarge bg-dark-brown">
+            <div class="content-container grid grid-two relative">
+                <div class="container-header align-items-center color-white">
                     <h1>COFFEE FOR EVERY OCCASION</h1>
-                    <p class="align-self-top mt-small mb-medium">
+                    <h2 class="banner-message mt-small">
                         Choose From Our Wide Collection of Quality Coffee
-                    </p>
+                    </h2>
                 </div>
-                <div class="grid image bg-contain absolute">
-                </div>
+                <div class="image bg-contain absolute"></div>
             </div>
         </div>
         </div>
