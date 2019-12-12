@@ -2,7 +2,12 @@
 
 // LOGOUT
 
-document.querySelector(".button-log-out").addEventListener("click", logout);
+if(document.querySelector(".button-log-out")){
+  document.querySelector(".button-log-out").addEventListener("click", logout);
+}
+
+
+  
 
 function logout(){
     console.log('click');

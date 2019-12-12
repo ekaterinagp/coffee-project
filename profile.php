@@ -25,15 +25,20 @@ if($_SESSION){
 $sqlProducts = "SELECT tProduct.nProductID, tProduct.cName AS cProductName, 
                 tProduct.nCoffeeTypeID AS nProductCoffeeTypeID, tProduct.nPrice, 
                 tProduct.nStock, tProduct.bActive, tCoffeeType.nCoffeeTypeID, tCoffeeType.cName 
-                FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID";
+                FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID WHERE tProduct.bActive != 0 LIMIT 4";
 $statementProducts = $connection->prepare($sqlProducts);
 
-$sqlSubscriptions =  "SELECT tSubscriptiontype.cName, tSubscriptiontype.nSubscriptionTypeID AS nSubscriptionID, 
+
+// SUBSCRIPTIONS THAT THE USER IS NOT SUBSCRIBED TO
+$sqlSubscriptions = "SELECT DISTINCT tSubscriptiontype.cName, tSubscriptiontype.nSubscriptionTypeID AS nSubscriptionID, 
                     tProduct.cName AS cProductName, tProduct.nPrice AS nSubscriptionPrice, tProduct.bActive,
                     tCoffeeType.cName AS cCoffeeTypeName 
                     FROM tSubscriptiontype 
                     INNER JOIN tProduct ON tProduct.nProductID=tsubscriptiontype.nProductID
-                    INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID";
+                    INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID 
+                    INNER JOIN tUserSubscription ON tUserSubscription.nSubscriptionTypeID = tSubscriptionType.nSubscriptionTypeID
+                    WHERE tProduct.bActive != 0 AND tUserSubscription.nUserID = :id";
+
 $statementSubscriptions = $connection->prepare($sqlSubscriptions);
 
 $sqlUserSubscription = "SELECT tUserSubscription.nUserSubscriptionID, tUserSubscription.dCancellation, 
@@ -44,10 +49,12 @@ $sqlUserSubscription = "SELECT tUserSubscription.nUserSubscriptionID, tUserSubsc
                         INNER JOIN tUserSubscription ON tUser.nUserID = tUserSubscription.nUserID 
                         INNER JOIN tSubscriptionType ON tUserSubscription.nSubscriptionTypeID = tSubscriptionType.nSubscriptionTypeID 
                         INNER JOIN tProduct ON tSubscriptionType.nProductID = tProduct.nProductID 
-                        INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID WHERE tuser.nUserID = :id";
+                        INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID 
+                        WHERE tuser.nUserID = :id AND tUserSubscription.dCancellation IS NULL AND tProduct.bActive != 0";
+
 $statementUserSubscription = $connection->prepare($sqlUserSubscription);
 
-$sqlCreditCard = "SELECT * FROM tCreditCard WHERE tCreditCard.nUserID = :id";
+$sqlCreditCard = "SELECT * FROM tCreditCard WHERE tCreditCard.nUserID = :id AND dDeleteCreditCard IS NULL";
 $statementCreditCard = $connection->prepare($sqlCreditCard);
 
 ?>
@@ -141,13 +148,10 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
 
 if($statementCreditCard->execute([':id' => $nUserID])){
   $jUserCreditCards = $statementCreditCard->fetchAll(PDO::FETCH_ASSOC);
-  $connection = null;
 
   if(count($jUserCreditCards)>=1){
    
     foreach($jUserCreditCards as $jUserCreditCard){
-      
-      if(!isset($jUserCreditCard['dDeleteCreditCard'])){
       $nCreditCardID = $jUserCreditCard['nCreditCardID'];
     ?>
       <div id="creditcard-<?=$nCreditCardID;?>" class="mb-medium mt-small">
@@ -163,7 +167,6 @@ if($statementCreditCard->execute([':id' => $nUserID])){
         </div>
       
       <?php   
-    }
   }
 }
 }?>
@@ -204,7 +207,6 @@ if($statementCreditCard->execute([':id' => $nUserID])){
 <?php 
 if($statementUserSubscription->execute([':id' => $nUserID])){
   $jUserSubscriptions = $statementUserSubscription->fetchAll(PDO::FETCH_ASSOC);
-  $connection = null;
 
   if(count($jUserSubscriptions)>=1){
     $arrayProductID = [];
@@ -213,10 +215,10 @@ if($statementUserSubscription->execute([':id' => $nUserID])){
 
     foreach($jUserSubscriptions as $jUserSubscription){
 
-      if(!isset($jUserSubscription['dCancellation'])){
-        echo $jUserSubscription['dCancellation'];
-          
-        if($jUserSubscription['bActive']!==0){
+      // if(!isset($jUserSubscription['dCancellation'])){
+      // echo $jUserSubscription['dCancellation'];
+   
+      // if($jUserSubscription['bActive']!==0){
 
           $nProductID = $jUserSubscription['nProductID'];
           array_push($arrayProductID, $nProductID);
@@ -233,8 +235,6 @@ if($statementUserSubscription->execute([':id' => $nUserID])){
 
     <div class="subscriptionItem" id="<?= $jUserSubscription['nUserSubscriptionID'] ;?>">
           <div class="subscriptionItemBg">
-            <h4 class="subscribeOptiopnP">Option</4>
-            <h1 class="subscribeTypeNumber"><?= $jUserSubscription['nSubscriptionTypeID'] ?></h1>
             <img src="img/products/<?= $result ;?>.png" alt="">  
             <h2><?= $jUserSubscription['cSubscriptionName'];?></h2>
             <h3><?= $jUserSubscription['cName'];?></h3>
@@ -249,8 +249,8 @@ if($statementUserSubscription->execute([':id' => $nUserID])){
         </div>
 
 <?php
-        }
-      }
+        // }
+      // }
     }
   }
 }
@@ -261,28 +261,25 @@ if($statementUserSubscription->execute([':id' => $nUserID])){
 <section class="section-three mb-large ph-large pt-medium">
   <h2>Want to try something new</h2>
   <div class="related-products relative">
-  <h2 class="coffee-type text-left mb-medium">Products</h2>
-  <div class="container-banner absolute pv-large bg-medium-light-brown"></div>
-  <div class="products-container grid grid-four"> 
+    <h2 class="coffee-type text-left mb-medium">Products</h2>
+    <div class="container-banner absolute pv-large bg-medium-light-brown"></div>
+    <div class="products-container grid grid-four"> 
 
 <?php
 
 if($statementProducts->execute()){
 
   $jProducts = $statementProducts->fetchAll(PDO::FETCH_ASSOC);
-  $connection = null;
   $arrayRelatedProducts = [];
 
   foreach($jProducts as $jProduct){
 
-    if($jProduct['bActive']!==0){
+    // $nRelatedProductCoffeeTypeID = $jProduct['nCoffeeTypeID'];
+    // $nRelatedProductID = $jProduct['nProductID'];
 
-    $nRelatedProductCoffeeTypeID = $jProduct['nCoffeeTypeID'];
-    $nRelatedProductID = $jProduct['nProductID'];
+      // if(!in_array($nRelatedProductID, $arrayProductID)){
 
-      if(!in_array($nRelatedProductID, $arrayProductID)){
-
-        array_push($arrayRelatedProducts, $nRelatedProductID);
+        // array_push($arrayRelatedProducts, $nRelatedProductID);
 
         $imgUrl = $jProduct['cProductName'];
         $result = strtolower(str_replace(" ", "-", $imgUrl));
@@ -299,11 +296,7 @@ if($statementProducts->execute()){
       </a>
 <?php
 
-        }
-      }
-       if(count($arrayRelatedProducts) > 3){
-        break;
-      }
+        // }
     }
 }
 
@@ -318,21 +311,23 @@ if($statementProducts->execute()){
   <div class="containerForSubscriptions grid grid-three m-medium">
 
 <?php
+$data =[
+  ':id' => $nUserID
+  ];
   
-  if($statementSubscriptions->execute()){
+  if($statementSubscriptions->execute($data)){
     $jSubscriptions = $statementSubscriptions->fetchAll(PDO::FETCH_ASSOC);
-    $connection = null;
     $arrayRelatedSubscriptionID = [];
 
     foreach($jSubscriptions as $jSubscription){
 
-      if($jSubscription['bActive']!==0){
+      // if($jSubscription['bActive']!==0){
 
-        $nRelatedSubscriptionID = $jSubscription['nSubscriptionID'];
+        // $nRelatedSubscriptionID = $jSubscription['nSubscriptionID'];
 
-          if(!in_array($nRelatedSubscriptionID, $arraySubscriptionTypeID)){
+          // if(!in_array($nRelatedSubscriptionID, $arraySubscriptionTypeID)){
 
-            array_push($arrayRelatedSubscriptionID, $nRelatedSubscriptionID);
+            // array_push($arrayRelatedSubscriptionID, $nRelatedSubscriptionID);
 
             $imgUrl = $jSubscription['cProductName'];
             $result = strtolower(str_replace(" ", "-", $imgUrl));
@@ -356,11 +351,11 @@ if($statementProducts->execute()){
         </div>
 <?php
           
-        }
-      }
-        if(count($arrayRelatedSubscriptionID) > 2){
-        break;
-        }
+        // }
+      // }
+        // if(count($arrayRelatedSubscriptionID) > 2){
+        // break;
+        // }
     }
   }
 

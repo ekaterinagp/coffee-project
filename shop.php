@@ -3,7 +3,11 @@ $sTitle = ' | Shop';
 $sCurrentPage = 'shop';
 
 require_once(__DIR__ . '/connection.php');
-$sql = "SELECT tProduct.nProductID, tProduct.cName as cProductName, tProduct.nCoffeeTypeID as nProductCoffeeTypeID, tProduct.nPrice, tProduct.nStock, tProduct.bActive, tCoffeeType.nCoffeeTypeID, tCoffeeType.cName FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID";
+$sql = "SELECT tProduct.nProductID, tProduct.cName AS cProductName, tProduct.nCoffeeTypeID AS nProductCoffeeTypeID, 
+        tProduct.nPrice, tProduct.nStock, tProduct.bActive, 
+        tCoffeeType.nCoffeeTypeID, tCoffeeType.cName 
+        FROM tProduct INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID WHERE tProduct.bActive != 0";
+
 $statement = $connection->prepare($sql);
 
 require_once(__DIR__ . '/components/header.php');
@@ -13,8 +17,7 @@ require_once(__DIR__ . '/components/header.php');
 ?>
 
 <main class="shop">
-
-    <div class="section-one grid mb-small">
+    <section class="section-one grid mb-small">
         <div class="container-banner mb-medium p-small ph-large bg-dark-brown">
             <div class="content-container">
                 <div class=" container-header align-items-center color-white">
@@ -27,75 +30,75 @@ require_once(__DIR__ . '/components/header.php');
                 </div>
             </div>
         </div>
-    </div>
+        </div>
 
-    <section class=" grid mb-large">
+        <section class=" grid mb-large">
 
-        <h2>Shop</h2>
+            <h2>Shop</h2>
 
-        <form id="formSearch" class="justify-self-right p-medium">
-            <label for="txtSearch" class="mh-small align-self-bottom"></label>
-            <input id="txtSearch" type="text" name="search" placeholder="Type here to search for products or country of origins" maxlength="50" minlength="1" autocomplete="off"><button id="searchBtn" class="button">Search</button>
+            <form id="formSearch" class="justify-self-right p-medium">
+                <label for="txtSearch" class="mh-small align-self-bottom"></label>
+                <input id="txtSearch" type="text" name="search" placeholder="Type here to search for products or country of origins" maxlength="50" minlength="1" autocomplete="off"><button id="searchBtn" class="button">Search</button>
 
-        </form>
-        <div id="forSearch"></div>
-        <div id="results" class="pv-small grid align-items-center"></div>
+            </form>
+            <div id="forSearch"></div>
+            <div id="results" class="pv-small grid align-items-center"></div>
 
-        <div class="products grid grid-two-thirds-bigger mr-medium">
+            <div class="products grid grid-two-thirds-bigger mr-medium">
 
-            <div class="filter color-white relative">
-                <!-- <h3 class="color-black ph-medium pb-medium">Filters</h3> -->
-                <div class="filter-container">
-                    <button class="accordion price bg-medium-light-brown color-white">Price</button>
-                    <div class="panel filter-price bg-white color-black">
-                        <div class="options">
-                            <label for="price">
-                                <input name="price" type="range" min="0" max="150" id="rangePrice" value="150" step="10"><span id="priceValue"></span>
+                <div class="filter color-white relative">
+                    <!-- <h3 class="color-black ph-medium pb-medium">Filters</h3> -->
+                    <div class="filter-container">
+                        <button class="accordion price bg-medium-light-brown color-white">Price</button>
+                        <div class="panel filter-price bg-white color-black">
+                            <div class="options">
+                                <label for="price">
+                                    <input name="price" type="range" min="0" max="150" id="rangePrice" value="150" step="10"><span id="priceValue"></span>
+                            </div>
                         </div>
-                    </div>
 
-                    <button class="accordion origin bg-medium-light-brown color-white">Origin</button>
-                    <div class="panel filter-origin bg-white color-black">
-                        <div class="options" id="coffeeTypesdiv">
+                        <button class="accordion origin bg-medium-light-brown color-white">Origin</button>
+                        <div class="panel filter-origin bg-white color-black">
+                            <div class="options" id="coffeeTypesdiv">
 
-                            <label for="option1" class="checkbox">
-                                <input type="checkbox" value="Colombia" class="">
-                                <span>Colombia</span>
-                            </label><br>
-                            <label for="option1" class="checkbox">
-                                <input type="checkbox" value="Ethiopia" class=""> <span>Ethiopia</span>
-                            </label><br>
-                            <label for="option2" class="checkbox">
-                                <input type="checkbox" value="Sumatra" class="">
-                                <span>Sumatra</span>
-                            </label><br>
-                            <label for="option3" class="checkbox">
-                                <input type="checkbox" value="Brazil" class="">
-                                <span>Brazil</span>
-                            </label><br>
-                            <label for="option4" class="checkbox">
-                                <input type="checkbox" value="Nicaragua" class="">
-                                <span>Nicaragua</span>
-                            </label><br>
-                            <label for="option5" class="checkbox">
-                                <input type="checkbox" value="Blend" class="">
-                                <span>Blend</span>
-                            </label><br>
+                                <label for="option1" class="checkbox">
+                                    <input type="checkbox" value="Colombia" class="">
+                                    <span>Colombia</span>
+                                </label><br>
+                                <label for="option1" class="checkbox">
+                                    <input type="checkbox" value="Ethiopia" class=""> <span>Ethiopia</span>
+                                </label><br>
+                                <label for="option2" class="checkbox">
+                                    <input type="checkbox" value="Sumatra" class="">
+                                    <span>Sumatra</span>
+                                </label><br>
+                                <label for="option3" class="checkbox">
+                                    <input type="checkbox" value="Brazil" class="">
+                                    <span>Brazil</span>
+                                </label><br>
+                                <label for="option4" class="checkbox">
+                                    <input type="checkbox" value="Nicaragua" class="">
+                                    <span>Nicaragua</span>
+                                </label><br>
+                                <label for="option5" class="checkbox">
+                                    <input type="checkbox" value="Blend" class="">
+                                    <span>Blend</span>
+                                </label><br>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="products-container grid grid-three">
-                <?php
-                if ($statement->execute()) {
+                <div class="products-container grid grid-three">
+                    <?php
+                    if ($statement->execute()) {
 
-                    $products = $statement->fetchAll(PDO::FETCH_ASSOC);
-                    $connection = null;
+                        $products = $statement->fetchAll(PDO::FETCH_ASSOC);
+                        $connection = null;
 
-                    foreach ($products as $product) {
+                        foreach ($products as $product) {
 
-                        if ($product['bActive'] !== 0) {
+                            // if ($product['bActive'] !== 0) {
 
                             $imgUrl = $product['cProductName'];
                             $result = strtolower(str_replace(" ", "-", $imgUrl));
@@ -114,25 +117,25 @@ require_once(__DIR__ . '/components/header.php');
             ';
                         }
                     }
-                }
-                ?>
-            </div>
 
-        </div>
-        <template>
-            <a href="">
-                <div class="product ">
-                    <div class="image bg-contain"></div>
-                    <div class="description m-small">
-                        <h3 class="productName mt-small text-left"></h3>
-                        <h4 class="productName mt-small text-left"></h4>
-                        <p class="productPrice mt-small"></p>
-                    </div>
-
+                    ?>
                 </div>
-            </a>
-        </template>
-    </section>
+
+            </div>
+            <template>
+                <a href="">
+                    <div class="product ">
+                        <div class="image bg-contain"></div>
+                        <div class="description m-small">
+                            <h3 class="productName mt-small text-left"></h3>
+                            <h4 class="productName mt-small text-left"></h4>
+                            <p class="productPrice mt-small"></p>
+                        </div>
+
+                    </div>
+                </a>
+            </template>
+        </section>
 
 </main>
 
