@@ -6,30 +6,34 @@ require_once(__DIR__ . '/components/header.php');
 $iProductID = $_GET['id'];
 
 require_once(__DIR__ . '/connection.php');
-$sql = "SELECT tProduct.nProductID, tProduct.cName as cProductName, tProduct.nCoffeeTypeID as nProductCoffeeTypeID, 
+$sqlSingleProduct = "SELECT tProduct.nProductID, tProduct.cName as cProductName, tProduct.nCoffeeTypeID as nProductCoffeeTypeID, 
         tProduct.nPrice, tProduct.nStock, tProduct.bActive, 
         tCoffeeType.nCoffeeTypeID, tCoffeeType.cName 
         FROM tProduct INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID 
         WHERE tProduct.bActive != 0 AND tProduct.nProductID = :id";
+$statementSingleProduct = $connection->prepare($sqlSingleProduct);
 
-// $sqlRelatedProducts = "";
-
-$statement = $connection->prepare($sql);
+$sqlRelatedProducts = "SELECT tProduct.nProductID, tProduct.cName as cProductName, tProduct.nCoffeeTypeID as nProductCoffeeTypeID, 
+                        tProduct.nPrice, tProduct.nStock, tProduct.bActive, 
+                        tCoffeeType.nCoffeeTypeID, tCoffeeType.cName 
+                        FROM tProduct INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID 
+                        WHERE tProduct.bActive != 0 AND tProduct.nCoffeeTypeID = :coffeeID AND tProduct.nProductID != :id";
+$statementRelatedProducts = $connection->prepare($sqlRelatedProducts);
 ?>
 
 <main class="single-product">
-    <section class="section-one grid grid-two-thirds-reversed mb-large">
-        <div class="back-button color-orange absolute">Back</div>
+    <section class="section-one grid grid-two-thirds-reversed mb-large ph-large mt-medium">
+        <button class="back-button color-orange absolute">Back</button>
         <?php
 
         $data =[
         ':id' => $iProductID
         ];
 
-        if ($statement->execute($data)) {
-            $products = $statement->fetchAll(PDO::FETCH_ASSOC);
+        if ($statementSingleProduct->execute($data)) {
+            $product = $statementSingleProduct->fetch(PDO::FETCH_ASSOC);
 
-            foreach ($products as $product) {
+            // foreach ($products as $product) {
 
                 // if ($product['bActive'] !== 0) {
 
@@ -43,7 +47,7 @@ $statement = $connection->prepare($sql);
                         $result = strtolower(str_replace(" ", "-", $imgUrl));
                         ?>
 
-                        <div id="product-<?= $product['nProductID']; ?>" class="product-info-container grid grid-two-thirds ml-medium">
+                        <div id="product-<?= $product['nProductID']; ?>" class="product-info-container grid grid-two-thirds">
                             <div class="image bg-contain" style="background-image: url(img/products/<?= $result; ?>.png)"></div>
                             <div class="description mh-small mv-medium grid grid-two">
                                 <div>
@@ -108,20 +112,27 @@ $statement = $connection->prepare($sql);
             <?php
                         // }
                     // }
-    }
+    // }
+}
+    $data =[
+        ':coffeeID' => $nCoffeeTypeID,
+        ':id' => $iProductID
+        ];
 
-                foreach ($products as $product) {
+if ($statementRelatedProducts->execute($data)) {
+        $products = $statementRelatedProducts->fetchAll(PDO::FETCH_ASSOC);
 
-                    if ($product['bActive'] !== 0) {
+    foreach ($products as $product) {
 
-                        $nProductID = $product['nProductID'];
-                        $nRelatedProductCoffeeTypeID = $product['nCoffeeTypeID'];
+        // if ($product['bActive'] !== 0) {
 
-                        if ($nRelatedProductCoffeeTypeID == $nCoffeeTypeID && $nProductID != $iProductID) {
+            // $nProductID = $product['nProductID'];
+            // $nRelatedProductCoffeeTypeID = $product['nCoffeeTypeID'];
 
-                            $imgUrl = $product['cProductName'];
-                            $result = strtolower(str_replace(" ", "-", $imgUrl));
-                            ?>
+            // if ($nRelatedProductCoffeeTypeID == $nCoffeeTypeID && $nProductID != $iProductID) {
+
+        $imgUrl = $product['cProductName'];
+        $result = strtolower(str_replace(" ", "-", $imgUrl));?>
 
                 <a href="singleProduct?id=<?= $product['nProductID']; ?>">
                     <div class="product" id="product-<?= $product['nProductID']; ?>">
@@ -133,9 +144,9 @@ $statement = $connection->prepare($sql);
                         </div>
                     </div>
                 </a>
-<?php
-            }
-        }
+                <?php
+            // }
+        // }
     }
 }
 

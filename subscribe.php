@@ -15,14 +15,17 @@ $statement = $connection->prepare($sql);
 ?>
 
 <main id="subscribePage">
-<div class="grid grid-almost-two section-one container-banner align-items-center bg-grey  subscribeBanner ph-large p-small">
-  <div>
-    <h1>Subscribe Now</h1>
-    <p class="align-self-top mt-small mb-medium mr-medium">Get fresh roasted quality coffee delivered to your doorstep so you can enjoy a wonderful cup every morning</p>
-  </div>
-    <img src="img/coffee-beans.png" class="absolute" alt="">
-  
+<section class="section-one grid">
+<div class="container-banner bg-grey subscribeBanner mb-medium p-small ph-xlarge">
+  <div class="content-container grid grid-two relative">
+    <div class=" container-header align-items-center color-white">
+      <h1 class="color-black">Subscribe Now</h1>
+      <h2 class="banner-message color-black">Get fresh roasted quality coffee delivered to your doorstep so you can enjoy a wonderful cup every morning</h2>
+    </div>
+    <div class="image bg-contain absolute"></div>
+    </div>
 </div>
+</section>
 
   <h2 class="text-center mv-medium ">Six great ways to subscribe</h2>
   <div class="containerForSubscriptions grid grid-three m-medium">
@@ -42,7 +45,8 @@ $statement = $connection->prepare($sql);
         '<div class="subscriptionItem" id="'.$row['nSubscriptionID'].'">
           <div class="subscriptionItemBg">
             <img src="img/products/'.$result.'.png" alt="">  
-            <h2 class="subscriptionName">'.$row['cName'].'</h2>
+            <h3 class="subscriptionName">'.$row['cName'].'</h3>
+            <h4>'.$row['cCoffeeTypeName'].'</h4>
           </div>
         <div class="white-text-bg">
           <p class="descSubscription p-small">Lorem ipsum dolor sit amet consectetur 
