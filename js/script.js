@@ -2,7 +2,12 @@
 
 // LOGOUT
 
-document.querySelector(".button-log-out").addEventListener("click", logout);
+if(document.querySelector(".button-log-out")){
+  document.querySelector(".button-log-out").addEventListener("click", logout);
+}
+
+
+  
 
 function logout(){
     console.log('click');
@@ -65,10 +70,10 @@ function checkCart() {
 
   if (cart && cart.length > 0) {
     numberOfItem.innerHTML = cart.length;
-    numberOfItem.setAttribute("style", "display:block;");
+    numberOfItem.setAttribute("style", "display:inline;");
   } else {
     numberOfItem.setAttribute("style", "display: none;");
   }
 }
 
-// checkCart();
+checkCart();

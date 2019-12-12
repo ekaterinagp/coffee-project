@@ -9,7 +9,7 @@ require_once(__DIR__.'/connection.php');
 <h1>Update Products</h1>
 <div class="adminProducts">
 <?php
-    $sql = "SELECT * FROM tProduct";
+    $sql = "SELECT * FROM tProduct WHERE bActive=1";
     $statement = $connection->prepare($sql);
 
     if($statement->execute()){
@@ -17,7 +17,6 @@ require_once(__DIR__.'/connection.php');
         $connection = null;
     
     foreach($products as $row){
-        if($row['bActive']==1){
             
             echo '
             <div class="adminProduct" id="product-'.$row['nProductID'].' ">
@@ -35,11 +34,10 @@ require_once(__DIR__.'/connection.php');
 <button class="btnDeleteProduct">Delete Product</button>
             </div>
             ';
-        }
+        
     }   
 }
 
-echo 0;
 $connection = null;
 
 ?>

@@ -100,8 +100,8 @@ deleteSubscriptionBtn.forEach(deleteBtn=>{
     deleteBtn.addEventListener("click", function(){
         let text = "Are you sure you want to unsubscribe?";
         let deleteType = "subscription";
-        let userSubscriptionID = deleteBtn.parentElement.id.substr(deleteBtn.parentElement.id.search("-")+1,deleteBtn.parentElement.id.length);
-        console.log('clicked');
+        let userSubscriptionID = deleteBtn.parentElement.parentElement.id;
+        console.log(deleteBtn.parentElement.id);
         showModal(text, deleteType, userSubscriptionID);       
     });   
 });
@@ -162,8 +162,8 @@ function showModal(text, deleteType, itemID){
     document.querySelector(".button-confirm-delete").addEventListener("click", function(){
         if(deleteType == "subscription"){
             console.log("deleted subscription");
+            console.log(itemID)
             deleteSubscription(itemID);
-
             modal.classList.add('hide');
             setTimeout(function(){
             document.querySelector(".modal").remove();
