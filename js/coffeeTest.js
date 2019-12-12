@@ -379,14 +379,14 @@ const questions = [
       h4Roast.textContent = "Roast Type: " +randomChoice.roast;
       h4Roast.setAttribute("class", "uppercase");
       let startAgainLink = document.createElement("a");
-      startAgainLink.setAttribute("href", "subscribe#test");
+      startAgainLink.setAttribute("href", "subscribe.php/#test");
       startAgainLink.setAttribute("class", "startAgainLink");
       startAgainLink.innerHTML="Take Test Again"
       let toPaymentBtn = document.createElement("button");
       toPaymentBtn.setAttribute("class", "button addSubToCartBtn");  
       toPaymentBtn.innerHTML = "Add to Cart";
       toPaymentBtn.addEventListener("click", () => {
-        window.location = "cart?id=" + randomChoice.id;
+        window.location = "cart.php/id=" + randomChoice.id;
       });
       randomCoffeeWrapper.append(h3Name,h4Origin,h4Roast,pTaste, toPaymentBtn, startAgainLink)
       divForResults.append(img, randomCoffeeWrapper);
@@ -402,7 +402,7 @@ const answer = document.querySelector("#answer");
 let currentQuestionIndex = 0;
 
 function insertIntoDOM() {
-  document.querySelector("#backBtn").style.display = "none";
+  document.querySelector("#back ").style.display = "none";
 
   questionTitle.textContent = questions[currentQuestionIndex].question;
   questionText.textContent = questions[currentQuestionIndex].text;
