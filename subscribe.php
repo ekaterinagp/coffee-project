@@ -53,7 +53,7 @@ $statement = $connection->prepare($sql);
           quasi provident nulla minus odit architecto.</p>
           <h3 class="priceSubscription p-small">'.$row['nSubscriptionPrice'].' DKK / Month</h3>
           </div>
-          <a href=""><button class="addSubToCartBtn button">Add to Cart</button></a>
+          <button class="addSubToCartBtn button">Add to Cart</button>
         </div>' ;   
   }
 }

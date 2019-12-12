@@ -46,8 +46,18 @@ require_once(__DIR__ . '/components/header.php');
         </template>
       </section>
       <div id="totalsum"></div>
-      <a href="payment"><button class="button" >Go to Payment</button></a>
-        
+      <a href="payment"><button class="button" <?php if(!$_SESSION) echo'disabled';?>>Go to Payment</button></a>
+      <?php
+      if(!$_SESSION){
+        ?>
+        <div class="mv-medium">
+  
+      <p>To make a purchase you need to be signed in</p>
+      <a href="log-in" class="link mv-small">Go to Login</a>
+      <a href="sign-up" class="link mv-small">Go to Signup</a>
+      </div>
+    <?php
+    } ?>
   </div>
 </main>
 
