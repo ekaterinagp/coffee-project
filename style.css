@@ -1174,7 +1174,7 @@ a {
 
 .back {
   transform: rotateY(180deg);
-  background-color: #ebd3c7;
+  background-color: white;
   grid-gap: 1em;
 }
 
@@ -1798,13 +1798,13 @@ input:checked + .btnRadio {
   padding: 1em;
 }
 /*  LOGIN PAGE    */
-  #loginForm{
-  width:50%;
-  margin:auto;
-  }
-  #loginForm button{
-    margin : 2vh 0;
-  }
+#loginForm {
+  width: 50%;
+  margin: auto;
+}
+#loginForm button {
+  margin: 2vh 0;
+}
 /*   SIGNUP PAGE   */
 
 .signupBg {
@@ -1921,8 +1921,6 @@ form .errorMessage {
 input:not(:focus).error {
   border: 1px solid #fb4b23;
 }
-
-
 
 .highlight {
   background-color: yellow;
