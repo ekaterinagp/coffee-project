@@ -16,7 +16,9 @@ require_once(__DIR__ . '/components/header.php');
             <p class="align-self-top mt-small mb-medium">
                 Enhance your everyday coffee experience with a coffee subscription tailored to your taste or discover a world of coffee and let us surprise you!
             </p>
-            <a href="subscribe" class="button">Subscribe </a>
+            <a href="subscribe">
+                <button= class="button">Subscribe </button>
+            </a>
         </div>
         <div class="gridForAboveTheFold">
             <div class=" image-container bg-light-brown box1">

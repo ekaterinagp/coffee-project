@@ -141,8 +141,7 @@ function showFilteredCoffee(products) {
     let clone = template.cloneNode(true);
 
     if (product.cName) {
-      clone.querySelector("a").href =
-        "singleProduct?id=" + product.nProductID;
+      clone.querySelector("a").href = "singleProduct?id=" + product.nProductID;
       clone.querySelector("h3").textContent = product.cName;
       changeFormatForImg(product);
       clone.querySelector(".product").id = "product-" + product.nProductID;
@@ -152,8 +151,7 @@ function showFilteredCoffee(products) {
         "Origin:" + " " + product.coffeeTypeName;
       clone.querySelector("p").textContent = product.nPrice;
     } else {
-      clone.querySelector("a").href =
-        "singleProduct?id=" + product.nProductID;
+      clone.querySelector("a").href = "singleProduct?id=" + product.nProductID;
       clone.querySelector("h3").textContent = product.productName;
       product.imagePath = changeFormatForName(product);
       clone.querySelector(".image").style.backgroundImage =
@@ -315,7 +313,7 @@ const typeFilter = (products, filters) => {
 
 rangeInput.addEventListener("change", () => {
   filters.priceRange = rangeInput.value;
-  priceValueElm.textContent = rangeInput.value;
+  priceValueElm.textContent = rangeInput.value + " " + "DKK";
   runFilters(products, filters);
 });
 
@@ -357,7 +355,7 @@ function changeSelectedCoffeeType(checkbox) {
 
 async function init() {
   // Set price value start¨
-  priceValueElm.textContent = rangeInput.value;
+  priceValueElm.textContent = rangeInput.value + " " + "DKK";
 
   products = await getAllProductsAsJson();
   products = convertProducts(products);
