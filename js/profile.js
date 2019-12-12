@@ -89,9 +89,13 @@ function showNotification(text, responseClass){
 
 // BUTTONS
 
-const deleteSubscriptionBtn = document.querySelectorAll(".product-info-container .button-delete");
+const deleteSubscriptionBtn = document.querySelectorAll(".current-subscriptions .button-delete");
+
+console.log(deleteSubscriptionBtn);
 
 deleteSubscriptionBtn.forEach(deleteBtn=>{
+
+    console.log('click');
    
     deleteBtn.addEventListener("click", function(){
         let text = "Are you sure you want to unsubscribe?";
@@ -271,23 +275,6 @@ function deleteUser(){
     });
 }
 
-
-// LOGOUT
-
-document.querySelector(".button-log-out").addEventListener("click", logout);
-
-function logout(){
-    console.log('click');
-    let endpoint = "api/api-logout.php";
-    // console.log("delte user");
-        fetch(endpoint, {
-            method: "POST"
-        })
-        .then(res => res.text())
-        .then(response => {
-            window.location.href = "index";
-        });
-}
 
 // ADD CREDITCARD
 

@@ -85,6 +85,7 @@ require_once(__DIR__ . '/components/header.php');
                 if ($statement->execute()) {
 
                     $products = $statement->fetchAll(PDO::FETCH_ASSOC);
+                    $connection = null;
 
                     foreach ($products as $product) {
 
@@ -105,9 +106,9 @@ require_once(__DIR__ . '/components/header.php');
                 </div>
             </a>
             ';
-                        }
                     }
                 }
+            }
                 ?>
             </div>
 

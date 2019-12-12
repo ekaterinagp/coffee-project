@@ -64,9 +64,13 @@ if($_SESSION){
         if($statement->execute($data)){
             $last_id = $connection->lastInsertId();
             echo $last_id;
+            $connection = null;
+            exit;
         }
         else{
             echo 0;
+            $connection = null;
+            exit;
         }
     }
 

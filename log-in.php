@@ -7,7 +7,7 @@ require_once(__DIR__ . '/connection.php');
 require_once(__DIR__ . '/components/header.php');
 
 if ($_SESSION) {
-  header("location:profile.php");
+  header("location:profile");
 }
 
 ?>

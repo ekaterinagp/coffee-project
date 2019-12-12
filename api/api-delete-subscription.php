@@ -10,9 +10,9 @@ if($_POST){
         sendErrorMessage('no id', __LINE__);
     }
 
-require_once(__DIR__ . '/../connection.php');
+  require_once(__DIR__ . '/../connection.php');
 
-$sql = "UPDATE tUserSubscription SET dCancellation=CURRENT_TIMESTAMP() WHERE nUserSubscriptionID=:id";
+  $sql = "UPDATE tUserSubscription SET dCancellation=CURRENT_TIMESTAMP() WHERE nUserSubscriptionID=:id";
 
   $statement = $connection->prepare($sql);  
   $data =[
@@ -20,9 +20,13 @@ $sql = "UPDATE tUserSubscription SET dCancellation=CURRENT_TIMESTAMP() WHERE nUs
     ];
   if ($statement->execute($data)) {
     echo 1;
+    $connection = null;
+    exit;
   }
   else{
     echo 0;
+    $connection = null;
+    exit;
   }
 
 }

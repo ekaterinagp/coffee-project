@@ -21,11 +21,15 @@ if($_SESSION){
 
       if ($statement->execute($data)) {
         echo 1;
+        $connection = null;
         session_destroy();
         exit;
       }
       else{
         echo 0;
+        $connection = null;
         exit;
       }  
+
+    
 }

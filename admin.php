@@ -11,8 +11,10 @@ require_once(__DIR__.'/connection.php');
 <?php
     $sql = "SELECT * FROM tProduct";
     $statement = $connection->prepare($sql);
+
     if($statement->execute()){
         $products = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $connection = null;
     
     foreach($products as $row){
         if($row['bActive']==1){
@@ -36,6 +38,10 @@ require_once(__DIR__.'/connection.php');
         }
     }   
 }
+
+echo 0;
+$connection = null;
+
 ?>
 </div>
 

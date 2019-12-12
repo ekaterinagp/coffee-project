@@ -31,6 +31,7 @@ $statement = $connection->prepare($sql);
     if($statement->execute()){
       
         $products = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $connection = null;
 
         foreach($products as $row){
         $imgUrl = $row['cProductName'];
@@ -53,6 +54,7 @@ $statement = $connection->prepare($sql);
         </div>' ;   
   }
 }
+$connection = null;
 ?>
   </div>
   

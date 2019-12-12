@@ -126,6 +126,8 @@ $statement = $connection->prepare($sql);
         }
     }
 }
+
+$connection = null;
 ?>
             </div>
         </div>

@@ -15,6 +15,7 @@ if ($_POST) {
     foreach ($result as $user) {
       if ($_POST['inputEmail'] == $user['cEmail'] || $_POST['inputEmail'] == $user['cUsername']) {
         echo "1";
+        $connection = null;
         exit;
       }
     }
@@ -22,3 +23,5 @@ if ($_POST) {
 }
 
 echo "0";
+$connection = null;
+exit;
