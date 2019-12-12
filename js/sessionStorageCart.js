@@ -34,8 +34,8 @@ function getCartItem() {
   cartItem.img = img;
   let checkedValue = document.querySelector(".mb-small:checked").value;
   cartItem.typeGrind = checkedValue;
-  let amountSelected = document.querySelector('input[name="option1"]').value;
-  cartItem.amount = amountSelected;
+  // let amountSelected = document.querySelector('input[name="option1"]').value;
+  // cartItem.amount = amountSelected;
   let purchaseType = "product";
   cartItem.purchaseType = purchaseType;
   console.log(cartItem);
