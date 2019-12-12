@@ -7,10 +7,12 @@ require_once(__DIR__ . '/components/header.php');
 <main class="frontpage">
 
     <section class="section-one grid grid-almost-two mb-large">
-        <div class="grid container-header align-items-center pv-large pl-xlarge pr-medium">
-            <div class="logo bg-contain align-self-bottom mb-small">
+        <div class=" align-items-center pv-large pl-xlarge pr-medium">
+            <!-- <div class="logo bg-contain align-self-bottom mb-small">
                 <h1>Welcome</h1>
-            </div>
+            </div> -->
+            <div class="logo"></div>
+
             <p class="align-self-top mt-small mb-medium">
                 Enhance your everyday coffee experience with a coffee subscription tailored to your taste or discover a world of coffee and let us surprise you!
             </p>
