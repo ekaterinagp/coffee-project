@@ -47,10 +47,10 @@ console.log(IBAN, CCV, expiration)
       method: "POST",
       body: formData
     })
-      .then(res => res.text())
+      .then(res => res.json())
       .then(response => {
       //   console.log(response);
-        if (response!=0) {
+        if (response) {
           
           purchaseItem(response)
           console.log(response);
@@ -87,7 +87,7 @@ console.log(endpoint)
         method: "POST",
         body: formData
         })
-        .then(res => res.text())
+        .then(res => res.json())
         .then(response => {
         //   console.log(response);
             if (response===1) {
