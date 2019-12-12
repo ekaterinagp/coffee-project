@@ -37,5 +37,10 @@ if($_POST){
 
     if($statement->execute($data)){
         echo '{"status":1, "message":"Product successfully created"}';
+        $connection = null;
+        exit;
     }
+
+    $connection = null;
+    exit;
 }

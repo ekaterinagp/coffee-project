@@ -5,8 +5,6 @@ $sql = "SELECT * FROM tproduct";
 
 $statement = $connection->prepare($sql);
 
-
-
 if ($statement->execute()) {
 
   $result = $statement->fetchALL();
@@ -14,4 +12,9 @@ if ($statement->execute()) {
   $resultArray = json_encode($result);
 
   echo $resultArray;
+  $connection = null;
+  exit;
 }
+
+echo 0;
+$connection = null;

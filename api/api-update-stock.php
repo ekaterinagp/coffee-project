@@ -28,5 +28,11 @@ if($_POST){
     
     if($statement->execute($data)){
         echo '{"status":1, "message":"stock successfully updated"}';
+        $connection = null;
+        exit;
     }
+
+    echo 0;
+    $connection = null;
+    exit;
 }

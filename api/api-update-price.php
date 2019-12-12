@@ -28,6 +28,10 @@ if($_POST){
 
     if($statement->execute($data)){
         echo '{"status":1, "message":"price successfully updated"}';
+        $connection = null;
     }
+
+    echo 0;
+    $connection = null;
    
 }

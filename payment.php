@@ -3,9 +3,20 @@ $sTitle = ' | Payment';
 $sCurrentPage = 'payment';
 require_once(__DIR__ . '/components/functions.php');
 require_once(__DIR__.'/components/header.php');
+require_once(__DIR__ . '/connection.php');
+
+$sql = "SELECT * FROM tCreditCard WHERE tCreditCard.nUserID = :id";
+$statementCreditCard = $connection->prepare($sql);
+
 if($_SESSION){
   $nUserID= $_SESSION['user']['nUserID'];
 }
+
+if(!$_SESSION){
+  header('Location: cart');
+  exit;
+}
+
 ?>
  <div class="back-button color-orange absolute">Back</div>
   <main id="paymentMain">
@@ -19,26 +30,24 @@ if($_SESSION){
            <h2 id="sumTopay"></h2>
            </div>
       <?php
-      if(!$_SESSION){
-        ?>
-        <div class="mv-medium">
-  
+if(!$_SESSION){?>
+
+    <div class="mv-medium">
       <p>To make a purchase you need to be signed in</p>
       <a href="log-in" class="link mv-small">Go to Login</a>
       <a href="sign-up" class="link mv-small">Go to Signup</a>
-      </div>
-    <?php
-    } ?>
+    </div>
+
+<?php
+} ?>
     </div>
   
   <div class="paymentForm p-medium bg-grey">
     <h2>Payment Details</h2>
   <form method="POST" id="savedCardFrm" class=" mb-medium grid grid-two-thirds-reversed">
-    <?php
-    require_once(__DIR__ . '/connection.php');
-    $sql = "SELECT * FROM tCreditCard WHERE tCreditCard.nUserID = :id";
-    $statementCreditCard = $connection->prepare($sql);
-  if($statementCreditCard->execute([':id' => $nUserID])){
+<?php
+
+if($statementCreditCard->execute([':id' => $nUserID])){
       $userCreditCards = $statementCreditCard->fetchAll(PDO::FETCH_ASSOC);
       if($userCreditCards>=1){
     ?><label><p class="text-left align-self-center mt-medium mb-small">Choose from your saved credit cards</p>

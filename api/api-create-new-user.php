@@ -2,97 +2,77 @@
 if ($_POST) {
 
   if (empty($_POST['inputEmail'])) {
-    return;
   }
   if (!filter_var($_POST['inputEmail'], FILTER_VALIDATE_EMAIL)) {
     sendErrorMessage('email is empty', __LINE__);
-    return;
   }
   if (empty($_POST['inputName'])) {
     sendErrorMessage('email is empty', __LINE__);
-    return;
   }
   if (strlen($_POST['inputName']) < 2) {
     sendErrorMessage('email is empty', __LINE__);
-    return;
   }
   if (strlen($_POST['inputName']) > 20) {
     sendErrorMessage('email is empty', __LINE__);
-    return;
   }
   if (empty($_POST['inputLastName'])) {
     sendErrorMessage('email is empty', __LINE__);
-    return;
   }
 
   if (empty($_POST['inputPhone'])) {
     sendErrorMessage('phone is empty', __LINE__);
-    return;
   }
 
   if (empty($_POST['inputAddress'])) {
     sendErrorMessage('address is empty', __LINE__);
-    return;
   }
 
   // if (strlen($_POST['inputAddress']) > 10) {
   //   sendErrorMessage('must be more than 10 characters', __LINE__);
-  //   return;
+  //
   // }
 
   if (empty($_POST['inputLoginName'])) {
     sendErrorMessage('login is empty', __LINE__);
-    return;
   }
 
   if (strlen($_POST['inputLoginName']) < 2) {
     sendErrorMessage('email is empty', __LINE__);
-    return;
   }
   if (strlen($_POST['inputLoginName']) > 12) {
     sendErrorMessage('email is empty', __LINE__);
-    return;
   }
 
   if (strlen($_POST['inputLastName']) < 2) {
     sendErrorMessage('email is empty', __LINE__);
-    return;
   }
   if (strlen($_POST['inputLastName']) > 20) {
     sendErrorMessage('email is empty', __LINE__);
-    return;
   }
   if (empty($_POST['password_1'])) {
     sendErrorMessage('email is empty', __LINE__);
-    return;
   }
   if (strlen($_POST['inputPhone']) !== 8) {
     sendErrorMessage('phone must be 8 characters', __LINE__);
-    return;
   }
 
   if (strlen($_POST['password_1']) !== 8) {
     sendErrorMessage('email is empty', __LINE__);
-    return;
   }
 
   if (empty($_POST['password_2'])) {
     sendErrorMessage('email is empty', __LINE__);
-    return;
   }
 
   if (empty($_POST['cityInput'])) {
     sendErrorMessage('city is empty', __LINE__);
-    return;
   }
   if (strlen($_POST['password_2']) !== 8) {
     sendErrorMessage('email is empty', __LINE__);
-    return;
   }
 
   if (strlen($_POST['password_1']) != strlen($_POST['password_2'])) {
     sendErrorMessage('passwords do not match', __LINE__);
-    return;
   }
 
   require_once(__DIR__ . '/../connection.php');
@@ -115,6 +95,11 @@ if ($_POST) {
 
   if ($statement->execute($data)) {
   echo '{"status":1, "message":"New user created"}';
+  $connection = null;
+  exit;
 }
+
+$connection = null;
+exit;
 
 }

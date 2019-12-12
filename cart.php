@@ -7,12 +7,6 @@ require_once(__DIR__ . '/components/header.php');
 ?>
 
 <main>
-
-<?php
-
-
-?>
-
   <div class="cartTotal mv-medium mh-large">
     <section id="cartItems">
       <template id="cartItemTemplate">

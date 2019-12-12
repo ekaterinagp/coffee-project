@@ -1,4 +1,25 @@
 "use strict";
+
+// LOGOUT
+
+document.querySelector(".button-log-out").addEventListener("click", logout);
+
+function logout(){
+    console.log('click');
+    let endpoint = "api/api-logout.php";
+    // console.log("delte user");
+        fetch(endpoint, {
+            method: "POST"
+        })
+        .then(res => res.text())
+        .then(response => {
+            window.location.href = "index";
+        });
+}
+
+// TEST
+
+
 window.addEventListener("load", init);
 function init() {
   let allSubscriptions = document.querySelectorAll(".subscriptionItem");
