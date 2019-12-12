@@ -28,13 +28,17 @@ $sqlProducts = "SELECT tProduct.nProductID, tProduct.cName AS cProductName,
                 FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID WHERE tProduct.bActive != 0 LIMIT 4";
 $statementProducts = $connection->prepare($sqlProducts);
 
-$sqlSubscriptions =  "SELECT tSubscriptiontype.cName, tSubscriptiontype.nSubscriptionTypeID AS nSubscriptionID, 
+
+// SUBSCRIPTIONS THAT THE USER IS NOT SUBSCRIBED TO
+$sqlSubscriptions = "SELECT DISTINCT tSubscriptiontype.cName, tSubscriptiontype.nSubscriptionTypeID AS nSubscriptionID, 
                     tProduct.cName AS cProductName, tProduct.nPrice AS nSubscriptionPrice, tProduct.bActive,
                     tCoffeeType.cName AS cCoffeeTypeName 
                     FROM tSubscriptiontype 
                     INNER JOIN tProduct ON tProduct.nProductID=tsubscriptiontype.nProductID
-                    INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID WHERE tProduct.bActive != 0";
-                    
+                    INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID 
+                    INNER JOIN tUserSubscription ON tUserSubscription.nSubscriptionTypeID = tSubscriptionType.nSubscriptionTypeID
+                    WHERE tProduct.bActive != 0 AND tUserSubscription.nUserID = :id";
+
 $statementSubscriptions = $connection->prepare($sqlSubscriptions);
 
 $sqlUserSubscription = "SELECT tUserSubscription.nUserSubscriptionID, tUserSubscription.dCancellation, 
@@ -144,7 +148,6 @@ $statementCreditCard = $connection->prepare($sqlCreditCard);
 
 if($statementCreditCard->execute([':id' => $nUserID])){
   $jUserCreditCards = $statementCreditCard->fetchAll(PDO::FETCH_ASSOC);
-  $connection = null;
 
   if(count($jUserCreditCards)>=1){
    
@@ -204,7 +207,6 @@ if($statementCreditCard->execute([':id' => $nUserID])){
 <?php 
 if($statementUserSubscription->execute([':id' => $nUserID])){
   $jUserSubscriptions = $statementUserSubscription->fetchAll(PDO::FETCH_ASSOC);
-  $connection = null;
 
   if(count($jUserSubscriptions)>=1){
     $arrayProductID = [];
@@ -270,7 +272,6 @@ if($statementUserSubscription->execute([':id' => $nUserID])){
 if($statementProducts->execute()){
 
   $jProducts = $statementProducts->fetchAll(PDO::FETCH_ASSOC);
-  $connection = null;
   $arrayRelatedProducts = [];
 
   foreach($jProducts as $jProduct){
@@ -312,21 +313,23 @@ if($statementProducts->execute()){
   <div class="containerForSubscriptions grid grid-three m-medium">
 
 <?php
+$data =[
+  ':id' => $nUserID
+  ];
   
-  if($statementSubscriptions->execute()){
+  if($statementSubscriptions->execute($data)){
     $jSubscriptions = $statementSubscriptions->fetchAll(PDO::FETCH_ASSOC);
-    $connection = null;
     $arrayRelatedSubscriptionID = [];
 
     foreach($jSubscriptions as $jSubscription){
 
-      if($jSubscription['bActive']!==0){
+      // if($jSubscription['bActive']!==0){
 
-        $nRelatedSubscriptionID = $jSubscription['nSubscriptionID'];
+        // $nRelatedSubscriptionID = $jSubscription['nSubscriptionID'];
 
-          if(!in_array($nRelatedSubscriptionID, $arraySubscriptionTypeID)){
+          // if(!in_array($nRelatedSubscriptionID, $arraySubscriptionTypeID)){
 
-            array_push($arrayRelatedSubscriptionID, $nRelatedSubscriptionID);
+            // array_push($arrayRelatedSubscriptionID, $nRelatedSubscriptionID);
 
             $imgUrl = $jSubscription['cProductName'];
             $result = strtolower(str_replace(" ", "-", $imgUrl));
@@ -350,11 +353,11 @@ if($statementProducts->execute()){
         </div>
 <?php
           
-        }
-      }
-        if(count($arrayRelatedSubscriptionID) > 2){
-        break;
-        }
+        // }
+      // }
+        // if(count($arrayRelatedSubscriptionID) > 2){
+        // break;
+        // }
     }
   }
 

@@ -3,7 +3,11 @@ $sTitle = ' | Shop';
 $sCurrentPage = 'shop';
 
 require_once(__DIR__ . '/connection.php');
-$sql = "SELECT tProduct.nProductID, tProduct.cName as cProductName, tProduct.nCoffeeTypeID as nProductCoffeeTypeID, tProduct.nPrice, tProduct.nStock, tProduct.bActive, tCoffeeType.nCoffeeTypeID, tCoffeeType.cName FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID";
+$sql = "SELECT tProduct.nProductID, tProduct.cName AS cProductName, tProduct.nCoffeeTypeID AS nProductCoffeeTypeID, 
+        tProduct.nPrice, tProduct.nStock, tProduct.bActive, 
+        tCoffeeType.nCoffeeTypeID, tCoffeeType.cName 
+        FROM tProduct INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID WHERE tProduct.bActive != 0";
+
 $statement = $connection->prepare($sql);
 
 require_once(__DIR__ . '/components/header.php');
@@ -13,8 +17,7 @@ require_once(__DIR__ . '/components/header.php');
 ?>
 
 <main class="shop">
-
-    <div class="section-one grid mb-small">
+    <section class="section-one grid mb-small">
         <div class="container-banner mb-medium p-small ph-large bg-dark-brown">
             <div class="content-container">
                 <div class=" container-header align-items-center color-white">
@@ -27,7 +30,7 @@ require_once(__DIR__ . '/components/header.php');
                 </div>
             </div>
         </div>
-</div>
+    </section>
 
     <section class=" grid mb-large">
 
@@ -89,7 +92,7 @@ require_once(__DIR__ . '/components/header.php');
 
                     foreach ($products as $product) {
 
-                        if ($product['bActive'] !== 0) {
+                        // if ($product['bActive'] !== 0) {
 
                             $imgUrl = $product['cProductName'];
                             $result = strtolower(str_replace(" ", "-", $imgUrl));
@@ -106,7 +109,7 @@ require_once(__DIR__ . '/components/header.php');
                 </div>
             </a>
             ';
-                    }
+                    // }
                 }
             }
                 ?>

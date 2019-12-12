@@ -6,7 +6,11 @@ require_once(__DIR__ . '/components/header.php');
 $iProductID = $_GET['id'];
 
 require_once(__DIR__ . '/connection.php');
-$sql = "SELECT tProduct.nProductID, tProduct.cName as cProductName, tProduct.nCoffeeTypeID as nProductCoffeeTypeID, tProduct.nPrice, tProduct.nStock, tProduct.bActive, tCoffeeType.nCoffeeTypeID, tCoffeeType.cName FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID";
+$sql = "SELECT tProduct.nProductID, tProduct.cName as cProductName, tProduct.nCoffeeTypeID as nProductCoffeeTypeID, 
+        tProduct.nPrice, tProduct.nStock, tProduct.bActive, 
+        tCoffeeType.nCoffeeTypeID, tCoffeeType.cName 
+        FROM tProduct INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID 
+        WHERE tProduct.bActive != 0 AND tProduct.nProductID = :id";
 $statement = $connection->prepare($sql);
 ?>
 
@@ -15,16 +19,20 @@ $statement = $connection->prepare($sql);
         <div class="back-button color-orange absolute">Back</div>
         <?php
 
-        if ($statement->execute()) {
+        $data =[
+        ':id' => $iProductID
+        ];
+
+        if ($statement->execute($data)) {
             $products = $statement->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($products as $product) {
 
-                if ($product['bActive'] !== 0) {
+                // if ($product['bActive'] !== 0) {
 
-                    $nProductID = $product['nProductID'];
+                    // $nProductID = $product['nProductID'];
 
-                    if ($nProductID == $iProductID) {
+                    // if ($nProductID == $iProductID) {
 
                         $nCoffeeTypeID = $product['nCoffeeTypeID'];
 
@@ -94,9 +102,9 @@ $statement = $connection->prepare($sql);
             <div class="products-container grid grid-four">
 
             <?php
-                        }
-                    }
-                }
+                        // }
+                    // }
+    }
 
                 foreach ($products as $product) {
 
