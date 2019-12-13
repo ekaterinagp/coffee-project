@@ -23,7 +23,7 @@ $statementRelatedProducts = $connection->prepare($sqlRelatedProducts);
 
 <main class="single-product">
     <section class="section-one grid grid-two-thirds-reversed mb-large ph-large mt-medium">
-        <button class="back-button color-orange absolute">Back</button>
+        <button class="back-button color-orange absolute">&lt;</button>
         <?php
 
         $data =[
@@ -97,7 +97,6 @@ $statementRelatedProducts = $connection->prepare($sqlRelatedProducts);
     <section class="section-two grid mv-medium ph-large relative">
         <div class="relative">
             <h2 class="mb-medium">You might also like</h2>
-            <h2 class="coffee-type text-left mb-medium"><?= $product['cName']; ?></h2>
             <div class="container-banner absolute pv-large bg-dark-brown"></div>
             <div class="products-container grid grid-four">
 

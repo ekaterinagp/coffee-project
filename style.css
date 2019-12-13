@@ -889,11 +889,10 @@ a {
   background:none;
   position: absolute;
   border: none;
-  left: 2vw;
+  left: 5vw;
   top: 8vw;
   transition: all 0.3s;
-  text-decoration: underline;
-  font-size: 110%;
+  font-size: 350%;
 }
 
 .button-delete-profile, .button-delete-card, .button-delete {
@@ -2048,6 +2047,9 @@ input:not(:focus).error {
   background-color: yellow;
 }
 /*  CART PAGE  */
+.cartPage{
+  min-height: 70vh;
+}
 .numberOfItems {
   background-color: #fb8b23;
   border-radius: 50%;
@@ -2089,7 +2091,7 @@ input.price_cart{
   font-size: inherit;
 }
 input.type_cart_grind{
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 .noCart {
   display: none;

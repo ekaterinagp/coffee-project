@@ -6,7 +6,7 @@ require_once(__DIR__ . '/components/header.php');
 
 ?>
 
-<main>
+<main class="cartPage">
   <h1 class="text-center">Cart</h1>
   <div class="cartTotal mv-medium mh-large">
     <section id="cartItems">
