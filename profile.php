@@ -140,20 +140,26 @@ if ($_SESSION) {
         </div>
       </div>
       <div class="profile-details bg-light-brown p-medium pt-medium">
-      <h2 class="color-white">Creditcard Details</h2>
-      <div class="creditcard-container ph-medium">
-        <label><p class="text-left align-self-center pt-small color-white">Your credit cards</p>
-          <div class="creditcard-info grid grid-two">
-            <select class="align-self-center" name="userCreditCards" id="">
 
+      
+        <div class="creditcard-container ph-medium">
+          <h2 class="color-white">Creditcard Details</h2>
+          <form method="POST" id="savedCardFrm" class=" pt-small choose-creditcard grid grid-two-thirds-reversed">
+      
           <?php
             if ($statementCreditCard->execute([':id' => $nUserID])) {
               $jUserCreditCards = $statementCreditCard->fetchAll(PDO::FETCH_ASSOC);
 
-              if (count($jUserCreditCards) >= 1) {
+              if (count($jUserCreditCards) >= 1) {?>
+              <label><p class="text-left align-self-center color-white">Your credit cards</p>
+                <select class="align-self-center" name="userCreditCards" id="">
+
+              <?php
+                
 
                 foreach ($jUserCreditCards as $jUserCreditCard) {
                   $nCreditCardID = $jUserCreditCard['nCreditCardID'];?>
+
 
             <option id="<?= $jUserCreditCard['nCreditCardID'];?>" value="<?= $jUserCreditCard['nCreditCardID'];?>"> <?= $jUserCreditCard['cIBAN'];?></option>       
 
@@ -162,9 +168,11 @@ if ($_SESSION) {
               }
             } ?>
 
-            </select>
-            <button class="button-delete-card button justify-self-right">Delete creditcard</button>
-          </div>
+              </select>
+            </label>
+            <button class="button-delete-card button align-self-bottom">Delete</button>
+          </form>
+
       </div>
       <button class="button-add button">Add creditcard</button>
       <form id="form-creditcard" method="post" class="mt-medium">
