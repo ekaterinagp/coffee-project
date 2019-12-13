@@ -1,6 +1,6 @@
 <?php 
 $sTitle = ' | Payment';
-$sCurrentPage = 'payment';
+$sCurrentPage = 'cart';
 require_once(__DIR__ . '/components/functions.php');
 require_once(__DIR__.'/components/header.php');
 
@@ -35,14 +35,14 @@ if($_SESSION){
   
   <div class="paymentForm p-medium bg-grey">
     <h2>Payment Details</h2>
-  <form method="POST" id="savedCardFrm" class=" mb-medium grid grid-two-thirds-reversed">
+  <form method="POST" id="savedCardFrm" class="choose-credit-card mb-medium grid grid-two-thirds-reversed">
 <?php
 
 if($statementCreditCard->execute([':id' => $nUserID])){
       $userCreditCards = $statementCreditCard->fetchAll(PDO::FETCH_ASSOC);
       $connection = null;
       if($userCreditCards>=1){?>
-      <label><p class="text-left align-self-center pt-small">Your saved credit cards</p>
+      <label><p class="text-left align-self-center mt-small">Your saved credit cards</p>
       <select name="userCreditCards" id="">
       <?php
       foreach($userCreditCards as $userCreditCard){
@@ -61,19 +61,19 @@ if($statementCreditCard->execute([':id' => $nUserID])){
     <button class="button show-newCardFrm">Add New</button>
 <form method="POST" id="newCardFrm">
     <label class="grid" for="inputIBAN">
-        <p class="text-left align-self-center mb-small">IBAN</p>
+        <p class="text-left align-self-center mt-small">IBAN</p>
         <input  data-type="integer" data-min="99999999999999999" data-max="999999999999999999" type="text" data-type="string" name="inputIBAN" placeholder="IBAN (format 123456789123456789)" value="">
         <div class="errorMessage">IBAN must be 18 digits</div>
       </label>
 
       <label class="grid" for="inputCCV">
-        <p class="text-left align-self-center mb-small">CCV</p>
+        <p class="text-left align-self-center mt-small">CCV</p>
         <input  data-type="integer" data-min="99" data-max="999" type="text" name="inputCCV" placeholder="CCV (format 123)" value="">
         <div class="errorMessage">CCV must be 3 digits</div>
       </label>
 
       <label class="grid" for="inputExpiration">
-        <p class="text-left align-self-center mb-small">Expiration date</p>
+        <p class="text-left align-self-center mt-small">Expiration date</p>
         <input  data-type="integer" data-min="999" data-max="9999" type="text" name="inputExpiration" placeholder="Expiration date (format mmyy)" value="">
         <div class="errorMessage">Expiration date must be 4 digits</div>
       </label>

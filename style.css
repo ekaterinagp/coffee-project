@@ -2106,7 +2106,7 @@ input.type_cart_grind{
   transition: all 0.3s;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
-.paymentForm select{
+.choose-credit-card select{
   border-radius: 0;
   width:90%;
 }
