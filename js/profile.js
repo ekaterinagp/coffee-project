@@ -99,7 +99,6 @@ deleteSubscriptionBtn.forEach(deleteBtn=>{
         let text = "Are you sure you want to unsubscribe?";
         let deleteType = "subscription";
         let userSubscriptionID = deleteBtn.parentElement.parentElement.id;
-        console.log(deleteBtn.parentElement.id);
         showModal(text, deleteType, userSubscriptionID);       
     });   
 });

@@ -1491,11 +1491,16 @@ a {
 }
 
 .single-product .container-banner,
-.profile .related-products .container-banner, .noCart .container-banner {
+.profile .related-products .container-banner, .noCart .container-banner, .containerSignup .container-banner  {
   width: 100vw;
   z-index: -1;
+}
+
+.single-product .container-banner,
+.profile .related-products .container-banner, .noCart .container-banner{
   left: -8vw;
 }
+
 
 .single-product .container-banner{
   top: 14.5vw;
@@ -1503,6 +1508,10 @@ a {
 
 .profile .related-products .container-banner, .noCart .container-banner {
   top: 8vw;
+}
+
+.containerSignup .container-banner {
+  top: 4vw;
 }
 
 .profile .related-subscriptions .container-banner {
@@ -1927,7 +1936,7 @@ input:checked + .btnRadio {
   margin: auto;
 }
 #loginForm button {
-  margin: 2vh 0;
+  margin: 2vh auto;
 }
 /*   SIGNUP PAGE   */
 
