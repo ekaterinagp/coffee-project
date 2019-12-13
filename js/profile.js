@@ -28,7 +28,6 @@ function updateUser(){
     let inputPhoneNo = document.querySelector("[name=inputPhone]").value;
     let inputCity = document.querySelector("[name=cityInput]").value;
     let inputUsername = document.querySelector("[name=inputLoginName]").value;
-    // let inputPassword = document.querySelector("[name=inputPassword]").value;
 
     let formData = new FormData();
     formData.append('inputName', inputName);
@@ -38,7 +37,6 @@ function updateUser(){
     formData.append('inputPhone', inputPhoneNo);
     formData.append('cityInput', inputCity);
     formData.append('inputLoginName', inputUsername);
-    // formData.append('inputPassword', inputPassword);
 
     let endpoint = "api/api-update-profile.php";
 
@@ -66,23 +64,6 @@ function updateUser(){
         showNotification(text, responseClass);
     }
     });
-}
-
-// NOTIFICATIONS
-
-function showNotification(text, responseClass){
-    let notificationContainer = document.createElement("div");
-    notificationContainer.className = "notification-container grid justify-items-center align-items-center " + responseClass;
-
-    let textElement = document.createElement("p");
-    textElement.textContent = text;
-
-    notificationContainer.append(textElement);
-    document.querySelector('body').append(notificationContainer);
-
-    setTimeout(function(){
-        document.querySelector('.notification-container').remove();
-    }, 2100);
 }
 
 /////// DELETE FUNCTIONS

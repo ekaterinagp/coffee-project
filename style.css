@@ -857,6 +857,7 @@ a {
   text-decoration: underline;
 }
 .button {
+  text-align: center;
   display: grid;
   width: calc(5vw + 50%);
   padding: 1.5vw 0.2vw;
@@ -870,7 +871,7 @@ a {
   align-content: center;
   transition: all 0.3s;
   cursor: pointer;
-  border: solid 1px transparent;
+  border: solid 2px transparent;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
@@ -900,19 +901,19 @@ a {
 }
 
 .back-button:hover {
-  transform: scale(1.03);
+  /* transform: scale(1.03); */
   color: #000;
 }
 
 .button:hover {
-  transform: scale(1.03);
+  /* transform: scale(1.03); */
   background-color: #fff;
   color: #fb8b23;
   border: solid 2px orange;
 }
 
 .button:disabled:hover {
-  transform: scale(1);
+  /* transform: scale(1); */
   transform: none;
   border-color: transparent;
   color: white;
@@ -925,8 +926,8 @@ a {
 
 .notification-container {
   position: fixed;
-  bottom: -10vw;
-  left: 2vw;
+  top: 6.5vw;
+  right: 2vw;
   width: 20vw;
   height: 4vw;
   background-color: #f2f2f2;
@@ -1209,7 +1210,6 @@ a {
 } */
 
 .flipcontainer:hover {
-  /* transform: scale(0.01); */
   z-index: 2;
 }
 

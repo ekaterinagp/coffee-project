@@ -53,7 +53,7 @@ $statementRelatedProducts = $connection->prepare($sqlRelatedProducts);
                                 <div>
                                     <h1 class="productName mv-small text-left"><?= $product['cProductName']; ?></h1>
                                     <h2 class="coffee-type mv-small text-left light"><?= $product['cName']; ?></h2>
-                                    <p class="productPrice mv-small"><?= $product['nPrice']; ?> DKK</p>
+                                    <h4 class="productPrice mv-small"><?= $product['nPrice']; ?> DKK</h4>
                                     <p>A soft, velvety body highlights a soft citric acidity and pleasant sweetness, with notes of raspberry, orange and sugar cane.</p>
                                 </div>
                                 <div class="mv-small">
@@ -140,7 +140,7 @@ if ($statementRelatedProducts->execute($data)) {
                         <div class="description m-small">
                             <h3 class="productName mt-small text-left"><?= $product['cProductName']; ?></h3>
                             <h4 class="productName mt-small text-left">Origin: <?= $product['cName']; ?></h4>
-                            <p class="productPrice mt-small"><?= $product['nPrice']; ?> DKK</p>
+                            <h4 class="productPrice mt-small"><?= $product['nPrice']; ?> DKK</h4>
                         </div>
                     </div>
                 </a>

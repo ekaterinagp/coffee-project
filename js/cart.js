@@ -27,9 +27,11 @@ if (cart) {
 } else {
     emptyTotal();
 }
+
 if(cart.length ==0){
   displayGoBuyMessage();
 }
+
 function displayGoBuyMessage(){
   console.log("go buy");
   document.querySelector(".cartTotal").style.display = "none";
@@ -50,7 +52,7 @@ function removeItem(cartItemId) {
   if(cart.length==0){
     displayGoBuyMessage();    
   }
-console.log()
+// console.log()
   selectQ();
 }
 

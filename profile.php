@@ -414,6 +414,16 @@ if ($_SESSION) {
   </main>
   <script src="js/validation.js"></script>
 
+  $connection = null;
+  }
+  ;?>
+
+  </div>
+  </div>
+  </section>
+  </main>
+  <script src="js/validation.js"></script>
+
   <?php
   $sScriptPath = 'profile.js';
   require_once(__DIR__ . '/components/footer.php');
