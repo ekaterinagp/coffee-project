@@ -106,6 +106,7 @@ deleteSubscriptionBtn.forEach(deleteBtn=>{
 const deleteCardBtn = document.querySelector(".button-delete-card");
 
 deleteCardBtn.addEventListener("click", function(){
+    event.preventDefault();
     let text = "Are you sure you want to delete your credit card?";
     let deleteType = "creditcard";
     let creditCardID = document.querySelector('[name=userCreditCards]').value;
