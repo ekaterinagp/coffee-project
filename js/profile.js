@@ -3,7 +3,23 @@
 const editButton = document.querySelector('.button-edit');
 const saveButton = document.querySelector('.button-save');
 
+const inputName = document.querySelector("[name=inputName]");
+const inputLastName = document.querySelector("[name=inputLastName]");
+const inputEmail = document.querySelector("[name=inputEmail]");
+const inputAddress = document.querySelector("[name=inputAddress]");
+const inputPhoneNo = document.querySelector("[name=inputPhone]");
+const inputCity = document.querySelector("[name=cityInput]");
+const inputUsername = document.querySelector("[name=inputLoginName]");
+
 editButton.addEventListener('click', function(){
+    inputName.classList.remove('not-input');
+    inputLastName.classList.remove('not-input');
+    inputEmail.classList.remove('not-input');
+    inputAddress.classList.remove('not-input');
+    inputPhoneNo.classList.remove('not-input');
+    inputCity.classList.remove('not-input');
+    inputUsername.classList.remove('not-input');
+
     event.preventDefault();
     showSaveButton();
 });
@@ -21,23 +37,22 @@ function updateUser(){
     console.log('saved')
     event.preventDefault();
         
-    let inputName = document.querySelector("[name=inputName]").value;
-    let inputLastName = document.querySelector("[name=inputLastName]").value;
-    let inputEmail = document.querySelector("[name=inputEmail]").value;
-    let inputAddress = document.querySelector("[name=inputAddress]").value;
-    let inputPhoneNo = document.querySelector("[name=inputPhone]").value;
-    let inputCity = document.querySelector("[name=cityInput]").value;
-    let inputUsername = document.querySelector("[name=inputLoginName]").value;
-    // let inputPassword = document.querySelector("[name=inputPassword]").value;
+    let inputNameValue = inputName.value;
+    let inputLastNameValue = inputLastName.value;
+    let inputEmailValue = inputEmail.value;
+    let inputAddressValue = inputAddress.value;
+    let inputPhoneNoValue = inputPhoneNo.value;
+    let inputCityValue = inputCity.value;
+    let inputUsernameValue = inputUsername.value;
 
     let formData = new FormData();
-    formData.append('inputName', inputName);
-    formData.append('inputLastName', inputLastName);
-    formData.append('inputEmail', inputEmail);
-    formData.append('inputAddress', inputAddress);
-    formData.append('inputPhone', inputPhoneNo);
-    formData.append('cityInput', inputCity);
-    formData.append('inputLoginName', inputUsername);
+    formData.append('inputName', inputNameValue);
+    formData.append('inputLastName', inputLastNameValue);
+    formData.append('inputEmail', inputEmailValue);
+    formData.append('inputAddress', inputAddressValue);
+    formData.append('inputPhone', inputPhoneNoValue);
+    formData.append('cityInput', inputCityValue);
+    formData.append('inputLoginName', inputUsernameValue);
     // formData.append('inputPassword', inputPassword);
 
     let endpoint = "api/api-update-profile.php";
@@ -93,16 +108,16 @@ deleteSubscriptionBtn.forEach(deleteBtn=>{
     });   
 });
 
-const deleteCardBtns = document.querySelectorAll(".button-delete-card");
+const deleteCardBtn = document.querySelector(".button-delete-card");
 
-deleteCardBtns.forEach(deleteBtn=>{
-    deleteBtn.addEventListener("click", function(){
-        let text = "Are you sure you want to delete your credit card?";
-        let deleteType = "creditcard";
-        let creditCardID = deleteBtn.parentElement.id.substr(deleteBtn.parentElement.id.search("-")+1,deleteBtn.parentElement.id.length);
-        showModal(text, deleteType, creditCardID);
-    });
+deleteCardBtn.addEventListener("click", function(){
+    let text = "Are you sure you want to delete your credit card?";
+    let deleteType = "creditcard";
+    let creditCardID = document.querySelector('[name=userCreditCards]').value;
+    showModal(text, deleteType, creditCardID);
+    console.log(creditCardID);
 });
+
 
 const deleteProfileBtn = document.querySelector(".button-delete-profile");
 
@@ -181,7 +196,6 @@ function showModal(text, deleteType, itemID){
     });
 }
 
-
 function deleteSubscription(id){
     let endpoint = "api/api-delete-subscription.php"
     let formData = new FormData();
@@ -197,8 +211,8 @@ function deleteSubscription(id){
             let responseClass = "success";
             let text = "Your subscription has been cancelled";
             showNotification(text, responseClass);
-            document.getElementById("subscription-" + id).remove();
-
+            console.log(id);
+            document.getElementById(id).remove();
         }
         if (response == 0) {
             let responseClass = "fail";
@@ -224,7 +238,7 @@ function deleteCreditCard(id){
             let text = "Your creditcard has been removed";
             showNotification(text, responseClass);
 
-            document.getElementById("creditcard-" + id).remove();
+            document.getElementById(id).remove();
             }
             if (response == 0) {
             let responseClass = "fail";
@@ -318,41 +332,12 @@ function addCreditCard(){
             
             console.log('new creditcard added');
 
-                let creditCardContainer = document.createElement("div");
-                creditCardContainer.setAttribute("id", "creditcard-" + response)
-                creditCardContainer.classList.add("mb-medium", "mt-small"); 
+                let creditCardContainer = document.createElement("option");
+                creditCardContainer.setAttribute("id", response);
+                creditCardContainer.value = response;
+                creditCardContainer.innerText = IBAN;
 
-                let creditCardDescriptionContainer = document.createElement("div");
-                creditCardDescriptionContainer.classList.add("description");
-
-                let creditCardDetailsContainer = document.createElement("div");
-                creditCardDetailsContainer.classList.add("creditcard-details");
-
-                let h3IBAN = document.createElement("h3");
-                h3IBAN.classList.add("color-white");
-                h3IBAN.textContent = "IBAN";
-
-                let pIBAN = document.createElement("p");
-                pIBAN.classList.add("mv-small", "text-left", "color-white");
-                pIBAN.textContent = IBAN;
-
-                let h3Expiration = document.createElement("h3");
-                h3Expiration.classList.add("color-white");
-                h3Expiration.textContent = "Expiration";
-
-                let pExpiration = document.createElement("p");
-                pExpiration.classList.add("mv-small", "text-left", "color-white");
-                pExpiration.textContent = expiration;
-
-                let button = document.createElement("button");
-                button.classList.add("button-delete-card", "button");
-                button.textContent = "Delete creditcard";
-
-                creditCardDetailsContainer.append(h3IBAN, pIBAN, h3Expiration, pExpiration);
-                creditCardDescriptionContainer.append(creditCardDetailsContainer);
-                creditCardContainer.append(creditCardDescriptionContainer, button);
-
-                document.querySelector(".creditcard-info").appendChild(creditCardContainer);
+                document.querySelector("[name=userCreditCards]").appendChild(creditCardContainer);
             }
         });
     });

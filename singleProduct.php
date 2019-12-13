@@ -33,14 +33,6 @@ $statementRelatedProducts = $connection->prepare($sqlRelatedProducts);
         if ($statementSingleProduct->execute($data)) {
             $product = $statementSingleProduct->fetch(PDO::FETCH_ASSOC);
 
-            // foreach ($products as $product) {
-
-                // if ($product['bActive'] !== 0) {
-
-                    // $nProductID = $product['nProductID'];
-
-                    // if ($nProductID == $iProductID) {
-
                         $nCoffeeTypeID = $product['nCoffeeTypeID'];
 
                         $imgUrl = $product['cProductName'];
@@ -102,7 +94,7 @@ $statementRelatedProducts = $connection->prepare($sqlRelatedProducts);
                         </div>
     </section>
 
-    <section class="section-two grid mb-large ph-large pt-medium relative">
+    <section class="section-two grid mv-medium ph-large relative">
         <div class="relative">
             <h2 class="mb-medium">You might also like</h2>
             <h2 class="coffee-type text-left mb-medium"><?= $product['cName']; ?></h2>
@@ -110,9 +102,6 @@ $statementRelatedProducts = $connection->prepare($sqlRelatedProducts);
             <div class="products-container grid grid-four">
 
             <?php
-                        // }
-                    // }
-    // }
 }
     $data =[
         ':coffeeID' => $nCoffeeTypeID,
@@ -123,13 +112,6 @@ if ($statementRelatedProducts->execute($data)) {
         $products = $statementRelatedProducts->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($products as $product) {
-
-        // if ($product['bActive'] !== 0) {
-
-            // $nProductID = $product['nProductID'];
-            // $nRelatedProductCoffeeTypeID = $product['nCoffeeTypeID'];
-
-            // if ($nRelatedProductCoffeeTypeID == $nCoffeeTypeID && $nProductID != $iProductID) {
 
         $imgUrl = $product['cProductName'];
         $result = strtolower(str_replace(" ", "-", $imgUrl));?>
@@ -144,12 +126,9 @@ if ($statementRelatedProducts->execute($data)) {
                         </div>
                     </div>
                 </a>
-                <?php
-            // }
-        // }
+<?php
     }
 }
-
 $connection = null;
 ?>
             </div>

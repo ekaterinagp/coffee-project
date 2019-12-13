@@ -109,7 +109,7 @@ require_once(__DIR__ . '/components/header.php');
                     <div class="image bg-contain" style="background-image: url(img/products/' . $result . '.png)"></div>
                     <div class="description m-small">
                         <h3 class="productName mt-small text-left">' . $product['cProductName'] . '</h3>
-                        <h4 class="productName mt-small text-left">Origin: ' . $product['cName'] . '</h4>
+                        <h4 class="productCoffeeType mt-small text-left">Origin: ' . $product['cName'] . '</h4>
                     <h4 class="productPrice mt-small">' . $product['nPrice'] . ' DKK</h4>
                     </div>
                 </div>
@@ -128,8 +128,8 @@ require_once(__DIR__ . '/components/header.php');
                         <div class="image bg-contain"></div>
                         <div class="description m-small">
                             <h3 class="productName mt-small text-left"></h3>
-                            <h4 class="productName mt-small text-left"></h4>
-                            <p class="productPrice mt-small"></p>
+                            <h4 class="productCoffeeType mt-small text-left"></h4>
+                            <h4 class="productPrice mt-small"></h4>
                         </div>
 
                     </div>

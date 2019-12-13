@@ -42,7 +42,7 @@ if($statementCreditCard->execute([':id' => $nUserID])){
       $userCreditCards = $statementCreditCard->fetchAll(PDO::FETCH_ASSOC);
       $connection = null;
       if($userCreditCards>=1){?>
-      <label><p class="text-left align-self-center mv-small">Choose from your saved credit cards</p>
+      <label><p class="text-left align-self-center pt-small">Your saved credit cards</p>
       <select name="userCreditCards" id="">
       <?php
       foreach($userCreditCards as $userCreditCard){
