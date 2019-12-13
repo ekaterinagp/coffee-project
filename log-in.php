@@ -11,7 +11,7 @@ if ($_SESSION) {
 }
 
 ?>
-<section class="containerSignup  grid grid-two">
+<section class="containerSignup grid grid-two">
   <div class="loginWelcome m-medium pb-medium bg-grey">
     <div class="signupBg "></div>
 

@@ -522,9 +522,9 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
   margin-top: 8vw;
   margin-bottom: 8vw;
 }
-/* .mb-large {
+.mb-large {
   margin-bottom: 8vw;
-} */
+}
 .mt-large {
   margin-top: 8vw;
 }
@@ -631,6 +631,17 @@ input[type="password"],
 input[type="number"],
 select {
   font-size: calc(0.6vw + 45%);
+}
+
+input[type="text"].not-input, 
+input[type="email"].not-input, 
+input[type="password"].not-input, 
+input[type="number"].not-input, 
+select.not-input{
+  background: transparent;
+  color: white;
+  padding: 0;
+  -webkit-appearance: none;
 }
 
 h2.banner-message {
@@ -861,7 +872,7 @@ a {
   display: grid;
   width: calc(5vw + 50%);
   padding: 1.5vw 0.2vw;
-  font-weight: 900;
+  font-weight: 300;
   color: #fff;
   background-color: #fb8b23;
   text-transform: uppercase;
@@ -884,8 +895,12 @@ a {
   text-decoration: underline;
 }
 
-.button-delete-profile {
+.button-delete-profile, .button-delete-card, .button-delete {
   background-color: #000;
+}
+
+.button-delete-card{
+  width: 100%;
 }
 
 .subscriptionItem .button-delete,
@@ -1403,7 +1418,7 @@ a {
 
 .shop .products-container,
 .single-product .products-container,
-.profile .products-container {
+.profile .products-container, .creditcard-info  {
   grid-gap: 1vw;
 }
 
@@ -1493,7 +1508,7 @@ a {
 .single-product .description,
 .profile .description,
 .profile .section-one,
-.current-subscriptions {
+.current-subscriptions{
   grid-gap: 2vw;
 }
 
@@ -1572,7 +1587,6 @@ a {
 #form-creditcard input,
 #form-creditcard select {
   border-radius: 0;
-  padding: 1vw;
   margin-top: 0.5vh;
 }
 
@@ -1598,10 +1612,6 @@ a {
   grid-auto-rows: 2;
   grid-column: 2;
 }
-
-/* .section-two {
-  grid-gap: 2vh;
-} */
 
 /***** SUBSCRIBE PAGE *****/
 
@@ -1663,7 +1673,7 @@ a {
 }
 .subscriptionItemBg {
   padding: 1em;
-  min-height: 27vw;
+  min-height: 20vw;
 }
 .subscriptionItem:nth-child(1) .subscriptionItemBg {
   background-color: #d8b69c;
@@ -1699,6 +1709,7 @@ a {
   text-align: right;
   color: #000;
   padding-bottom: 0;
+  font-weight: 900;
 }
 .containerForSubscriptions {
   max-width: 100vw;
@@ -1971,7 +1982,6 @@ input[type="email"],
 input[type="password"],
 input[type="number"],
 select {
-  /* width: 100%; */
   border: 0;
   border-radius: 5px;
   height: 35px;
@@ -1991,6 +2001,7 @@ input[type="number"].valid {
   background-repeat: no-repeat;
   background-position: 5px 6px;
 }
+
 input[type="text"]:valid + label,
 input[type="email"]:valid + label,
 input[type="password"]:valid + label,
