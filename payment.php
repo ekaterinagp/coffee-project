@@ -3,18 +3,19 @@ $sTitle = ' | Payment';
 $sCurrentPage = 'payment';
 require_once(__DIR__ . '/components/functions.php');
 require_once(__DIR__.'/components/header.php');
-require_once(__DIR__ . '/connection.php');
-
-$sql = "SELECT * FROM tCreditCard WHERE tCreditCard.nUserID = :id";
-$statementCreditCard = $connection->prepare($sql);
-
-if($_SESSION){
-  $nUserID= $_SESSION['user']['nUserID'];
-}
 
 if(!$_SESSION){
   header('Location: cart');
   exit;
+}
+
+if($_SESSION){
+  $nUserID= $_SESSION['user']['nUserID'];
+
+  require_once(__DIR__ . '/connection.php');
+
+  $sql = "SELECT * FROM tCreditCard WHERE tCreditCard.nUserID = :id";
+  $statementCreditCard = $connection->prepare($sql);
 }
 
 ?>
@@ -39,9 +40,10 @@ if(!$_SESSION){
 
 if($statementCreditCard->execute([':id' => $nUserID])){
       $userCreditCards = $statementCreditCard->fetchAll(PDO::FETCH_ASSOC);
-      if($userCreditCards>=1){
-    ?><label><p class="text-left align-self-center mv-small">Choose from your saved credit cards</p>
-    <select name="userCreditCards" id="">
+      $connection = null;
+      if($userCreditCards>=1){?>
+      <label><p class="text-left align-self-center mv-small">Choose from your saved credit cards</p>
+      <select name="userCreditCards" id="">
       <?php
       foreach($userCreditCards as $userCreditCard){
       if(!isset($userCreditCard['dDeleteCreditCard'])){

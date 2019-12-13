@@ -27,6 +27,7 @@ h2 {
 
 header .logo {
   width: 10vw;
+  height: 3vw;
 }
 
 .image {
@@ -48,11 +49,14 @@ svg {
 }
 
 .list {
-  padding: 1em 0 2em 3em;
+  /* padding: 1em 0 2em 3em; */
   color: white;
   display: grid;
+  justify-content: center;
+  align-content: center;
   grid-template-rows: 2fr 2fr 2fr 2fr;
   grid-gap: 1em;
+  height: 80%;
 }
 
 .list1 {
@@ -62,7 +66,6 @@ svg {
   grid-template-rows: 2fr 2fr 2fr;
   grid-gap: 1em;
 }
-
 .list li {
   margin: 0;
   padding: 3vw 0 3vw 6vw;
@@ -449,7 +452,7 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
 }
 
 .pl-xlarge {
-  padding-left: 3vw;
+  padding-left: 12vw;
 }
 
 .m-small {
@@ -464,7 +467,7 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
   margin-bottom: 1vw;
 }
 .mb-small {
-  padding-top: 3em;
+  margin-bottom: 1vw;
 }
 .mt-small {
   margin-top: 1vw;
@@ -569,37 +572,66 @@ h1 {
 }
 
 h3,
-h5,
-.step-no .no,
-.frontpage h3 {
-  padding-bottom: 2vw;
-}
-
-h3,
 h4,
 button,
 .checkmark {
   font-family: "Lato", sans-serif;
   font-weight: 300;
   color: #000;
-  /* text-transform: uppercase; */
   text-align: center;
-  padding-bottom: 2vw;
+  padding-bottom: 1vw;
 }
 
-a p {
+h4,
+button,
+.checkmark {
+  text-transform: uppercase;
+}
+
+.deskmenu a {
   font-family: "Lato", sans-serif;
   font-weight: 300;
   text-transform: uppercase;
 }
 
-h5 {
-  padding-bottom: 0.5vw;
-  font-size: 1.2em;
+h1 {
+  font-size: calc(2.5vw + 30%);
 }
 
-p {
-  font-size: calc(1em + 10%);
+h2 {
+  font-size: calc(1.5vw + 45%);
+}
+
+h3 {
+  font-size: calc(1vw + 45%);
+}
+
+h4 {
+  font-size: calc(0.8vw + 45%);
+}
+
+h5,
+button {
+  padding-bottom: 0.5vw;
+  font-size: calc(0.6vw + 45%);
+}
+
+p,
+input::placeholder,
+select > option,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select {
+  font-size: calc(0.6vw + 45%);
+}
+
+h2.banner-message {
+  font-weight: 300;
+  text-transform: inherit;
+  text-align: left;
+  font-size: calc(1vw + 45%);
 }
 
 body {
@@ -652,22 +684,27 @@ select {
   background-color: #815946;
 }
 
+.colorBlock,
+.colorBlock1 {
+  display: grid;
+  align-items: center;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.16), 0 10px 10px rgba(0, 0, 0, 0.23);
+}
+
 .colorBlock {
   width: 350px;
-  height: 400px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.16), 0 10px 10px rgba(0, 0, 0, 0.23);
+}
+
+.colorBlock1 {
+  width: 350px;
+  justify-self: end;
+  align-self: center;
 }
 
 #btnInside {
   float: left;
   margin-top: 15px;
-}
-
-.colorBlock1 {
-  width: 350px;
-  height: 500px;
-  justify-self: end;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.16), 0 10px 10px rgba(0, 0, 0, 0.23);
 }
 
 .cupImage {
@@ -741,18 +778,6 @@ a {
   color: #fb8b23;
 }
 
-.logo {
-  background-image: url(img/the-proper-pour-logo.svg);
-  color: transparent;
-  /* height: 45%; */
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.logo h1 {
-  color: transparent;
-}
-
 .menu-icon {
   color: transparent;
   height: 100%;
@@ -811,6 +836,7 @@ footer svg {
 
 a {
   color: black;
+  cursor: pointer;
 }
 .link {
   display: block;
@@ -818,12 +844,9 @@ a {
   text-decoration: underline;
 }
 .button {
-  text-align: center;
-  width: 13vw;
-  text-align: center;
   display: grid;
+  width: calc(5vw + 50%);
   padding: 1.5vw 0.2vw;
-  font-size: calc(0.8em + 10%);
   font-weight: 300;
   color: #fff;
   background-color: #fb8b23;
@@ -831,12 +854,41 @@ a {
   border: none;
   max-width: 18vw;
   line-height: 20%;
-  margin-top: 0.5vh;
   align-content: center;
   transition: all 0.3s;
   cursor: pointer;
   border: solid 1px transparent;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.back-button {
+  position: absolute;
+  border: none;
+  left: 2vw;
+  top: 6vw;
+  transition: all 0.3s;
+  text-decoration: underline;
+}
+
+.button-delete-profile {
+  background-color: #000;
+}
+
+.subscriptionItem .button-delete,
+.profile-details .button-add {
+  margin: 2vw auto;
+}
+
+.modal .button {
+  margin: auto;
+}
+.button-confirm-delete {
+  background-color: red;
+}
+
+.back-button:hover {
+  transform: scale(1.03);
+  color: #000;
 }
 
 .button:hover {
@@ -932,17 +984,28 @@ a {
 .modalContainer h3 {
   grid-column: 1/-1;
 }
-.modal .button {
-  margin: auto;
-}
-.button-confirm-delete {
-  background-color: red;
-}
 
 /***** FRONTPAGE *****/
+.frontpage .section-one {
+  min-height: 85vh;
+}
 
-.frontpage .section-one .logo {
+.frontpage .banner-text-container,
+.container-banner .content-container {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.logo {
+  background-image: url(img/the-proper-pour-logo.svg);
+  color: transparent;
   height: 7vw;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.logo h1 {
+  color: transparent;
 }
 
 .frontpage .section-two .image {
@@ -950,8 +1013,9 @@ a {
   height: 100%;
 }
 
-.list h5 {
+.list h4 {
   text-align: left;
+  font-weight: bold;
 }
 
 .frontpage .section-three .step {
@@ -999,12 +1063,6 @@ a {
 
 .frontpage .section-four .image {
   background-image: url(img/coffee-cup-splashing.png);
-  /* height: 135%;
-  top: -3vw; */
-}
-
-.paddingTop {
-  padding-top: 1em;
 }
 
 .positionOnFlipper {
@@ -1094,15 +1152,15 @@ a {
   height: 35vw;
 }
 
-.section-five .masonry .item h5 {
+.section-five .masonry .item h4 {
   top: -3vw;
 }
 
-.section-five .masonry .item.two h5 {
+.section-five .masonry .item.two h4 {
   top: 0vw;
 }
 
-.section-five .masonry .item.six h5 {
+.section-five .masonry .item.six h4 {
   top: -20vw;
 }
 
@@ -1237,12 +1295,25 @@ a {
   justify-self: center;
 }
 
-.shop .section-one .image {
+.container-banner {
+  margin-top: 2vw;
+}
+
+.container-banner .image {
+  right: 0vw;
+  height: 20vw;
+}
+
+.shop .container-banner .image {
   background-image: url(img/caffe-latte-with-saucer.png);
-  height: 30vh;
-  width: 50%;
-  top: 6vw;
-  right: -30vw;
+  width: 25vw;
+  top: -4.5vw;
+}
+
+.subscribeBanner .image.bg-contain.absolute {
+  background-image: url(img/coffee-beans.png);
+  width: 26vw;
+  top: -6vw;
 }
 
 .filter {
@@ -1307,29 +1378,22 @@ a {
   text-align: left;
 }
 
+.shop .products-container .image {
+  margin: 0 auto;
+}
+
 .shop .products-container,
 .single-product .products-container,
 .profile .products-container {
   grid-gap: 1vw;
 }
 
-.back-button {
-  cursor: pointer;
-  font-size: 150%;
-  left: 5vw;
-  top: 11vh;
-  transition: all 0.3s;
-  text-decoration: underline;
-}
-.back-button:hover {
-  transform: scale(1.3);
-}
 .shop .product,
 .single-product .product,
 .profile .product,
 .current-subscriptions .product-info-container,
 .cartDiv {
-  height: 25vw;
+  height: 30vw;
   border: solid 0.1px #00000045;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   transition: 0.2s ease-in-out;
@@ -1355,8 +1419,7 @@ a {
 .single-product h3,
 .single-product .product h4,
 .profile-details h3,
-.profile .product h3,
-.profile .product h4 {
+.profile .product h3 {
   padding: 0;
   text-align: left;
 }
@@ -1368,11 +1431,11 @@ a {
 #addToCartBtn {
   margin: 3vh auto 0;
 }
-
+/* 
 .single-product .section-one {
   margin-top: 130px;
   height: 30vw;
-}
+} */
 
 .single-product .image {
   background-position: left;
@@ -1383,8 +1446,9 @@ a {
   text-align: left;
 }
 .container-banner {
-  height: 20vh;
+  height: 15vw;
 }
+
 .single-product .container-banner,
 .profile .related-products .container-banner,
 .profile .related-subscriptions .container-banner {
@@ -1480,9 +1544,10 @@ a {
   margin-top: 0.5vh;
 }
 
-input::placeholder,
-select > option {
-  text-transform: uppercase;
+#form-creditcard {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s;
 }
 
 .hide-button {
@@ -1504,10 +1569,6 @@ select > option {
 
 .section-two {
   grid-gap: 2vh;
-}
-
-.button-delete-profile {
-  background-color: #000;
 }
 
 /***** SUBSCRIBE PAGE *****/
@@ -1541,33 +1602,36 @@ select > option {
   left: 3.5vw;
   font-size: calc(6vw + 10%);
 }
-.subscriptionItem h2 {
+/* .subscriptionItem h2 {
   color: white;
   height: 8vh;
   font-size: 1em;
   padding-top: 2vw;
+} */
+.subscriptionItem h3,
+.subscriptionItem h4 {
+  color: #fff;
+  text-transform: uppercase;
 }
 
 .subscriptionItem h3 {
-  color: #fff;
-  height: 8vh;
-  font-size: 1em;
-  text-transform: uppercase;
-  padding-top: 3vw;
+  font-weight: 900;
+  padding: 1vw 4vw;
 }
 
-.subscriptionItem h3.priceSubscription {
-  color: black;
+.subscriptionItem h4 {
+  font-weight: 100;
 }
 
 .subscriptionItem img {
   width: auto;
-  height: 30vh;
+  height: 14vw;
   margin: auto;
   display: block;
 }
 .subscriptionItemBg {
   padding: 1em;
+  min-height: 27vw;
 }
 .subscriptionItem:nth-child(1) .subscriptionItemBg {
   background-color: #d8b69c;
@@ -1590,7 +1654,7 @@ select > option {
 }
 .subscriptionItem .addSubToCartBtn {
   text-align: center;
-  margin: 1.5vh auto;
+  margin: 2.5vh auto;
   visibility: hidden;
   transition: none;
 }
@@ -1598,7 +1662,8 @@ select > option {
   padding: 1em 1em 0;
   color: black;
 }
-.priceSubscription {
+.subscriptionItem .priceSubscription,
+.product .priceProduct {
   text-align: right;
   color: #000;
   padding-bottom: 0;
@@ -1636,6 +1701,10 @@ select > option {
 .smallerFrm {
   width: 50vw;
   margin: auto;
+}
+.btnRadio.noGrid {
+  grid-template-columns: 1fr;
+  height: 20vh;
 }
 #timeline {
   text-align: right;
@@ -1742,13 +1811,11 @@ input:checked + .btnRadio {
 
 .textBtns .btnRadio {
   display: block;
-  height: 21vh;
+  height: 25vh;
   width: 23em;
 }
 
 .imgResults {
-  width: auto;
-  height: 300px;
   margin: 1vh auto;
 }
 .testResults h4,

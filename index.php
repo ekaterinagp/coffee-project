@@ -6,65 +6,68 @@ require_once(__DIR__ . '/components/header.php');
 
 <main class="frontpage">
 
-    <section class="section-one grid grid-almost-two mb-large">
-        <div class=" align-items-center pv-large pl-xlarge pr-medium">
-            <!-- <div class="logo bg-contain align-self-bottom mb-small">
-                <h1>Welcome</h1>
-            </div> -->
-            <div class="logo"></div>
+    <section class="section-one grid grid-almost-two mb-medium">
+        <div class="align-items-center pl-xlarge relative">
+            <div class="banner-text-container absolute">
+                <div class="logo">
+                    <h1>Welcome</h1>
+                </div>
+                <h2 class="banner-message align-self-top pt-small pb-medium pr-large">
+                    Enhance your everyday coffee experience with a coffee subscription tailored to your taste or discover a world of coffee and let us surprise you!
+                </h2>
 
-            <p class="align-self-top mt-small mb-medium">
-                Enhance your everyday coffee experience with a coffee subscription tailored to your taste or discover a world of coffee and let us surprise you!
-            </p>
-            <a href="subscribe">
-                <button= class="button">Subscribe </button>
-            </a>
+                <a href="subscribe">
+                    <button class="button">Subscribe </button>
+                </a>
+            </div>
         </div>
         <div class="gridForAboveTheFold">
             <div class=" image-container bg-light-brown box1">
                 <div class="image bg-contain img1"></div>
             </div>
-            <div class=" image-container bg-brown box2">
+            <div class="image-container bg-brown box2">
                 <div class="image bg-contain img2"></div>
             </div>
-            <div class=" image-container bg-medium-light-brown box3">
+            <div class="image-container bg-medium-light-brown box3">
                 <div class="image bg-contain img3"></div>
             </div>
-            <div class=" image-container bg-dark-brown box4">
+            <div class="image-container bg-dark-brown box4">
                 <div class="image bg-contain img4"></div>
             </div>
         </div>
     </section>
 
-    <section class="section-two grid mb-large">
+    <section class="section-two grid mv-medium">
         <h2 class="mb-small">What you get</h2>
-        <p class="alignTextCenter">We make sure you get everything you wish for and more </p>
+        <h3 class="">We make sure you get everything you wish for and more </h3>
         <div class="grid grid-two-thirds-reversed container ph-xlarge">
             <div class="image bg-contain"></div>
             <div class="bg-brown colorBlock">
 
-                <div class="list align-items-center">
+                <div class="list p-medium">
                     <div>
-                        <h5 class="color-white">COFFEE</h5>
+                        <h4 class="color-white">COFFEE</h4>
                         <p>Your handpick selection of coffee</p>
                     </div>
                     <div>
-                        <h5 class="color-white">TIPS</h5>
+                        <h4 class="color-white">TIPS</h4>
                         <p>Tasting notes and brewering tips</p>
                     </div>
                     <div>
-                        <h5 class="color-white">EXPERIENCE</h5>
+                        <h4 class="color-white">EXPERIENCE</h4>
                         <p>Coffee tailormade to your taste everyday</p>
                     </div>
-                    <a href="subscribe" class="button">Subscribe</a>
+                    <a href="subscribe">
+                        <button class="button">Subscribe </button>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section-three grid mb-large">
+    <section class="section-three grid mv-medium">
         <h2 class="mb-small">How it works</h2>
-        <p class="alignTextCenter paddingTop">Enhancing your everyday coffee experience has never been easier</p>
+        <h3 class="">Enhancing your everyday coffee experience has never been easier</h3>
         <div class="grid grid-three container">
             <div class="flipcontainer  one grid" ontouchstart="this.classList.toggle('hover');">
                 <div class="flipper">
@@ -127,29 +130,31 @@ require_once(__DIR__ . '/components/header.php');
                 </div>
             </div>
         </div>
-        <a href="subscribe" class="button margin-auto mt-medium">SUBSCRIBE</a>
+        <a href="subscribe">
+            <button class="button margin-auto">SUBSCRIBE </button>
+        </a>
     </section>
 
-    <section class="section-four grid mb-large">
+    <section class="section-four grid mv-medium">
         <h2 class="mb-small">Why choose The Proper Pour</h2>
-        <p class="alignTextCenter ">Get ready to have all your expectations met</p>
+        <h3 class="alignTextCenter ">Get ready to have all your expectations met</h3>
         <div class="grid grid-two container ph-xlarge">
             <div class="colorBlock1 bg-medium-light-brown">
-                <div class="list1">
+                <div class="list1 list p-medium">
                     <div>
-                        <h5>No binding</h5>
+                        <h4 class="color-white">No binding</h4>
                         <p>You can stop your subscription anytime</p>
                     </div>
                     <div>
-                        <h5>Tailormade taste</h5>
+                        <h4 class="color-white">Tailormade taste</h4>
                         <p>Designed test helps you to choose the right coffee for you</p>
                     </div>
                     <div>
-                        <h5>Coffee discount</h5>
+                        <h4 class="color-white">Coffee discount</h4>
                         <p>Our subscribers have 10% discount for all coffee in our webshop</p>
                     </div>
                     <div>
-                        <h5>Free delivery</h5>
+                        <h4 class="color-white">Free delivery</h4>
                         <p>Delivery is always included in the price</p>
                         <!-- <a href="subscribe"><button class="button margin-auto mt-large" id="btnInside">SUBSCRIBE </button></a> -->
                     </div>
@@ -163,7 +168,7 @@ require_once(__DIR__ . '/components/header.php');
 
     </section>
 
-    <section class="section-five grid mb-large">
+    <section class="section-five grid mt-medium">
         <h2 class="mb-small">Enhance your experience</h2>
         <h3>Tips and tricks to make your best cup of coffee</h3>
         <div class="grid grid-four container masonry">
@@ -171,7 +176,7 @@ require_once(__DIR__ . '/components/header.php');
                 <div class="flipper">
                     <div class="front bg-dark-brown">
                         <div class="image bg-contain"></div>
-                        <h5 class="color-white relative text-center positionOnFlipper">How to choose coffee</h5>
+                        <h4 class="color-white relative text-center positionOnFlipper">How to choose coffee</h4>
                     </div>
                     <div class="back p-medium ">
 
@@ -191,7 +196,7 @@ require_once(__DIR__ . '/components/header.php');
                 <div class="flipper">
                     <div class="front bg-for-how">
                         <div class="image bg-contain"></div>
-                        <h5 class="color-white  relative positionOnFlipper">How to brew coffee</h5>
+                        <h4 class="color-white  relative positionOnFlipper">How to brew coffee</h4>
                     </div>
                     <div class="back p-medium">
                         <p class="p-smallest">Make sure that <strong>your tools are cleaned and rinsed </strong> hot water. It’s important to check that no grounds have been left to collect and that there’s no build-up of coffee, which can make future cups of coffee taste bitter and rancid.</p>
@@ -207,7 +212,7 @@ require_once(__DIR__ . '/components/header.php');
                 <div class="flipper">
                     <div class="front bg-medium-light-brown">
                         <div class="image bg-contain"></div>
-                        <h5 class="color-white relative positionOnFlipper">Christmas coffee</h5>
+                        <h4 class="color-white relative positionOnFlipper">Christmas coffee</h4>
                     </div>
                     <div class="back p-medium">
                         <p class="p-smallest">With Christmas around the corner, remember to add it also to your coffee!</p>
@@ -219,7 +224,7 @@ require_once(__DIR__ . '/components/header.php');
                 <div class="flipper">
                     <div class="front bg-for-how">
                         <div class="image bg-contain relative"></div>
-                        <h5 class="color-white  relative positionOnFlipper">4 Tips for Serving Good Coffee for a Crowd</h5>
+                        <h4 class="color-white  relative positionOnFlipper">4 Tips for Serving Good Coffee for a Crowd</h4>
                     </div>
                     <div class="back p-medium">
                         <p class="p-smallest"><strong>Buy good beans</strong>
@@ -238,7 +243,7 @@ require_once(__DIR__ . '/components/header.php');
                 <div class="flipper">
                     <div class="front bg-medium-light-brown">
                         <div class="image bg-contain"></div>
-                        <h5 class="color-white  relative positionOnFlipper">Best coffee equipment <br> Our choice in 2019</h5>
+                        <h4 class="color-white  relative positionOnFlipper">Best coffee equipment <br> Our choice in 2019</h4>
                     </div>
                     <div class="back p-medium">
                         <p class="p-smallest"> <strong>Home Coffee Grinder </strong> has easily adjustable grind settings, a solid burr set, good solid construction, and overall value for the money.</p>
@@ -253,7 +258,7 @@ require_once(__DIR__ . '/components/header.php');
                 <div class="flipper">
                     <div class="front bg-dark-brown">
                         <div class="image bg-contain"></div>
-                        <h5 class="color-white relative positionOnFlipper">3 ways to be a more sustainable coffee drinker</h5>
+                        <h4 class="color-white relative positionOnFlipper">3 ways to be a more sustainable coffee drinker</h4>
                     </div>
                     <div class="back p-medium">
                         <p class="p-smallest">Look for <strong>brands that support of sustainable coffee producers and environment </strong>. (All our brands are sustainable!)</p>

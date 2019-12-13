@@ -156,7 +156,7 @@ const questions = [
         let nameInput = document.createElement("h2");
         let description = document.createElement("p");
         nameInput.style.display = "inline";
-        divWrapperP.setAttribute("class", "btnRadio bigger");
+        divWrapperP.setAttribute("class", "btnRadio noGrid");
         nameInput.innerHTML = value.title;
         description.textContent = value.desc;
 
@@ -372,7 +372,7 @@ const questions = [
       let divForResults = document.createElement("div");
       // form.setAttribute("class", "gridWith2columns");
       // form.setAttribute("class", "listenTo");
-      divForResults.className = "testResults grid grid-two";
+      divForResults.className = "testResults grid grid-two-thirds p-medium";
       let img = document.createElement("img");
       img.setAttribute("class", "imgResults");
       img.setAttribute("src", "img/products/" + randomChoice.img);
