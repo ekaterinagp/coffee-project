@@ -47,7 +47,7 @@ require_once(__DIR__ . '/connection.php');
 
     <section class="section-three mb-large ph-large pt-medium">
       <div class="related-products relative">
-        <h2 class="coffee-type mb-medium">Discover our products</h2>
+        <h2 class="coffee-type mb-medium">Discover a world of qualitfy coffee</h2>
         <div class="container-banner absolute pv-large bg-medium-light-brown"></div>
         <div class="products-container grid grid-four">
 
@@ -71,7 +71,7 @@ require_once(__DIR__ . '/connection.php');
                  <div class="image bg-contain" style="background-image: url(img/products/'.$result.'.png)"></div>
                  <div class="description m-small">
                      <h3 class="productName mt-small text-left">'.$jProduct['cProductName'].'</h3>
-                     <h4 class="productName mt-small text-left">Origin: '.$jProduct['cName'].'</h4>
+                     <h4 class="productName mt-small text-left">'.$jProduct['cName'].'</h4>
                      <h4 class="productPrice mt-small">'.$jProduct['nPrice'].' DKK</h4>
                  </div>
              </div>

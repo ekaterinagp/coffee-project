@@ -204,40 +204,8 @@ if ($_SESSION) {
         <?php
           if ($statementUserSubscription->execute([':id' => $nUserID])) {
             $jUserSubscriptions = $statementUserSubscription->fetchAll(PDO::FETCH_ASSOC);
-            if($jUserSubscriptions == '[]'){?>
-
-        <h2 class="mb-small">Get quality coffee right to your doorstep</h2>
-        <h3 class="">Discover our delicious and convenient coffee subscriptions</h3>
-        <div class="current-subscriptions containerForSubscriptions grid grid-three m-medium">
-              <?php
-              if ($statementSubscriptions->execute()) {
-                $jSubscriptions = $statementSubscriptions->fetchAll(PDO::FETCH_ASSOC);
-
-                foreach ($jSubscriptions as $jSubscription) {
-
-                $nProductID = $jSubscription['nProductID'];
-                $nCoffeeTypeID = $jSubscription['nCoffeeTypeID'];
-                $nSubscriptionTypeID = $jSubscription['nSubscriptionTypeID'];
-                $imgUrl = $jSubscription['cProductName'];
-                $result = strtolower(str_replace(" ", "-", $imgUrl)); ?>
-
-                <div class="subscriptionItem" id="<?= $jSubscription['nSubscriptionID']; ?>">
-                  <div class="subscriptionItemBg">
-                    <img src="img/products/<?= $result; ?>.png" alt="">
-                    <h3><?= $jSubscription['cSubscriptionName']; ?></h3>
-                    <h4><?= $jSubscription['cName']; ?></h4>
-                  </div>
-                  <div class="white-text-bg">
-                    <button class="button button-delete">Cancel subscription</button>
-                  </div>
-              </div>
-
-              <?php
-              }
-              }
-            }
            
-            else if (count($jUserSubscriptions) >= 1) {?>
+            if (count($jUserSubscriptions) >= 1) {?>
             <h2 class=" text-left mb-medium">Your current subscriptions</h2>
             <div class="current-subscriptions containerForSubscriptions  grid grid-three m-medium">
 
@@ -264,6 +232,38 @@ if ($_SESSION) {
         <?php
               }
             }
+            else{?>
+
+              <h2 class="mb-small">Get quality coffee right to your doorstep</h2>
+              <h3 class="">Discover our delicious and convenient coffee subscriptions</h3>
+              <div class="current-subscriptions containerForSubscriptions grid grid-three m-medium">
+                    <?php
+                    if ($statementSubscriptions->execute()) {
+                      $jSubscriptions = $statementSubscriptions->fetchAll(PDO::FETCH_ASSOC);
+      
+                      foreach ($jSubscriptions as $jSubscription) {
+      
+                      $nProductID = $jSubscription['nProductID'];
+                      $nCoffeeTypeID = $jSubscription['nCoffeeTypeID'];
+                      $nSubscriptionTypeID = $jSubscription['nSubscriptionTypeID'];
+                      $imgUrl = $jSubscription['cProductName'];
+                      $result = strtolower(str_replace(" ", "-", $imgUrl)); ?>
+      
+                      <div class="subscriptionItem" id="<?= $jSubscription['nSubscriptionID']; ?>">
+                        <div class="subscriptionItemBg">
+                          <img src="img/products/<?= $result; ?>.png" alt="">
+                          <h3><?= $jSubscription['cSubscriptionName']; ?></h3>
+                          <h4><?= $jSubscription['cName']; ?></h4>
+                        </div>
+                        <div class="white-text-bg">
+                          <button class="button button-delete">Cancel subscription</button>
+                        </div>
+                    </div>
+      
+                    <?php
+                    }
+                    }
+                  }
           }
           ?>
       </div>
@@ -292,7 +292,7 @@ if ($_SESSION) {
                          <div class="image bg-contain" style="background-image: url(img/products/'.$result.'.png)"></div>
                          <div class="description m-small">
                              <h3 class="productName mt-small text-left">'.$jProduct['cProductName'].'</h3>
-                             <h4 class="productName mt-small text-left">Origin: '.$jProduct['cName'].'</h4>
+                             <h4 class="productName mt-small text-left">'.$jProduct['cName'].'</h4>
                              <h4 class="productPrice mt-small">'.$jProduct['nPrice'].' DKK</h4>
                          </div>
                      </div>
