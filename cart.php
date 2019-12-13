@@ -45,7 +45,7 @@ require_once(__DIR__ . '/components/header.php');
   </div>
   </div>
   <div class="noCart">
-    <h1 class="mt-large text-center"> Your cart seems to be empty</h1>
+    <h2 class="mt-large text-center"> Your cart seems to be empty</h2>
     <a href="shop" class="link text-center m-medium">Check out our Coffee products</a>
     <a href="subscribe" class="link text-center m-medium">Check out our Subscription options</a>
   </div>

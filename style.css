@@ -567,7 +567,8 @@ h5 a,
 .product h3,
 .filter h3,
 .testResults h3,
-.profile-details h3 {
+.profile-details h3,
+.subscriptionItem h3 {
   font-family: "Lato", sans-serif;
   font-weight: 900;
   text-transform: uppercase;
@@ -589,7 +590,7 @@ button,
   padding-bottom: 1vw;
 }
 
-h4,
+
 button,
 .checkmark {
   text-transform: uppercase;
@@ -708,25 +709,21 @@ select {
 
 .colorBlock,
 .colorBlock1 {
-  margin-top:-5%;
+  
+  width: 350px;
+  height: 450px;
   display: grid;
   align-items: center;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.16), 0 10px 10px rgba(0, 0, 0, 0.23);
+  background:white;
 }
 
-.colorBlock {
-  width: 350px;
-  height: 450px;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.16),
-    0 10px 10px rgba(0, 0, 0, 0.23);
-}
 
-.colorBlock1 {
-  width: 350px;
+/* .colorBlock1 {
   justify-self: center;
   align-self: center;
   background-color: white;
-}
+} */
 
 #btnInside {
   float: left;
@@ -1453,7 +1450,6 @@ a {
 }
 
 .shop .product h3,
-.shop .product h4,
 .single-product h3,
 .single-product .product h4,
 .profile-details h3,
@@ -1481,9 +1477,7 @@ a {
   margin-top: 130px;
   height: 30vw;
 } */
-.single-product .description h3{
-  font-size: 90%;
-}
+
 .single-product .image {
   background-position: left;
 }
@@ -1641,9 +1635,15 @@ a {
   right: 10vw;
   top: 15vh;
 }
+.subscriptionItem .priceSubscription{
+  color:white;
+  font-weight: bold;
+  font-size: 90%;
+  /* text-align: right; */
+}
 .subscribeOptiopnP {
   position: absolute;
-  top: 4vh;
+  top: 2vh;
   left: 0;
   transform: rotate(-90deg);
   text-transform: uppercase;
@@ -1661,15 +1661,12 @@ a {
   font-size: 1em;
   padding-top: 2vw;
 } */
-.subscriptionItem h3,
-.subscriptionItem h4 {
-  color: #fff;
-  text-transform: uppercase;
-}
+
 
 .subscriptionItem h3 {
   font-weight: 900;
-  padding: 1vw 4vw;
+  height:8vh;
+  color: #fff;
 }
 
 .subscriptionItem h4 {
@@ -1715,8 +1712,8 @@ a {
   padding: 1em 1em 0;
   color: black;
 }
-.subscriptionItem .priceSubscription,
-.product .priceProduct {
+
+.product .priceProduct, .productPrice {
   text-align: right;
   color: #000;
   padding-bottom: 0;

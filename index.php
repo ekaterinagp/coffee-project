@@ -12,12 +12,12 @@ require_once(__DIR__ . '/components/header.php');
                 <div class="logo">
                     <h1>Welcome</h1>
                 </div>
-                <h2 class="banner-message align-self-top pt-small pb-medium pr-large">
+                <h2 class="banner-message align-self-top pt-small pr-large">
                     Enhance your everyday coffee experience with a coffee subscription tailored to your taste or discover a world of coffee and let us surprise you!
                 </h2>
 
                 <a href="subscribe">
-                    <button class="button">Subscribe </button>
+                    <button class="button">Subscribe</button>
                 </a>
             </div>
         </div>
@@ -39,14 +39,14 @@ require_once(__DIR__ . '/components/header.php');
 
     <section class="section-two grid mv-medium">
         <h2 class="mb-small">What you get</h2>
-        <h3 class="pb-medium ">We make sure you get everything you wish for and more </h3>
+        <h3 class="">We make sure you get everything you wish for and more </h3>
         <div class="grid grid-two-thirds-reversed ph-xlarge whatGetSection">
             <div class="image bg-contain"></div>
-            <div class="bg-white colorBlock">
+            <div class="colorBlock">
 
                 <div class="list p-medium">
                     <div>
-                        <h4 class="">COFFEE</h4>
+                        <h4 class="">Coffee</h4>
                         <p>Your handpick selection of coffee</p>
                     </div>
                     <div>
@@ -54,7 +54,7 @@ require_once(__DIR__ . '/components/header.php');
                         <p>Tasting notes and brewering tips</p>
                     </div>
                     <div>
-                        <h4 class="">EXPERIENCE</h4>
+                        <h4 class="">Experience</h4>
                         <p>Coffee tailormade to your taste everyday</p>
                     </div>
                     <a href="subscribe">
@@ -135,7 +135,7 @@ require_once(__DIR__ . '/components/header.php');
 
     <section class="section-four grid mv-medium">
         <h2 class="mb-small">Why choose The Proper Pour</h2>
-        <h3 class="text-center pb-medium ">Get ready to have all your expectations met</h3>
+        <h3 class="text-center ">Get ready to have all your expectations met</h3>
         <div class="grid grid-two container ph-xlarge bg-medium-light-brown height90">
             <div class="colorBlock1 ">
                 <div class="list1 list p-medium">
