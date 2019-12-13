@@ -906,14 +906,12 @@ a {
 }
 
 .button:hover {
-  /* transform: scale(1.03); */
   background-color: #fff;
   color: #fb8b23;
   border: solid 2px orange;
 }
 
 .button:disabled:hover {
-  /* transform: scale(1); */
   transform: none;
   border-color: transparent;
   color: white;
@@ -1085,6 +1083,11 @@ a {
   padding: 10px;
 }
 
+.section-three .back{
+  height:25vw;
+  width:auto;
+  margin:2em;
+}
 /* MASONRY */
 
 .frontpage .section-one .masonry .image-container .img1 {
@@ -1281,12 +1284,14 @@ a {
 #results p {
   text-align: left;
 }
-
+#formSearch{
+  grid-template-columns: 4fr 1fr;
+}
 #txtSearch {
   border-radius: 0;
   background-color: white;
   justify-self: right;
-  width: 50vw;
+  width: 35vw;
   padding: 1vw;
   text-align: right;
   border: solid 0.1px #00000045;
@@ -1301,8 +1306,8 @@ a {
 
 #searchBtn {
   display: inline-block;
-  margin-left: 1em;
   padding: 1em;
+  width:100%;
 }
 
 #forSearch {
