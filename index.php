@@ -151,7 +151,7 @@ require_once(__DIR__ . '/components/header.php');
                     <div>
                         <h5>Free delivery</h5>
                         <p>Delivery is always included in the price</p>
-                        <a href="subscribe"><button class="button margin-auto mt-large" id="btnInside">SUBSCRIBE </button></a>
+                        <!-- <a href="subscribe"><button class="button margin-auto mt-large" id="btnInside">SUBSCRIBE </button></a> -->
                     </div>
 
                 </div>
