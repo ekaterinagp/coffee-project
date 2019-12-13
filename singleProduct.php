@@ -44,26 +44,26 @@ $statementRelatedProducts = $connection->prepare($sqlRelatedProducts);
                             <div class="description mh-small mv-medium grid grid-two">
                                 <div>
                                     <h1 class="productName mv-small text-left"><?= $product['cProductName']; ?></h1>
-                                    <h2 class="coffee-type mv-small text-left light"><?= $product['cName']; ?></h2>
+                                    <h3 class="coffee-type mv-small text-left light"><?= $product['cName']; ?></h3>
                                     <h4 class="productPrice mv-small"><?= $product['nPrice']; ?> DKK</h4>
                                     <p>A soft, velvety body highlights a soft citric acidity and pleasant sweetness, with notes of raspberry, orange and sugar cane.</p>
                                 </div>
                                 <div class="mv-small">
-                                    <h4 class="uppercase bold">Roast level</h4>
-                                    <h3 class="uppercase light mb-small">MEDIUM ROAST</h3>
-                                    <h4 class="uppercase bold">Type</h4>
-                                    <h3 class="uppercase light mb-small"><?= $product['cName']; ?></h3>
-                                    <h4 class="uppercase bold">Recommmended for</h4>
-                                    <h3 class="uppercase light">ESPRESSO</h3>
-                                    <h3 class="uppercase light">FRENCH PRESS</h3>
+                                    <h3 class="uppercase bold">Roast level</h3>
+                                    <h4 class=" mb-small">Medium Roast</h4>
+                                    <h3 class="uppercase bold">Type</h3>
+                                    <h4 class=" mb-small"><?= $product['cName']; ?></h4>
+                                    <h3 class="uppercase bold">Recommmended for</h3>
+                                    <h4 class="">Espresso</h4>
+                                    <h4 class="">French Press</h4>
                                 </div>
                             </div>
                         </div>
 
                         <div class="product-purchase-container bg-grey p-medium pt-medium">
                             <div class="options-container grid mb-small">
-                                <div class="options ">
-                                    <h4 class="uppercase bold pb-small">Quantity</h4>
+                                <div class="options mv-small ">
+                                    <h3 class="uppercase bold pb-small">Quantity</h3>
                                    
                                     <label for="option1" class=" grid ">
                                         <input type="number" name="option1" value="1" class="">
@@ -72,8 +72,8 @@ $statementRelatedProducts = $connection->prepare($sqlRelatedProducts);
                                 </div>
 
 
-                                <div class="options">
-                                <h4 class="uppercase bold pb-small">Grind</h4>
+                                <div class="options mv-small">
+                                <h3 class="uppercase bold pb-small">Grind</h3>
                                     <label>
                                         <input type="radio" name="grindType" value="whole" class="mb-small">
                                         <div class="checkmark">Whole</div>

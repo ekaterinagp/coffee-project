@@ -46,13 +46,14 @@ $statement = $connection->prepare($sql);
           <div class="subscriptionItemBg">
             <img src="img/products/'.$result.'.png" alt="">  
             <h3 class="subscriptionName">'.$row['cName'].'</h3>
-            <h4>Origin: '.$row['cCoffeeTypeName'].'</h4>
+            <h4 class="priceSubscription ">'.$row['nSubscriptionPrice'].' DKK / Month</h4>
           </div>
         <div class="white-text-bg">
-          <p class="descSubscription p-small">Lorem ipsum dolor sit amet consectetur 
+        <h4>Origin: '.$row['cCoffeeTypeName'].'</h4>
+          <p class="descSubscription ph-small">Lorem ipsum dolor sit amet consectetur 
           adipisicing elit. Voluptate praesentium, inventore deleniti optio nobis
           quasi provident nulla minus odit architecto.</p>
-          <h4 class="priceSubscription">'.$row['nSubscriptionPrice'].' DKK / Month</h4>
+          
           </div>
           <button class="addSubToCartBtn button">Add to Cart</button>
         </div>' ;   
