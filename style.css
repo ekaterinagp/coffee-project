@@ -940,9 +940,10 @@ a {
 
 .notification-container {
   position: fixed;
+  min-width: 15vw;
   top: 6.5vw;
   right: 2vw;
-  padding: 1vw;
+  padding: 0.5vw;
   height: 4vw;
   background-color: #f2f2f2;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -973,7 +974,6 @@ a {
   background-color: rgba(0, 0, 0, 0.7);
   animation: showModal 0.5s forwards 0.3s;
   transition: 5s ease-out 0.3s;
-  /* transition-delay: 0.3s; */
 }
 
 @keyframes showModal {
@@ -2073,6 +2073,7 @@ input:not(:focus).error {
   padding: 0.5vh 0.6vw;
   font-size: 70%;
   color: white;
+  margin-left: 0.5vw;
 }
 .cartDiv {
   height: auto;
