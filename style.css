@@ -1633,6 +1633,9 @@ a {
   background: white;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
+.subscriptionItem:hover .addSubToCartBtn{
+  visibility: visible;
+}
 .subscribeBanner img {
   width: 18vw;
   right: 10vw;
