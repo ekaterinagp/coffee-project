@@ -144,7 +144,7 @@ if ($_SESSION) {
       
         <div class="creditcard-container ph-medium">
           <h2 class="color-white">Creditcard Details</h2>
-          <form method="POST" id="savedCardFrm" class=" pt-small choose-creditcard grid grid-two-thirds-reversed">
+          <form method="POST" id="savedCardFrm" class=" pt-small choose-credit-card grid grid-two-thirds-reversed">
       
           <?php
             if ($statementCreditCard->execute([':id' => $nUserID])) {
