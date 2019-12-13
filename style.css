@@ -928,7 +928,7 @@ a {
   position: fixed;
   top: 6.5vw;
   right: 2vw;
-  width: 20vw;
+  padding: 1vw;
   height: 4vw;
   background-color: #f2f2f2;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -937,15 +937,15 @@ a {
 
 @keyframes moveUp {
   10% {
-    bottom: 2vw;
+    top: 6.5vw;
   }
 
   70% {
-    bottom: 2vw;
+    top: 6.5vw;
   }
 
   100% {
-    bottom: -10vw;
+    top: -10vw;
   }
 }
 
