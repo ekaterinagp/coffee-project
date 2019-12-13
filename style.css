@@ -921,15 +921,15 @@ a {
 
 @keyframes moveUp {
   10% {
-    bottom: 2vw;
+    top: 6.5vw;
   }
 
   70% {
-    bottom: 2vw;
+    top: 6.5vw;
   }
 
   100% {
-    bottom: -10vw;
+    top: -10vw;
   }
 }
 
