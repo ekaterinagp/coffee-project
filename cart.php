@@ -2,7 +2,6 @@
 $sTitle = ' | Your cart';
 $sCurrentPage = 'cart';
 require_once(__DIR__ . '/components/header.php');
-
 require_once(__DIR__ . '/connection.php');
 ?>
 
@@ -57,7 +56,7 @@ require_once(__DIR__ . '/connection.php');
   tProduct.nCoffeeTypeID AS nProductCoffeeTypeID, tProduct.nPrice, 
   tProduct.nStock, tProduct.bActive, tCoffeeType.nCoffeeTypeID, tCoffeeType.cName 
   FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID WHERE tProduct.bActive != 0 LIMIT 4";
-$statementProducts = $connection->prepare($sqlProducts);
+  $statementProducts = $connection->prepare($sqlProducts);
 
     if ($statementProducts->execute()) {
 
@@ -82,6 +81,7 @@ $statementProducts = $connection->prepare($sqlProducts);
     }; ?>
 </div>
 </div>
+</section>
 <?php
   $connection = null;
 }; ?>

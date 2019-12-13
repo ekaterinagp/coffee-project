@@ -1419,7 +1419,7 @@ a {
 
 .shop .products-container,
 .single-product .products-container,
-.profile .products-container, .creditcard-info, .noCart .products-container  {
+.profile .products-container, .creditcard-info, .noCart .products-container, .thank-you .products-container  {
   grid-gap: 1vw;
 }
 
@@ -1427,7 +1427,7 @@ a {
 .single-product .product,
 .profile .product,
 .current-subscriptions .product-info-container,
-.cartDiv, .noCart .product {
+.cartDiv, .noCart .product, .thank-you .product {
   height: 30vw;
   border: solid 0.1px #00000045;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -1439,13 +1439,13 @@ a {
 .shop .product:hover,
 .single-product .product:hover,
 .subscriptionItem:hover,
-.profile .product:hover, .noCart .product:hover  {
+.profile .product:hover, .noCart .product:hover, .thank-you .product:hover  {
   transform: scale(1.02);
 }
 
 .shop .product .image,
 .single-product .product .image,
-.profile .product .image, .noCart .product .image{
+.profile .product .image, .noCart .product .image, .thank-you .product .image{
   height: 65%;
 }
 
@@ -1453,14 +1453,14 @@ a {
 .single-product h3,
 .single-product .product h4,
 .profile-details h3,
-.profile .product h3, .noCart .product h3 {
+.profile .product h3, .noCart .product h3, .thank-you .product h3 {
   padding: 0;
   text-align: left;
 }
 .product-purchase-container .options-container>.options:first-child label {
   grid-template-columns: 1fr 3fr;
 }
-.profile .product h3, .noCart .product h3{
+.profile .product h3, .noCart .product h3, .thank-you .product h3{
   font-size: calc(1vw + 30%);
 }
 
@@ -1491,19 +1491,27 @@ a {
 }
 
 .single-product .container-banner,
-.profile .related-products .container-banner, .noCart .container-banner, .containerSignup .container-banner  {
+.profile .related-products .container-banner, 
+.noCart .container-banner, 
+.containerSignup .container-banner, 
+.thank-you .container-banner  {
   width: 100vw;
   z-index: -1;
 }
 
 .single-product .container-banner,
-.profile .related-products .container-banner, .noCart .container-banner{
+.profile .related-products .container-banner, 
+.noCart .container-banner, 
+.thank-you .containerSignup .container-banner, .thank-you .container-banner{
   left: -8vw;
 }
 
-
 .single-product .container-banner{
   top: 14.5vw;
+}
+
+.thank-you .container-banner{
+  top: 20vw;
 }
 
 .profile .related-products .container-banner, .noCart .container-banner {
