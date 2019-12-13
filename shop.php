@@ -109,7 +109,7 @@ require_once(__DIR__ . '/components/header.php');
                     <div class="description m-small">
                         <h3 class="productName mt-small text-left">' . $product['cProductName'] . '</h3>
                         <h4 class="productName mt-small text-left">Origin: ' . $product['cName'] . '</h4>
-                    <p class="productPrice mt-small">' . $product['nPrice'] . ' DKK</p>
+                    <h4 class="productPrice mt-small">' . $product['nPrice'] . ' DKK</h4>
                     </div>
                 </div>
             </a>
