@@ -22,7 +22,7 @@ require_once(__DIR__ . '/connection.php');
               <p class="quantity"></p>
             </div>
 
-            <div class="remove button">Remove item</div>
+            <button class="remove button">Remove item</button>
           </div>
         </div>
       </template>

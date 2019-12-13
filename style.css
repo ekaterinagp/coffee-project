@@ -162,6 +162,7 @@ svg {
 
 .gridForAboveTheFold .box3 .image {
   background-image: url(img/hand-holding-caffe-latte.png);
+  background-position: 50% 100%;
 }
 
 .gridForAboveTheFold .box4 .image {
@@ -643,7 +644,6 @@ input[type="password"].not-input,
 input[type="number"].not-input, 
 select.not-input{
   background: transparent;
-  color: white;
   padding: 0;
   -webkit-appearance: none;
 }
@@ -1589,7 +1589,7 @@ a {
 #form-profile label p,
 #form-creditcard label p {
   grid-column: 1/-1;
-  color: #fff;
+  /* color: #fff; */
 }
 .current-subscriptions .subscriptionItem h4{
   color:white;

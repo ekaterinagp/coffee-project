@@ -64,8 +64,8 @@ if ($_SESSION) {
     <section class="section-one grid  ph-large mv-medium">
 
       <div>
-        <div class="profile-details bg-dark-brown p-medium pt-medium">
-          <h2 class="color-white">Profile Details</h2>
+        <div class="profile-details bg-grey p-medium pt-medium">
+          <h2 class="">Profile Details</h2>
           <form id="form-profile" class=" grid grid-three pt-small ph-medium" method="post">
             <label id="cName" class="grid" for="name">
               <p class="text-left align-self-center">Name</p>
@@ -124,14 +124,14 @@ if ($_SESSION) {
 
             <label id="cPhoneNo" class="grid" for="userPhone">
               <p class="text-left align-self-center">Phone</p>
-              <input class=" not-input" type="number" data-type="string" data-min="9999999" data-max="99999999" name="inputPhone" placeholder="phone number" value="<?= $jLoggedUser['cPhoneNo']; ?>">
+              <input class=" not-input" type="number" data-type="number" data-min="9999999" data-max="99999999" name="inputPhone" placeholder="phone number" value="<?= $jLoggedUser['cPhoneNo']; ?>">
               <div class="errorMessage">Must be 8 characters</div>
             </label>
 
             <div class="formButtonContainer">
               
                 <button class="button-edit button">Edit information</button>
-                <button class="button-save hide-button button">Save information</button>
+                <button class="button-save formBtn hide-button button">Save information</button>
               
              
             </div>
@@ -139,11 +139,11 @@ if ($_SESSION) {
           </form>
         </div>
       </div>
-      <div class="profile-details bg-light-brown p-medium pt-medium">
+      <div class="profile-details bg-grey p-medium pt-medium">
 
       
-        <div class="creditcard-container ph-medium">
-          <h2 class="color-white">Creditcard Details</h2>
+        <div class="creditcard-container ph-medium ">
+          <h2 class="">Creditcard Details</h2>
           <form method="POST" id="savedCardFrm" class=" pt-small choose-credit-card grid grid-two-thirds-reversed">
       
           <?php
@@ -151,7 +151,7 @@ if ($_SESSION) {
               $jUserCreditCards = $statementCreditCard->fetchAll(PDO::FETCH_ASSOC);
 
               if (count($jUserCreditCards) >= 1) {?>
-              <label><p class="text-left align-self-center color-white">Your credit cards</p>
+              <label><p class="text-left align-self-center ">Your credit cards</p>
                 <select class="align-self-center" name="userCreditCards" id="">
 
               <?php
@@ -179,24 +179,24 @@ if ($_SESSION) {
 
           <label class="grid" for="inputIBAN">
             <p class="text-left align-self-center">IBAN</p>
-            <input class="mb-small" data-type="integer" data-min="99999999999999999" data-max="999999999999999999" type="text" data-type="string" name="inputIBAN" placeholder="IBAN (format 123456789123456789)" value="">
+            <input class="mb-small" data-type="integer" data-min="99999999999999999" data-max="999999999999999999" type="number" data-type="string" name="inputIBAN" placeholder="IBAN (format 123456789123456789)" value="">
             <div class="errorMessage">IBAN must be 18 digits</div>
           </label>
 
           <label class="grid" for="inputCCV">
             <p class="text-left align-self-center">CCV</p>
-            <input class="mb-small" data-type="integer" data-min="99" data-max="999" type="text" name="inputCCV" placeholder="CCV (format 123)" value="">
+            <input class="mb-small" data-type="integer" data-min="99" data-max="999" type="number" name="inputCCV" placeholder="CCV (format 123)" value="">
             <div class="errorMessage">CCV must be 3 digits</div>
           </label>
 
           <label class="grid" for="inputExpiration">
             <p class="text-left align-self-center">Expiration date</p>
-            <input class="mb-small" data-type="integer" data-min="999" data-max="9999" type="text" name="inputExpiration" placeholder="Expiration date (format mmyy)" value="">
+            <input class="mb-small" data-type="integer" data-min="999" data-max="9999" type="number" name="inputExpiration" placeholder="Expiration date (format mmyy)" value="">
             <div class="errorMessage">Expiration date must be 4 digits</div>
           </label>
 
 
-          <button class="button-save hide-button button">Save creditcard</button>
+          <button class="button-save formBtn hide-button button " disabled>Save creditcard</button>
         </form>
       </div>
     </section>
