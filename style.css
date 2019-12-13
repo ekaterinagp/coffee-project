@@ -217,7 +217,7 @@ input[type="range"]::-webkit-slider-thumb {
   border: 1px solid #815946;
   height: 36px;
   width: 16px;
-  border-radius: 3px;
+  border-radius: 0;
   background: #ffffff;
   cursor: pointer;
   margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
@@ -231,7 +231,7 @@ input[type="range"]::-webkit-slider-runnable-track {
   cursor: pointer;
   box-shadow: 1px 1px 1px #815946, 0px 0px 1px #815946;
   background: #815946;
-  border-radius: 1.3px;
+  border-radius: 0;
   /* border: 0.2px solid #010101; */
 }
 
@@ -259,7 +259,7 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
   -o-appearance: none;
   appearance: none;
   border: 1px solid #fb8b23;
-  border-radius: 4px;
+  border-radius: 0px;
   outline: none;
   transition-duration: 0.3s;
   /* background-color: #41b883; */
@@ -1497,12 +1497,14 @@ a {
 }
 
 .single-product .container-banner,
-.profile .related-products .container-banner,
-.profile .related-subscriptions .container-banner {
+.profile .related-products .container-banner {
   width: 100vw;
   z-index: -1;
-  top: 16.5vw;
   left: -8vw;
+}
+
+.single-product .container-banner{
+  top: 14.5vw;
 }
 
 .profile .related-products .container-banner {
@@ -1994,7 +1996,7 @@ input[type="password"],
 input[type="number"],
 select {
   border: 0;
-  border-radius: 5px;
+  border-radius: 0px;
   height: 35px;
   padding: 10px 10px 10px 30px;
   background: #fff;
