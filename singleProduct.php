@@ -60,20 +60,20 @@ $statementRelatedProducts = $connection->prepare($sqlRelatedProducts);
                             </div>
                         </div>
 
-                        <div class="product-purchase-container bg-grey p-medium">
+                        <div class="product-purchase-container bg-grey p-medium pt-medium">
                             <div class="options-container grid mb-small">
                                 <div class="options ">
-                                    <h2 class="pb-small">Quantity</h2>
+                                    <h4 class="uppercase bold pb-small">Quantity</h4>
                                    
-                                    <label for="option1" class=" grid grid-two-thirds">
+                                    <label for="option1" class=" grid ">
                                         <input type="number" name="option1" value="1" class="">
-                                        <p>bag</p>
+                                        <p class="align-self-center pl-small">bag</p>
                                     </label>
                                 </div>
 
 
                                 <div class="options">
-                                    <h2 class="pb-small">Grind</h2>
+                                <h4 class="uppercase bold pb-small">Grind</h4>
                                     <label>
                                         <input type="radio" name="grindType" value="whole" class="mb-small">
                                         <div class="checkmark">Whole</div>
@@ -87,7 +87,7 @@ $statementRelatedProducts = $connection->prepare($sqlRelatedProducts);
                                 </div>
                             </div>
                             <div class="payment">
-                                <h2 class="align-self-bottom">Total amount</h2>
+                                <h2 class="align-self-bottom mt-medium">Total amount</h2>
                                 <p class="align-self-top"><?= $product['nPrice']; ?> DKK</p>
                                 <div class="button" id="addToCartBtn">Add to cart</div>
                             </div>

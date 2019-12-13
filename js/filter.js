@@ -330,6 +330,8 @@ let coffeetypesDiv = document.querySelector("#coffeeTypesdiv");
 coffeetypesDiv.addEventListener("click", element => {
   // debugger;
   if (element.target.localName == "input") {
+    
+      
     changeSelectedCoffeeType(element.target);
   }
 });

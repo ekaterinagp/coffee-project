@@ -308,6 +308,7 @@ if ($_SESSION) {
   </section>
   </main>
   <script src="js/validation.js"></script>
+  <script src="js/sessionStorageCart.js"></script>
 
   <?php
   $sScriptPath = 'profile.js';

@@ -7,18 +7,18 @@ require_once(__DIR__ . '/components/header.php');
 ?>
 
 <main>
+  <h1 class="text-center">Cart</h1>
   <div class="cartTotal mv-medium mh-large">
     <section id="cartItems">
       <template id="cartItemTemplate">
-        <div id="" class="cartDiv grid grid-two mb-small">
-          <img class="img_cart" src="" />
+        <div id="" class="cartDiv grid grid-two-thirds mb-small">
+          <img class="img_cart align-self-center" src="" />
           <div class="cart_desc">
-            <input class="title_cart" name="coffeeName">
-
-            <input class="type_cart_grind" name="coffeeGrind"></p>
+            <input class="title_cart bold uppercase pv-small" name="coffeeName">
+            <input class="type_cart_grind pb-small" name="coffeeGrind"></p>
 
             <div class="price_number">
-              <input class="price_cart" name="coffeePrice">
+              <input class="price_cart bold pb-small" name="coffeePrice">
               <p class="quantity"></p>
             </div>
 
@@ -29,8 +29,8 @@ require_once(__DIR__ . '/components/header.php');
 
     </section>
 
-    <div class="total">
-      <h2 class="">Your cart</h2>
+    <div class="total bg-grey ml-medium p-large align-self-top">
+      <h2 class="text-left">Your cart</h2>
       <section id="totalItemsSection">
         
         <template id="totalItemsTemplate">
