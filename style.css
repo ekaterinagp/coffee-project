@@ -50,7 +50,7 @@ svg {
 
 .list {
   /* padding: 1em 0 2em 3em; */
-  color: white;
+  /* color: white; */
   display: grid;
   justify-content: center;
   align-content: center;
@@ -59,14 +59,14 @@ svg {
   height: 80%;
 }
 
-/* .list1 {
-  padding: 1em 0 2em 3em;
-  color: white;
+.list1 {
+  padding: 2em;
+  /* color: white; */
+  background-color: white;
   display: grid;
   grid-template-rows: 2fr 2fr 2fr;
   grid-gap: 1em;
-} */
-
+}
 .list li {
   margin: 0;
   padding: 3vw 0 3vw 6vw;
@@ -192,6 +192,11 @@ svg {
 .masonry .image-container:nth-child(4) {
   height: 35vh;
 } */
+
+.image1 {
+  height: 80%;
+  background-position: center;
+}
 
 input[type="range"] {
   -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
@@ -585,7 +590,7 @@ button,
 
 h4,
 button,
-.checkmark{
+.checkmark {
   text-transform: uppercase;
 }
 
@@ -595,37 +600,40 @@ button,
   text-transform: uppercase;
 }
 
-h1{
+h1 {
   font-size: calc(2.5vw + 30%);
 }
 
-h2{
+h2 {
   font-size: calc(1.5vw + 45%);
 }
 
-h3{
+h3 {
   font-size: calc(1vw + 45%);
 }
 
-h4{
+h4 {
   font-size: calc(0.8vw + 45%);
 }
 
-h5, button {
+h5,
+button {
   padding-bottom: 0.5vw;
   font-size: calc(0.6vw + 45%);
 }
 
-p, input::placeholder,
-select > option, 
-input[type="text"], 
-input[type="email"], 
-input[type="password"], 
-input[type="number"], select{
+p,
+input::placeholder,
+select > option,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select {
   font-size: calc(0.6vw + 45%);
 }
 
-h2.banner-message{
+h2.banner-message {
   font-weight: 300;
   text-transform: inherit;
   text-align: left;
@@ -682,7 +690,12 @@ select {
   background-color: #815946;
 }
 
-.colorBlock, .colorBlock1{
+.height90 {
+  height: 90%;
+}
+
+.colorBlock,
+.colorBlock1 {
   display: grid;
   align-items: center;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.16), 0 10px 10px rgba(0, 0, 0, 0.23);
@@ -690,21 +703,22 @@ select {
 
 .colorBlock {
   width: 350px;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.16), 0 10px 10px rgba(0, 0, 0, 0.23);
+  height: 450px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.16),
+    0 10px 10px rgba(0, 0, 0, 0.23);
 }
 
 .colorBlock1 {
   width: 350px;
-  justify-self: end;
+  justify-self: center;
   align-self: center;
+  background-color: white;
 }
 
 #btnInside {
   float: left;
   margin-top: 15px;
 }
-
-
 
 .cupImage {
   bottom: 8vh;
@@ -835,7 +849,7 @@ footer svg {
 
 a {
   color: black;
-  cursor:pointer;
+  cursor: pointer;
 }
 .link {
   display: block;
@@ -847,7 +861,7 @@ a {
   display: grid;
   width: calc(5vw + 50%);
   padding: 1.5vw 0.2vw;
-  font-weight: 300;
+  font-weight: 900;
   color: #fff;
   background-color: #fb8b23;
   text-transform: uppercase;
@@ -874,7 +888,8 @@ a {
   background-color: #000;
 }
 
-.subscriptionItem .button-delete, .profile-details .button-add{
+.subscriptionItem .button-delete,
+.profile-details .button-add {
   margin: 2vw auto;
 }
 
@@ -885,7 +900,8 @@ a {
   background-color: red;
 }
 
-.back-button:hover{
+.back-button:hover {
+  /* transform: scale(1.03); */
   color: #000;
 }
 
@@ -982,11 +998,12 @@ a {
 }
 
 /***** FRONTPAGE *****/
-.frontpage .section-one{
+.frontpage .section-one {
   min-height: 85vh;
 }
 
-.frontpage .banner-text-container, .container-banner .content-container{
+.frontpage .banner-text-container,
+.container-banner .content-container {
   top: 50%;
   transform: translateY(-50%);
 }
@@ -1005,19 +1022,18 @@ a {
 
 .frontpage .section-two .image {
   background-image: url(img/what-you-get.png);
-  height: 100%;
+  height: 85%;
 }
 
 .list h4 {
   text-align: left;
   font-weight: bold;
-
 }
 
 .frontpage .section-three .step {
   padding-top: 5vh;
   height: 25vw;
-  margin: 2em;
+  margin: 0 2em 2em 2em;
 }
 .step-no {
   top: -1vh;
@@ -1064,6 +1080,7 @@ a {
 .positionOnFlipper {
   text-align: center;
   font-size: 1.1em;
+  padding: 10px;
 }
 
 .section-three .back{
@@ -1093,12 +1110,13 @@ a {
   max-width: 100%;
   transition: 0.6s ease-in-out;
 }
-.section-five .masonry .item .image {
+/* .section-five .masonry .item .image {
   min-height: 17vw;
-}
+} */
 
-.section-five .masonry .item.one .image {
-  min-height: 20vw;
+.section-five .masonry .item.one .image1 {
+  /* min-height: 20vw; */
+  height: 80%;
 }
 
 .section-five .masonry .item.one {
@@ -1138,20 +1156,20 @@ a {
   background-color: #815946;
 } */
 
-.section-five .masonry .item.two .image {
+.section-five .masonry .item.two .image1 {
   height: 35vw;
 }
-.section-five .masonry .item.four .image {
+.section-five .masonry .item.four .image1 {
   left: -5vw;
-  top: -4vw;
+  /* top: -4vw; */
 }
 
 .bg-for-how {
   background-color: #937c6b;
 }
-.section-five .masonry .item.six .image {
+/* .section-five .masonry .item.six .image1 {
   height: 35vw;
-}
+} */
 
 .section-five .masonry .item h4 {
   top: -3vw;
@@ -1165,34 +1183,34 @@ a {
   top: -20vw;
 }
 
-.section-five .masonry .item.one .image {
+.section-five .masonry .item.one .image1 {
   background-image: url(img/moccamaster-coffeemaker.png);
 }
-.section-five .masonry .item.two .image {
+.section-five .masonry .item.two .image1 {
   background-image: url(img/cold-brew-with-milk-in-jar.png);
 }
-.section-five .masonry .item.three .image {
+.section-five .masonry .item.three .image1 {
   background-image: url(img/cinnamon-nutmeg-staranis-cloves-spices.png);
 }
-.section-five .masonry .item.four .image {
+.section-five .masonry .item.four .image1 {
   background-image: url(img/hand-holding-caffe-latte.png);
   transform: rotate(90deg);
 }
-.section-five .masonry .item.five .image {
+.section-five .masonry .item.five .image1 {
   background-image: url(img/bialetti-espresso-moka-pot-coffee-maker.png);
   background-size: 60%;
   background-position: top;
 }
-.section-five .masonry .item.six .image {
+.section-five .masonry .item.six .image1 {
   background-image: url(img/coffee-plant-in-soil.png);
 
   background-position: top;
 }
 
 /* GRID FLIPANIMATION */
-.flipcontainer {
+/* .flipcontainer {
   perspective: 1000;
-}
+} */
 
 .flipcontainer:hover {
   z-index: 2;
@@ -1236,7 +1254,7 @@ a {
 .back {
   transform: rotateY(180deg);
   background-color: white;
-  grid-gap: 1em;
+  /* grid-gap: 1em; */
 }
 
 /***** SHOP PAGE *****/
@@ -1296,7 +1314,7 @@ a {
   justify-self: center;
 }
 
-.container-banner{
+.container-banner {
   margin-top: 2vw;
 }
 
@@ -1305,7 +1323,7 @@ a {
   height: 20vw;
 }
 
-.shop .container-banner .image{
+.shop .container-banner .image {
   background-image: url(img/caffe-latte-with-saucer.png);
   width: 25vw;
   top: -4.5vw;
@@ -1315,7 +1333,6 @@ a {
   background-image: url(img/coffee-beans.png);
   width: 26vw;
   top: -6vw;
-
 }
 
 .filter {
@@ -1380,7 +1397,7 @@ a {
   text-align: left;
 }
 
-.shop .products-container .image{
+.shop .products-container .image {
   margin: 0 auto;
 }
 
@@ -1426,6 +1443,11 @@ a {
   text-align: left;
 }
 
+ 
+.profile .product h3{
+  font-size: calc(1vw + 30%);
+}
+
 /***** SINGLE PRODUCT PAGE *****/
 .options-container {
   grid-gap: 1vh;
@@ -1461,7 +1483,7 @@ a {
 }
 
 .profile .related-products .container-banner {
-  top: 10.5vw;
+  top: 8vw;
 }
 
 .profile .related-subscriptions .container-banner {
@@ -1522,6 +1544,15 @@ a {
   color: #000;
 }
 
+.whatGetSection {
+  background-color: #d8b69c;
+  height: 90%;
+}
+
+.bg-white {
+  background-color: white;
+}
+
 /***** PROFILE PAGE  *****/
 #form-profile label p,
 #form-creditcard label p {
@@ -1568,9 +1599,9 @@ a {
   grid-column: 2;
 }
 
-.section-two {
+/* .section-two {
   grid-gap: 2vh;
-}
+} */
 
 /***** SUBSCRIBE PAGE *****/
 
@@ -1609,7 +1640,8 @@ a {
   font-size: 1em;
   padding-top: 2vw;
 } */
-.subscriptionItem h3, .subscriptionItem h4{
+.subscriptionItem h3,
+.subscriptionItem h4 {
   color: #fff;
   text-transform: uppercase;
 }
@@ -1622,7 +1654,6 @@ a {
 .subscriptionItem h4 {
   font-weight: 100;
 }
-
 
 .subscriptionItem img {
   width: auto;
@@ -1663,7 +1694,8 @@ a {
   padding: 1em 1em 0;
   color: black;
 }
-.subscriptionItem .priceSubscription, .product .priceProduct {
+.subscriptionItem .priceSubscription,
+.product .priceProduct {
   text-align: right;
   color: #000;
   padding-bottom: 0;
@@ -1702,9 +1734,9 @@ a {
   width: 50vw;
   margin: auto;
 }
-.btnRadio.noGrid{
+.btnRadio.noGrid {
   grid-template-columns: 1fr;
-  height:20vh;
+  height: 20vh;
 }
 #timeline {
   text-align: right;
