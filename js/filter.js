@@ -147,18 +147,18 @@ function showFilteredCoffee(products) {
       clone.querySelector(".product").id = "product-" + product.nProductID;
       clone.querySelector(".image").style.backgroundImage =
         "url(img/products/" + product.cName + ".png)";
-      clone.querySelector("h4").textContent =
+      clone.querySelector(".productCoffeeType").textContent =
         "Origin:" + " " + product.coffeeTypeName;
-      clone.querySelector("p").textContent = product.nPrice + "DKK";
+      clone.querySelector(".productPrice").textContent = product.nPrice + "DKK";
     } else {
       clone.querySelector("a").href = "singleProduct?id=" + product.nProductID;
       clone.querySelector("h3").textContent = product.productName;
       product.imagePath = changeFormatForName(product);
       clone.querySelector(".image").style.backgroundImage =
         "url(img/products/" + product.imagePath + ")";
-      clone.querySelector("h4").textContent =
+      clone.querySelector(".productCoffeeType").textContent =
         "Origin:" + " " + product.typeName;
-      clone.querySelector("p").textContent = product.nPrice + "DKK";
+      clone.querySelector(".productPrice").textContent = product.nPrice + "DKK";
     }
 
     document.querySelector(".products-container").appendChild(clone);
@@ -365,77 +365,7 @@ async function init() {
       showFilteredCoffee(products);
     }
   });
-  //   bActive: 1
-  // cName: "Organic Tierra Del Sol"
-  // nCoffeeTypeID: 5
-  // nPrice: "23.00"
-  // nProductID: 1
-  // nStock: 145
-  // console.log(allProductsArray);
-
-  // let smaller50 = allProductsArray.filter(ifPriceSmaller50);
-  // console.log(smaller50);
-  // let moreThan50 = allProductsArray.filter(ifPriceMore50Less100);
-  // let moreThan100 = allProductsArray.filter(ifPriceMore100);
-  // let colombianCoffee = allProductsArray.filter(countryColombia);
-  // console.log(colombianCoffee);
-
-  // document.querySelectorAll("input").forEach(input => {
-  //   input.addEventListener("change", () => {
-  //     if (checkThirdOption.checked) {
-  //       console.log("optionSecond Checked");
-  //       document.querySelector(".products-container").innerHTML = "";
-
-  //       showFilteredCoffee(moreThan100);
-  //     }
-  //     if (checkSecondOption.checked) {
-  //       console.log("optionSecond Checked");
-  //       document.querySelector(".products-container").innerHTML = "";
-
-  //       showFilteredCoffee(moreThan50);
-  //     }
-  //     if (checkFirstOption.checked) {
-  //       console.log("optionFirst Checked");
-  //       document.querySelector(".products-container").innerHTML = "";
-
-  //       showFilteredCoffee(smaller50);
-  //     }
-  //     if (checkFirstOption.checked && checkSecondOption.checked) {
-  //       document.querySelector(".products-container").innerHTML = "";
-  //       showFilteredCoffee(moreThan50);
-  //       showFilteredCoffee(smaller50);
-  //     }
-  //     if (
-  //       checkFirstOption.checked &&
-  //       checkSecondOption.checked &&
-  //       checkThirdOption.checked
-  //     ) {
-  //       document.querySelector(".products-container").innerHTML = "";
-  //       showFilteredCoffee(moreThan50);
-  //       showFilteredCoffee(smaller50);
-  //       showFilteredCoffee(moreThan100);
-  //     }
-  //     if (checkSecondOption.checked && checkThirdOption.checked) {
-  //       document.querySelector(".products-container").innerHTML = "";
-  //       showFilteredCoffee(moreThan50);
-  //       showFilteredCoffee(moreThan100);
-  //     }
-  //     if (checkFirstOption.checked && checkThirdOption.checked) {
-  //       document.querySelector(".products-container").innerHTML = "";
-
-  //       showFilteredCoffee(smaller50);
-  //       showFilteredCoffee(moreThan100);
-  //     }
-  //     if (
-  //       !checkFirstOption.checked &&
-  //       !checkThirdOption.checked &&
-  //       !checkSecondOption.checked
-  //     ) {
-  //       document.querySelector(".products-container").innerHTML = "";
-  //       showFilteredCoffee(allProductsArray);
-  //     }
-  //   });
-  // });
+  
 }
 
 function checkCoffeeType(product) {
