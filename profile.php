@@ -204,7 +204,7 @@ if ($_SESSION) {
         <?php
           if ($statementUserSubscription->execute([':id' => $nUserID])) {
             $jUserSubscriptions = $statementUserSubscription->fetchAll(PDO::FETCH_ASSOC);
-            if($jUserSubscriptions = '[]'){?>
+            if($jUserSubscriptions == '[]'){?>
 
         <h2 class="mb-small">Get quality coffee right to your doorstep</h2>
         <h3 class="">Discover our delicious and convenient coffee subscriptions</h3>
