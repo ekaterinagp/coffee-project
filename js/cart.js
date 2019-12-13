@@ -46,7 +46,11 @@ function removeItem(cartItemId) {
   sessionStorage.setItem("cart", JSON.stringify(cart));
   let cartItemElement = document.getElementById(cartItemId);
   cartItemElement.remove();
-
+  checkCart()
+  if(cart.length==0){
+    displayGoBuyMessage();    
+  }
+console.log()
   selectQ();
 }
 
@@ -76,7 +80,7 @@ function selectQ() {
 function emptyTotal() {
   // document.querySelector(".item_total").innerHTML = 0;
   document.getElementById("totalsum").innerHTML = 0;
-}
+  }
 // let numberOfItem = document.querySelector(".numberOfItems");
 // function checkCart() {
 //   let cart = JSON.parse(sessionStorage.getItem("cart"));

@@ -600,20 +600,20 @@ h1{
 }
 
 h2{
-  font-size: calc(1.5vw + 30%);
+  font-size: calc(1.5vw + 45%);
 }
 
 h3{
-  font-size: calc(1vw + 30%);
+  font-size: calc(1vw + 45%);
 }
 
 h4{
-  font-size: calc(0.8vw + 30%);
+  font-size: calc(0.8vw + 45%);
 }
 
 h5, button {
   padding-bottom: 0.5vw;
-  font-size: calc(0.6vw + 30%);
+  font-size: calc(0.6vw + 45%);
 }
 
 p, input::placeholder,
@@ -622,14 +622,14 @@ input[type="text"],
 input[type="email"], 
 input[type="password"], 
 input[type="number"], select{
-  font-size: calc(0.6vw + 30%);
+  font-size: calc(0.6vw + 45%);
 }
 
 h2.banner-message{
   font-weight: 300;
   text-transform: inherit;
   text-align: left;
-  font-size: calc(1vw + 30%);
+  font-size: calc(1vw + 45%);
 }
 
 body {
@@ -835,6 +835,7 @@ footer svg {
 
 a {
   color: black;
+  cursor:pointer;
 }
 .link {
   display: block;
@@ -1599,7 +1600,12 @@ a {
   left: 3.5vw;
   font-size: calc(6vw + 10%);
 }
-
+/* .subscriptionItem h2 {
+  color: white;
+  height: 8vh;
+  font-size: 1em;
+  padding-top: 2vw;
+} */
 .subscriptionItem h3, .subscriptionItem h4{
   color: #fff;
   text-transform: uppercase;
@@ -1607,7 +1613,7 @@ a {
 
 .subscriptionItem h3 {
   font-weight: 900;
-  padding: 2vw 4vw;
+  padding: 1vw 4vw;
 }
 
 .subscriptionItem h4 {
@@ -1646,7 +1652,7 @@ a {
 }
 .subscriptionItem .addSubToCartBtn {
   text-align: center;
-  margin: 1.5vh auto;
+  margin: 2.5vh auto;
   visibility: hidden;
   transition: none;
 }
@@ -1692,6 +1698,10 @@ a {
 .smallerFrm {
   width: 50vw;
   margin: auto;
+}
+.btnRadio.noGrid{
+  grid-template-columns: 1fr;
+  height:20vh;
 }
 #timeline {
   text-align: right;
@@ -1798,13 +1808,11 @@ input:checked + .btnRadio {
 
 .textBtns .btnRadio {
   display: block;
-  height: 21vh;
+  height: 25vh;
   width: 23em;
 }
 
 .imgResults {
-  width: auto;
-  height: 300px;
   margin: 1vh auto;
 }
 .testResults h4,

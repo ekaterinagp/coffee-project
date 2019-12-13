@@ -52,7 +52,7 @@ $statement = $connection->prepare($sql);
           <p class="descSubscription p-small">Lorem ipsum dolor sit amet consectetur 
           adipisicing elit. Voluptate praesentium, inventore deleniti optio nobis
           quasi provident nulla minus odit architecto.</p>
-          <h4 class="priceSubscription p-small">'.$row['nSubscriptionPrice'].' DKK / Month</h4>
+          <h3 class="priceSubscription">'.$row['nSubscriptionPrice'].' DKK / Month</h3>
           </div>
           <button class="addSubToCartBtn button">Add to Cart</button>
         </div>' ;   
