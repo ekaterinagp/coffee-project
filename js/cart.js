@@ -1,6 +1,9 @@
 "use strict";
 
 let cart = JSON.parse(sessionStorage.getItem("cart"));
+if(!cart){
+  cart = [];
+}
 console.log("cart", cart);
 let cartSection = document.querySelector("#cartItems");
 // selectQ();
@@ -28,7 +31,7 @@ if (cart) {
     emptyTotal();
 }
 
-if(cart.length==0){
+if(cart.length == 0){
   displayGoBuyMessage();
 }
 

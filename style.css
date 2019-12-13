@@ -217,7 +217,7 @@ input[type="range"]::-webkit-slider-thumb {
   border: 1px solid #815946;
   height: 36px;
   width: 16px;
-  border-radius: 3px;
+  border-radius: 0;
   background: #ffffff;
   cursor: pointer;
   margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
@@ -231,7 +231,7 @@ input[type="range"]::-webkit-slider-runnable-track {
   cursor: pointer;
   box-shadow: 1px 1px 1px #815946, 0px 0px 1px #815946;
   background: #815946;
-  border-radius: 1.3px;
+  border-radius: 0;
   /* border: 0.2px solid #010101; */
 }
 
@@ -259,7 +259,7 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
   -o-appearance: none;
   appearance: none;
   border: 1px solid #fb8b23;
-  border-radius: 4px;
+  border-radius: 0px;
   outline: none;
   transition-duration: 0.3s;
   /* background-color: #41b883; */
@@ -353,7 +353,7 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
 }
 
 .light {
-  font-weight: 300;
+  font-weight: 400;
 }
 
 /*****   MARGINS & PADDINGS    *****/
@@ -584,7 +584,7 @@ h4,
 button,
 .checkmark {
   font-family: "Lato", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   color: #000;
   text-align: center;
   padding-bottom: 1vw;
@@ -598,7 +598,7 @@ button,
 
 .deskmenu a {
   font-family: "Lato", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   text-transform: uppercase;
 }
 
@@ -647,7 +647,7 @@ select.not-input{
 }
 
 h2.banner-message {
-  font-weight: 300;
+  font-weight: 400;
   text-transform: inherit;
   text-align: left;
   font-size: calc(1vw + 45%);
@@ -655,7 +655,7 @@ h2.banner-message {
 
 body {
   font-family: "Open sans", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   color: black;
   max-width: 100vw;
 }
@@ -871,7 +871,7 @@ a {
   display: grid;
   width: calc(5vw + 50%);
   padding: 1.5vw 0.2vw;
-  font-weight: 300;
+  font-weight: 400;
   color: #fff;
   background-color: #fb8b23;
   text-transform: uppercase;
@@ -1418,7 +1418,7 @@ a {
 
 .shop .products-container,
 .single-product .products-container,
-.profile .products-container, .creditcard-info  {
+.profile .products-container, .creditcard-info, .noCart .products-container  {
   grid-gap: 1vw;
 }
 
@@ -1426,7 +1426,7 @@ a {
 .single-product .product,
 .profile .product,
 .current-subscriptions .product-info-container,
-.cartDiv {
+.cartDiv, .noCart .product {
   height: 30vw;
   border: solid 0.1px #00000045;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -1438,13 +1438,13 @@ a {
 .shop .product:hover,
 .single-product .product:hover,
 .subscriptionItem:hover,
-.profile .product:hover {
+.profile .product:hover, .noCart .product:hover  {
   transform: scale(1.02);
 }
 
 .shop .product .image,
 .single-product .product .image,
-.profile .product .image {
+.profile .product .image, .noCart .product .image{
   height: 65%;
 }
 
@@ -1452,14 +1452,14 @@ a {
 .single-product h3,
 .single-product .product h4,
 .profile-details h3,
-.profile .product h3 {
+.profile .product h3, .noCart .product h3 {
   padding: 0;
   text-align: left;
 }
 .product-purchase-container .options-container>.options:first-child label {
   grid-template-columns: 1fr 3fr;
 }
-.profile .product h3{
+.profile .product h3, .noCart .product h3{
   font-size: calc(1vw + 30%);
 }
 
@@ -1490,16 +1490,27 @@ a {
 }
 
 .single-product .container-banner,
-.profile .related-products .container-banner,
-.profile .related-subscriptions .container-banner {
+.profile .related-products .container-banner, .noCart .container-banner, .containerSignup .container-banner  {
   width: 100vw;
   z-index: -1;
-  top: 16.5vw;
+}
+
+.single-product .container-banner,
+.profile .related-products .container-banner, .noCart .container-banner{
   left: -8vw;
 }
 
-.profile .related-products .container-banner {
+
+.single-product .container-banner{
+  top: 14.5vw;
+}
+
+.profile .related-products .container-banner, .noCart .container-banner {
   top: 8vw;
+}
+
+.containerSignup .container-banner {
+  top: 4vw;
 }
 
 .profile .related-subscriptions .container-banner {
@@ -1875,7 +1886,7 @@ input:checked + .btnRadio {
 .startAgainLink {
   color: #fb8b23;
   font-size: 80%;
-  font-weight: 300;
+  font-weight: 400;
   text-decoration: underline;
 }
 .testResults {
@@ -1924,7 +1935,7 @@ input:checked + .btnRadio {
   margin: auto;
 }
 #loginForm button {
-  margin: 2vh 0;
+  margin: 2vh auto;
 }
 /*   SIGNUP PAGE   */
 
@@ -1990,7 +2001,7 @@ input[type="password"],
 input[type="number"],
 select {
   border: 0;
-  border-radius: 5px;
+  border-radius: 0px;
   height: 35px;
   padding: 10px 10px 10px 30px;
   background: #fff;
@@ -2047,7 +2058,7 @@ input:not(:focus).error {
   background-color: yellow;
 }
 /*  CART PAGE  */
-.cartPage{
+.cartMain{
   min-height: 70vh;
 }
 .numberOfItems {
