@@ -861,7 +861,7 @@ a {
   display: grid;
   width: calc(5vw + 50%);
   padding: 1.5vw 0.2vw;
-  font-weight: 300;
+  font-weight: 900;
   color: #fff;
   background-color: #fb8b23;
   text-transform: uppercase;
