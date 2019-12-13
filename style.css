@@ -273,8 +273,9 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
   color: #fb8b23;
   position: absolute;
   left: 0.5rem;
-  top: 0.1rem;
+  top: 0.4rem;
 }
+
 
 .checkbox > input:active {
   border: 2px solid #34495e;
@@ -696,6 +697,7 @@ select {
 
 .colorBlock,
 .colorBlock1 {
+  margin-top:-5%;
   display: grid;
   align-items: center;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.16), 0 10px 10px rgba(0, 0, 0, 0.23);
@@ -876,12 +878,14 @@ a {
 }
 
 .back-button {
+  background:none;
   position: absolute;
   border: none;
   left: 2vw;
-  top: 6vw;
+  top: 8vw;
   transition: all 0.3s;
   text-decoration: underline;
+  font-size: 110%;
 }
 
 .button-delete-profile {
@@ -1086,7 +1090,7 @@ a {
 .section-three .back{
   height:25vw;
   width:auto;
-  margin:2em;
+  margin:0 2em;
 }
 /* MASONRY */
 
@@ -1442,8 +1446,9 @@ a {
   padding: 0;
   text-align: left;
 }
-
- 
+.product-purchase-container .options-container>.options:first-child label {
+  grid-template-columns: 1fr 3fr;
+}
 .profile .product h3{
   font-size: calc(1vw + 30%);
 }
@@ -1453,21 +1458,24 @@ a {
   grid-gap: 1vh;
 }
 #addToCartBtn {
-  margin: 3vh auto 0;
+  margin: 3vh  0;
+  float:right;
 }
 /* 
 .single-product .section-one {
   margin-top: 130px;
   height: 30vw;
 } */
-
+.single-product .description h3{
+  font-size: 90%;
+}
 .single-product .image {
   background-position: left;
 }
 
 .product-purchase-container h2,
-.productPrice {
-  text-align: left;
+.payment p {
+  text-align: right;
 }
 .container-banner {
   height: 15vw;
@@ -1535,7 +1543,7 @@ a {
 .product-purchase-container input[type="number"] {
   font-family: "Lato";
   border: none;
-  width: 50%;
+  width: 100%;
 }
 
 .product-purchase-container input[type="number"]:hover,
@@ -2038,10 +2046,9 @@ input:not(:focus).error {
 }
 .cartDiv {
   height: auto;
+  padding:2vw;
 }
-.total {
-  justify-self: center;
-}
+
 .img_cart {
   height: 10vw;
   width: auto;
@@ -2055,26 +2062,44 @@ input:not(:focus).error {
   justify-content: center;
 }
 
+.cart_desc input{
+  width:100%;
+  font-family: "Lato", sans-serif;
+  font-size: 115%;
+}
+
 input.title_cart,
 input.type_cart_grind,
 input.price_cart {
   border: none;
   display: inline;
-  font-family: inherit;
+}
+input.price_cart{
   font-size: inherit;
-  padding: none;
+}
+input.type_cart_grind{
+  text-transform: uppercase;
 }
 .noCart {
   display: none;
 }
 /*    PAYMENT PAGE    */
-
+#paymentMain{
+  min-height: 55vh;
+}
+#paymentMain .addCreditCard{
+  margin: 2vh auto;
+}
 .paymentForm {
   width: 50vw;
   transition: all 0.3s;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
-.paymentForm button {
+.paymentForm select{
+  border-radius: 0;
+  width:90%;
+}
+.paymentForm .show-newCardfrm {
   margin: auto;
 }
 #newCardFrm {

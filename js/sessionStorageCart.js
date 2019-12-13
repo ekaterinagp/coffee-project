@@ -2,7 +2,8 @@
 
 let addToCartBtn = document.querySelector("#addToCartBtn");
 let cartItem = document.querySelector("#cartItem");
-let addSubToCartBtn = document.querySelectorAll(".addSubToCartBtn")
+let addSubToCartBtn = document.querySelectorAll(".addSubToCartBtn");
+
 // let numberOfItem = document.querySelector(".numberOfItems");
 // checkCart();
 
@@ -43,6 +44,7 @@ function getCartItem() {
 }
 function getSubCartItem(id){
   let parent = document.getElementById(id);
+  console.log(parent)
   let cartItem =createCartItem();
   let itemID = id;
   cartItem.id = itemID
@@ -77,6 +79,18 @@ function changeFormatForName(str) {
 //     numberOfItem.setAttribute("style", "display: none;");
 //   }
 // }
+document.addEventListener("click", function(){
+  // console.log(event.target)
+  if(event.target == document.querySelector(".addTestSubToCartBtn")){
+    console.log("purchase from test")
+    let parentID = event.target.parentElement.parentElement.id
+        getSubCartItem(parentID)
+        initialiseCart();
+        let text = "Added to Cart" ;
+        let responseClass = "success";
+        showNotification(text, responseClass)
+  }
+})
 if(addSubToCartBtn){
   addSubToCartBtn.forEach(subToCartBtn=>{
     subToCartBtn.addEventListener("click",()=>{
@@ -85,6 +99,9 @@ if(addSubToCartBtn){
   // console.log(event.target.parentElement)
       getSubCartItem(parentID)
       initialiseCart();
+      let text = "Added to Cart" ;
+      let responseClass = "success";
+      showNotification(text, responseClass)
     })
   })
 }
@@ -95,6 +112,9 @@ if(addToCartBtn){
 addToCartBtn.addEventListener("click", () => {
   getCartItem();
   initialiseCart()
+  let text = "Added to Cart" ;
+  let responseClass = "success";
+  showNotification(text, responseClass)
  });
 }
 

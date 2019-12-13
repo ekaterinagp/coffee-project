@@ -39,7 +39,7 @@ require_once(__DIR__ . '/components/header.php');
 
     <section class="section-two grid mv-medium">
         <h2 class="mb-small">What you get</h2>
-        <h3 class="">We make sure you get everything you wish for and more </h3>
+        <h3 class="pb-medium ">We make sure you get everything you wish for and more </h3>
         <div class="grid grid-two-thirds-reversed ph-xlarge whatGetSection">
             <div class="image bg-contain"></div>
             <div class="bg-white colorBlock">
@@ -122,9 +122,7 @@ require_once(__DIR__ . '/components/header.php');
                         </div>
                     </div>
                     <div class="back p-medium">
-                        <strong>
-                            <h3>We deliver as fast as we can</h3>
-                        </strong>
+                            <h5>We deliver as fast as we can</h5>
                         <p>We aim to deliver your coffee as soon as possible and the most convineient way. We know how important to get a freshly roasted coffee, that is why we work hard to make your coffee drinking experience as best as possible. </p>
                     </div>
                 </div>
@@ -137,7 +135,7 @@ require_once(__DIR__ . '/components/header.php');
 
     <section class="section-four grid mv-medium">
         <h2 class="mb-small">Why choose The Proper Pour</h2>
-        <h3 class="alignTextCenter ">Get ready to have all your expectations met</h3>
+        <h3 class="text-center pb-medium ">Get ready to have all your expectations met</h3>
         <div class="grid grid-two container ph-xlarge bg-medium-light-brown height90">
             <div class="colorBlock1 ">
                 <div class="list1 list p-medium">

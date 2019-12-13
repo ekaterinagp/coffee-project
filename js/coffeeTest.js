@@ -370,6 +370,7 @@ const questions = [
       console.log("randomChoice", randomChoice);
 
       let divForResults = document.createElement("div");
+      divForResults.id = randomChoice.id;
       // form.setAttribute("class", "gridWith2columns");
       // form.setAttribute("class", "listenTo");
       divForResults.className = "testResults grid grid-two-thirds p-medium";
@@ -394,11 +395,11 @@ const questions = [
       startAgainLink.addEventListener("click", startAgain)
       startAgainLink.innerHTML="Take Test Again"
       let toPaymentBtn = document.createElement("button");
-      toPaymentBtn.setAttribute("class", "button addSubToCartBtn");  
+      toPaymentBtn.setAttribute("class", "button addTestSubToCartBtn");  
       toPaymentBtn.innerHTML = "Add to Cart";
-      toPaymentBtn.addEventListener("click", () => {
-        window.location = "cart.php/id=" + randomChoice.id;
-      });
+      // toPaymentBtn.addEventListener("click", () => {
+      //   window.location = "cart.php/id=" + randomChoice.id;
+      // });
       randomCoffeeWrapper.append(h3Name,h4Origin,h4Roast,pTaste, toPaymentBtn, startAgainLink)
       divForResults.append(img, randomCoffeeWrapper);
        return divForResults;

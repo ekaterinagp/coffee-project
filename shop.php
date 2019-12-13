@@ -61,27 +61,27 @@ require_once(__DIR__ . '/components/header.php');
                         <div class="panel filter-origin bg-white color-black">
                             <div class="options" id="coffeeTypesdiv">
 
-                                <label for="option1" class="checkbox">
-                                    <input type="checkbox" value="Colombia" class="">
+                                <label for="typeOption1" class="checkbox grid">
+                                    <input type="checkbox" value="Colombia" class="align-self-center" name="typeOption1">
                                     <span>Colombia</span>
                                 </label><br>
-                                <label for="option1" class="checkbox">
-                                    <input type="checkbox" value="Ethiopia" class=""> <span>Ethiopia</span>
+                                <label for="typeOption2" class="checkbox grid">
+                                    <input type="checkbox" value="Ethiopia" class="align-self-center" id="typeOption2"> <span>Ethiopia</span>
                                 </label><br>
-                                <label for="option2" class="checkbox">
-                                    <input type="checkbox" value="Sumatra" class="">
+                                <label for="typeOption3" class="checkbox grid">
+                                    <input type="checkbox" value="Sumatra" class="align-self-center" id="typeOption3">
                                     <span>Sumatra</span>
                                 </label><br>
-                                <label for="option3" class="checkbox">
-                                    <input type="checkbox" value="Brazil" class="">
+                                <label for="typeOption4" class="checkbox grid">
+                                    <input type="checkbox" value="Brazil" class="align-self-center" id="typeOption4">
                                     <span>Brazil</span>
                                 </label><br>
-                                <label for="option4" class="checkbox">
-                                    <input type="checkbox" value="Nicaragua" class="">
+                                <label for="typeOption5" class="checkbox grid">
+                                    <input type="checkbox" value="Nicaragua" class="align-self-center" id="typeOption5">
                                     <span>Nicaragua</span>
                                 </label><br>
-                                <label for="option5" class="checkbox">
-                                    <input type="checkbox" value="Blend" class="">
+                                <label for="typeOption6" class="checkbox grid">
+                                    <input type="checkbox" value="Blend" class="align-self-center" id="typeOption6">
                                     <span>Blend</span>
                                 </label><br>
                             </div>

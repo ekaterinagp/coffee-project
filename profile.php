@@ -337,7 +337,7 @@ if ($_SESSION) {
             <div class="subscriptionItem" id="<?= $jSubscription['nSubscriptionID']; ?>">
               <div class="subscriptionItemBg">
                 <img src="img/products/<?= $result; ?>.png" alt="">
-                <h3><?= $jSubscription['cName']; ?></h3>
+                <h3 class="subscriptionName"><?= $jSubscription['cName']; ?></h3>
                 <h4><?= $jSubscription['cCoffeeTypeName']; ?></h4>
               </div>
               <div class="white-text-bg">
@@ -346,7 +346,7 @@ if ($_SESSION) {
                   quasi provident nulla minus odit architecto.</p>
                 <h4 class="priceSubscription p-small"><?= $jSubscription['nSubscriptionPrice']; ?> DKK / Month</h4>
               </div>
-              <a href=""><button class="addSubToCartBtn button">Add to Cart</button></a>
+              <button class="addSubToCartBtn button">Add to Cart</button>
             </div>
         </div>
 
@@ -361,6 +361,7 @@ if ($_SESSION) {
   </section>
   </main>
   <script src="js/validation.js"></script>
+  <script src="js/sessionStorageCart.js"></script>
 
   <?php
   $sScriptPath = 'profile.js';
