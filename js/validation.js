@@ -123,7 +123,7 @@ if (document.querySelectorAll("form")) {
   console.log(forms.length)
   forms.forEach(form=>{
   checkIfFormIsValid(form)
-  if(form.id = "loginForm"){
+  if(form.id == "loginForm"){
     const loginBtn = document.querySelector("#loginBtn");
     loginBtn.addEventListener("click", () => {
       event.preventDefault();
