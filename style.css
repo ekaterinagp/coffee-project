@@ -910,8 +910,8 @@ a {
 
 .notification-container {
   position: fixed;
-  bottom: -10vw;
-  left: 2vw;
+  top: 6.5vw;
+  right: 2vw;
   width: 20vw;
   height: 4vw;
   background-color: #f2f2f2;
