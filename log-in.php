@@ -15,8 +15,7 @@ if ($_SESSION) {
   <div class="loginWelcome m-medium pb-medium bg-grey">
     <div class="signupBg "></div>
 
-        <h1 class="p-small text-center">Welcome to Proper Pour!</h1>
-        <h2 class="p-small text-center">Please log in</h2>
+        <h1 class="p-small text-center">log in</h1>
       
       <form id="loginForm" class="mv-medium" method="POST">
               <label for="email">

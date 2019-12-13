@@ -293,8 +293,9 @@ if($statementProducts->execute()){
           <div class="description m-small">
             <h3 class="productName mt-small text-left"><?=$jProduct['cProductName'];?></h3>
             <h4 class="productName mt-small text-left">Origin: <?=$jProduct['cName'];?></h4>
+           
             <h4 class="priceProduct mt-small"><?=$jProduct['nPrice'];?> DKK</h4>
-          </div>
+            </div>
         </div>
       </a>
 <?php
@@ -340,7 +341,7 @@ $data =[
           <div class="subscriptionItemBg">
             <img src="img/products/<?= $result ;?>.png" alt="">  
             <h3><?= $jSubscription['cName'];?></h3>
-            <h4><?= $jSubscription['cCoffeeTypeName'];?></h4>
+            <h4>Origin: <?= $jSubscription['cCoffeeTypeName'];?></h4>
           </div>
         <div class="white-text-bg">
           <p class="descSubscription p-small">Lorem ipsum dolor sit amet consectetur 
