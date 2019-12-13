@@ -39,7 +39,7 @@ require_once(__DIR__ . '/components/header.php');
 
     <section class="section-two grid mv-medium">
         <h2 class="mb-small">What you get</h2>
-        <h3 class="">We make sure you get everything you wish for and more </h3>
+        <h4 class="">We make sure you get everything you wish for and more </h4>
         <div class="grid grid-two-thirds-reversed ph-xlarge whatGetSection">
             <div class="image bg-contain"></div>
             <div class="colorBlock">
@@ -50,7 +50,7 @@ require_once(__DIR__ . '/components/header.php');
                         <p>Your handpick selection of coffee</p>
                     </div>
                     <div>
-                        <h4 class="">TIPS</h4>
+                        <h4 class="">Tips</h4>
                         <p>Tasting notes and brewering tips</p>
                     </div>
                     <div>
@@ -67,7 +67,7 @@ require_once(__DIR__ . '/components/header.php');
 
     <section class="section-three grid mv-medium">
         <h2 class="mb-small">How it works</h2>
-        <h3 class="">Enhancing your everyday coffee experience has never been easier</h3>
+        <h4 class="">Enhancing your everyday coffee experience has never been easier</h4>
         <div class="grid grid-three container">
             <div class="flipcontainer  one grid" ontouchstart="this.classList.toggle('hover');">
                 <div class="flipper">
@@ -135,7 +135,7 @@ require_once(__DIR__ . '/components/header.php');
 
     <section class="section-four grid mv-medium">
         <h2 class="mb-small">Why choose The Proper Pour</h2>
-        <h3 class="text-center ">Get ready to have all your expectations met</h3>
+        <h4 class="text-center ">Get ready to have all your expectations met</h4>
         <div class="grid grid-two container ph-xlarge bg-medium-light-brown height90">
             <div class="colorBlock1 ">
                 <div class="list1 list p-medium">
@@ -168,7 +168,7 @@ require_once(__DIR__ . '/components/header.php');
 
     <section class="section-five grid mt-medium">
         <h2 class="mb-small">Enhance your experience</h2>
-        <h3>Tips and tricks to make your best cup of coffee</h3>
+        <h4>Tips and tricks to make your best cup of coffee</h4>
         <div class="grid grid-four container masonry">
             <div class="flipcontainer item one grid" ontouchstart="this.classList.toggle('hover');">
                 <div class="flipper">

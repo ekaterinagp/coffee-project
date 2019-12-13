@@ -44,18 +44,18 @@ $statementRelatedProducts = $connection->prepare($sqlRelatedProducts);
                             <div class="description mh-small mv-medium grid grid-two">
                                 <div>
                                     <h1 class="productName mv-small text-left"><?= $product['cProductName']; ?></h1>
-                                    <h3 class="coffee-type mv-small text-left light"><?= $product['cName']; ?></h3>
+                                    <h2 class="coffee-type mv-small text-left light"><?= $product['cName']; ?></h2>
                                     <h4 class="productPrice mv-small"><?= $product['nPrice']; ?> DKK</h4>
                                     <p>A soft, velvety body highlights a soft citric acidity and pleasant sweetness, with notes of raspberry, orange and sugar cane.</p>
                                 </div>
                                 <div class="mv-small">
-                                    <h3 class="uppercase bold">Roast level</h3>
-                                    <h4 class=" mb-small">Medium Roast</h4>
-                                    <h3 class="uppercase bold">Type</h3>
-                                    <h4 class=" mb-small"><?= $product['cName']; ?></h4>
-                                    <h3 class="uppercase bold">Recommmended for</h3>
-                                    <h4 class="">Espresso</h4>
-                                    <h4 class="">French Press</h4>
+                                    <h4 class="bold">Roast level</h4>
+                                    <h5 class="light mb-small">Medium Roast</h5>
+                                    <h4 class="bold">Type</h4>
+                                    <h5 class="light mb-small"><?= $product['cName']; ?></h5>
+                                    <h4 class="bold">Recommmended for</h4>
+                                    <h5 class="light">Espresso</h5>
+                                    <h5 class="light">French Press</h5>
                                 </div>
                             </div>
                         </div>
@@ -63,7 +63,7 @@ $statementRelatedProducts = $connection->prepare($sqlRelatedProducts);
                         <div class="product-purchase-container bg-grey p-medium pt-medium">
                             <div class="options-container grid mb-small">
                                 <div class="options mv-small ">
-                                    <h3 class="uppercase bold pb-small">Quantity</h3>
+                                    <h4 class="text-left bold pb-small">Quantity</h4>
                                    
                                     <label for="option1" class=" grid ">
                                         <input type="number" name="option1" value="1" class="">
@@ -73,7 +73,7 @@ $statementRelatedProducts = $connection->prepare($sqlRelatedProducts);
 
 
                                 <div class="options mv-small">
-                                <h3 class="uppercase bold pb-small">Grind</h3>
+                                <h4 class="text-left bold pb-small">Grind</h4>
                                     <label>
                                         <input type="radio" name="grindType" value="whole" class="mb-small">
                                         <div class="checkmark">Whole</div>
@@ -87,8 +87,8 @@ $statementRelatedProducts = $connection->prepare($sqlRelatedProducts);
                                 </div>
                             </div>
                             <div class="payment">
-                                <h2 class="align-self-bottom mt-medium">Total amount</h2>
-                                <p class="align-self-top"><?= $product['nPrice']; ?> DKK</p>
+                                <h2 class="align-self-bottom mt-medium text-right">Total amount</h2>
+                                <p class="align-self-top text-right"><?= $product['nPrice']; ?> DKK</p>
                                 <div class="button" id="addToCartBtn">Add to cart</div>
                             </div>
                         </div>
@@ -96,8 +96,8 @@ $statementRelatedProducts = $connection->prepare($sqlRelatedProducts);
 
     <section class="section-two grid mv-medium ph-large relative">
         <div class="relative">
-            <h2 class="mb-medium">You might also like</h2>
-            <div class="container-banner absolute pv-large bg-dark-brown"></div>
+            <h4 class="bold mb-small">You might also like</h4>
+            <div class="container-banner absolute pv-medium bg-dark-brown"></div>
             <div class="products-container grid grid-four">
 
             <?php

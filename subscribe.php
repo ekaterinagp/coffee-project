@@ -65,7 +65,7 @@ $connection = null;
   
   
   <h2 class="text-center" >In doubt what to choose?</h2>
-  <h3 class="text-center" >Want to get reccomendations? Take a coffee test! </h3>
+  <h4 class="text-center" >Want to get reccomendations? Take a coffee test! </h4>
   <a href="#test"><button id="startBtn" class="button">Start</button>
   </a>
 
