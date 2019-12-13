@@ -93,11 +93,7 @@ function updateUser(){
 
 const deleteSubscriptionBtn = document.querySelectorAll(".current-subscriptions .button-delete");
 
-console.log(deleteSubscriptionBtn);
-
 deleteSubscriptionBtn.forEach(deleteBtn=>{
-
-    console.log('click');
    
     deleteBtn.addEventListener("click", function(){
         let text = "Are you sure you want to unsubscribe?";

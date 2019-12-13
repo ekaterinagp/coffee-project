@@ -30,16 +30,16 @@ if ($_SESSION) {
 
 
   // SUBSCRIPTIONS THAT THE USER IS NOT SUBSCRIBED TO
-  $sqlSubscriptions = "SELECT DISTINCT tSubscriptiontype.cName, tSubscriptiontype.nSubscriptionTypeID AS nSubscriptionID, 
-                    tProduct.cName AS cProductName, tProduct.nPrice AS nSubscriptionPrice, tProduct.bActive,
-                    tCoffeeType.cName AS cCoffeeTypeName 
-                    FROM tSubscriptiontype 
-                    INNER JOIN tProduct ON tProduct.nProductID=tsubscriptiontype.nProductID
-                    INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID 
-                    INNER JOIN tUserSubscription ON tUserSubscription.nSubscriptionTypeID = tSubscriptionType.nSubscriptionTypeID
-                    WHERE tProduct.bActive != 0 AND tUserSubscription.nUserID = :id";
+  // $sqlSubscriptions = "SELECT DISTINCT tSubscriptiontype.cName, tSubscriptiontype.nSubscriptionTypeID AS nSubscriptionID, 
+  //                   tProduct.cName AS cProductName, tProduct.nPrice AS nSubscriptionPrice, tProduct.bActive,
+  //                   tCoffeeType.cName AS cCoffeeTypeName 
+  //                   FROM tSubscriptiontype 
+  //                   INNER JOIN tProduct ON tProduct.nProductID=tsubscriptiontype.nProductID
+  //                   INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID 
+  //                   INNER JOIN tUserSubscription ON tUserSubscription.nSubscriptionTypeID = tSubscriptionType.nSubscriptionTypeID
+  //                   WHERE tProduct.bActive != 0 AND tUserSubscription.nUserID = :id";
 
-  $statementSubscriptions = $connection->prepare($sqlSubscriptions);
+  // $statementSubscriptions = $connection->prepare($sqlSubscriptions);
 
   $sqlUserSubscription = "SELECT tUserSubscription.nUserSubscriptionID, tUserSubscription.dCancellation, 
                         tSubscriptionType.nSubscriptionTypeID, tSubscriptionType.cName AS cSubscriptionName,
@@ -256,7 +256,7 @@ if ($_SESSION) {
     </section>
 
     <section class="section-three mb-large ph-large pt-medium">
-      <h2>Want to try something new</h2>
+      <h2>Want to try something new?</h2>
       <div class="related-products relative">
         <h2 class="coffee-type text-left mb-medium">Products</h2>
         <div class="container-banner absolute pv-large bg-medium-light-brown"></div>

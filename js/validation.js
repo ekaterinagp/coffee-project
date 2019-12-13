@@ -17,6 +17,7 @@ function checkIfFormValid(idForm) {
 if (document.querySelector("#signupForm")) {
   checkIfFormValid("#signupForm");
 }
+
 if (document.querySelector("#loginForm")) {
   checkIfFormValid("#loginForm");
   const loginBtn = document.querySelector("#loginBtn");
