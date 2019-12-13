@@ -1524,8 +1524,7 @@ a {
 #form-profile label p,
 #form-creditcard label p {
   grid-column: 1/-1;
-  /* margin:0 1vh; */
-  color: white;
+  color: #fff;
 }
 
 #form-profile h3 {
