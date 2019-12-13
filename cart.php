@@ -35,7 +35,6 @@ require_once(__DIR__ . '/connection.php');
         
         <template id="totalItemsTemplate">
           <div id="" class="totalDiv">
-            <!-- <p class="totalItemsName"></p> -->
           </div>
         </template>
       </section>
@@ -63,20 +62,12 @@ $statementProducts = $connection->prepare($sqlProducts);
     if ($statementProducts->execute()) {
 
       $jProducts = $statementProducts->fetchAll(PDO::FETCH_ASSOC);
-      // $arrayRelatedProducts = [];
 
       foreach ($jProducts as $jProduct) {
-
-        // $nRelatedProductCoffeeTypeID = $jProduct['nCoffeeTypeID'];
-        // $nRelatedProductID = $jProduct['nProductID'];
-
-        // if(!in_array($nRelatedProductID, $arrayProductID)){
-
-        // array_push($arrayRelatedProducts, $nRelatedProductID);
-
         $imgUrl = $jProduct['cProductName'];
         $result = strtolower(str_replace(" ", "-", $imgUrl));
         ?>
+
       <a href="singleProduct?id=<?= $jProduct['nProductID']; ?>">
         <div class="product" id="product-<?= $jProduct['nProductID']; ?>">
           <div class="image bg-contain" style="background-image: url(img/products/<?= $result; ?>.png)"></div>
@@ -87,9 +78,7 @@ $statementProducts = $connection->prepare($sqlProducts);
           </div>
         </div>
       </a>
-
 <?php
-        // }
     }; ?>
 </div>
 </div>
