@@ -1,4 +1,19 @@
 "use strict";
+//  NOTIFICATION
+function showNotification(text, responseClass){
+  let notificationContainer = document.createElement("div");
+  notificationContainer.className = "notification-container grid justify-items-center align-items-center " + responseClass;
+
+  let textElement = document.createElement("p");
+  textElement.textContent = text;
+
+  notificationContainer.append(textElement);
+  document.querySelector('body').append(notificationContainer);
+
+  setTimeout(function(){
+      document.querySelector('.notification-container').remove();
+  }, 2100);
+}
 
 // LOGOUT
 

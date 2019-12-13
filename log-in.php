@@ -39,7 +39,6 @@ if ($_SESSION) {
 
   <h3 class="text-left mt-Xlarge">Not already a user? <strong><a href="sign-up">Sign up</a></strong></h3>
 </section>
-
 <?php
 $sScriptPath = 'validation.js';
 require_once(__DIR__ . '/components/footer.php');
