@@ -37,28 +37,30 @@ $statementRelatedProducts = $connection->prepare($sqlRelatedProducts);
 
                         $imgUrl = $product['cProductName'];
                         $result = strtolower(str_replace(" ", "-", $imgUrl));
-                        ?>
 
-                        <div id="product-<?= $product['nProductID']; ?>" class="product-info-container grid grid-two-thirds">
-                            <div class="image bg-contain" style="background-image: url(img/products/<?= $result; ?>.png)"></div>
+                        echo '
+                        <div id="product-'.$iProductID.'" class="product-info-container grid grid-two-thirds">
+                            <div class="image bg-contain" style="background-image: url(img/products/'.$result.'.png)"></div>
                             <div class="description mh-small mv-medium grid grid-two">
                                 <div>
-                                    <h1 class="productName mv-small text-left"><?= $product['cProductName']; ?></h1>
-                                    <h3 class="coffee-type mv-small text-left light"><?= $product['cName']; ?></h3>
-                                    <h4 class="productPrice mv-small"><?= $product['nPrice']; ?> DKK</h4>
+                                    <h1 class="productName mv-small text-left">'.$product['cProductName'].'</h1>
+                                    <h3 class="coffee-type mv-small text-left light">'.$product['cName'].'</h3>
+                                    <h4 class="productPrice mv-small">'.$product['nPrice'].' DKK</h4>
                                     <p>A soft, velvety body highlights a soft citric acidity and pleasant sweetness, with notes of raspberry, orange and sugar cane.</p>
                                 </div>
                                 <div class="mv-small">
                                     <h3 class="uppercase bold">Roast level</h3>
                                     <h4 class=" mb-small">Medium Roast</h4>
                                     <h3 class="uppercase bold">Type</h3>
-                                    <h4 class=" mb-small"><?= $product['cName']; ?></h4>
+                                    <h4 class=" mb-small">'.$product['cName'].'</h4>
                                     <h3 class="uppercase bold">Recommmended for</h3>
                                     <h4 class="">Espresso</h4>
                                     <h4 class="">French Press</h4>
                                 </div>
                             </div>
                         </div>
+                        '
+                        ?>
 
                         <div class="product-purchase-container bg-grey p-medium pt-medium">
                             <div class="options-container grid mb-small">
