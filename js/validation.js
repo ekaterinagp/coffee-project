@@ -14,20 +14,20 @@ function checkIfFormValid(idForm) {
     });
   });
 }
-if (document.querySelector("#signupForm")) {
-  checkIfFormValid("#signupForm");
-}
+// if (document.querySelector("#signupForm")) {
+//   checkIfFormValid("#signupForm");
+// }
 
-if (document.querySelector("#loginForm")) {
-  checkIfFormValid("#loginForm");
-  const loginBtn = document.querySelector("#loginBtn");
-loginBtn.addEventListener("click", () => {
-  event.preventDefault();
-  doLogin();
-});
-}
+// if (document.querySelector("#loginForm")) {
+//   checkIfFormValid("#loginForm");
+//   const loginBtn = document.querySelector("#loginBtn");
+// loginBtn.addEventListener("click", () => {
+//   event.preventDefault();
+//   doLogin();
+// });
+// }
 
-if(document.referrer.indexOf("cart")!=-1){
+if(document.referrer.indexOf("cart")!=-1 && window.location.href =="log-in"){
   console.log("from cart")
   responseClass="fail";
   text = "You have to be logged in to make a purchase";
@@ -118,30 +118,43 @@ function fvGet(sUrl, sHeader, fCallback) {
 }
 
 
-
-
-
-
-if (document.querySelector("#signupForm")) {
-  let form = document.querySelector("#signupForm");
-  if( checkInputFields(form)){
-    
-  }else{
-    console.log("false")
-  // }  // checkIfFormValid2(form);
+if (document.querySelectorAll("form")) {
+  let forms = document.querySelectorAll("form");
+  console.log(forms.length)
+  forms.forEach(form=>{
+  checkIfFormIsValid(form)
+  if(form.id == "loginForm"){
+    const loginBtn = document.querySelector("#loginBtn");
+    loginBtn.addEventListener("click", () => {
+      event.preventDefault();
+      doLogin();
+    });
+  }
+})
 }
 
 
-function checkInputFields(form){
+function checkIfFormIsValid(form){
   allInputs = form.querySelectorAll("[data-type]");
   allInputs.forEach(input=>{
     input.addEventListener('input', function(){
-      
-  // console.log(input)
+      if(checkInputFields(input,form) == true){
+        form.querySelector(".formBtn").disabled=false;
+      }else{
+        form.querySelector(".formBtn").disabled=true;
+      }
+  });
+});
+}
+
+
+
+function checkInputFields(input,form){
   let sValue = input.value;
   let sDataType = input.getAttribute("data-type")
   let iMin = input.getAttribute('data-min') 
   let iMax = input.getAttribute('data-max')
+  console.log()
   switch(sDataType){
     case 'string':
       if( sValue.length < iMin || sValue.length > iMax ){ 
@@ -173,19 +186,11 @@ function checkInputFields(form){
     break      
     default:        
   }
-  checkIfFormValid2(form)
- 
-})
-});
-}   
-}
-
-
-function checkIfFormValid2(form){
-  let formInputlength = form.querySelectorAll("[data-type]").length;
-  if( form.querySelectorAll('.error').length==0 && form.querySelectorAll(".valid").length==formInputlength ){
-    form.querySelector("button").disabled=false;
-      }else{
-        form.querySelector("button").disabled=true;
+   if( form.querySelectorAll('.error').length==0 && form.checkValidity()){
+    return true;
+  }else{
+    return false;
   }
-}
+ 
+}   
+

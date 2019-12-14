@@ -20,7 +20,7 @@ if($_SESSION){
 
 ?>
   <main id="paymentMain" class="mv-medium">  
-    <a href="cart" class=" link color-orange mt-small m-medium absolute">Back to Cart</a>
+    <a href="cart" class=" back-button color-orange absolute">&lt;</a>
     <h1 class=" text-center">Checkout </h1>
   <div class="grid grid-two  m-medium">
     <div id="paymentOverview" class="p-medium  grid grid-two">
@@ -62,30 +62,29 @@ if($statementCreditCard->execute([':id' => $nUserID])){
 <form method="POST" id="newCardFrm">
     <label class="grid" for="inputIBAN">
         <p class="text-left align-self-center mt-small">IBAN</p>
-        <input  data-type="integer" data-min="99999999999999999" data-max="999999999999999999" type="text" data-type="string" name="inputIBAN" placeholder="IBAN (format 123456789123456789)" value="">
+        <input required data-type="integer" data-min="99999999999999999" data-max="999999999999999999" type="text" data-type="string" name="inputIBAN" placeholder="IBAN (format 123456789123456789)" value="">
         <div class="errorMessage">IBAN must be 18 digits</div>
       </label>
 
       <label class="grid" for="inputCCV">
         <p class="text-left align-self-center mt-small">CCV</p>
-        <input  data-type="integer" data-min="99" data-max="999" type="text" name="inputCCV" placeholder="CCV (format 123)" value="">
+        <input  data-type="integer" data-min="99" data-max="999" type="text" name="inputCCV" placeholder="CCV (format 123)" value="" required>
         <div class="errorMessage">CCV must be 3 digits</div>
       </label>
 
       <label class="grid" for="inputExpiration">
         <p class="text-left align-self-center mt-small">Expiration date</p>
-        <input  data-type="integer" data-min="999" data-max="9999" type="text" name="inputExpiration" placeholder="Expiration date (format mmyy)" value="">
+        <input  required data-type="integer" data-min="999" data-max="9999" type="text" name="inputExpiration" placeholder="Expiration date (format mmyy)" value="">
         <div class="errorMessage">Expiration date must be 4 digits</div>
       </label>
-      <button class="button addCreditCard">Purchase</button>
+      <button disabled class="button formBtn addCreditCard">Purchase</button>
     </form>
     </div>
     </div>
     
   </main>
 <script src="js/payment.js"></script>
-<script src="js/validation.js"></script>
 <?php
-$sScriptPath = 'script.js';
+$sScriptPath = 'validation.js';
 
 require_once(__DIR__.'/components/footer.php');

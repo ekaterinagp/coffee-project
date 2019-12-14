@@ -105,12 +105,12 @@ require_once(__DIR__ . '/components/header.php');
 
                             echo '
             <a href="singleProduct?id=' . $product['nProductID'] . '">
-                <div class="product" id="product-' . $product['nProductID'] . '">
+                <div class="product relative" id="product-' . $product['nProductID'] . '">
                     <div class="image bg-contain" style="background-image: url(img/products/' . $result . '.png)"></div>
                     <div class="description m-small">
                         <h3 class="productName mt-small text-left">' . $product['cProductName'] . '</h3>
                         <h4 class="productCoffeeType mt-small text-left">' . $product['cName'] . '</h4>
-                    <h4 class="productPrice mt-small">' . $product['nPrice'] . ' DKK</h4>
+                    <h4 class="absolute productPrice mt-small">' . $product['nPrice'] . ' DKK</h4>
                     </div>
                 </div>
             </a>

@@ -168,12 +168,15 @@ function showFilteredCoffee(products) {
 // INITIALIZING OF SEARCH FUNCTION ON INPUT
 txtSearch.addEventListener("input", function() {
   fetchDataForSearch();
-
-  if (txtSearch.value.length == 0) {
+  if (txtSearch.value.length == 0 || theResults.childNodes.length ==0) {
     theResults.style.display = "none";
   } else {
     theResults.style.display = "block";
   }
+//   console.log(theResults.childNodes.length)
+// if(toolbar){
+//   theResults.style.display = "none";
+// }
 });
 
 // SEARCH FUNCTION WITH API FOR SELECT *
@@ -207,6 +210,7 @@ function fetchDataForSearch() {
           "url(img/products/" + match.cName + ".png)";
         p.innerHTML = "<strong>" + match.cName + "</strong>";
         theResults.append(a);
+      
       });
     });
 }
@@ -215,6 +219,7 @@ function fetchDataForSearch() {
 document.querySelector("#searchBtn").addEventListener("click", () => {
   event.preventDefault();
   fetchDataForSearchBtn();
+  theResults.style.display="none";
 });
 
 // let cachedHtml;

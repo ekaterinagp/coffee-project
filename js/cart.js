@@ -6,7 +6,7 @@ if(!cart){
 }
 console.log("cart", cart);
 let cartSection = document.querySelector("#cartItems");
-// selectQ();
+// selectQ();  
 
 if (cart) {
   cart.forEach(cartItem => {
@@ -34,6 +34,8 @@ if (cart) {
 if(cart.length == 0){
   displayGoBuyMessage();
 }
+
+selectQ();
 
 function displayGoBuyMessage(){
   console.log("go buy");
@@ -77,9 +79,9 @@ function selectQ() {
   document.getElementById("totalsum").innerHTML =
     "Total: " + totalPrice + "DKK";
 
-     if(cart.length == 0){
-      displayGoBuyMessage();
-    }
+    //  if(cart.length == 0){
+    //   displayGoBuyMessage();
+    // }
 }
 
 function emptyTotal() {

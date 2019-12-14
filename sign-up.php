@@ -16,7 +16,7 @@ if ($_SESSION) {
 
 
       <form id="signupForm" class="grid grid-one" method="POST">
-        <h4 class="mt-small">Personal Information</h4>
+        <h5 class="mt-small">Personal Information</h5>
         <div class="frmLine"></div>
 
         <label class="grid grid-one" for="name">First Name<input required data-min="2" data-max="20" type="text" data-type="string" name="inputName" placeholder="First name">
@@ -66,7 +66,7 @@ if ($_SESSION) {
         <label class="grid grid-one" for="userPhone">Phone number<input required type="text" data-type="integer" data-min="9999999" data-max="999999999" name="inputPhone" placeholder="phone number">
           <div class="errorMessage">Must be 8 characters</div>
         </label>
-        <h4 class="mt-small">Account Information</h4>
+        <h5 class="mt-small">Account Information</h5>
         <div class="frmLine"></div>
         <label class="grid grid-one" for="loginName">Username<input required type="text" data-type="string" data-min="2" data-max="12"  name="inputLoginName" placeholder="username">
           <div class="errorMessage">Must be more than 2 and less than 12</div>
@@ -81,10 +81,10 @@ if ($_SESSION) {
         </label>
 
 
-        <button name="reg_user" class="button" disabled>Sign Up</button>
+        <button name="reg_user" class="button formBtn" disabled>Sign Up</button>
       </form>
     </div>
-    <h3 class="text-left mt-Xlarge pt-large">Already a user? <strong><a href="log-in">Log in </a></strong></h3>
+    <h4 class="text-left mt-Xlarge pt-large">Already a user? <strong><a href="log-in">Log in </a></strong></h3>
   </div>
   <script src="js/signup.js"></script>
   <?php

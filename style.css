@@ -23,6 +23,7 @@ img {
 
 h2 {
   font-size: 2em;
+  text-transform: capitalize !important;
 }
 
 header .logo {
@@ -161,6 +162,7 @@ svg {
 
 .gridForAboveTheFold .box3 .image {
   background-image: url(img/hand-holding-caffe-latte.png);
+  background-position: 50% 100%;
 }
 
 .gridForAboveTheFold .box4 .image {
@@ -571,8 +573,10 @@ h5 a,
 .subscriptionItem h3 {
   font-family: "Lato", sans-serif;
   font-weight: 900;
-  text-transform: uppercase;
   text-align: center;
+}
+h1, h3{
+  text-transform: uppercase;
 }
 
 h1 {
@@ -599,7 +603,6 @@ button,
 .deskmenu a {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  text-transform: uppercase;
 }
 
 h1 {
@@ -607,14 +610,14 @@ h1 {
 }
 
 h2 {
-  font-size: calc(1.5vw + 45%);
+  font-size: calc(1.4vw + 45%);
 }
 
 h3 {
-  font-size: calc(1vw + 40%);
+  font-size: calc(.9vw + 40%);
 }
 
-h4 {
+h4, a {
   font-size: calc(0.8vw + 45%);
 }
 
@@ -641,12 +644,12 @@ input[type="password"].not-input,
 input[type="number"].not-input, 
 select.not-input{
   background: transparent;
-  color: white;
   padding: 0;
   -webkit-appearance: none;
 }
 
 h2.banner-message {
+  line-height: 30px;
   font-weight: 400;
   text-transform: inherit;
   text-align: left;
@@ -831,7 +834,9 @@ a svg:hover path {
 /*****  MENU ENDS  *****/
 
 /*****  FOOTER  *****/
-
+footer{
+  width:100vw;
+}
 footer .logo {
   height: 30%;
 }
@@ -889,16 +894,19 @@ a {
   background:none;
   position: absolute;
   border: none;
-  left: 2vw;
+  left: 5vw;
   top: 8vw;
   transition: all 0.3s;
-  text-decoration: underline;
-  font-size: 110%;
+  font-size: 350%;
+  cursor: pointer;
 }
 
 .button-delete-profile, .button-delete-card, .button-delete {
   background-color: #000;
   border: solid 2px #000;
+}
+.button-delete-profile{
+  float: right;
 }
 
 .button-delete-card{
@@ -1284,9 +1292,9 @@ a {
   height: auto;
   display: none;
   position: absolute;
-  right: 28vw;
+  right: 14.3vw;
   background-color: #fff;
-  top: 29vw;
+  top: 35vw;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   border: solid 0.1px #00000045;
 }
@@ -1319,7 +1327,6 @@ a {
 
 #txtSearch::placeholder {
   font-family: "Open sans", sans-serif;
-  color: #000;
   font-style: italic;
 }
 
@@ -1439,12 +1446,12 @@ a {
   background-color: #fff;
 }
 
-.shop .product:hover,
+/* .shop .product:hover,
 .single-product .product:hover,
 .subscriptionItem:hover,
 .profile .product:hover, .noCart .product:hover, .thank-you .product:hover  {
   transform: scale(1.02);
-}
+} */
 
 .shop .product .image,
 .single-product .product .image,
@@ -1484,6 +1491,7 @@ a {
 .payment h4 {
   text-align: right;
 }
+
 .container-banner {
   height: 15vw;
 }
@@ -1569,7 +1577,7 @@ a {
 .product-purchase-container input:checked + .checkmark {
   background-color: #2b231d;
   color: #fff;
-  transform: scale(1.05);
+  /* transform: scale(1.05); */
 }
 
 .product-purchase-container input[type="number"] {
@@ -1597,9 +1605,11 @@ a {
 #form-profile label p,
 #form-creditcard label p {
   grid-column: 1/-1;
-  color: #fff;
+  /* color: #fff; */
 }
-
+.current-subscriptions .subscriptionItem h4{
+  color:white;
+}
 #form-profile h3 {
   font-size: 80%;
 }
@@ -1624,7 +1634,12 @@ a {
 .hide-button {
   display: none;
 }
-
+#form-profile{
+  grid-gap:1vw;
+}
+#form-profile .formButtonContainer{
+  grid-column: 3;
+}
 #form-profile select::placeholder {
   color: #000;
 }
@@ -1661,7 +1676,7 @@ a {
 .subscriptionItem .priceSubscription{
   color:white;
   font-weight: bold;
-  font-size: 90%;
+  font-size: 95%;
   /* text-align: right; */
 }
 .subscribeOptiopnP {
@@ -1693,7 +1708,7 @@ a {
 
 .subscriptionItem img {
   width: auto;
-  height: 14vw;
+  height: 12vw;
   margin: auto;
   display: block;
 }
@@ -1736,6 +1751,8 @@ a {
   color: #000;
   padding-bottom: 0;
   font-weight: 900;
+  bottom:2vw;
+  right:2vw
 }
 
 .payment h4.totalPrice{
@@ -1828,7 +1845,7 @@ input:checked + .btnRadio {
 }
 
 .btnRadio h2 {
-  font-size: 1em;
+  font-size: 1.1em;
 }
 
 /* .testContainer .btnRadioInline:hover,
@@ -1972,8 +1989,9 @@ input:checked + .btnRadio {
 .containerSignup {
   position: relative;
   width: 100%;
+  min-height: 80vh;
 }
-.containerSignup h3,
+.containerSignup h4,
 .containerSignup a {
   color: white;
 }
@@ -1981,7 +1999,7 @@ input:checked + .btnRadio {
   text-align: left;
 }
 
-.containerSignup h4 {
+.containerSignup h5 {
   padding: 0;
   margin-left: -1.5em;
   width: 100%;
@@ -2051,7 +2069,7 @@ input[type="number"]:invalid:not(:focus):not(:placeholder-shown)
 textarea:invalid:not(:focus) ~ .errorMessage, */
 .error:not(:focus):not(:placeholder-shown) ~ .errorMessage {
   max-height: 200px;
-  padding: 3px 10px 10px 30px;
+  padding: 3px 10px 10px 10px;
 }
 
 form .errorMessage {
@@ -2072,6 +2090,9 @@ input:not(:focus).error {
   background-color: yellow;
 }
 /*  CART PAGE  */
+.cartMain{
+  min-height: 70vh;
+}
 .numberOfItems {
   background-color: #fb8b23;
   border-radius: 50%;
@@ -2114,7 +2135,7 @@ input.price_cart{
   font-size: inherit;
 }
 input.type_cart_grind{
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 .noCart {
   display: none;

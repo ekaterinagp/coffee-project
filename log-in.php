@@ -33,12 +33,12 @@ if ($_SESSION) {
           </label>
 
 
-        <button id="loginBtn" class="button" disabled>Log in</button>
+        <button id="loginBtn" class="formBtn button" >Log in</button>
       </form>
     </div>
   </div>
 
-  <h3 class="text-left mt-Xlarge">Not already a user? <strong><a href="sign-up">Sign up</a></strong></h3>
+  <h4 class="text-left mt-Xlarge">Not already a user? <strong><a href="sign-up">Sign up</a></strong></h4>
 </section>
 <?php
 $sScriptPath = 'validation.js';

@@ -70,38 +70,38 @@ if ($_SESSION) {
 
   <main class="profile">
     <h1 class="text-center pt-medium">Welcome <?= $jLoggedUser['cName']; ?></h1>
-    <section class="section-one grid grid-two ph-large mv-medium">
+    <section class="section-one grid  ph-large mv-medium">
 
       <div>
-        <div class="profile-details bg-dark-brown p-medium pt-medium">
-          <h2 class="color-white">Profile Details</h2>
-          <form id="form-profile" class="pt-small ph-medium" method="post">
+        <div class="profile-details bg-grey p-medium pt-medium">
+          <h2 class="">Profile Details</h2>
+          <form id="form-profile" class=" grid grid-three pt-small ph-medium" method="post">
             <label id="cName" class="grid" for="name">
               <p class="text-left align-self-center">Name</p>
-              <input class="mb-small not-input" data-type="string" data-min="2" data-max="20" type="text" data-type="string" name="inputName" placeholder="First name" value="<?= $jLoggedUser['cName']; ?>">
+              <input class=" not-input" data-type="string" data-min="2" data-max="20" type="text" data-type="string" name="inputName" placeholder="First name" value="<?= $jLoggedUser['cName']; ?>">
               <div class="errorMessage">Name must be more than 1 and less than 20 letters</div>
             </label>
 
             <label id="cSurname" class="grid" for="lastName">
               <p class="text-left align-self-center">Last Name</p>
-              <input class="mb-small  not-input" data-type="string" data-min="2" data-max="20" type="text" name="inputLastName" placeholder="Last name" value="<?= $jLoggedUser['cSurname']; ?>">
+              <input class="  not-input" data-type="string" data-min="2" data-max="20" type="text" name="inputLastName" placeholder="Last name" value="<?= $jLoggedUser['cSurname']; ?>">
               <div class="errorMessage">Last name must be more than 1 and less than 20 letters</div>
             </label>
 
             <label class="grid" for="loginName">
               <p class="text-left align-self-center">Username</p>
-              <input class="mb-small not-input" type="text" data-type="string" data-min="2" data-max="12" name="inputLoginName" placeholder="username" value="<?= $jLoggedUser['cUsername']; ?>">
+              <input class=" not-input" type="text" data-type="string" data-min="2" data-max="12" name="inputLoginName" placeholder="username" value="<?= $jLoggedUser['cUsername']; ?>">
               <div class="errorMessage">Must be more than 2 and less than 12</div>
             </label>
 
             <label id="cEmail" class="grid" for="email">
               <p class="text-left align-self-center">Email</p>
-              <input class="mb-small not-input" type="email" data-type="email" name="inputEmail" placeholder="email" value="<?= $jLoggedUser['cEmail']; ?>">
+              <input class=" not-input" type="email" data-type="email" name="inputEmail" placeholder="email" value="<?= $jLoggedUser['cEmail']; ?>">
               <div class="errorMessage" id="emailDiv">Must be a valid email address</div>
             </label>
             <label id="nCityID" for="cityInput" class="grid">
               <p class="text-left align-self-center">City</p>
-              <select class="mb-small not-input" data-type="integer" data-min="0" data-max="999" name="cityInput" value="<?= $jLoggedUser['nCityID'] ?>">
+              <select class=" not-input" data-type="integer" data-min="0" data-max="999" name="cityInput" value="<?= $jLoggedUser['nCityID'] ?>">
                 <option value="1" <?php if ($jLoggedUser['nCityID'] = 1) echo 'selected' ?>>Copenhagen</option>
                 <option value="2" <?php if ($jLoggedUser['nCityID'] = 2) echo 'selected' ?>>Århus</option>
                 <option value="3" <?php if ($jLoggedUser['nCityID'] = 3) echo 'selected' ?>>Odense</option>
@@ -127,32 +127,32 @@ if ($_SESSION) {
             </label>
             <label id="cAddress" class="grid" for="userAddress">
               <p class="text-left align-self-center">Address</p>
-              <input class="mb-small not-input" type="text" data-type="string" data-min="12" data-max="9999999999" name="inputAddress" placeholder="Address" value="<?= $jLoggedUser['cAddress']; ?>">
+              <input class=" not-input" type="text" data-type="string" data-min="12" data-max="9999999999" name="inputAddress" placeholder="Address" value="<?= $jLoggedUser['cAddress']; ?>">
               <div class="errorMessage">Must be more than 12 characters</div>
             </label>
 
             <label id="cPhoneNo" class="grid" for="userPhone">
               <p class="text-left align-self-center">Phone</p>
-              <input class="mb-small not-input" type="number" data-type="string" data-min="9999999" data-max="99999999" name="inputPhone" placeholder="phone number" value="<?= $jLoggedUser['cPhoneNo']; ?>">
+              <input class=" not-input" type="number" data-type="number" data-min="9999999" data-max="99999999" name="inputPhone" placeholder="phone number" value="<?= $jLoggedUser['cPhoneNo']; ?>">
               <div class="errorMessage">Must be 8 characters</div>
             </label>
 
-            <div class="grid grid-two">
-              <div>
+            <div class="formButtonContainer">
+              
                 <button class="button-edit button">Edit information</button>
-                <button class="button-save hide-button button">Save information</button>
-              </div>
-              <button class="button button-delete-profile justify-self-right">Delete Profile</button>
+                <button class="button-save formBtn hide-button button">Save information</button>
+              
+             
             </div>
 
           </form>
         </div>
       </div>
-      <div class="profile-details bg-light-brown p-medium pt-medium">
+      <div class="profile-details bg-grey p-medium pt-medium">
 
       
-        <div class="creditcard-container ph-medium">
-          <h2 class="color-white">Creditcard Details</h2>
+        <div class="creditcard-container ph-medium ">
+          <h2 class="">Creditcard Details</h2>
           <form method="POST" id="savedCardFrm" class=" pt-small choose-credit-card grid grid-two-thirds-reversed">
       
           <?php
@@ -160,7 +160,7 @@ if ($_SESSION) {
               $jUserCreditCards = $statementCreditCard->fetchAll(PDO::FETCH_ASSOC);
 
               if (count($jUserCreditCards) >= 1) {?>
-              <label><p class="text-left align-self-center color-white">Your credit cards</p>
+              <label><p class="text-left align-self-center ">Your credit cards</p>
                 <select class="align-self-center" name="userCreditCards" id="">
 
               <?php
@@ -182,20 +182,22 @@ if ($_SESSION) {
       <form id="form-creditcard" method="post" class="mt-medium">
           <label class="grid" for="inputIBAN">
             <p class="text-left align-self-center">IBAN</p>
-            <input class="mb-small" data-type="integer" data-min="99999999999999999" data-max="999999999999999999" type="text" data-type="string" name="inputIBAN" placeholder="IBAN (format 123456789123456789)" value="">
+            <input class="mb-small" data-type="integer" data-min="99999999999999999" data-max="999999999999999999" type="number" data-type="string" name="inputIBAN" placeholder="IBAN (format 123456789123456789)" value="">
             <div class="errorMessage">IBAN must be 18 digits</div>
           </label>
           <label class="grid" for="inputCCV">
             <p class="text-left align-self-center">CCV</p>
-            <input class="mb-small" data-type="integer" data-min="99" data-max="999" type="text" name="inputCCV" placeholder="CCV (format 123)" value="">
+            <input class="mb-small" data-type="integer" data-min="99" data-max="999" type="number" name="inputCCV" placeholder="CCV (format 123)" value="">
             <div class="errorMessage">CCV must be 3 digits</div>
           </label>
           <label class="grid" for="inputExpiration">
             <p class="text-left align-self-center">Expiration date</p>
-            <input class="mb-small" data-type="integer" data-min="999" data-max="9999" type="text" name="inputExpiration" placeholder="Expiration date (format mmyy)" value="">
+            <input class="mb-small" data-type="integer" data-min="999" data-max="9999" type="number" name="inputExpiration" placeholder="Expiration date (format mmyy)" value="">
             <div class="errorMessage">Expiration date must be 4 digits</div>
           </label>
-          <button class="button-save hide-button button">Save creditcard</button>
+
+
+          <button class="button-save formBtn hide-button button " disabled>Save creditcard</button>
         </form>
       </div>
     </section>
@@ -328,6 +330,7 @@ if ($_SESSION) {
 
   </div>
   </div>
+  <button class="button button-delete-profile m-medium">Delete Profile</button>
   </section>
   </main>
   <script src="js/validation.js"></script>

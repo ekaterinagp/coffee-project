@@ -5,7 +5,7 @@ require_once(__DIR__ . '/components/header.php');
 require_once(__DIR__ . '/connection.php');
 ?>
 
-<main class="mt-small mb-medium">
+<main class="cartMain mt-small mb-medium">
   <h1 class="text-center mb-medium">Cart</h1>
   <div class="cartTotal mh-large">
     <section id="cartItems">
@@ -67,12 +67,12 @@ require_once(__DIR__ . '/connection.php');
         $result = strtolower(str_replace(" ", "-", $imgUrl));
         echo 
         ' <a href="singleProduct?id='.$jProduct['nProductID'].'">
-             <div class="product" id="product-'.$jProduct['nProductID'].'">
+             <div class="product relative " id="product-'.$jProduct['nProductID'].'">
                  <div class="image bg-contain" style="background-image: url(img/products/'.$result.'.png)"></div>
                  <div class="description m-small">
                      <h3 class="productName mt-small text-left">'.$jProduct['cProductName'].'</h3>
                      <h4 class="productName mt-small text-left">'.$jProduct['cName'].'</h4>
-                     <h4 class="productPrice mt-small">'.$jProduct['nPrice'].' DKK</h4>
+                     <h4 class="productPrice absolute mt-small">'.$jProduct['nPrice'].' DKK</h4>
                  </div>
              </div>
          </a>';
