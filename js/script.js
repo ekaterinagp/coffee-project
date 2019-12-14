@@ -69,15 +69,17 @@ if (document.querySelector(".back-button")) {
 
 function checkCart() {
   // console.log("check cart")
-  let numberOfItem = document.querySelector(".numberOfItems");
+  let numberOfItemElms = document.querySelectorAll(".numberOfItems");
   let cart = JSON.parse(sessionStorage.getItem("cart"));
 
+  numberOfItemElms.forEach(numberOfItem=>{
   if (cart && cart.length > 0) {
     numberOfItem.innerHTML = cart.length;
     numberOfItem.setAttribute("style", "display:inline;");
   } else {
     numberOfItem.setAttribute("style", "display: none;");
   }
+})
 }
 
 checkCart();

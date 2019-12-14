@@ -924,7 +924,6 @@ a {
   align-content: center;
   transition: all 0.3s;
   cursor: pointer;
-  border: solid 2px #fb8b23;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
@@ -2245,6 +2244,9 @@ header .logo{
   height:5vw;
   margin:1vw;
 } 
+.numberOfItems{
+  padding: .5vh 2vw;
+}
 /*  GRIDS  */
 .single-product .grid-two-thirds-reversed{
   grid-template-columns: 1fr;
@@ -2350,11 +2352,11 @@ form.listenTo.grid.grid-three{
   margin-top:15%;
 }
 #paymentMain{
-  height:70vh;
+  min-height:70vh;
 }
 .thank-you{
   margin-top:10%;
-  height:75vh;
+  min-height:75vh;
 }
 
 /*  LOGIN  */
@@ -2377,7 +2379,7 @@ form.listenTo.grid.grid-three{
 @media only screen and (max-width: 420px) {
 h1,h2,h3,h4,h5,p,div,input,button,span, input[type="text"], input[type="email"], 
 input[type="password"],
- input[type="number"], select{
+ input[type="number"], select, select>option{
   font-size: 95%;
 }
 input[type="text"]::placeholder, input[type="email"]::placeholder, 
@@ -2386,8 +2388,28 @@ input[type="password"]::placeholder,
   font-size: 1em;
 }
 .button{
-  max-width: 100%;
+  max-width: 40vw;
+  width: 100%;
   padding: 3vw
+}
+.back-button{
+  font-size: 250%;
+}
+.profile .product h3, .noCart .product h3, .thank-you .product h3{
+  font-size: calc(2vw + 30%) ;
+}
+@keyframes moveUp {
+  10% {
+    top: 20vw;
+  }
+
+  70% {
+    top: 20vw;
+  }
+
+  100% {
+    top: -10vw;
+  }
 }
 /*  MENU  */
 .menu a{
@@ -2401,6 +2423,10 @@ footer.grid-five{
 footer svg{
   width:50%;
 }
+/*   GRID    */
+/* .grid-two{
+  grid-template-columns: 1fr;
+} */
 /*  MARGINS AND PADDINGS  */
 .frontpage .mv-medium{
   margin-top:10vw;
@@ -2565,5 +2591,40 @@ form.listenTo.grid.grid-three{
   }
   .profile .products-container.grid-four{
     grid-template-columns: 1fr;
+  }
+
+  /*    CART/   PAYMENT/   THANK YOU PAGE  */
+  .cartMain, #paymentMain, .thank-you{
+  margin-top:0;
+  }
+  .cartTotal{
+    grid-template-columns: 1fr;
+    grid-gap: 2vh;
+  }
+  .total{
+    grid-row:1;
+  }
+  .img_cart{
+    height:25vw;
+  }
+  .paymentForm{
+    width: auto;
+    padding:4vw;
+  }
+  #paymentMain img{
+    width:20vh;
+  }
+  #paymentMain>.grid-two{
+    grid-template-columns: 1fr;
+  }
+  #paymentOverview>div{
+    align-self: center;
+    margin-top: 0;
+  }
+  .receipt>.grid-two{
+    grid-template-columns: 1fr;
+  }
+  .receipt img{
+    margin:auto;
   }
 }

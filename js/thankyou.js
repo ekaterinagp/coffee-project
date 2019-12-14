@@ -13,5 +13,5 @@ if(cart){
         let price = cart[0].price.substr(0, cart[0].price.search(" "))
         console.log(price)
         amountPayed.textContent= "Amount Payed: "+ (price * 1.25 ) + " DKK";
-    
+    sessionStorage.removeItem("cart")
 }
