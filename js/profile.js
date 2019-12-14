@@ -149,7 +149,11 @@ function showModal(text, deleteType, itemID){
     modalContainer.append(h3, buttonDelete, buttonAbort);
     modal.append(modalContainer);
     document.querySelector('body').append(modal);
-
+document.addEventListener("click", function(){
+    if(event.target == modal ){
+        modal.style.display="none";
+    }
+})
     document.querySelector(".button-abort-delete").addEventListener("click", function(){
         modal.classList.add('hide');
         setTimeout(function(){

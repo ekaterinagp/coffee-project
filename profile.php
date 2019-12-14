@@ -175,7 +175,7 @@ if ($_SESSION) {
 
                 </select>
               </label>
-            <button class="button-delete-card button align-self-bottom">Delete creditcard</button>
+            <button class="button-delete-card button align-self-bottom">Delete</button>
           </form>
       </div>
       <button class="button-add button">Add creditcard</button>
@@ -279,7 +279,7 @@ if ($_SESSION) {
 
     <section class="section-three ph-large mb-medium">
       <h2 class="mb-small">Want to try something new?</h2>
-      <h3 class="mb-small">Visit the shop and explore a world of quality coffee</h3>
+      <h4 class="mb-small">Visit the shop and explore a world of quality coffee</h4>
       <div class="related-products relative">
         <div class="container-banner absolute pv-large bg-medium-light-brown"></div>
         <div class="products-container grid grid-four">
