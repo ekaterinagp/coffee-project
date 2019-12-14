@@ -15,14 +15,20 @@ function showNotification(text, responseClass){
 
   setTimeout(function(){
       document.querySelector('.notification-container').remove();
-  }, 2100);
+  }, 80100);
 }
+//
 
 
 // LOGOUT
 
 if(document.querySelector(".button-log-out")){
-  document.querySelector(".button-log-out").addEventListener("click", logout);
+  document.querySelectorAll(".button-log-out").forEach(logOutBtn=>{
+
+    logOutBtn.addEventListener("click", logout);
+  })
+  
+ 
 }
 
 
@@ -63,15 +69,17 @@ if (document.querySelector(".back-button")) {
 
 function checkCart() {
   // console.log("check cart")
-  let numberOfItem = document.querySelector(".numberOfItems");
+  let numberOfItemElms = document.querySelectorAll(".numberOfItems");
   let cart = JSON.parse(sessionStorage.getItem("cart"));
 
+  numberOfItemElms.forEach(numberOfItem=>{
   if (cart && cart.length > 0) {
     numberOfItem.innerHTML = cart.length;
     numberOfItem.setAttribute("style", "display:inline;");
   } else {
     numberOfItem.setAttribute("style", "display: none;");
   }
+})
 }
 
 checkCart();

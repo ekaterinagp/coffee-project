@@ -722,7 +722,7 @@ select {
   height: 450px;
   display: grid;
   align-items: center;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.16), 0 10px 10px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   background:white;
 }
 
@@ -784,10 +784,10 @@ a {
   grid-template-columns: repeat(6, 1fr);
 }
 
-.deskmenu svg {
+/* .deskmenu svg {
   position: relative;
   top: -20;
-}
+} */
 
 .alignTextCenter {
   text-align: center;
@@ -799,37 +799,72 @@ a {
 }
 
 .deskmenu a,
-.hiddenMenu a {
+.menu a {
   font-weight: 900;
   transition: 0.2s ease-in-out;
 }
 
 .deskmenu a:hover,
-.hiddenMenu a:hover {
+.menu a:hover {
   color: #fb8b23;
 }
 
-.menu-icon {
-  color: transparent;
-  height: 100%;
-  background-position: center;
-  padding: 0.2vw;
-  width: 2vw;
-  height: 2vw;
+.menu {
+  display: grid;
+  /* justify-content: center; */
+  align-items: center;
+  text-align: left;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  z-index: 10;
+  padding:  0 2em 10vh;
+  width: 100vw;
+  height: 100vh;
+  transition: all 0.3s;
+  background:#fff;
+ 
+}
+.menu a{
+  font-size: 150%;
 }
 
-a.cart:hover,
-a.profile:hover {
-  color: transparent;
-}
-
-a svg path {
-  transition: 0.2s ease-in-out;
-}
-
-a svg:hover path {
-  stroke: #fb8b23;
-}
+svg.menuIcon {
+    cursor: pointer;
+    /* z-index: 15; */
+    fill: #fb8b23;
+    height: 40px;
+    width: 40px;
+    display: none;
+  }
+  
+  svg.menuIcon rect {
+    height: 8px;
+    transition: all 0.6s;
+  }
+  svg.menuIcon rect:nth-child(1) {
+    transform-origin: left top;
+  }
+  
+  svg.menuIcon rect:nth-child(3) {
+    transform-origin: left bottom;
+  }
+  
+   .hiddenMenu {
+    transform: translateX(-200vw);
+  }
+  
+  .fadeOut {
+    opacity: 0;
+  }
+  
+  .rotateUp {
+    transform: rotate(-45deg) translate(18px, 41px);
+  }
+  
+  .rotateDown {
+    transform: rotate(45deg) translate(17px, -14px);
+  }
 
 /* .cart svg{
     width: 3vw;
@@ -876,6 +911,9 @@ a {
   color: #fb8b23;
   text-decoration: underline;
 }
+.button:active, .button:hover{
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.23);
+}
 .button {
   text-align: center;
   display: grid;
@@ -891,7 +929,6 @@ a {
   align-content: center;
   transition: all 0.3s;
   cursor: pointer;
-  border: solid 2px #fb8b23;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
@@ -927,21 +964,18 @@ a {
   margin: auto;
 }
 .button-confirm-delete {
-  background-color: red;
+  background-color: #e43d31;
 }
 
 .back-button:hover {
   color: #000;
 }
 
-.button:hover {
+/* .button:hover {
   background-color: #fff;
   color: #fb8b23;
-}
-
-.button-delete-profile:hover, .button-delete-card:hover, .button-delete:hover{
-  color: #000;
-}
+  border: solid 2px orange;
+} */
 
 .button:disabled:hover {
   transform: none;
@@ -958,15 +992,20 @@ a {
 .notification-container {
   position: fixed;
   min-width: 15vw;
-  top: 6.5vw;
+  top: -6.5vw;
   right: 2vw;
-  padding: 0.5vw;
-  height: 4vw;
-  background-color: #f2f2f2;
+  padding: 2vw;
+  /* height: 4vw; */
+   color:white;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   animation: moveUp 2s forwards 0.3s;
 }
-
+.notification-container.success{
+  background-color: #483c32;
+}
+.notification-container.fail{
+  background-color: #e43d31;
+}
 @keyframes moveUp {
   10% {
     top: 6.5vw;
@@ -1489,7 +1528,8 @@ a {
 .single-product .container-banner,
 .profile .related-products .container-banner, 
 .noCart .container-banner, 
-.containerSignup .container-banner, 
+.containerSignup .container-banner,
+.containerLogin .container-banner, 
 .thank-you .container-banner  {
   width: 100vw;
   z-index: -1;
@@ -1498,7 +1538,8 @@ a {
 .single-product .container-banner,
 .profile .related-products .container-banner, 
 .noCart .container-banner, 
-.thank-you .containerSignup .container-banner, .thank-you .container-banner{
+.thank-you .containerSignup .container-banner, 
+.thank-you .container-banner{
   left: -8vw;
 }
 
@@ -1520,7 +1561,8 @@ a {
 }
 
 
-.containerSignup .container-banner {
+.containerSignup .container-banner,
+.containerLogin .container-banner{
   top: 4vw;
 }
 
@@ -1998,20 +2040,24 @@ input:checked + .btnRadio {
   width: 55vw;
 }
 
-.containerSignup {
+.containerSignup, .containerLogin {
   position: relative;
   width: 100%;
   min-height: 80vh;
 }
 .containerSignup h4,
-.containerSignup a {
+.containerSignup a ,
+.containerLogin h4,
+.containerLogin a {
   color: white;
 }
-.containerSignup h4 {
+.containerSignup h4,
+.containerLogin h4 {
   text-align: left;
 }
 
-.containerSignup h5 {
+.containerSignup h5,
+.containerLogin h5 {
   padding: 0;
   width: 100%;
 }
@@ -2086,13 +2132,13 @@ form .errorMessage {
   max-height: 0;
   transition: all 0.3s;
   overflow: hidden;
-  color: #fb4b23;
+  color: #e43d31;
   font-style: italic;
   font-size: 80%;
 }
 
 input:not(:focus).error {
-  border: 1px solid #fb4b23;
+  border: 1px solid #e43d31;
 }
 
 .highlight {
@@ -2103,6 +2149,7 @@ input:not(:focus).error {
   min-height: 70vh;
 } */
 .numberOfItems {
+  display: none;
   background-color: #fb8b23;
   border-radius: 50%;
   padding: 0.5vh 0.6vw;
@@ -2179,4 +2226,414 @@ input.type_cart_grind{
 }
 #savedCardFrm p {
   grid-column: 1/-1;
+}
+
+/*  THANK YOU/ RECEIPT  */
+.receipt{
+  height:50vh;
+  margin:1vw auto;
+  width: 50vw;
+  box-shadow:0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); ;
+}
+.receipt img{
+  height:30vh;
+  width:auto
+}
+
+@media only screen and (max-width: 780px) {
+  /*  MENU */
+svg.menuIcon{
+  display: block;
+}
+.deskmenu {
+  display: none;
+}
+header .logo{
+  width:20vw;
+  height:5vw;
+  margin:1vw;
+} 
+.numberOfItems{
+  padding: .5vh 2vw;
+}
+/*  GRIDS  */
+.single-product .grid-two-thirds-reversed{
+  grid-template-columns: 1fr;
+}
+.grid-almost-two{
+  grid-template-columns: 1fr;
+}
+
+
+/*  MARGINS AND PADDING   */
+.mt-xlarge{
+  margin-top:22vw;
+}
+.mv-medium{
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+}
+/*  FRONT PAGE  */
+.frontpage .section-three .step{
+  padding-top:2vh;
+  margin: 0 1em 1em 1em;
+}
+.section-three .back{
+  margin: 0 1em;
+}
+.cupImage {
+  bottom: 4vh;
+}
+.grid-four {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.section-five .masonry .item{
+  min-height: 25vh;
+}
+.section-five .masonry .item.two {
+  grid-column: 3;
+  grid-row: 1/3;
+}
+.section-five .masonry .item.four .image{
+  left:-3vw;
+}
+.section-five .masonry .item.six {
+  grid-column: 2/-1;
+}
+.section-five .masonry .item.three {
+  grid-row: 3;
+}
+.p-smallest{
+  font-size: 80%;
+}
+.image1{
+  height:65%;
+}
+/*  SUBSCRIBE PAGE  */
+h2.banner-message{
+  line-height: 22px;
+}
+.subscribeBanner .image.bg-contain.absolute,
+.shop .container-banner .image{
+  top:0;
+}
+.containerForSubscriptions.grid-three{
+  grid-template-columns: 1fr 1fr;
+}
+.subscriptionItem h3{
+ height:4vh;
+}
+.testContent{
+  height:50%;
+  width: auto;
+}
+form.listenTo.grid.grid-three{
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.btnRadio, .btnRadio.noGrid{
+  height:10vh;
+  width: 12em;
+}
+.smallerFrm{
+  width:auto;
+  margin:5vh;
+}
+.smallerFrm .btnRadio{
+  width:15em;
+}
+.textBtns .btnRadio{
+  width:20em;
+  height:8em;
+}
+.testResults{
+  margin: 5vh auto;
+}
+/*  SHOP  */
+#results{
+  right:15vw;
+  top:42vw;
+}
+.product-purchase-container {
+  margin-left:50%;
+}
+/*  CART /PAYMENT /THANK YOU */
+.cartMain, #paymentMain{
+  margin-top:15%;
+}
+#paymentMain{
+  min-height:70vh;
+}
+.thank-you{
+  margin-top:10%;
+  min-height:75vh;
+}
+
+/*  LOGIN  */
+.containerLogin {
+  margin-top:20%;
+  min-height:67vh;
+  
+}
+.containerLogin .loginWelcome{
+  height:30vh;
+}
+.containerSignup .loginWelcome{
+  width:70vw;
+  height:100%;
+}
+
+}
+
+
+@media only screen and (max-width: 420px) {
+h1,h2,h3,h4,h5,p,div,input,button,span, input[type="text"], input[type="email"], 
+input[type="password"],
+ input[type="number"], select, select>option{
+  font-size: 95%;
+}
+input[type="text"]::placeholder, input[type="email"]::placeholder, 
+input[type="password"]::placeholder,
+ input[type="number"]::placeholder{
+  font-size: 1em;
+}
+.button{
+  max-width: 40vw;
+  width: 100%;
+  padding: 3vw
+}
+.back-button{
+  font-size: 250%;
+}
+.profile .product h3, .noCart .product h3, .thank-you .product h3{
+  font-size: calc(2vw + 30%) ;
+}
+@keyframes moveUp {
+  10% {
+    top: 20vw;
+  }
+
+  70% {
+    top: 20vw;
+  }
+
+  100% {
+    top: -10vw;
+  }
+}
+/*  MENU  */
+.menu a{
+  font-size: 100%;
+}
+footer.grid-five{
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2vh;
+  padding:5vw;
+}
+footer svg{
+  width:50%;
+}
+/*   GRID    */
+/* .grid-two{
+  grid-template-columns: 1fr;
+} */
+/*  MARGINS AND PADDINGS  */
+.frontpage .mv-medium{
+  margin-top:10vw;
+  margin-bottom: 10vw;
+}
+/*  FRONTPAGE  */
+.grid-two-thirds-reversed.whatGetSection{
+  grid-template-columns: 1fr 2fr;
+}
+.colorBlock, .colorBlock1{
+  width:100%;
+  height:100%;
+}
+.section-three .grid-three{
+  grid-template-columns: 1fr;
+}
+.frontpage .section-three .step{
+  margin:.5em 4em;
+  padding:0 1em;
+}
+.step-no h4{
+  top:7.5vw;
+}
+.grid-four.masonry{
+ grid-template-columns: 1fr;
+}
+.section-five .masonry .item.two{
+  grid-column: auto;
+  grid-row: auto;
+}
+
+/* .section-five .masonry .item.five,
+.section-five .masonry .item.one,
+.section-five .masonry .item.three, */
+.section-five .masonry .item.four{
+  grid-row: 4;
+}
+.section-five .masonry .item.five{
+  grid-row:6;
+}
+.section-five .masonry .item.six{
+  grid-row:5;
+}
+
+/*  SUBSCRIBE PAGE  */
+h2.banner-message{
+  line-height: 18px;
+}
+.container-banner{
+  height:20vh;
+}
+.container-banner .content-container.grid-two{
+  grid-template-columns: 2fr 1fr;
+}
+.containerForSubscriptions.grid-three{
+  grid-template-columns: 1fr;
+}
+.subscriptionItem h3{
+  height:100%;
+}
+form.listenTo.grid.grid-three{
+  grid-template-columns: 1fr 1fr;
+}
+.testContent{
+  height:85%;
+}
+.smallerFrm, .textBtns {
+  grid-template-columns: 1fr;
+}
+.smallerFrm .btnRadio,
+.textBtns .btnRadio{
+  height:100%;
+}
+.testResults.grid-two-thirds{
+  grid-template-columns: 1fr;
+  margin:1vh auto;
+}
+
+/*  SHOP  */
+.products.grid-two-thirds-bigger{
+  grid-template-columns: 1fr;
+}
+
+.filter{
+  top:0;
+  padding:2vh 0;
+  margin:auto;
+}
+#txtSearch{
+  width:90%;
+  font-size: 100%;
+  align-self: right;
+}
+.products-container{
+  grid-template-columns: 1fr;
+}
+.product{
+  font-size: 150%;
+  margin: 1vw auto;
+  width: 60vw;
+  height: 35vw;
+}
+.back-button{
+  top:15vw;
+}
+.description.grid-two{
+  grid-template-columns: 1fr;
+}
+#addToCartBtn{
+  margin:3vh 0 0;
+}
+.product-purchase-container{
+  margin-left:0;
+  padding:5%;
+}
+/*  LOGIN /SIGNUP  */
+.containerLogin.grid{
+  display: block;
+}
+.containerSignup.grid{
+  grid-template-columns: 1fr;
+}
+.containerLogin .loginWelcome{
+    height:40vh;
+}
+.containerLogin .loginWelcome,
+.containerSignup .loginWelcome{
+  width:90vw;
+  margin:auto;
+}
+.containerSignup h4, .containerSignup a, .containerLogin h4, .containerLogin a{
+  color:black;
+  text-align: center;
+}
+.containerSignup h4, .containerSignup a{
+  margin-bottom: 5vh;
+  margin-top:0;
+  grid-row: 1;
+}
+.containerLogin h4, .containerLogin a{
+  margin-top:5vh;
+}
+.containerSignup a, .containerLogin a{
+  font-size: 110%;
+}
+#signupForm{
+  margin:0 8vw;
+}
+.containerSignup .loginWelcome{
+  height:105%;
+  }
+  .containerSignup{
+    margin-bottom: 15%;
+  }
+
+  /*  PROFILE  */
+  .profile-details  #form-profile.grid.grid-three{
+   display: block;
+  }
+  #form-profile .button{
+    margin: 3vw auto;
+  }
+  .profile .products-container.grid-four{
+    grid-template-columns: 1fr;
+  }
+
+  /*    CART/   PAYMENT/   THANK YOU PAGE  */
+  .cartMain, #paymentMain, .thank-you{
+  margin-top:0;
+  }
+  .cartTotal{
+    grid-template-columns: 1fr;
+    grid-gap: 2vh;
+  }
+  .total{
+    grid-row:1;
+  }
+  .img_cart{
+    height:25vw;
+  }
+  .paymentForm{
+    width: auto;
+    padding:4vw;
+  }
+  #paymentMain img{
+    width:20vh;
+  }
+  #paymentMain>.grid-two{
+    grid-template-columns: 1fr;
+  }
+  #paymentOverview>div{
+    align-self: center;
+    margin-top: 0;
+  }
+  .receipt>.grid-two{
+    grid-template-columns: 1fr;
+  }
+  .receipt img{
+    margin:auto;
+  }
 }
