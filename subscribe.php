@@ -64,19 +64,19 @@ $connection = null;
   </div>
   
   
-  <h2 class="text-center" >In doubt what to choose?</h2>
-  <h4 class="text-center" >Want to get reccomendations? Take a coffee test! </h4>
-  <a href="#test"><button id="startBtn" class="button">Start</button>
+  <h2 class="text-center mb-small" >In doubt about your coffee of choice?</h2>
+  <h4 class="text-center mb-small" >Get a personal recommendation by taking our coffee test</h4>
+  <a href="#test"><button id="startBtn" class="button">Start the test</button>
   </a>
 
-  <div id="test" class="testContainer hide margin-auto mv-small ">
+  <div id="test" class="testContainer hide margin-auto mt-small mb-medium">
     <div class="testbg bg-brown"></div>
     <div class="intro">
     </div>
     <div class="testContent">
       <h1 id="timeline"></h1>
 
-      <h2 id="question"></h2>
+      <h2 id="question" class="pb-small"></h2>
       <h3 id="questionText"></h3>
       <div id="answer"></div>
     </div>

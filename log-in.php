@@ -11,23 +11,22 @@ if ($_SESSION) {
 }
 
 ?>
-<section class="containerSignup grid grid-two">
-<div class="container-banner absolute pv-large bg-medium-light-brown"></div>
-  <div class="loginWelcome m-medium pb-medium bg-grey">
-    <!-- <div class="signupBg "></div> -->
-  
+<section class="containerSignup grid grid-two align-items-center">
 
-        <h1 class="p-small text-center">log in</h1>
+  <div class="loginWelcome mh-medium pv-medium bg-brown">
+  <div class="signupBg bg-orange"></div>
+
+        <h1 class="color-white p-small text-center">log in</h1>
       
       <form id="loginForm" class="mv-medium" method="POST">
               <label for="email" class="grid">
-            <p class="text-left align-self-center pt-small">Email | Username</p>
+            <p class="text-left align-self-center pv-small color-white">Email | Username</p>
             <input class="text-left" required data-type="string" data-min="2" data-max="255" name="inputEmail" placeholder="email" type="text" value="jakob@gmail.com">
             <div class="errorMessage" id="emailDiv">Please enter a valid e-mail or username</div>
           </label>
 
-          <label for="password" class="grid">
-            <p class="text-left align-self-center pt-small">Password</p>
+          <label for="password" class="grid color-white">
+            <p class="text-left align-self-center pv-small">Password</p>
             <input class="text-left"  required data-type="string" data-min="8" data-max="8" type="password" name="password" placeholder="password" value="12345678">
             <div class="errorMessage">Password must be 8 characters</div>
           </label>
@@ -38,7 +37,7 @@ if ($_SESSION) {
     </div>
   </div>
 
-  <h4 class="text-left mt-Xlarge">Not already a user? <strong><a href="sign-up">Sign up</a></strong></h4>
+  <h4 class="text-left">Not already a user? <strong><a href="sign-up">Sign up</a></strong></h4>
 </section>
 <?php
 $sScriptPath = 'validation.js';
