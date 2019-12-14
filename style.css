@@ -1540,7 +1540,8 @@ a {
 .single-product .container-banner,
 .profile .related-products .container-banner, 
 .noCart .container-banner, 
-.containerSignup .container-banner, 
+.containerSignup .container-banner,
+.containerLogin .container-banner, 
 .thank-you .container-banner  {
   width: 100vw;
   z-index: -1;
@@ -1549,7 +1550,8 @@ a {
 .single-product .container-banner,
 .profile .related-products .container-banner, 
 .noCart .container-banner, 
-.thank-you .containerSignup .container-banner, .thank-you .container-banner{
+.thank-you .containerSignup .container-banner, 
+.thank-you .container-banner{
   left: -8vw;
 }
 
@@ -1571,7 +1573,8 @@ a {
 }
 
 
-.containerSignup .container-banner {
+.containerSignup .container-banner,
+.containerLogin .container-banner{
   top: 4vw;
 }
 
@@ -2021,20 +2024,24 @@ input:checked + .btnRadio {
   /* color: white; */
 }
 
-.containerSignup {
+.containerSignup, .containerLogin {
   position: relative;
   width: 100%;
   min-height: 80vh;
 }
 .containerSignup h4,
-.containerSignup a {
+.containerSignup a ,
+.containerLogin h4,
+.containerLogin a {
   color: white;
 }
-.containerSignup h4 {
+.containerSignup h4,
+.containerLogin h4 {
   text-align: left;
 }
 
-.containerSignup h5 {
+.containerSignup h5,
+.containerLogin h5 {
   padding: 0;
   margin-left: -1.5em;
   width: 100%;
@@ -2221,6 +2228,7 @@ input.type_cart_grind{
 }
 
 @media only screen and (max-width: 780px) {
+  /*  MENU */
 svg.menuIcon{
   display: block;
 }
@@ -2231,10 +2239,23 @@ header .logo{
   width:20vw;
   height:5vw;
   margin:1vw;
+} 
+/*  GRIDS  */
+.grid-two-thirds-reversed{
+  grid-template-columns: 1fr;
 }
 .grid-almost-two{
   grid-template-columns: 1fr;
 }
+.grid-three{
+  grid-template-columns: 1fr 1fr;
+}
+
+/*  MARGINS AND PADDING   */
+.mt-xlarge{
+  margin-top:22vw;
+}
+/*  FRONT PAGE  */
 .frontpage .section-three .step{
   padding-top:2vh;
   margin: 0 1em 1em 1em;
@@ -2270,7 +2291,76 @@ header .logo{
 .image1{
   height:65%;
 }
+/*  SUBSCRIBE PAGE  */
+h2.banner-message{
+  line-height: 22px;
+}
+.subscribeBanner .image.bg-contain.absolute,
+.shop .container-banner .image{
+  top:0;
+}
+.subscriptionItem h3{
+ height:4vh;
+}
+.testContent{
+  height:50%;
+  width: auto;
+}
+form.listenTo.grid.grid-three{
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.btnRadio, .btnRadio.noGrid{
+  height:10vh;
+  width: 12em;
+}
+.smallerFrm{
+  width:auto;
+  margin:5vh;
+}
+.smallerFrm .btnRadio{
+  width:15em;
+}
+.textBtns .btnRadio{
+  width:20em;
+  height:8em;
+}
+.testResults{
+  margin: 5vh auto;
+}
+/*  SHOP  */
+#results{
+  right:15vw;
+  top:42vw;
+}
+.product-purchase-container {
+  margin-left:50%;
+}
+/*  CART /PAYMENT /THANK YOU */
+.cartMain, #paymentMain{
+  margin-top:15%;
+}
+#paymentMain{
+  height:70vh;
+}
+.thank-you{
+  margin-top:10%;
+  height:75vh;
 }
 
-/*  MENU  */
+/*  LOGIN  */
+.containerLogin {
+  margin-top:20%;
+  min-height:67vh;
+  
+}
+.containerLogin .loginWelcome{
+  height:30vh;
+}
+.containerSignup .loginWelcome{
+  width:70vw;
+  height:100%;
+}
+
+}
+
 

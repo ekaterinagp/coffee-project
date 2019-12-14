@@ -227,7 +227,7 @@ if ($_SESSION) {
                   <h4><?= $jUserSubscription['cName']; ?></h4>
                 </div>
                 <div class="white-text-bg">
-                  <button class="button button-delete">Cancel subscription</button>
+                  <button class="button button-delete">Cancel</button>
                 </div>
               </div>
 

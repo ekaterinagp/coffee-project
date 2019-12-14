@@ -23,7 +23,12 @@ function showNotification(text, responseClass){
 // LOGOUT
 
 if(document.querySelector(".button-log-out")){
-  document.querySelector(".button-log-out").addEventListener("click", logout);
+  document.querySelectorAll(".button-log-out").forEach(logOutBtn=>{
+
+    logOutBtn.addEventListener("click", logout);
+  })
+  
+ 
 }
 
 
