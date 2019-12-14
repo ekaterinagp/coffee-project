@@ -37,28 +37,30 @@ $statementRelatedProducts = $connection->prepare($sqlRelatedProducts);
 
                         $imgUrl = $product['cProductName'];
                         $result = strtolower(str_replace(" ", "-", $imgUrl));
-                        ?>
 
-                        <div id="product-<?= $product['nProductID']; ?>" class="product-info-container grid grid-two-thirds">
-                            <div class="image bg-contain" style="background-image: url(img/products/<?= $result; ?>.png)"></div>
+                        echo '
+                        <div id="product-'.$iProductID.'" class="product-info-container grid grid-two-thirds">
+                            <div class="image bg-contain" style="background-image: url(img/products/'.$result.'.png)"></div>
                             <div class="description mh-small mv-medium grid grid-two">
                                 <div>
-                                    <h1 class="productName mv-small text-left"><?= $product['cProductName']; ?></h1>
-                                    <h2 class="coffee-type mv-small text-left light"><?= $product['cName']; ?></h2>
-                                    <h4 class="productPrice mv-small"><?= $product['nPrice']; ?> DKK</h4>
+                                    <h1 class="productName mv-small text-left">'.$product['cProductName'].'</h1>
+                                    <h2 class="coffee-type mv-small text-left light">'.$product['cName'].'</h2>
+                                    <h4 class="productPrice mv-small">'.$product['nPrice'].' DKK</h4>
                                     <p>A soft, velvety body highlights a soft citric acidity and pleasant sweetness, with notes of raspberry, orange and sugar cane.</p>
                                 </div>
                                 <div class="mv-small">
                                     <h4 class="bold">Roast level</h4>
                                     <h5 class="light mb-small">Medium Roast</h5>
                                     <h4 class="bold">Type</h4>
-                                    <h5 class="light mb-small"><?= $product['cName']; ?></h5>
+                                    <h5 class="light mb-small">'.$product['cName'].'</h5>
                                     <h4 class="bold">Recommmended for</h4>
                                     <h5 class="light">Espresso</h5>
                                     <h5 class="light">French Press</h5>
                                 </div>
                             </div>
                         </div>
+                        '
+                        ?>
 
                         <div class="product-purchase-container bg-grey p-medium pt-medium">
                             <div class="options-container grid mb-small">
@@ -88,8 +90,8 @@ $statementRelatedProducts = $connection->prepare($sqlRelatedProducts);
                             </div>
                             <div class="payment">
                                 <h2 class="align-self-bottom mt-medium text-right">Total amount</h2>
-                                <p class="align-self-top text-right"><?= $product['nPrice']; ?> DKK</p>
-                                <div class="button" id="addToCartBtn">Add to cart</div>
+                                <h4 class="totalPrice align-self-top"><?= $product['nPrice']; ?> DKK</h4>
+                                <button class="button" id="addToCartBtn">Add to cart</button>
                             </div>
                         </div>
     </section>
