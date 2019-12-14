@@ -2370,7 +2370,20 @@ form.listenTo.grid.grid-three{
 
 
 @media only screen and (max-width: 420px) {
-
+h1,h2,h3,h4,h5,p,div,input,button,span, input[type="text"], input[type="email"], 
+input[type="password"],
+ input[type="number"], select{
+  font-size: 95%;
+}
+input[type="text"]::placeholder, input[type="email"]::placeholder, 
+input[type="password"]::placeholder,
+ input[type="number"]::placeholder{
+  font-size: 1em;
+}
+.button{
+  max-width: 100%;
+  padding: 3vw
+}
 /*  MENU  */
 .menu a{
   font-size: 100%;
@@ -2384,7 +2397,7 @@ footer svg{
   width:50%;
 }
 /*  MARGINS AND PADDINGS  */
-.mv-medium{
+.frontpage .mv-medium{
   margin-top:10vw;
   margin-bottom: 10vw;
 }
@@ -2426,4 +2439,126 @@ footer svg{
 .section-five .masonry .item.six{
   grid-row:5;
 }
+
+/*  SUBSCRIBE PAGE  */
+h2.banner-message{
+  line-height: 18px;
+}
+.container-banner{
+  height:20vh;
+}
+.container-banner .content-container.grid-two{
+  grid-template-columns: 2fr 1fr;
+}
+.containerForSubscriptions.grid-three{
+  grid-template-columns: 1fr;
+}
+.subscriptionItem h3{
+  height:100%;
+}
+form.listenTo.grid.grid-three{
+  grid-template-columns: 1fr 1fr;
+}
+.testContent{
+  height:85%;
+}
+.smallerFrm, .textBtns {
+  grid-template-columns: 1fr;
+}
+.smallerFrm .btnRadio,
+.textBtns .btnRadio{
+  height:100%;
+}
+.testResults.grid-two-thirds{
+  grid-template-columns: 1fr;
+  margin:1vh auto;
+}
+
+/*  SHOP  */
+.products.grid-two-thirds-bigger{
+  grid-template-columns: 1fr;
+}
+
+.filter{
+  top:0;
+  padding:2vh 0;
+  margin:auto;
+}
+#txtSearch{
+  width:90%;
+  font-size: 100%;
+  align-self: right;
+}
+.products-container{
+  grid-template-columns: 1fr;
+}
+.product{
+  font-size: 150%;
+  margin: 1vw auto;
+  width: 60vw;
+  height: 35vw;
+}
+.back-button{
+  top:15vw;
+}
+.description.grid-two{
+  grid-template-columns: 1fr;
+}
+#addToCartBtn{
+  margin:3vh 0 0;
+}
+.product-purchase-container{
+  margin-left:0;
+  padding:5%;
+}
+/*  LOGIN /SIGNUP  */
+.containerLogin.grid{
+  display: block;
+}
+.containerSignup.grid{
+  grid-template-columns: 1fr;
+}
+.containerLogin .loginWelcome{
+    height:40vh;
+}
+.containerLogin .loginWelcome,
+.containerSignup .loginWelcome{
+  width:90vw;
+  margin:auto;
+}
+.containerSignup h4, .containerSignup a, .containerLogin h4, .containerLogin a{
+  color:black;
+  text-align: center;
+}
+.containerSignup h4, .containerSignup a{
+  margin-bottom: 5vh;
+  margin-top:0;
+  grid-row: 1;
+}
+.containerLogin h4, .containerLogin a{
+  margin-top:5vh;
+}
+.containerSignup a, .containerLogin a{
+  font-size: 110%;
+}
+#signupForm{
+  margin:0 8vw;
+}
+.containerSignup .loginWelcome{
+  height:105%;
+  }
+  .containerSignup{
+    margin-bottom: 15%;
+  }
+
+  /*  PROFILE  */
+  .profile-details  #form-profile.grid.grid-three{
+   display: block;
+  }
+  #form-profile .button{
+    margin: 3vw auto;
+  }
+  .profile .products-container.grid-four{
+    grid-template-columns: 1fr;
+  }
 }
