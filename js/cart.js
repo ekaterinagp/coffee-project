@@ -6,7 +6,7 @@ if(!cart){
 }
 console.log("cart", cart);
 let cartSection = document.querySelector("#cartItems");
-// selectQ();
+// selectQ();  
 
 if (cart) {
   cart.forEach(cartItem => {
