@@ -28,7 +28,6 @@ if ($_SESSION) {
                 FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID WHERE tProduct.bActive != 0 LIMIT 4";
   $statementProducts = $connection->prepare($sqlProducts);
 
-
   // SUBSCRIPTIONS THAT THE USER IS NOT SUBSCRIBED TO
   // $sqlSubscriptions = "SELECT DISTINCT tSubscriptiontype.cName, tSubscriptiontype.nSubscriptionTypeID AS nSubscriptionID, 
   //                   tProduct.cName AS cProductName, tProduct.nPrice AS nSubscriptionPrice, tProduct.bActive,
@@ -40,6 +39,16 @@ if ($_SESSION) {
   //                   WHERE tProduct.bActive != 0 AND tUserSubscription.nUserID = :id";
 
   // $statementSubscriptions = $connection->prepare($sqlSubscriptions);
+
+  $sqlSubscriptions = "SELECT tSubscriptionType.nSubscriptionTypeID, tSubscriptionType.cName AS cSubscriptionName,
+                      tProduct.nProductID, tProduct.cName AS cProductName, tProduct.nPrice, tProduct.nStock, tProduct.bActive, 
+                      tCoffeeType.nCoffeeTypeID, tCoffeeType.cName  
+                      FROM tSubscriptionType 
+                      INNER JOIN tProduct ON tSubscriptionType.nProductID = tProduct.nProductID 
+                      INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID 
+                      WHERE tProduct.bActive != 0 LIMIT 3";
+  
+  $statementSubscriptions = $connection->prepare($sqlSubscriptions);
 
   $sqlUserSubscription = "SELECT tUserSubscription.nUserSubscriptionID, tUserSubscription.dCancellation, 
                         tSubscriptionType.nSubscriptionTypeID, tSubscriptionType.cName AS cSubscriptionName,
@@ -155,40 +164,32 @@ if ($_SESSION) {
                 <select class="align-self-center" name="userCreditCards" id="">
 
               <?php
-                
-
                 foreach ($jUserCreditCards as $jUserCreditCard) {
                   $nCreditCardID = $jUserCreditCard['nCreditCardID'];?>
 
-
-            <option id="<?= $jUserCreditCard['nCreditCardID'];?>" value="<?= $jUserCreditCard['nCreditCardID'];?>"> <?= $jUserCreditCard['cIBAN'];?></option>       
-
-            <?php
+                  <option id="<?= $jUserCreditCard['nCreditCardID'];?>" value="<?= $jUserCreditCard['nCreditCardID'];?>"> <?= $jUserCreditCard['cIBAN'];?></option>       
+                <?php
                 }
               }
             } ?>
 
-              </select>
-            </label>
+                </select>
+              </label>
             <button class="button-delete-card button align-self-bottom">Delete</button>
           </form>
-
       </div>
       <button class="button-add button">Add creditcard</button>
       <form id="form-creditcard" method="post" class="mt-medium">
-
           <label class="grid" for="inputIBAN">
             <p class="text-left align-self-center">IBAN</p>
             <input class="mb-small" data-type="integer" data-min="99999999999999999" data-max="999999999999999999" type="number" data-type="string" name="inputIBAN" placeholder="IBAN (format 123456789123456789)" value="">
             <div class="errorMessage">IBAN must be 18 digits</div>
           </label>
-
           <label class="grid" for="inputCCV">
             <p class="text-left align-self-center">CCV</p>
             <input class="mb-small" data-type="integer" data-min="99" data-max="999" type="number" name="inputCCV" placeholder="CCV (format 123)" value="">
             <div class="errorMessage">CCV must be 3 digits</div>
           </label>
-
           <label class="grid" for="inputExpiration">
             <p class="text-left align-self-center">Expiration date</p>
             <input class="mb-small" data-type="integer" data-min="999" data-max="9999" type="number" name="inputExpiration" placeholder="Expiration date (format mmyy)" value="">
@@ -201,38 +202,23 @@ if ($_SESSION) {
       </div>
     </section>
 
-
     <section class="section-two mv-medium ph-medium pt-medium current-subscription">
-      <h2 class=" text-left mb-medium">Your current subscriptions</h2>
-      <div class="current-subscriptions containerForSubscriptions  grid grid-three m-medium">
-
         <?php
           if ($statementUserSubscription->execute([':id' => $nUserID])) {
             $jUserSubscriptions = $statementUserSubscription->fetchAll(PDO::FETCH_ASSOC);
+           
+            if (count($jUserSubscriptions) >= 1) {?>
+            <h2 class=" text-left mb-medium">Your current subscriptions</h2>
+            <div class="current-subscriptions containerForSubscriptions  grid grid-three m-medium">
 
-            if (count($jUserSubscriptions) >= 1) {
-              $arrayProductID = [];
-              $arrayCoffeeTypeID = [];
-              $arraySubscriptionTypeID = [];
+            <?php
 
               foreach ($jUserSubscriptions as $jUserSubscription) {
-
-                // if(!isset($jUserSubscription['dCancellation'])){
-                // echo $jUserSubscription['dCancellation'];
-
-                // if($jUserSubscription['bActive']!==0){
-
                 $nProductID = $jUserSubscription['nProductID'];
-                // array_push($arrayProductID, $nProductID);
-
                 $nCoffeeTypeID = $jUserSubscription['nCoffeeTypeID'];
-                // array_push($arrayCoffeeTypeID, $nCoffeeTypeID);
-
                 $nSubscriptionTypeID = $jUserSubscription['nSubscriptionTypeID'];
-                // array_push($arraySubscriptionTypeID, $nSubscriptionTypeID);
-
                 $imgUrl = $jUserSubscription['cProductName'];
-                $result = strtolower(str_replace(" ", "-", $imgUrl));; ?>
+                $result = strtolower(str_replace(" ", "-", $imgUrl)); ?>
 
               <div class="subscriptionItem" id="<?= $jUserSubscription['nUserSubscriptionID']; ?>">
                 <div class="subscriptionItemBg">
@@ -246,19 +232,49 @@ if ($_SESSION) {
               </div>
 
         <?php
-                // }
-                // }
               }
             }
+            else{?>
+
+              <h2 class="mb-small">Get quality coffee right to your doorstep</h2>
+              <h3 class="">Discover our delicious and convenient coffee subscriptions</h3>
+              <div class="current-subscriptions containerForSubscriptions grid grid-three m-medium">
+                    <?php
+                    if ($statementSubscriptions->execute()) {
+                      $jSubscriptions = $statementSubscriptions->fetchAll(PDO::FETCH_ASSOC);
+      
+                      foreach ($jSubscriptions as $jSubscription) {
+      
+                      $nProductID = $jSubscription['nProductID'];
+                      $nCoffeeTypeID = $jSubscription['nCoffeeTypeID'];
+                      $nSubscriptionTypeID = $jSubscription['nSubscriptionTypeID'];
+                      $imgUrl = $jSubscription['cProductName'];
+                      $result = strtolower(str_replace(" ", "-", $imgUrl)); ?>
+      
+                      <div class="subscriptionItem" id="<?= $jSubscription['nSubscriptionID']; ?>">
+                        <div class="subscriptionItemBg">
+                          <img src="img/products/<?= $result; ?>.png" alt="">
+                          <h3><?= $jSubscription['cSubscriptionName']; ?></h3>
+                          <h4><?= $jSubscription['cName']; ?></h4>
+                        </div>
+                        <div class="white-text-bg">
+                          <button class="button button-delete">Cancel subscription</button>
+                        </div>
+                    </div>
+      
+                    <?php
+                    }
+                    }
+                  }
           }
           ?>
       </div>
     </section>
 
     <section class="section-three mb-large ph-large pt-medium">
-      <h2 class="mb-medium">Want to try something new?</h2>
+      <h2 class="mb-small">Want to try something new?</h2>
+      <h3 class="mb-small">Visit the shop and explore a world of quality coffee</h3>
       <div class="related-products relative">
-        <!-- <h2 class="coffee-type text-left mb-medium">Products</h2> -->
         <div class="container-banner absolute pv-large bg-medium-light-brown"></div>
         <div class="products-container grid grid-four">
 
@@ -267,33 +283,22 @@ if ($_SESSION) {
             if ($statementProducts->execute()) {
 
               $jProducts = $statementProducts->fetchAll(PDO::FETCH_ASSOC);
-              // $arrayRelatedProducts = [];
 
               foreach ($jProducts as $jProduct) {
 
-                // $nRelatedProductCoffeeTypeID = $jProduct['nCoffeeTypeID'];
-                // $nRelatedProductID = $jProduct['nProductID'];
-
-                // if(!in_array($nRelatedProductID, $arrayProductID)){
-
-                // array_push($arrayRelatedProducts, $nRelatedProductID);
-
                 $imgUrl = $jProduct['cProductName'];
                 $result = strtolower(str_replace(" ", "-", $imgUrl));
-                ?>
-              <a href="singleProduct?id=<?= $jProduct['nProductID']; ?>">
-                <div class="product" id="product-<?= $jProduct['nProductID']; ?>">
-                  <div class="image bg-contain" style="background-image: url(img/products/<?= $result; ?>.png)"></div>
-                  <div class="description m-small">
-                    <h3 class="productName mt-small text-left"><?= $jProduct['cProductName']; ?></h3>
-                    <h4 class="productName mt-small text-left">Origin: <?= $jProduct['cName']; ?></h4>
-                    <h4 class="priceProduct mt-small"><?= $jProduct['nPrice']; ?> DKK</h4>
-                  </div>
-                </div>
-              </a>
-        
-<?php
-                // }
+                echo 
+                ' <a href="singleProduct?id='.$jProduct['nProductID'].'">
+                     <div class="product" id="product-'.$jProduct['nProductID'].'">
+                         <div class="image bg-contain" style="background-image: url(img/products/'.$result.'.png)"></div>
+                         <div class="description m-small">
+                             <h3 class="productName mt-small text-left">'.$jProduct['cProductName'].'</h3>
+                             <h4 class="productName mt-small text-left">'.$jProduct['cName'].'</h4>
+                             <h4 class="productPrice mt-small">'.$jProduct['nPrice'].' DKK</h4>
+                         </div>
+                     </div>
+                 </a>';
               }
             }; ?>
         </div>

@@ -2,12 +2,11 @@
 $sTitle = ' | Your cart';
 $sCurrentPage = 'cart';
 require_once(__DIR__ . '/components/header.php');
-
 require_once(__DIR__ . '/connection.php');
 ?>
 
-<main class="cartMain">
-  <h1 class="text-center mv-medium">Cart</h1>
+<main class="cartMain mt-small mb-medium">
+  <h1 class="text-center mb-medium">Cart</h1>
   <div class="cartTotal mh-large">
     <section id="cartItems">
       <template id="cartItemTemplate">
@@ -35,7 +34,6 @@ require_once(__DIR__ . '/connection.php');
         
         <template id="totalItemsTemplate">
           <div id="" class="totalDiv">
-            <!-- <p class="totalItemsName"></p> -->
           </div>
         </template>
       </section>
@@ -49,7 +47,7 @@ require_once(__DIR__ . '/connection.php');
 
     <section class="section-three mb-large ph-large pt-medium">
       <div class="related-products relative">
-        <h2 class="coffee-type mb-medium">Discover our products</h2>
+        <h2 class="coffee-type mb-medium">Discover a world of qualitfy coffee</h2>
         <div class="container-banner absolute pv-large bg-medium-light-brown"></div>
         <div class="products-container grid grid-four">
 
@@ -58,41 +56,30 @@ require_once(__DIR__ . '/connection.php');
   tProduct.nCoffeeTypeID AS nProductCoffeeTypeID, tProduct.nPrice, 
   tProduct.nStock, tProduct.bActive, tCoffeeType.nCoffeeTypeID, tCoffeeType.cName 
   FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID WHERE tProduct.bActive != 0 LIMIT 4";
-$statementProducts = $connection->prepare($sqlProducts);
+  $statementProducts = $connection->prepare($sqlProducts);
 
     if ($statementProducts->execute()) {
 
       $jProducts = $statementProducts->fetchAll(PDO::FETCH_ASSOC);
-      // $arrayRelatedProducts = [];
 
       foreach ($jProducts as $jProduct) {
-
-        // $nRelatedProductCoffeeTypeID = $jProduct['nCoffeeTypeID'];
-        // $nRelatedProductID = $jProduct['nProductID'];
-
-        // if(!in_array($nRelatedProductID, $arrayProductID)){
-
-        // array_push($arrayRelatedProducts, $nRelatedProductID);
-
         $imgUrl = $jProduct['cProductName'];
         $result = strtolower(str_replace(" ", "-", $imgUrl));
-        ?>
-      <a href="singleProduct?id=<?= $jProduct['nProductID']; ?>">
-        <div class="product" id="product-<?= $jProduct['nProductID']; ?>">
-          <div class="image bg-contain" style="background-image: url(img/products/<?= $result; ?>.png)"></div>
-          <div class="description m-small">
-            <h3 class="productName mt-small text-left"><?= $jProduct['cProductName']; ?></h3>
-            <h4 class="productName mt-small text-left">Origin: <?= $jProduct['cName']; ?></h4>
-            <h4 class="priceProduct mt-small"><?= $jProduct['nPrice']; ?> DKK</h4>
-          </div>
-        </div>
-      </a>
-
-<?php
-        // }
+        echo 
+        ' <a href="singleProduct?id='.$jProduct['nProductID'].'">
+             <div class="product" id="product-'.$jProduct['nProductID'].'">
+                 <div class="image bg-contain" style="background-image: url(img/products/'.$result.'.png)"></div>
+                 <div class="description m-small">
+                     <h3 class="productName mt-small text-left">'.$jProduct['cProductName'].'</h3>
+                     <h4 class="productName mt-small text-left">'.$jProduct['cName'].'</h4>
+                     <h4 class="productPrice mt-small">'.$jProduct['nPrice'].' DKK</h4>
+                 </div>
+             </div>
+         </a>';
     }; ?>
 </div>
 </div>
+</section>
 <?php
   $connection = null;
 }; ?>

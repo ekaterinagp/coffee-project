@@ -113,19 +113,19 @@ if ($statementRelatedProducts->execute($data)) {
     foreach ($products as $product) {
 
         $imgUrl = $product['cProductName'];
-        $result = strtolower(str_replace(" ", "-", $imgUrl));?>
-
-                <a href="singleProduct?id=<?= $product['nProductID']; ?>">
-                    <div class="product" id="product-<?= $product['nProductID']; ?>">
-                        <div class="image bg-contain" style="background-image: url(img/products/<?= $result; ?>.png)"></div>
+        $result = strtolower(str_replace(" ", "-", $imgUrl));
+        echo 
+               ' <a href="singleProduct?id='.$product['nProductID'].'">
+                    <div class="product" id="product-'.$product['nProductID'].'">
+                        <div class="image bg-contain" style="background-image: url(img/products/'.$result.'.png)"></div>
                         <div class="description m-small">
-                            <h3 class="productName mt-small text-left"><?= $product['cProductName']; ?></h3>
-                            <h4 class="productName mt-small text-left">Origin: <?= $product['cName']; ?></h4>
-                            <h4 class="productPrice mt-small"><?= $product['nPrice']; ?> DKK</h4>
+                            <h3 class="productName mt-small text-left">'.$product['cProductName'].'</h3>
+                            <h4 class="productName mt-small text-left">'.$product['cName'].'</h4>
+                            <h4 class="productPrice mt-small">'.$product['nPrice'].' DKK</h4>
                         </div>
                     </div>
-                </a>
-<?php
+                </a>';
+
     }
 }
 $connection = null;
