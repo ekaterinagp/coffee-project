@@ -33,7 +33,7 @@ if ($_SESSION) {
           </label>
 
 
-        <button id="loginBtn" class="formBtn button" disabled>Log in</button>
+        <button id="loginBtn" class="formBtn button" >Log in</button>
       </form>
     </div>
   </div>

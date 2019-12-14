@@ -2061,7 +2061,7 @@ input[type="number"]:invalid:not(:focus):not(:placeholder-shown)
 textarea:invalid:not(:focus) ~ .errorMessage, */
 .error:not(:focus):not(:placeholder-shown) ~ .errorMessage {
   max-height: 200px;
-  padding: 3px 10px 10px 30px;
+  padding: 3px 10px 10px 10px;
 }
 
 form .errorMessage {
