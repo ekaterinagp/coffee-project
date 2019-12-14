@@ -26,8 +26,8 @@ function checkIfFormValid(idForm) {
 //   doLogin();
 // });
 // }
-
-if(document.referrer.indexOf("cart")!=-1 && window.location.href =="log-in"){
+// console.log(document.referrer)
+if(document.referrer.indexOf("cart")!=-1 && window.location.pathname =="/db_exam/log-in"){
   console.log("from cart")
   responseClass="fail";
   text = "You have to be logged in to make a purchase";

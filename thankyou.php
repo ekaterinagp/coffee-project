@@ -9,12 +9,32 @@ require_once(__DIR__ . '/connection.php');
 <section class="section-three mb-large ph-large pt-medium">
       <div class="related-products relative">
       <h1 class="text-center p-small">Thank you for your purchase</h1>
-      <h4 class="text-center pt-small pb-medium">Estimated time of delivery is one day from now.</h4>
-        <h2 class="coffee-type mb-medium">Back to shop</h2>
+      <h4 class="text-center pt-small ">Estimated time of delivery is one day from now.</h4>
+      <h4 class="text-center  pb-medium">A receipt for this purchase has been to you sent by email.</h4>
+       
+<div class="receipt bg-white p-medium grid align-content-center ">
+      <h2>You just bought:</h2>
+<div class=" grid grid-two">
+<div class="align-self-center">
+<h2 class=" bold pb-small productName text-center"></h2>
+<h5 class="bold amountPayed text-center"></h5>
+</div>
+<img src="" alt="" class="productImg">
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+<!-- <h2 class="coffee-type mb-medium">Back to shop</h2> -->
         <div class="container-banner absolute pv-large bg-medium-light-brown"></div>
         <div class="products-container grid grid-four">
-
-<?php
+<!-- <?php
 $sqlProducts = "SELECT tProduct.nProductID, tProduct.cName AS cProductName, 
 tProduct.nCoffeeTypeID AS nProductCoffeeTypeID, tProduct.nPrice, 
 tProduct.nStock, tProduct.bActive, tCoffeeType.nCoffeeTypeID, tCoffeeType.cName 
@@ -41,11 +61,15 @@ if ($statementProducts->execute()) {
        </a>';
     }
 }
-?>
+
+
+
+?> -->
 <!-- <a href="shop" class="m-small link"> Back to shop</a> -->
 <!-- <a href="shop" class=" m-small link"> Back to subscribe options</a> -->
+<script src="js/thankyou.js"></script>
 </main>
 <?php
-
+$sScriptPath ="sessionStorageCart.js";
 $connection = null;
 require_once(__DIR__ . '/components/footer.php');

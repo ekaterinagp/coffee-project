@@ -15,8 +15,9 @@ function showNotification(text, responseClass){
 
   setTimeout(function(){
       document.querySelector('.notification-container').remove();
-  }, 2100);
+  }, 80100);
 }
+//
 
 
 // LOGOUT

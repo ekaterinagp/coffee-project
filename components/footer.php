@@ -21,6 +21,7 @@
     </footer>
     
     <script src="js/script.js"></script>
+    <script src="js/menu.js"></script>
     <script src="js/<?= $sScriptPath ;?>"></script>
     </body>
 
