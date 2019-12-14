@@ -1,11 +1,5 @@
 <?php
-
-session_start();
-
-$jLoggedUser = $_SESSION['user'];
-$nUserID = $jLoggedUser['nUserID'];
-
-$sTitle = '| Profile '.$jLoggedUser['cName'];
+$sTitle = '| Profile ';
 $sCurrentPage = 'profile';
 
 require_once(__DIR__ . '/components/header.php');
@@ -19,6 +13,9 @@ if ($_SESSION) {
 
 require_once(__DIR__ . '/connection.php');
 require_once(__DIR__ . '/components/functions.php');
+
+$jLoggedUser = $_SESSION['user'];
+$nUserID = $jLoggedUser['nUserID'];
 
   if (isset($jLoggedUser['dDeleteUser'])) {
     header('Location: log-in');
