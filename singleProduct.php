@@ -88,8 +88,8 @@ $statementRelatedProducts = $connection->prepare($sqlRelatedProducts);
                             </div>
                             <div class="payment">
                                 <h2 class="align-self-bottom mt-medium">Total amount</h2>
-                                <p class="align-self-top"><?= $product['nPrice']; ?> DKK</p>
-                                <div class="button" id="addToCartBtn">Add to cart</div>
+                                <h4 class="totalPrice align-self-top"><?= $product['nPrice']; ?> DKK</h4>
+                                <button class="button" id="addToCartBtn">Add to cart</button>
                             </div>
                         </div>
     </section>

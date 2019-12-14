@@ -247,20 +247,26 @@ if ($_SESSION) {
                       $nCoffeeTypeID = $jSubscription['nCoffeeTypeID'];
                       $nSubscriptionTypeID = $jSubscription['nSubscriptionTypeID'];
                       $imgUrl = $jSubscription['cProductName'];
-                      $result = strtolower(str_replace(" ", "-", $imgUrl)); ?>
-      
-                      <div class="subscriptionItem" id="<?= $jSubscription['nSubscriptionID']; ?>">
+                      $result = strtolower(str_replace(" ", "-", $imgUrl));
+
+                      echo 
+                      '<div class="subscriptionItem" id="'.$jSubscription['nSubscriptionTypeID'].'">
                         <div class="subscriptionItemBg">
-                          <img src="img/products/<?= $result; ?>.png" alt="">
-                          <h3><?= $jSubscription['cSubscriptionName']; ?></h3>
-                          <h4><?= $jSubscription['cName']; ?></h4>
+                          <img src="img/products/'.$result.'.png" alt="">  
+                          <h3 class="subscriptionName">'.$jSubscription['cName'].'</h3>
+                          <h4 class="priceSubscription ">'.$jSubscription['nPrice'].' DKK / Month</h4>
                         </div>
-                        <div class="white-text-bg">
-                          <button class="button button-delete">Cancel subscription</button>
+                      <div class="white-text-bg">
+                      <h4>Origin: '.$jSubscription['cName'].'</h4>
+                        <p class="descSubscription ph-small">Lorem ipsum dolor sit amet consectetur 
+                        adipisicing elit. Voluptate praesentium, inventore deleniti optio nobis
+                        quasi provident nulla minus odit architecto.</p>
+                        
                         </div>
-                    </div>
+                        <button class="addSubToCartBtn button">Add to Cart</button>
+                      </div>' ; 
       
-                    <?php
+                      
                     }
                     }
                   }
@@ -297,6 +303,20 @@ if ($_SESSION) {
                          </div>
                      </div>
                  </a>';
+
+                //  echo 
+                //  '<a href="singleProduct?id='.$jProduct['nProductID'].'">
+                //   <div class="subscriptionItem" id="'.$jProduct['nProductID'].'">
+                //     <div class="subscriptionItemBg">
+                //       <img src="img/products/'.$result.'.png" alt="">  
+                //       <h3 class="subscriptionName">'.$jProduct['cProductName'].'</h3>
+                //       <h4 class="priceSubscription ">'.$jProduct['nPrice'].' DKK</h4>
+                //     </div>
+                //   <div class="white-text-bg">
+                //   <h4>'.$jProduct['cName'].'</h4>    
+                //     </div>
+                //   </div>
+                //  </a>'; 
               }
             }; ?>
         </div>

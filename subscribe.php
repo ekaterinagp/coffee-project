@@ -49,7 +49,7 @@ $statement = $connection->prepare($sql);
             <h4 class="priceSubscription ">'.$row['nSubscriptionPrice'].' DKK / Month</h4>
           </div>
         <div class="white-text-bg">
-        <h4>Origin: '.$row['cCoffeeTypeName'].'</h4>
+        <h4>'.$row['cCoffeeTypeName'].'</h4>
           <p class="descSubscription ph-small">Lorem ipsum dolor sit amet consectetur 
           adipisicing elit. Voluptate praesentium, inventore deleniti optio nobis
           quasi provident nulla minus odit architecto.</p>

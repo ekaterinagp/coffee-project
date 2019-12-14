@@ -869,8 +869,8 @@ a {
 .button {
   text-align: center;
   display: grid;
-  width: calc(5vw + 50%);
-  padding: 1.5vw 0.2vw;
+  width: calc(7vw + 50%);
+  padding: 1.5vw;
   font-weight: 400;
   color: #fff;
   background-color: #fb8b23;
@@ -881,7 +881,7 @@ a {
   align-content: center;
   transition: all 0.3s;
   cursor: pointer;
-  border: solid 2px transparent;
+  border: solid 2px #fb8b23;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
@@ -898,6 +898,7 @@ a {
 
 .button-delete-profile, .button-delete-card, .button-delete {
   background-color: #000;
+  border: solid 2px #000;
 }
 
 .button-delete-card{
@@ -917,14 +918,16 @@ a {
 }
 
 .back-button:hover {
-  /* transform: scale(1.03); */
   color: #000;
 }
 
 .button:hover {
   background-color: #fff;
   color: #fb8b23;
-  border: solid 2px orange;
+}
+
+.button-delete-profile:hover, .button-delete-card:hover, .button-delete:hover{
+  color: #000;
 }
 
 .button:disabled:hover {
@@ -1472,18 +1475,13 @@ a {
   margin: 3vh  0;
   float:right;
 }
-/* 
-.single-product .section-one {
-  margin-top: 130px;
-  height: 30vw;
-} */
 
 .single-product .image {
   background-position: left;
 }
 
 .product-purchase-container h2,
-.payment p {
+.payment h4 {
   text-align: right;
 }
 .container-banner {
@@ -1733,12 +1731,18 @@ a {
   color: black;
 }
 
-.product .priceProduct, h4.productPrice {
+.product .priceProduct, h4.productPrice, .payment h4.totalPrice {
   text-align: right;
   color: #000;
   padding-bottom: 0;
   font-weight: 900;
 }
+
+.payment h4.totalPrice{
+  text-align: right;
+}
+
+
 .containerForSubscriptions {
   max-width: 100vw;
 }
