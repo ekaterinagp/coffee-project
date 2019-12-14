@@ -5,7 +5,7 @@ require_once(__DIR__ . '/components/header.php');
 require_once(__DIR__ . '/connection.php');
 ?>
 
-<main class="cartMain mt-small mb-medium">
+<main class="cartMain mt-small mb-large">
   <h1 class="text-center mb-medium">Cart</h1>
   <div class="cartTotal mh-large">
     <section id="cartItems">

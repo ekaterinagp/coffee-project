@@ -68,12 +68,12 @@ if ($_SESSION) {
 
   ?>
 
-  <main class="profile">
-    <h1 class="text-center pt-medium">Welcome <?= $jLoggedUser['cName']; ?></h1>
-    <section class="section-one grid  ph-large mv-medium">
+  <main class="profile mb-large">
+    <h1 class="text-center pv-medium">Welcome <?= $jLoggedUser['cName']; ?></h1>
+    <section class="section-one grid  ph-large mb-large">
 
       <div>
-        <div class="profile-details bg-grey p-medium pt-medium">
+        <div class="profile-details bg-grey p-medium pv-medium">
           <h2 class="">Profile Details</h2>
           <form id="form-profile" class=" grid grid-three pt-small ph-medium" method="post">
             <label id="cName" class="grid" for="name">
@@ -175,11 +175,11 @@ if ($_SESSION) {
 
                 </select>
               </label>
-            <button class="button-delete-card button align-self-bottom">Delete</button>
+            <button class="button-delete-card button align-self-bottom">Delete creditcard</button>
           </form>
       </div>
       <button class="button-add button">Add creditcard</button>
-      <form id="form-creditcard" method="post" class="mt-medium">
+      <form id="form-creditcard" method="post" class="">
           <label class="grid" for="inputIBAN">
             <p class="text-left align-self-center">IBAN</p>
             <input class="mb-small" data-type="integer" data-min="99999999999999999" data-max="999999999999999999" type="number" data-type="string" name="inputIBAN" placeholder="IBAN (format 123456789123456789)" value="">
@@ -202,7 +202,7 @@ if ($_SESSION) {
       </div>
     </section>
 
-    <section class="section-two mv-medium ph-medium pt-medium current-subscription">
+    <section class="section-two mv-medium ph-medium mb-large current-subscription">
         <?php
           if ($statementUserSubscription->execute([':id' => $nUserID])) {
             $jUserSubscriptions = $statementUserSubscription->fetchAll(PDO::FETCH_ASSOC);
@@ -277,7 +277,7 @@ if ($_SESSION) {
       </div>
     </section>
 
-    <section class="section-three mb-large ph-large pt-medium">
+    <section class="section-three ph-large mb-medium">
       <h2 class="mb-small">Want to try something new?</h2>
       <h3 class="mb-small">Visit the shop and explore a world of quality coffee</h3>
       <div class="related-products relative">
@@ -330,8 +330,8 @@ if ($_SESSION) {
 
   </div>
   </div>
-  <button class="button button-delete-profile m-medium">Delete Profile</button>
   </section>
+  <button class="button button-delete-profile mb-large">Delete Profile</button>
   </main>
   <script src="js/validation.js"></script>
   <script src="js/sessionStorageCart.js"></script>

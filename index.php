@@ -6,7 +6,7 @@ require_once(__DIR__ . '/components/header.php');
 
 <main class="frontpage">
 
-    <section class="section-one grid grid-almost-two mb-medium">
+    <section class="section-one grid grid-almost-two mb-large">
         <div class="align-items-center pl-xlarge relative">
             <div class="banner-text-container absolute">
                 <div class="logo">
@@ -37,9 +37,9 @@ require_once(__DIR__ . '/components/header.php');
         </div>
     </section>
 
-    <section class="section-two grid mv-medium">
+    <section class="section-two grid mb-large">
         <h2 class="mb-small">What you get</h2>
-        <h4 class="">We make sure you get everything you wish for and more </h4>
+        <h3 class="mb-small">We make sure you get everything you wish for and more </h3>
         <div class="grid grid-two-thirds-reversed ph-xlarge whatGetSection">
             <div class="image bg-contain"></div>
             <div class="colorBlock">
@@ -65,13 +65,13 @@ require_once(__DIR__ . '/components/header.php');
         </div>
     </section>
 
-    <section class="section-three grid mv-medium">
+    <section class="section-three grid mb-large">
         <h2 class="mb-small">How it works</h2>
-        <h4 class="">Enhancing your everyday coffee experience has never been easier</h4>
+        <h3 class="mb-small">Enhancing your everyday coffee experience has never been easier</h3>
         <div class="grid grid-three container">
-            <div class="flipcontainer  one grid" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipcontainer" ontouchstart="this.classList.toggle('hover');">
                 <div class="flipper">
-                    <div class="step one bg-light-brown">
+                    <div class="front step one bg-light-brown">
                         <div class="step-no absolute">
                             <h4 class="color-white relative">Step</h4>
                             <div class="no relative">1</div>
@@ -91,9 +91,9 @@ require_once(__DIR__ . '/components/header.php');
                     </div>
                 </div>
             </div>
-            <div class="flipcontainer  one grid" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipcontainer" ontouchstart="this.classList.toggle('hover');">
                 <div class="flipper">
-                    <div class="step two bg-medium-light-brown">
+                    <div class="front step two bg-medium-light-brown">
                         <div class="step-no absolute">
                             <h4 class="color-white relative">Step</h4>
                             <div class="no relative">2</div>
@@ -109,9 +109,9 @@ require_once(__DIR__ . '/components/header.php');
                     </div>
                 </div>
             </div>
-            <div class="flipcontainer  one grid" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipcontainer" ontouchstart="this.classList.toggle('hover');">
                 <div class="flipper">
-                    <div class="step three bg-dark-brown">
+                    <div class="front step three bg-dark-brown">
                         <div class="step-no absolute">
                             <h4 class="color-white relative">Step</h4>
                             <div class="no relative">3</div>
@@ -133,9 +133,9 @@ require_once(__DIR__ . '/components/header.php');
         </a>
     </section>
 
-    <section class="section-four grid mv-medium">
+    <section class="section-four grid mb-large">
         <h2 class="mb-small">Why choose The Proper Pour</h2>
-        <h4 class="text-center ">Get ready to have all your expectations met</h4>
+        <h3 class="mb-small">Get ready to have all your expectations met</h3>
         <div class="grid grid-two container ph-xlarge bg-medium-light-brown height90">
             <div class="colorBlock1 ">
                 <div class="list1 list p-medium">
@@ -166,15 +166,15 @@ require_once(__DIR__ . '/components/header.php');
 
     </section>
 
-    <section class="section-five grid mt-medium">
+    <section class="section-five grid mb-large">
         <h2 class="mb-small">Enhance your experience</h2>
-        <h4>Tips and tricks to make your best cup of coffee</h4>
+        <h3 class="mb-small">Tips and tricks to make your best cup of coffee</h3>
         <div class="grid grid-four container masonry">
             <div class="flipcontainer item one grid" ontouchstart="this.classList.toggle('hover');">
                 <div class="flipper">
                     <div class="front bg-dark-brown">
                         <div class="image1 bg-contain"></div>
-                        <h2 class="color-white relative text-center positionOnFlipper">How to choose coffee</h2>
+                        <h4 class="color-white relative text-cente">How to choose coffee</h4>
                     </div>
                     <div class="back p-medium ">
 
@@ -194,7 +194,7 @@ require_once(__DIR__ . '/components/header.php');
                 <div class="flipper">
                     <div class="front bg-for-how">
                         <div class="image1 bg-contain"></div>
-                        <h2 class="color-white  relative positionOnFlipper">How to brew coffee</h2>
+                        <h4 class="color-white relative text-cente">How to brew coffee</h4>
                     </div>
                     <div class="back p-medium">
                         <p class="">Make sure that <strong>your tools are cleaned and rinsed </strong> hot water. It’s important to check that no grounds have been left to collect and that there’s no build-up of coffee, which can make future cups of coffee taste bitter and rancid.</p>
@@ -210,7 +210,7 @@ require_once(__DIR__ . '/components/header.php');
                 <div class="flipper">
                     <div class="front bg-medium-light-brown">
                         <div class="image1 bg-contain"></div>
-                        <h2 class="color-white relative positionOnFlipper">Christmas coffee</h2>
+                        <h4 class="color-white relative text-cente">Christmas coffee</h4>
                     </div>
                     <div class="back p-medium">
                         <p class="p-smallest">With Christmas around the corner, remember to add it also to your coffee!</p>
@@ -222,7 +222,7 @@ require_once(__DIR__ . '/components/header.php');
                 <div class="flipper">
                     <div class="front bg-for-how">
                         <div class="image1 bg-contain relative"></div>
-                        <h2 class="color-white  relative positionOnFlipper">4 Tips for Serving Good Coffee for a Crowd</h2>
+                        <h4 class="color-white relative text-cente">4 Tips for Serving Good Coffee for a Crowd</h4>
                     </div>
                     <div class="back p-medium">
                         <p class="p-smallest"><strong>Buy good beans</strong>
@@ -241,7 +241,7 @@ require_once(__DIR__ . '/components/header.php');
                 <div class="flipper">
                     <div class="front bg-medium-light-brown ">
                         <div class="image1 bg-contain "></div>
-                        <h2 class="color-white  relative positionOnFlipper">Best coffee equipment <br> Our choice in 2019</h2>
+                        <h4 class="color-white relative text-cente">Best coffee equipment <br> Our choice in 2019</h4>
                     </div>
                     <div class="back p-medium">
                         <p class="p-smallest"> <strong>Home Coffee Grinder </strong> has easily adjustable grind settings, a solid burr set, good solid construction, and overall value for the money.</p>
@@ -256,7 +256,7 @@ require_once(__DIR__ . '/components/header.php');
                 <div class="flipper">
                     <div class="front bg-dark-brown">
                         <div class="image1 bg-contain"></div>
-                        <h2 class="color-white relative positionOnFlipper">3 ways to be a more sustainable coffee drinker</h2>
+                        <h4 class="color-white relative text-cente">3 ways to be a more sustainable coffee drinker</h4>
                     </div>
                     <div class="back p-medium">
                         <p class="p-smallest">Look for <strong>brands that support of sustainable coffee producers and environment </strong>. (All our brands are sustainable!)</p>

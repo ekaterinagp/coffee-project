@@ -98,7 +98,7 @@ $statementRelatedProducts = $connection->prepare($sqlRelatedProducts);
 
     <section class="section-two grid mv-medium ph-large relative">
         <div class="relative">
-            <h4 class="bold mb-small">You might also like</h4>
+            <h2 class="bold mb-small">You might also like</h2>
             <div class="container-banner absolute pv-medium bg-dark-brown"></div>
             <div class="products-container grid grid-four">
 
