@@ -2241,19 +2241,21 @@ header .logo{
   margin:1vw;
 } 
 /*  GRIDS  */
-.grid-two-thirds-reversed{
+.single-product .grid-two-thirds-reversed{
   grid-template-columns: 1fr;
 }
 .grid-almost-two{
   grid-template-columns: 1fr;
 }
-.grid-three{
-  grid-template-columns: 1fr 1fr;
-}
+
 
 /*  MARGINS AND PADDING   */
 .mt-xlarge{
   margin-top:22vw;
+}
+.mv-medium{
+  margin-top: 5vw;
+  margin-bottom: 5vw;
 }
 /*  FRONT PAGE  */
 .frontpage .section-three .step{
@@ -2298,6 +2300,9 @@ h2.banner-message{
 .subscribeBanner .image.bg-contain.absolute,
 .shop .container-banner .image{
   top:0;
+}
+.containerForSubscriptions.grid-three{
+  grid-template-columns: 1fr 1fr;
 }
 .subscriptionItem h3{
  height:4vh;
@@ -2364,3 +2369,61 @@ form.listenTo.grid.grid-three{
 }
 
 
+@media only screen and (max-width: 420px) {
+
+/*  MENU  */
+.menu a{
+  font-size: 100%;
+}
+footer.grid-five{
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2vh;
+  padding:5vw;
+}
+footer svg{
+  width:50%;
+}
+/*  MARGINS AND PADDINGS  */
+.mv-medium{
+  margin-top:10vw;
+  margin-bottom: 10vw;
+}
+/*  FRONTPAGE  */
+.grid-two-thirds-reversed.whatGetSection{
+  grid-template-columns: 1fr 2fr;
+}
+.colorBlock, .colorBlock1{
+  width:100%;
+  height:100%;
+}
+.section-three .grid-three{
+  grid-template-columns: 1fr;
+}
+.frontpage .section-three .step{
+  margin:.5em 4em;
+  padding:0 1em;
+}
+.step-no h4{
+  top:7.5vw;
+}
+.grid-four.masonry{
+ grid-template-columns: 1fr;
+}
+.section-five .masonry .item.two{
+  grid-column: auto;
+  grid-row: auto;
+}
+
+/* .section-five .masonry .item.five,
+.section-five .masonry .item.one,
+.section-five .masonry .item.three, */
+.section-five .masonry .item.four{
+  grid-row: 4;
+}
+.section-five .masonry .item.five{
+  grid-row:6;
+}
+.section-five .masonry .item.six{
+  grid-row:5;
+}
+}
