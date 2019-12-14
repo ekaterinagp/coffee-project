@@ -38,7 +38,7 @@ require_once(__DIR__ . '/connection.php');
         </template>
       </section>
       <div id="totalsum" class="pv-small"></div>
-      <a href="<?php if($_SESSION){echo 'payment';} else{echo'log-in';}?>"><button class="button">Go to Payment</button></a>
+      <a href="<?php if($_SESSION){echo 'payment';} else{echo'log-in';}?>"><button class="button"><?php if($_SESSION){echo 'Go to payment';} else{echo'Please log in';}?></button></a>
     
   </div>
   </div>
@@ -47,7 +47,7 @@ require_once(__DIR__ . '/connection.php');
 
     <section class="section-three mb-large ph-large pt-medium">
       <div class="related-products relative">
-        <h2 class="coffee-type mb-medium">Discover a world of qualitfy coffee</h2>
+        <h2 class="coffee-type mb-medium">Discover a world of quality coffee</h2>
         <div class="container-banner absolute pv-large bg-medium-light-brown"></div>
         <div class="products-container grid grid-four">
 

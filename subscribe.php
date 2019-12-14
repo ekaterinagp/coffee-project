@@ -10,7 +10,8 @@ $sql = "SELECT tSubscriptiontype.cName, tProduct.cName AS cProductName, tCoffeeT
                  INNER JOIN tProduct 
                  ON tProduct.nProductID = tSubscriptiontype.nProductID
                  INNER JOIN tCoffeeType
-                 ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID";
+                 ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID
+                 WHERE tProduct.bActive != 0";
 $statement = $connection->prepare($sql);
 ?>
 
@@ -39,7 +40,6 @@ $statement = $connection->prepare($sql);
         foreach($products as $row){
         $imgUrl = $row['cProductName'];
         $result = strtolower(str_replace(" ", "-", $imgUrl));
-        // echo $row['nSubscriptionTypeID'];
 
         echo 
         '<div class="subscriptionItem" id="'.$row['nSubscriptionID'].'">

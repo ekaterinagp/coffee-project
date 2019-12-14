@@ -148,7 +148,7 @@ function showFilteredCoffee(products) {
       clone.querySelector(".image").style.backgroundImage =
         "url(img/products/" + product.cName + ".png)";
       clone.querySelector(".productCoffeeType").textContent =
-        "Origin:" + " " + product.coffeeTypeName;
+        product.coffeeTypeName;
       clone.querySelector(".productPrice").textContent = product.nPrice + "DKK";
     } else {
       clone.querySelector("a").href = "singleProduct?id=" + product.nProductID;
@@ -157,7 +157,7 @@ function showFilteredCoffee(products) {
       clone.querySelector(".image").style.backgroundImage =
         "url(img/products/" + product.imagePath + ")";
       clone.querySelector(".productCoffeeType").textContent =
-        "Origin:" + " " + product.typeName;
+        product.typeName;
       clone.querySelector(".productPrice").textContent = product.nPrice + "DKK";
     }
 

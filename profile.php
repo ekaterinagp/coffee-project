@@ -1,11 +1,8 @@
 <?php
-
-$sTitle = '| Your profile';
+$sTitle = '| Profile ';
 $sCurrentPage = 'profile';
 
 require_once(__DIR__ . '/components/header.php');
-require_once(__DIR__ . '/connection.php');
-require_once(__DIR__ . '/components/functions.php');
 
 if (!$_SESSION) {
   header('Location: log-in');
@@ -14,8 +11,11 @@ if (!$_SESSION) {
 
 if ($_SESSION) {
 
-  $jLoggedUser = $_SESSION['user'];
-  $nUserID = $jLoggedUser['nUserID'];
+require_once(__DIR__ . '/connection.php');
+require_once(__DIR__ . '/components/functions.php');
+
+$jLoggedUser = $_SESSION['user'];
+$nUserID = $jLoggedUser['nUserID'];
 
   if (isset($jLoggedUser['dDeleteUser'])) {
     header('Location: log-in');
@@ -325,7 +325,9 @@ if ($_SESSION) {
       </div>
 <?php
           $connection = null;
-}; ?>
+}; 
+
+?>
 
 
   </div>

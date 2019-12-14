@@ -1,11 +1,7 @@
 <?php
-$sTitle = ' | Product name'; // Add the product dynamically
-$sCurrentPage = 'shop';
-require_once(__DIR__ . '/components/header.php');
-
 $iProductID = $_GET['id'];
-
 require_once(__DIR__ . '/connection.php');
+
 $sqlSingleProduct = "SELECT tProduct.nProductID, tProduct.cName as cProductName, tProduct.nCoffeeTypeID as nProductCoffeeTypeID, 
         tProduct.nPrice, tProduct.nStock, tProduct.bActive, 
         tCoffeeType.nCoffeeTypeID, tCoffeeType.cName 
@@ -19,24 +15,30 @@ $sqlRelatedProducts = "SELECT tProduct.nProductID, tProduct.cName as cProductNam
                         FROM tProduct INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID 
                         WHERE tProduct.bActive != 0 AND tProduct.nCoffeeTypeID = :coffeeID AND tProduct.nProductID != :id";
 $statementRelatedProducts = $connection->prepare($sqlRelatedProducts);
+
+$data =[
+    ':id' => $iProductID
+    ];
+
+if ($statementSingleProduct->execute($data)) {
+        $product = $statementSingleProduct->fetch(PDO::FETCH_ASSOC);
+
+        $nCoffeeTypeID = $product['nCoffeeTypeID'];
+
+        $imgUrl = $product['cProductName'];
+        $result = strtolower(str_replace(" ", "-", $imgUrl));
+
+$sTitle = '| Product: '.$imgUrl; // Add the product dynamically
+$sCurrentPage = 'shop';
+
+require_once(__DIR__ . '/components/header.php');
+
 ?>
 
 <main class="single-product">
     <section class="section-one grid grid-two-thirds-reversed mb-large ph-large mt-medium">
         <button class="back-button color-orange absolute">&lt;</button>
         <?php
-
-        $data =[
-        ':id' => $iProductID
-        ];
-
-        if ($statementSingleProduct->execute($data)) {
-            $product = $statementSingleProduct->fetch(PDO::FETCH_ASSOC);
-
-                        $nCoffeeTypeID = $product['nCoffeeTypeID'];
-
-                        $imgUrl = $product['cProductName'];
-                        $result = strtolower(str_replace(" ", "-", $imgUrl));
 
                         echo '
                         <div id="product-'.$iProductID.'" class="product-info-container grid grid-two-thirds">

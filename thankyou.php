@@ -64,9 +64,7 @@ if ($statementProducts->execute()) {
 
 
 
-?> -->
-<!-- <a href="shop" class="m-small link"> Back to shop</a> -->
-<!-- <a href="shop" class=" m-small link"> Back to subscribe options</a> -->
+?>
 <script src="js/thankyou.js"></script>
 </main>
 <?php

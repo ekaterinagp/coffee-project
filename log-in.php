@@ -1,5 +1,4 @@
 <?php
-// error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
 $sTitle = ' | Log in';
 $sCurrentPage = 'log in';
@@ -21,13 +20,13 @@ if ($_SESSION) {
       <form id="loginForm" class="mv-medium" method="POST">
               <label for="email" class="grid">
             <p class="text-left align-self-center pv-small color-white">Email | Username</p>
-            <input class="text-left" required data-type="string" data-min="2" data-max="255" name="inputEmail" placeholder="email" type="text" value="jakob@gmail.com">
+            <input class="text-left" required data-type="string" data-min="2" data-max="255" name="inputEmail" placeholder="Email | Username" type="text" value="jakob@gmail.com">
             <div class="errorMessage" id="emailDiv">Please enter a valid e-mail or username</div>
           </label>
 
           <label for="password" class="grid color-white">
             <p class="text-left align-self-center pv-small">Password</p>
-            <input class="text-left"  required data-type="string" data-min="8" data-max="8" type="password" name="password" placeholder="password" value="12345678">
+            <input class="text-left"  required data-type="string" data-min="8" data-max="8" type="password" name="password" placeholder="Password" value="12345678">
             <div class="errorMessage">Password must be 8 characters</div>
           </label>
 

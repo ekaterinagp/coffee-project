@@ -12,8 +12,6 @@ $statement = $connection->prepare($sql);
 
 require_once(__DIR__ . '/components/header.php');
 
-// HAS TO CHECK FOR SESSION IN ORDER TO ADD TO CART HERE?
-
 ?>
 
 <main class="shop">
@@ -47,7 +45,6 @@ require_once(__DIR__ . '/components/header.php');
             <div class="products grid grid-two-thirds-bigger mr-medium">
 
                 <div class="filter color-white relative">
-                    <!-- <h3 class="color-black ph-medium pb-medium">Filters</h3> -->
                     <div class="filter-container">
                         <button class="accordion price bg-medium-light-brown color-white">Price</button>
                         <div class="panel filter-price bg-white color-black">
@@ -97,8 +94,6 @@ require_once(__DIR__ . '/components/header.php');
                         $connection = null;
 
                         foreach ($products as $product) {
-
-                            // if ($product['bActive'] !== 0) {
 
                             $imgUrl = $product['cProductName'];
                             $result = strtolower(str_replace(" ", "-", $imgUrl));

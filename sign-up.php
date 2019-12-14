@@ -27,7 +27,7 @@ if ($_SESSION) {
           <div class="errorMessage">Last name must be more than 1 and less than 20 letters</div>
         </label>
 
-        <label class="grid grid-one color-white" for="email">Email<input required type="email" data-type="email" name="inputEmail" placeholder="email">
+        <label class="grid grid-one color-white" for="email">Email<input required type="email" data-type="email" name="inputEmail" placeholder="Email">
           <!-- onchange="fvIsEmailAvailable(this);"  -->
           <div class="errorMessage" id="emailDiv">Must be a valid email address</div>
         </label>
@@ -59,25 +59,25 @@ if ($_SESSION) {
           </select>
         </label>
 
-        <label class="grid grid-one color-white" for="userAddress">Address<input required type="text" data-type="string" data-min="12" data-max="9999999999"  name="inputAddress" placeholder="address ">
+        <label class="grid grid-one color-white" for="userAddress">Address<input required type="text" data-type="string" data-min="12" data-max="9999999999"  name="inputAddress" placeholder="Address ">
           <div class="errorMessage">Must be more than 12 characters</div>
         </label>
 
-        <label class="grid grid-one color-white" for="userPhone">Phone number<input required type="text" data-type="integer" data-min="9999999" data-max="999999999" name="inputPhone" placeholder="phone number">
+        <label class="grid grid-one color-white" for="userPhone">Phone number<input required type="text" data-type="integer" data-min="9999999" data-max="999999999" name="inputPhone" placeholder="Phone number">
           <div class="errorMessage">Must be 8 characters</div>
         </label>
         <h5 class="mt-medium color-white">Account Information</h5>
 
         <hr class="frmLine mt-small">
-        <label class="grid grid-one color-white" for="loginName">Username<input required type="text" data-type="string" data-min="2" data-max="12"  name="inputLoginName" placeholder="username">
+        <label class="grid grid-one color-white" for="loginName">Username<input required type="text" data-type="string" data-min="2" data-max="12"  name="inputLoginName" placeholder="Username">
           <div class="errorMessage">Must be more than 2 and less than 12</div>
         </label>
 
-        <label class="grid grid-one color-white" for="password">Password<input required type="password" data-type="string" data-min="8" data-max="8" name="password_1" placeholder="password">
+        <label class="grid grid-one color-white" for="password">Password<input required type="password" data-type="string" data-min="8" data-max="8" name="password_1" placeholder="Password">
           <div class="errorMessage">Password must be 8 characters</div>
         </label>
 
-        <label class="grid grid-one color-white" for="password">Repeat Password<input required type="password" data-type="string" data-min="8" data-max="8" name="password_2" placeholder="repeat password">
+        <label class="grid grid-one color-white" for="password">Repeat Password<input required type="password" data-type="string" data-min="8" data-max="8" name="password_2" placeholder="Repeat password">
           <div class="errorMessage">Password must match</div>
         </label>
 

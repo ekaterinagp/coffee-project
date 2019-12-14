@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__ . '/../connection.php');
 
-$sql = "SELECT * FROM tproduct";
+$sql = "SELECT * FROM tproduct WHERE bActive != 0";
 
 $statement = $connection->prepare($sql);
 

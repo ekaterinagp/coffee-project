@@ -9,7 +9,10 @@ if (empty($_GET['search']) && $_GET['search'] !== '0') {
 
 $sSearchInput = $_GET['search'];
 
-$query = "SELECT tproduct.cName AS productName, tproduct.nProductID,tproduct.nPrice, tcoffeetype.cName AS typeName, tcoffeetype.nCoffeeTypeID FROM  tproduct LEFT JOIN tcoffeetype ON tproduct.nCoffeeTypeID=tcoffeetype.nCoffeeTypeID HAVING  productName LIKE '%" . $sSearchInput . "%'
+$query = "SELECT tproduct.cName AS productName, tproduct.nProductID,tproduct.nPrice, tcoffeetype.cName AS typeName, 
+tcoffeetype.nCoffeeTypeID FROM  tproduct 
+INNER JOIN tcoffeetype ON tproduct.nCoffeeTypeID=tcoffeetype.nCoffeeTypeID 
+HAVING  productName LIKE '%" . $sSearchInput . "%'
 OR  typeName LIKE '%" . $sSearchInput . "%'";
 
 $statement = $connection->prepare($query);
