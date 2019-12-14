@@ -23,7 +23,7 @@ img {
 
 h2 {
   font-size: 2em;
-  text-transform: capitalize !important;
+  /* text-transform: capitalize !important; */
 }
 
 header .logo {
@@ -249,8 +249,7 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
 }
 
 .checkbox > span {
-  color: #34495e;
-  padding: 0.5rem 0.25rem;
+  padding: 0.5rem 1.25rem;
 }
 
 .checkbox > input {
@@ -640,7 +639,8 @@ input[type="email"],
 input[type="password"],
 input[type="number"],
 select {
-  font-size: calc(0.6vw + 45%);
+  font-size: calc(0.5vw + 45%);
+  font-weight: 100;
 }
 
 input[type="text"].not-input, 
@@ -2090,7 +2090,7 @@ select {
   border: 0;
   border-radius: 0px;
   height: 32px;
-  padding: 10px 10px 10px 30px;
+  padding: 1vw;
   background: #fff;
 }
 select {
@@ -2101,10 +2101,10 @@ input[type="email"].valid,
 input[type="password"].valid,
 input[type="number"].valid {
   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/check.svg);
-  background-size: 20px;
+  background-size: 1.2vw;
   background-color: white;
   background-repeat: no-repeat;
-  background-position: 5px 6px;
+  background-position: 96% 6px;
 }
 
 input[type="text"]:valid + label,
@@ -2131,14 +2131,14 @@ form .errorMessage {
   padding: 0 30px 0 50px;
   max-height: 0;
   transition: all 0.3s;
-  overflow: hidden;
+  overflow: hidden;;
   color: #e43d31;
   font-style: italic;
   font-size: 80%;
 }
 
 input:not(:focus).error {
-  border: 1px solid #e43d31;
+  border: 2px solid #e43d31;
 }
 
 .highlight {

@@ -27,10 +27,10 @@ if ($_POST) {
     sendErrorMessage('address is empty', __LINE__);
   }
 
-  // if (strlen($_POST['inputAddress']) > 10) {
-  //   sendErrorMessage('must be more than 10 characters', __LINE__);
-  //
-  // }
+  if (strlen($_POST['inputAddress']) < 10) {
+    sendErrorMessage('must be more than 10 characters', __LINE__);
+  
+  }
 
   if (empty($_POST['inputLoginName'])) {
     sendErrorMessage('login is empty', __LINE__);
