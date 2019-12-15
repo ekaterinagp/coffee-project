@@ -575,11 +575,15 @@ h5 a,
   text-align: center;
 }
 
-h1, h3{
+.subscriptionItem h3 {
   text-transform: uppercase;
 }
 
-.frontpage h3{
+h1{
+  text-transform: uppercase;
+}
+
+h3{
   text-transform: inherit;
 }
 
@@ -1492,9 +1496,10 @@ a {
 .single-product h3,
 .single-product .product h4,
 .profile-details h3,
-.profile .product h3, .noCart .product h3, .thank-you .product h3 {
+.profile .product h3, .noCart .product h3, .thank-you .product h3{
   padding: 0;
   text-align: left;
+  text-transform: uppercase;
 }
 .product-purchase-container .options-container>.options:first-child label {
   grid-template-columns: 1fr 3fr;
@@ -2322,6 +2327,7 @@ h2.banner-message{
 }
 .subscriptionItem h3{
  height:4vh;
+
 }
 .testContent{
   height:50%;

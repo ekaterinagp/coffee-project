@@ -22,7 +22,7 @@ SET time_zone = "+00:00";
 -- Database: `properpour`
 --
 DROP DATABASE IF EXISTS properpour;
-CREATE DATABASE properpour DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE properpour DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE properpour;
 
 DELIMITER $$
@@ -190,7 +190,7 @@ CREATE TABLE `tauditcreditcard` (
   `dTimestamp` timestamp NOT NULL DEFAULT current_timestamp(),
   `cDBUser` varchar(255) NOT NULL,
   `cHost` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tauditcreditcard`
@@ -333,7 +333,7 @@ CREATE TABLE `tauditpurchase` (
   `dTimestamp` timestamp NULL DEFAULT current_timestamp(),
   `cDBUser` varchar(255) NOT NULL,
   `cHost` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tauditpurchase`
@@ -435,7 +435,7 @@ CREATE TABLE `taudituser` (
   `dTimeStamp` timestamp NOT NULL DEFAULT current_timestamp(),
   `cDBUser` varchar(255) NOT NULL,
   `cHost` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `taudituser`
@@ -597,7 +597,7 @@ CREATE TABLE `tcreditcard` (
   `nTotalPurchaseAmount` decimal(18,4) NOT NULL DEFAULT 0.0000,
   `nUserID` mediumint(8) UNSIGNED NOT NULL,
   `dDeleteCreditCard` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tcreditcard`
@@ -752,7 +752,7 @@ CREATE TABLE `tproduct` (
   `nPrice` decimal(5,2) NOT NULL DEFAULT 0.00,
   `nStock` int(11) NOT NULL DEFAULT 0,
   `bActive` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tproduct`
@@ -784,7 +784,7 @@ CREATE TABLE `tpurchase` (
   `nNetAmount` decimal(5,2) NOT NULL,
   `nTax` decimal(4,2) NOT NULL,
   `nCreditCardID` mediumint(8) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tpurchase`
@@ -977,7 +977,7 @@ CREATE TABLE `tsubscriptiontype` (
   `nProductID` int(10) UNSIGNED NOT NULL,
   `cName` varchar(50) NOT NULL,
   `nQuantity` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tsubscriptiontype`
@@ -1010,7 +1010,7 @@ CREATE TABLE `tuser` (
   `dNewUser` timestamp NOT NULL DEFAULT current_timestamp(),
   `dDeleteUser` timestamp NULL DEFAULT NULL,
   `nTotalPurchaseAmount` decimal(18,4) NOT NULL DEFAULT 0.0000
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tuser`
