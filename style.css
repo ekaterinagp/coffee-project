@@ -2244,7 +2244,92 @@ input.type_cart_grind{
   height:30vh;
   width:auto
 }
-
+@media only screen and (max-width:1024px){
+  .frontpage .section-one.grid-almost-two{
+    grid-template-columns: 1fr 1fr;
+  }
+  .cupImage{
+    bottom:0;
+  }
+  .grid-four {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .section-five .masonry{
+    min-height:50vh;
+  }
+  .section-five .masonry .item{
+    min-height: 25vh;
+  }
+  .section-five .masonry .item.two {
+    grid-column: 3;
+    grid-row: 1/3;
+  }
+  .section-five .masonry .item.four .image{
+    left:-3vw;
+  }
+  .section-five .masonry .item.six {
+    grid-column: 2/-1;
+  }
+  .section-five .masonry .item.three {
+    grid-row: 3;
+  }
+  .frontpage .section-three .step,
+  .section-three .back{
+    height:35vw;
+  }
+  /*  SUBSCRIBE  PAGE  */
+  h2.banner-message{
+    line-height: 22px;
+  }
+  .subscribeBanner .image.bg-contain.absolute,
+  .shop .container-banner .image{
+    top:0;
+  }
+  /* .containerForSubscriptions.grid-three{
+    grid-template-columns: 1fr 1fr;
+  } */
+  .subscriptionItem h3{
+   height:3vh;
+  }
+  .testContent{
+    height:60%;
+  }
+  .testbg{
+    top:15%;
+    bottom:55%;
+  }
+  .testContainer .btnRadio{
+    height:10vh;
+  }
+  .textBtns .btnRadio{
+    height:10vh;
+  }
+  .testResults{
+    margin-top:10%;
+  } 
+  /*  SIGNUP/LOGIN  */
+  .containerSignup, .containerLogin{
+    min-height: 87vh;
+  }
+  /*  CART  */
+   #paymentMain,.single-product{
+    min-height:76vh;
+    margin-top:10vh;
+  }
+  .cartMain{
+    min-height:70vh;
+    margin-top:10vh;
+  }
+  .thank-you{
+    min-height:87vh;
+  }
+  .receipt .grid-two{
+    grid-template-columns: 1fr;
+  }
+  .receipt .grid-two img{
+    margin:auto;
+  }
+}
 @media only screen and (max-width: 780px) {
   /*  MENU */
 svg.menuIcon{
@@ -2280,7 +2365,7 @@ header .logo{
 }
 /*  FRONT PAGE  */
 .frontpage .section-three .step{
-  padding-top:2vh;
+  padding-top:4vh;
   margin: 0 1em 1em 1em;
 }
 .section-three .back{
@@ -2289,25 +2374,6 @@ header .logo{
 .cupImage {
   bottom: 4vh;
 }
-.grid-four {
-  grid-template-columns: 1fr 1fr 1fr;
-}
-.section-five .masonry .item{
-  min-height: 25vh;
-}
-.section-five .masonry .item.two {
-  grid-column: 3;
-  grid-row: 1/3;
-}
-.section-five .masonry .item.four .image{
-  left:-3vw;
-}
-.section-five .masonry .item.six {
-  grid-column: 2/-1;
-}
-.section-five .masonry .item.three {
-  grid-row: 3;
-}
 .p-smallest{
   font-size: 80%;
 }
@@ -2315,20 +2381,13 @@ header .logo{
   height:65%;
 }
 /*  SUBSCRIBE PAGE  */
-h2.banner-message{
-  line-height: 22px;
-}
-.subscribeBanner .image.bg-contain.absolute,
-.shop .container-banner .image{
-  top:0;
-}
-.containerForSubscriptions.grid-three{
-  grid-template-columns: 1fr 1fr;
-}
-.subscriptionItem h3{
- height:4vh;
 
-}
+  .containerForSubscriptions.grid-three{
+    grid-template-columns: 1fr 1fr;
+  }
+  .subscriptionItem h3{
+    height:4vh;
+   }
 .testContent{
   height:50%;
   width: auto;
