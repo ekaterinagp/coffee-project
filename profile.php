@@ -70,9 +70,9 @@ $nUserID = $jLoggedUser['nUserID'];
 
   <main class="profile mb-large">
     <h1 class="text-center pv-medium">Welcome <?= $jLoggedUser['cName']; ?></h1>
-    <section class="section-one grid  ph-large mb-large">
+    <section class="section-one grid ph-medium mb-large">
 
-      <div class="profile-info-container grid-two-thirds-reversed grid">
+      <div class="profile-info-container grid grid-two-thirds-reversed">
         <div class="profile-details details-one bg-grey p-medium pv-medium">
           <h2 class="">Profile Details</h2>
           <form id="form-profile" class=" grid grid-three mt-small mh-medium" method="post">
@@ -167,10 +167,10 @@ $nUserID = $jLoggedUser['nUserID'];
 
                 </select>
               </label>
+              <button class="button-delete-card button align-self-bottom">Delete</button>
           </form>
-      </div>
       <div class="creditcard-form-button-container">
-      <button class="button-delete-card button align-self-bottom">Delete</button>
+      </div>
       <button class="button-add button">Add creditcard</button>
       </div>
       <form id="form-creditcard" method="post" class="ph-medium">

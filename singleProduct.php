@@ -52,12 +52,12 @@ require_once(__DIR__ . '/components/header.php');
                                 </div>
                                 <div class="mv-small">
                                     <h4 class="bold">Roast level</h4>
-                                    <h5 class="light mb-small">Medium Roast</h5>
+                                    <p class="light mb-small">Medium Roast</p>
                                     <h4 class="bold">Type</h4>
-                                    <h5 class="light mb-small">'.$product['cName'].'</h5>
+                                    <p class="light mb-small">'.$product['cName'].'</p>
                                     <h4 class="bold">Recommmended for</h4>
-                                    <h5 class="light">Espresso</h5>
-                                    <h5 class="light">French Press</h5>
+                                    <p class="light">Espresso</p>
+                                    <p class="light">French Press</p>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +91,7 @@ require_once(__DIR__ . '/components/header.php');
                                 </div>
                             </div>
                             <div class="payment">
-                                <h2 class="align-self-bottom mt-medium text-right">Total amount</h2>
+                                <h2 class="align-self-bottom mt-medium text-right light">Total amount</h2>
                                 <h4 class="totalPrice align-self-top"><?= $product['nPrice']; ?> DKK</h4>
                                 <button class="button" id="addToCartBtn">Add to cart</button>
                             </div>
