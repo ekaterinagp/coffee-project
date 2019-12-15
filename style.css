@@ -1645,7 +1645,7 @@ a {
   /* color: #fff; */
 }
 .current-subscriptions .subscriptionItem h4{
-  color:white;
+  text-transform:capitalize;
 }
 #form-profile h3 {
   font-size: 80%;

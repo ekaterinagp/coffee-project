@@ -149,7 +149,8 @@ function showModal(text, deleteType, itemID){
     modalContainer.append(h3, buttonDelete, buttonAbort);
     modal.append(modalContainer);
     document.querySelector('body').append(modal);
-document.addEventListener("click", function(){
+
+    document.addEventListener("click", function(){
     if(event.target == modal ){
         modal.style.display="none";
     }
@@ -213,6 +214,13 @@ function deleteSubscription(id){
             showNotification(text, responseClass);
             console.log(id);
             document.getElementById(id).remove();
+
+            subscriptionItemsStatus = document.querySelector('.current-subscriptions').children.length;
+            console.log(subscriptionItemsStatus);
+            if(subscriptionItemsStatus == false){
+                console.log('no subs');
+                noSubscriptions();
+            }
         }
         if (response == 0) {
             let responseClass = "fail";
@@ -341,5 +349,95 @@ function addCreditCard(){
             }
         });
     });
-
 }
+
+// IMG URL
+
+function changeFormatForImg(product) {
+    let str = product.cProductName;
+    product.cProductName = str.replace(/\s+/g, "-").toLowerCase();
+}
+
+// CHECK IF USER HAS SUBSCRIPTIONS
+
+const currentSubscriptions = document.querySelector('.current-subscriptions');
+let subscriptionItemsStatus = currentSubscriptions.children.length; 
+
+const currentSubscriptionsParent = currentSubscriptions.parentElement;
+
+if(subscriptionItemsStatus == 0){
+    console.log('no subs');
+    noSubscriptions();
+}
+
+function noSubscriptions(){
+
+        let h2Header = currentSubscriptionsParent.querySelector('h2');
+        h2Header.className = 'text-center mb-small';
+        h2Header.innerText = 'Get quality coffee right to your doorstep';
+        let h3SubHeader = document.createElement('h3');
+        h3SubHeader.innerText = 'Discover our delicious and convenient coffee subscriptions';
+        h2Header.after(h3SubHeader);
+
+        getAllSubscriptionsAsJson();
+        
+        // SUBSCRIPTIONS FUNCTION
+        function getAllSubscriptionsAsJson() {
+            let endpoint = "api/api-get-subscriptions.php";
+            return new Promise((resolve, reject) => {
+              fetch(endpoint)
+                .then(res => res.json())
+                .then(function(subscriptions) {
+                  resolve(subscriptions);
+        
+                  showAllSubscriptions(subscriptions);
+                });
+            });
+          }
+        
+        function showAllSubscriptions(subscriptions){
+            subscriptions.forEach(function(subscription) {
+        
+            let subscriptionItem = document.createElement('div');
+            subscriptionItem.className = 'subscriptionItem';
+            subscriptionItem.setAttribute('id', subscription.nProductID);
+        
+            let subscriptionItemBg = document.createElement('div');
+            subscriptionItemBg.className = 'subscriptionItemBg';
+        
+            let img = document.createElement('img');
+            changeFormatForImg(subscription);
+            img.src = "img/products/" + subscription.cProductName + ".png";
+        
+            let h3Name = document.createElement('h3');
+            h3Name.className = 'subscriptionName';
+            h3Name.innerText = subscription.cSubscriptionName;
+        
+            let h4Price = document.createElement('h4');
+            h4Price.className = 'priceSubscription';
+            h4Price.innerText = subscription.nPrice + ' DKK / Month';
+        
+            let whiteBg = document.createElement('div');
+            whiteBg.className = 'white-text-bg';
+        
+            let h4Origin = document.createElement('h4');
+            h4Origin.innerText = subscription.cName;
+        
+            let pDesc = document.createElement('p');
+            pDesc.className = 'descSubscription ph-small';
+            pDesc.innerText = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate praesentium, inventore deleniti optio nobis quasi provident nulla minus odit architecto.';
+        
+            let addSubToCartBtn = document.createElement('button');
+            addSubToCartBtn.className = 'addSubToCartBtn button';
+            addSubToCartBtn.innerText = 'Add to Cart';
+        
+            subscriptionItemBg.append(img, h3Name, h4Price);
+            whiteBg.append(h4Origin, pDesc);
+        
+            subscriptionItem.append(subscriptionItemBg, whiteBg, addSubToCartBtn);
+        
+            currentSubscriptions.append(subscriptionItem);
+            });
+        }
+}
+

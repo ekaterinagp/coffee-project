@@ -203,13 +203,14 @@ $nUserID = $jLoggedUser['nUserID'];
     </section>
 
     <section class="section-two mv-medium ph-medium mb-large current-subscription">
+      <h2 class=" text-left mb-medium">Your current subscriptions</h2>
+      <div class="current-subscriptions containerForSubscriptions  grid grid-three m-medium">
         <?php
           if ($statementUserSubscription->execute([':id' => $nUserID])) {
             $jUserSubscriptions = $statementUserSubscription->fetchAll(PDO::FETCH_ASSOC);
            
             if (count($jUserSubscriptions) >= 1) {?>
-            <h2 class=" text-left mb-medium">Your current subscriptions</h2>
-            <div class="current-subscriptions containerForSubscriptions  grid grid-three m-medium">
+            
 
             <?php
 
@@ -223,10 +224,11 @@ $nUserID = $jLoggedUser['nUserID'];
               <div class="subscriptionItem" id="<?= $jUserSubscription['nUserSubscriptionID']; ?>">
                 <div class="subscriptionItemBg">
                   <img src="img/products/<?= $result; ?>.png" alt="">
-                  <h3><?= $jUserSubscription['cSubscriptionName']; ?></h3>
-                  <h4><?= $jUserSubscription['cName']; ?></h4>
+                  <h3 class="subscriptionName"><?= $jUserSubscription['cSubscriptionName']; ?></h3>
+                  <h4 class="priceSubscription"><?= $jUserSubscription['nPrice']; ?></h4>
                 </div>
                 <div class="white-text-bg">
+                  <h4><?= $jUserSubscription['cName']; ?></h4>
                   <button class="button button-delete">Cancel</button>
                 </div>
               </div>
@@ -234,44 +236,6 @@ $nUserID = $jLoggedUser['nUserID'];
         <?php
               }
             }
-            else{?>
-
-              <h2 class="mb-small">Get quality coffee right to your doorstep</h2>
-              <h3 class="">Discover our delicious and convenient coffee subscriptions</h3>
-              <div class="current-subscriptions containerForSubscriptions grid grid-three m-medium">
-                    <?php
-                    if ($statementSubscriptions->execute()) {
-                      $jSubscriptions = $statementSubscriptions->fetchAll(PDO::FETCH_ASSOC);
-      
-                      foreach ($jSubscriptions as $jSubscription) {
-      
-                      $nProductID = $jSubscription['nProductID'];
-                      $nCoffeeTypeID = $jSubscription['nCoffeeTypeID'];
-                      $nSubscriptionTypeID = $jSubscription['nSubscriptionTypeID'];
-                      $imgUrl = $jSubscription['cProductName'];
-                      $result = strtolower(str_replace(" ", "-", $imgUrl));
-
-                      echo 
-                      '<div class="subscriptionItem" id="'.$jSubscription['nSubscriptionTypeID'].'">
-                        <div class="subscriptionItemBg">
-                          <img src="img/products/'.$result.'.png" alt="">  
-                          <h3 class="subscriptionName">'.$jSubscription['cName'].'</h3>
-                          <h4 class="priceSubscription ">'.$jSubscription['nPrice'].' DKK / Month</h4>
-                        </div>
-                      <div class="white-text-bg">
-                      <h4>Origin: '.$jSubscription['cName'].'</h4>
-                        <p class="descSubscription ph-small">Lorem ipsum dolor sit amet consectetur 
-                        adipisicing elit. Voluptate praesentium, inventore deleniti optio nobis
-                        quasi provident nulla minus odit architecto.</p>
-                        
-                        </div>
-                        <button class="addSubToCartBtn button">Add to Cart</button>
-                      </div>' ; 
-      
-                      
-                    }
-                    }
-                  }
           }
           ?>
       </div>
