@@ -46,7 +46,7 @@ $statement = $connection->prepare($sql);
           <div class="subscriptionItemBg">
             <img src="img/products/'.$result.'.png" alt="">  
             <h3 class="subscriptionName">'.$row['cName'].'</h3>
-            <h4 class="priceSubscription ">'.$row['nSubscriptionPrice'].' DKK / Month</h4>
+            <h4 class="priceSubscription">'.$row['nSubscriptionPrice'].' DKK / Month</h4>
           </div>
         <div class="white-text-bg">
         <h4>'.$row['cCoffeeTypeName'].'</h4>

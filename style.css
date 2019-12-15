@@ -1556,6 +1556,10 @@ a {
   top: 20vw;
 }
 
+.log-out .container-banner{
+  top: 24.5vw;
+}
+
 .profile .related-products .container-banner{
   top: 1.5vw;
 
@@ -1649,7 +1653,7 @@ a {
   margin:auto;
 }
 .current-subscriptions .subscriptionItem h4{
-  color:white;
+  text-transform:capitalize;
 }
 #form-profile h3 {
   font-size: 80%;
