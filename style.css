@@ -670,6 +670,7 @@ body {
   font-weight: 400;
   color: black;
   max-width: 100vw;
+  min-height:100vh;
   overflow-x: hidden;
 }
 option,
@@ -879,6 +880,7 @@ svg.menuIcon {
 /*****  MENU ENDS  *****/
 
 /*****  FOOTER  *****/
+
 footer{
   width:100vw;
 }
@@ -2340,18 +2342,14 @@ input.type_cart_grind{
   .testResults{
     margin-top:10%;
   } 
-  /*  SIGNUP/LOGIN  */
-  .containerSignup, .containerLogin{
-    min-height: 87vh;
-  }
   /*  CART  */
    #paymentMain,.single-product{
-    min-height:76vh;
     margin-top:10vh;
+    min-height:76vh;
   }
   .cartMain{
-    min-height:70vh;
     margin-top:10vh;
+    min-height:70vh;
   }
   .thank-you{
     min-height:87vh;
