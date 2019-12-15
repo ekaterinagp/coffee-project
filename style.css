@@ -2122,7 +2122,7 @@ select {
   background: #fff;
 }
 select {
-  padding: 8px 8px 8px 30px;
+  padding: 1vw;
 }
 input[type="text"].valid,
 input[type="email"].valid,
@@ -2407,9 +2407,9 @@ header .logo{
 
 /* INPUTS */
 
-input[type="text"], input[type="email"], input[type="password"], input[type="number"], select{
+/* input[type="text"], input[type="email"], input[type="password"], input[type="number"], select{
   height: 20px;
-}
+} */
 
 /*  MARGINS AND PADDING   */
 .mt-xlarge{
