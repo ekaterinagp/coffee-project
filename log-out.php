@@ -13,6 +13,8 @@ require_once(__DIR__ . '/connection.php');
 
     <h2 class="coffee-type mb-small">Want to browse our newest products?</h2>
     <h3 class="coffee-type mb-medium">Visit the shop and discover a world of quality coffee</h3>
+
+    <a href="shop"><h2 class="coffee-type mb-medium uppercase">Go to shop</h2></a> 
         <div class="container-banner absolute pv-large bg-medium-light-brown"></div>
         <div class="products-container grid grid-four">
 <?php

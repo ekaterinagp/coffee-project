@@ -955,12 +955,8 @@ a {
   margin: auto;
 }
 
-.button-delete-card{
-  width: 100%;
-}
-
 .subscriptionItem .button-delete,
-.profile-details .button-add {
+.profile-details .button-add, .profile-details .button-delete-card {
   margin: 2vw auto;
 }
 
@@ -1462,7 +1458,8 @@ a {
 
 .shop .products-container,
 .single-product .products-container,
-.profile .products-container, .creditcard-info, .noCart .products-container, .thank-you .products-container  {
+.profile .products-container, .creditcard-info, .noCart .products-container, 
+.thank-you .products-container  {
   grid-gap: 1vw;
 }
 
@@ -1557,7 +1554,7 @@ a {
 }
 
 .log-out .container-banner{
-  top: 24.5vw;
+  top: 31vw;
 }
 
 .profile .related-products .container-banner{
@@ -1582,7 +1579,8 @@ a {
 .single-product .description,
 .profile .description,
 .profile .section-one,
-.current-subscriptions{
+.current-subscriptions, 
+.profile-info-container{
   grid-gap: 2vw;
 }
 
@@ -1683,8 +1681,20 @@ a {
   grid-gap:1vw;
 }
 #form-profile .formButtonContainer{
-  grid-column: 3;
+  display: grid;
+  width: 100%;
+  align-self: end;
+  grid-column: 2/4;
 }
+
+.formButtonContainer .button{
+  justify-self: right;
+}
+
+.profile-details.details-one{
+  max-height: 29.5vw;
+}
+
 #form-profile select::placeholder {
   color: #000;
 }
@@ -2225,6 +2235,11 @@ input.type_cart_grind{
   border-radius: 0;
   width:90%;
 }
+
+.profile .choose-credit-card select{
+  width:100%;
+}
+
 .paymentForm .show-newCardfrm {
   margin: auto;
 }
@@ -2258,6 +2273,7 @@ input.type_cart_grind{
   }
   .button{
     padding:2vw;
+    max-width: 27vw;
   }
   .cupImage{
     bottom:0;
@@ -2365,6 +2381,29 @@ header .logo{
   grid-template-columns: 1fr;
 }
 
+.profile .grid-two-thirds-reversed{
+  grid-template-columns: 1fr;
+}
+
+.profile .profile-details.details-one{
+  max-height: 50vw;
+}
+
+.creditcard-form-button-container{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* BUTTONS */
+.button{
+  max-width: 27vw;
+}
+
+/* INPUTS */
+
+input[type="text"], input[type="email"], input[type="password"], input[type="number"], select{
+  height: 20px;
+}
 
 /*  MARGINS AND PADDING   */
 .mt-xlarge{

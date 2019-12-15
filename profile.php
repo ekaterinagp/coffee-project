@@ -72,10 +72,10 @@ $nUserID = $jLoggedUser['nUserID'];
     <h1 class="text-center pv-medium">Welcome <?= $jLoggedUser['cName']; ?></h1>
     <section class="section-one grid  ph-large mb-large">
 
-      <div>
-        <div class="profile-details bg-grey p-medium pv-medium">
+      <div class="profile-info-container grid-two-thirds-reversed grid">
+        <div class="profile-details details-one bg-grey p-medium pv-medium">
           <h2 class="">Profile Details</h2>
-          <form id="form-profile" class=" grid grid-three pt-small ph-medium" method="post">
+          <form id="form-profile" class=" grid grid-three mt-small mh-medium" method="post">
             <label id="cName" class="grid" for="name">
               <p class="text-left align-self-center">Name</p>
               <input class=" not-input" data-type="string" data-min="2" data-max="20" type="text" data-type="string" name="inputName" placeholder="First name" value="<?= $jLoggedUser['cName']; ?>">
@@ -136,24 +136,16 @@ $nUserID = $jLoggedUser['nUserID'];
               <input class=" not-input" type="number" data-type="number" data-min="9999999" data-max="99999999" name="inputPhone" placeholder="phone number" value="<?= $jLoggedUser['cPhoneNo']; ?>">
               <div class="errorMessage">Must be 8 characters</div>
             </label>
-
             <div class="formButtonContainer">
-              
                 <button class="button-edit button">Edit information</button>
                 <button class="button-save formBtn hide-button button">Save information</button>
-              
-             
             </div>
-
           </form>
         </div>
-      </div>
-      <div class="profile-details bg-grey p-medium pt-medium">
-
-      
-        <div class="creditcard-container ph-medium ">
+      <div class="profile-details bg-grey p-medium pt-medium"> 
+        <div class="creditcard-container ph-small">
           <h2 class="">Creditcard Details</h2>
-          <form method="POST" id="savedCardFrm" class=" pt-small choose-credit-card grid grid-two-thirds-reversed">
+          <form method="POST" id="savedCardFrm" class=" pt-small choose-credit-card">
       
           <?php
             if ($statementCreditCard->execute([':id' => $nUserID])) {
@@ -175,11 +167,13 @@ $nUserID = $jLoggedUser['nUserID'];
 
                 </select>
               </label>
-            <button class="button-delete-card button align-self-bottom">Delete</button>
           </form>
       </div>
+      <div class="creditcard-form-button-container">
+      <button class="button-delete-card button align-self-bottom">Delete</button>
       <button class="button-add button">Add creditcard</button>
-      <form id="form-creditcard" method="post" class="ph-medium pt-medium">
+      </div>
+      <form id="form-creditcard" method="post" class="ph-medium">
           <label class="grid" for="inputIBAN">
             <p class="text-left align-self-center">IBAN</p>
             <input class="mb-small" data-type="integer" data-min="99999999999999999" data-max="999999999999999999" type="number" data-type="string" name="inputIBAN" placeholder="IBAN (format 123456789123456789)" value="">
@@ -199,6 +193,7 @@ $nUserID = $jLoggedUser['nUserID'];
 
           <button class="button-save formBtn hide-button button " disabled>Save creditcard</button>
         </form>
+      </div>
       </div>
     </section>
 
