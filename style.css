@@ -2245,8 +2245,11 @@ input.type_cart_grind{
   width:auto
 }
 @media only screen and (max-width:1024px){
-  .frontpage .section-one.grid-almost-two{
+  .grid-almost-two{
     grid-template-columns: 1fr 1fr;
+  }
+  .button{
+    padding:2vw;
   }
   .cupImage{
     bottom:0;
@@ -2630,9 +2633,11 @@ form.listenTo.grid.grid-three{
   padding:2vh 0;
   margin:auto;
 }
+.filter .accordion{
+  padding:2vw;
+}
 #txtSearch{
   width:90%;
-  font-size: 100%;
   align-self: right;
 }
 .products-container{
@@ -2793,9 +2798,7 @@ form.listenTo.grid.grid-three{
 }
 
 @media only screen and (max-width: 320px) {
-  .frontpage .section-three .step{
-    margin: .5em 2em;
-  }
+
   .receipt{
     width:70vw;
   }
