@@ -2588,6 +2588,9 @@ form.listenTo.grid.grid-three{
   width: 60vw;
   height: 50vw;
 }
+.shop .product .image, .single-product .product .image, .profile .product .image, .noCart .product .image, .thank-you .product .image{
+  height:55%;
+}
 .back-button{
   top:15vw;
 }
@@ -2716,6 +2719,18 @@ form.listenTo.grid.grid-three{
   .thank-you .container-banner{
     top:40vw;
   }
+  /*  VALIDATION  */
+  input[type="text"].valid, 
+  input[type="email"].valid, input[type="password"].valid, input[type="number"].valid {
+  background-size:5vw;
+}
+/*    ARE YOU SURE MODAL  */
+.modalContainer{
+  width:80vw;
+  left:10vw;
+  right:10vw;
+  grid-gap: 2vw;
+}
 }
 
 @media only screen and (max-width: 320px) {
@@ -2753,12 +2768,6 @@ input[type="password"]::placeholder,
         .noCart .product, .thank-you .product{
             height: 55vw;
       }
-      .shop .product .image, 
-      .single-product .product .image, 
-      .profile .product .image, 
-      .noCart .product .image, 
-      .thank-you .product .image{
-        height: 55%;
-      }
+   
     
     }

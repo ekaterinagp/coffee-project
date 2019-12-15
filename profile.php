@@ -192,7 +192,7 @@ $nUserID = $jLoggedUser['nUserID'];
           </label>
           <label class="grid" for="inputExpiration">
             <p class="text-left align-self-center">Expiration date</p>
-            <input class="mb-small" data-type="integer" data-min="999" data-max="9999" type="number" name="inputExpiration" placeholder="Expiration date (format mmyy)" value="">
+            <input class="mb-small" data-type="integer" data-min="100" data-max="1999" type="number" name="inputExpiration" placeholder="Expiration date (format mmyy)" value="">
             <div class="errorMessage">Expiration date must be 4 digits</div>
           </label>
 

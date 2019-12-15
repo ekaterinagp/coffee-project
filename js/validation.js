@@ -49,9 +49,11 @@ function doLogin(){
     .then(response => {
       console.log(response);
       if (response == 1) {
+        console.log("profile")
         if(document.referrer.indexOf("cart")!=-1){
           location.href = "cart";
         }else{
+          
           location.href = "profile";
         }
       }

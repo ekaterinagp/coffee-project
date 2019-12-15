@@ -29,7 +29,7 @@ session_start();
 
     if($statement->execute($data)){
     $result = $statement->fetch();
-    echo json_encode($_SESSION);
+    // echo json_encode($_SESSION);
         unset($result['cPassword']);
         $_SESSION['user'] = $result;
         echo '1';
