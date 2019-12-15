@@ -28,9 +28,7 @@ if(document.querySelector(".button-log-out")){
     logOutBtn.addEventListener("click", logout);
   })
   
- 
 }
-
 
   
 
@@ -43,7 +41,7 @@ function logout(){
         })
         .then(res => res.text())
         .then(response => {
-            window.location.href = "index";
+            window.location.href = "log-out";
         });
 }
 

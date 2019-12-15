@@ -271,7 +271,7 @@ function deleteUser(){
             showNotification(text, responseClass);
 
             setTimeout(function(){
-                window.location.href = "index";
+                window.location.href = "delete";
             }, 1000);
             
         }
