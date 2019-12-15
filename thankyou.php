@@ -34,7 +34,7 @@ require_once(__DIR__ . '/connection.php');
 <!-- <h2 class="coffee-type mb-medium">Back to shop</h2> -->
         <div class="container-banner absolute pv-large bg-medium-light-brown"></div>
         <div class="products-container grid grid-four">
-<!-- <?php
+<?php
 $sqlProducts = "SELECT tProduct.nProductID, tProduct.cName AS cProductName, 
 tProduct.nCoffeeTypeID AS nProductCoffeeTypeID, tProduct.nPrice, 
 tProduct.nStock, tProduct.bActive, tCoffeeType.nCoffeeTypeID, tCoffeeType.cName 
@@ -48,17 +48,17 @@ if ($statementProducts->execute()) {
       $imgUrl = $jProduct['cProductName'];
       $result = strtolower(str_replace(" ", "-", $imgUrl));
 
-      echo 
-      ' <a href="singleProduct?id='.$jProduct['nProductID'].'">
-           <div class="product" id="product-'.$jProduct['nProductID'].'">
-               <div class="image bg-contain" style="background-image: url(img/products/'.$result.'.png)"></div>
-               <div class="description m-small">
-                   <h3 class="productName mt-small text-left">'.$jProduct['cProductName'].'</h3>
-                   <h4 class="productName mt-small text-left">'.$jProduct['cName'].'</h4>
-                   <h4 class="productPrice mt-small">'.$jProduct['nPrice'].' DKK</h4>
-               </div>
-           </div>
-       </a>';
+    //   echo 
+    //   ' <a href="singleProduct?id='.$jProduct['nProductID'].'">
+    //        <div class="product" id="product-'.$jProduct['nProductID'].'">
+    //            <div class="image bg-contain" style="background-image: url(img/products/'.$result.'.png)"></div>
+    //            <div class="description m-small">
+    //                <h3 class="productName mt-small text-left">'.$jProduct['cProductName'].'</h3>
+    //                <h4 class="productName mt-small text-left">'.$jProduct['cName'].'</h4>
+    //                <h4 class="productPrice mt-small">'.$jProduct['nPrice'].' DKK</h4>
+    //            </div>
+    //        </div>
+    //    </a>';
     }
 }
 

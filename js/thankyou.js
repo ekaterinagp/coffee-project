@@ -14,4 +14,6 @@ if(cart){
         console.log(price)
         amountPayed.textContent= "Amount Payed: "+ (price * 1.25 ) + " DKK";
     sessionStorage.removeItem("cart")
+}else{
+    location.href="cart";
 }
