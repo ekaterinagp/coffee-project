@@ -179,7 +179,7 @@ $nUserID = $jLoggedUser['nUserID'];
           </form>
       </div>
       <button class="button-add button">Add creditcard</button>
-      <form id="form-creditcard" method="post" class="">
+      <form id="form-creditcard" method="post" class="ph-medium pt-medium">
           <label class="grid" for="inputIBAN">
             <p class="text-left align-self-center">IBAN</p>
             <input class="mb-small" data-type="integer" data-min="99999999999999999" data-max="999999999999999999" type="number" data-type="string" name="inputIBAN" placeholder="IBAN (format 123456789123456789)" value="">
