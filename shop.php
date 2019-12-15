@@ -119,12 +119,12 @@ require_once(__DIR__ . '/components/header.php');
             </div>
             <template>
                 <a href="">
-                    <div class="product ">
+                    <div class="product relative">
                         <div class="image bg-contain"></div>
                         <div class="description m-small">
                             <h3 class="productName mt-small text-left"></h3>
                             <h4 class="productCoffeeType mt-small text-left"></h4>
-                            <h4 class="productPrice mt-small"></h4>
+                            <h4 class="productPrice mt-small absolute"></h4>
                         </div>
 
                     </div>
