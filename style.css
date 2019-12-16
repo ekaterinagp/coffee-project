@@ -1482,7 +1482,8 @@ a {
 .single-product .product,
 .profile .product,
 .current-subscriptions .product-info-container,
-.cartDiv, .noCart .product, .thank-you .product {
+/* .cartDiv, */
+ .noCart .product, .thank-you .product {
   height: 30vw;
   border: solid 0.1px #00000045;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -2160,14 +2161,16 @@ form h5{
 }
 #signupForm input, #signupForm select,
 #loginForm input,
-.profile input, .profile select{
+.profile input, .profile select,
+#newCardFrm input{
   grid-column: 1/-1;
 }
 .profile .details-one form p{
   grid-row: 1;
   grid-column: 1/-1;
 }
-.profile .details-one form h5{
+.profile .details-one form h5,
+.newCardFrm h5{
   grid-column: 1/-1;
   grid-row: 2;
   text-align: left;
@@ -2261,8 +2264,29 @@ input:not(:focus).error {
   margin-left: 0.5vw;
 }
 .cartDiv {
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   height: auto;
   padding:2vw;
+  grid-gap:1vw;
+  align-items: start;
+}
+.cartDiv .frmLine{
+  height:1px;
+  background:black;
+  grid-column: 1/-1;
+  grid-row: 2;
+}
+.cartDiv div{
+  grid-row:3/5
+}
+.cartDiv button{
+  grid-row: 4;
+  grid-column: 3/-1;
+  justify-self: end;
+  background:black;
+  width:50%;
+  height:20%;
+  font-size:80%;
 }
 
 .img_cart {
@@ -2273,7 +2297,7 @@ input:not(:focus).error {
 
 .cartTotal {
   display: grid;
-  grid-template-columns: 2fr 2fr;
+  grid-template-columns: 2.5fr 1fr;
   align-items: center;
   justify-content: center;
 }
@@ -2284,11 +2308,16 @@ input:not(:focus).error {
   font-size: 115%;
 }
 
-input.title_cart,
+
 input.type_cart_grind,
-input.price_cart {
+input.price_cart,
+input.cart_quantity {
   border: none;
   display: inline;
+  width:100%;
+}
+.title_cart{
+  text-align: left !important;
 }
 input.price_cart{
   font-size: inherit;
@@ -2302,6 +2331,12 @@ input.type_cart_grind{
 /*    PAYMENT PAGE    */
 #paymentMain{
   min-height: 55vh;
+}
+#paymentOverview img{
+  height:20vw;
+  width:auto;
+  margin:auto;
+  display: block;
 }
 
 #paymentMain .addCreditCard{
@@ -2317,9 +2352,11 @@ input.type_cart_grind{
 }
 
 .paymentForm .show-newCardfrm {
-  margin: auto;
+  margin: 0 auto 3vw;
 }
 #newCardFrm {
+  max-width: 30vw;
+  margin:auto;
   max-height: 0;
   overflow: hidden;
 }
@@ -2557,6 +2594,12 @@ form.listenTo.grid.grid-three{
 /*  CART /PAYMENT /THANK YOU */
 .cartMain, #paymentMain{
   margin-top:15%;
+}
+.cartTotal{
+  grid-template-columns: 1fr;
+}
+.total{
+  margin-left:50%;
 }
 #paymentMain{
   min-height:70vh;
@@ -2936,11 +2979,43 @@ form.listenTo.grid.grid-three{
   .cartMain, #paymentMain, .thank-you{
   margin-top:0;
   }
-  .cartTotal{
+  .cartTotal, #paymentMain>.grid-two-thirds {
     grid-template-columns: 1fr;
     grid-gap: 2vh;
   }
-  #paymentMain>.grid-two, .cartTotal{
+  .cartDiv{
+    grid-template-columns: 1fr 2fr;
+  }
+  .cartDiv p.bold{
+    grid-column: 1;
+  }
+  .cartDiv p:first-child{
+    grid-row: 1/3;
+  }
+  .cartDiv div{
+    grid-row:1/3;
+    grid-column: 2;
+  }
+  .frmLine{
+    display: none;
+  }
+  .cartDiv input, .cartDiv h3{
+    grid-column: 2;
+  }
+  .type_cart_grind{
+    grid-row:3;
+  }
+  .price_cart{
+    grid-row:4;
+  }
+  .cart_quantity{
+    grid-row:5;
+  }
+  .cartDiv button{
+    grid-column: 1/-1;
+    grid-row:7;
+  }
+  #paymentMain>.grid-two-thirds, .cartTotal{
     margin: 0 10vw;
   }
   .total{
@@ -2951,14 +3026,17 @@ form.listenTo.grid.grid-three{
     height:25vw;
   }
   .paymentForm{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 5vw;
     width: auto;
     padding:4vw;
   }
   #paymentMain img{
-    width:20vh;
+    height:20vh;
   }
-  #paymentMain>.grid-two{
-    grid-template-columns: 1fr;
+  #newCardFrm{
+    max-width: 100%;
   }
   #paymentOverview>div{
     align-self: center;

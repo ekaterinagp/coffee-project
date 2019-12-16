@@ -12,11 +12,12 @@ if (cart) {
   cart.forEach(cartItem => {
     let template = document.querySelector("#cartItemTemplate").content;
     let clone = template.cloneNode(true);
-    clone.querySelector(".title_cart").value = cartItem.name;
+    clone.querySelector(".title_cart").textContent = cartItem.name;
     clone.querySelector(".img_cart").setAttribute("src", cartItem.img);
     clone.querySelector(".cartDiv").setAttribute("id", cartItem.id);
     clone.querySelector(".type_cart_grind").value = cartItem.typeGrind;
     clone.querySelector(".price_cart").value = cartItem.price;
+    clone.querySelector(".cart_quantity").value=cartItem.amount;
 
     let removeBtn = clone.querySelector(".remove");
 
@@ -63,12 +64,14 @@ function removeItem(cartItemId) {
 
 function selectQ() {
   let totalPrice = 0;
+  let taxAmount = 0;
   let sectionTotal = document.getElementById("totalItemsSection");
   let cart = JSON.parse(sessionStorage.getItem("cart"));
   cart.forEach(cartItem => {
     //parseInt takes a string and returns a number
     totalPrice = totalPrice + parseInt(cartItem.price);
-
+    taxAmount = totalPrice * 0.25;
+    console.log(taxAmount)
     // let oneItemSum = cartItem.price;
     // let oneItemTitle = cartItem.name;
     let template = document.querySelector("#totalItemsTemplate").content;
@@ -76,9 +79,9 @@ function selectQ() {
 
     sectionTotal.appendChild(clone);
   });
-  document.getElementById("totalsum").innerHTML =
-    totalPrice + "DKK";
-
+  console.log(totalPrice, taxAmount)
+  document.getElementById("totalsum").innerHTML = totalPrice + " DKK";
+  document.getElementById("tax").textContent = taxAmount + " DKK";
     //  if(cart.length == 0){
     //   displayGoBuyMessage();
     // }
