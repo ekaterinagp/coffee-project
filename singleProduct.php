@@ -50,18 +50,23 @@ require_once(__DIR__ . '/components/header.php');
                             <div class="image bg-contain" style="background-image: url(img/products/'.$result.'.png)"></div>
                             <div class="description mh-small mv-medium grid grid-two">
                                 <div>
+<<<<<<< HEAD
                                     <h2 class="coffee-type mv-small text-left light">'.$product['cName'].'</h2>
+=======
+                                    <h1 class="productName mv-small text-left">'.$product['cProductName'].'</h1>
+                                    <h3 class="coffee-type mv-small text-left light">'.$product['cName'].'</h3>
+>>>>>>> fba9e6445cf2a4a8a6d3946b985f66b84aa39726
                                     <h4 class="productPrice mv-small">'.$product['nPrice'].' DKK</h4>
                                     <p>A soft, velvety body highlights a soft citric acidity and pleasant sweetness, with notes of raspberry, orange and sugar cane.</p>
                                 </div>
                                 <div class="mv-small">
                                     <h4 class="bold">Roast level</h4>
-                                    <h5 class="light mb-small">Medium Roast</h5>
+                                    <p class="light mb-small">Medium Roast</p>
                                     <h4 class="bold">Type</h4>
-                                    <h5 class="light mb-small">'.$product['cName'].'</h5>
+                                    <p class="light mb-small">'.$product['cName'].'</p>
                                     <h4 class="bold">Recommmended for</h4>
-                                    <h5 class="light">Espresso</h5>
-                                    <h5 class="light">French Press</h5>
+                                    <p class="light">Espresso</p>
+                                    <p class="light">French Press</p>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +87,7 @@ require_once(__DIR__ . '/components/header.php');
                                 <div class="options mv-small">
                                 <h4 class="text-left bold pb-small">Grind</h4>
                                     <label>
-                                        <input type="radio" name="grindType" value="whole" class="mb-small">
+                                        <input type="radio" name="grindType" value="whole" class="mb-small" checked>
                                         <div class="checkmark">Whole</div>
                                     </label>
                                     <label>
@@ -94,7 +99,7 @@ require_once(__DIR__ . '/components/header.php');
                                 </div>
                             </div>
                             <div class="payment">
-                                <h2 class="align-self-bottom mt-medium text-right">Total amount</h2>
+                                <h3 class="align-self-bottom mt-medium text-right">Total amount</h3>
                                 <h4 class="totalPrice align-self-top"><?= $product['nPrice']; ?> DKK</h4>
                                 <button class="button" id="addToCartBtn">Add to cart</button>
                             </div>
