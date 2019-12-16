@@ -8,7 +8,7 @@ if(cart){
     let title = document.querySelector("#youSelected");
     let img = document.querySelector("img");
     let sumToPay = document.querySelector("#sumToPay");
-    title.textContent = cart[0].name
+    title.textContent = cart[0].name;
     img.setAttribute("src", cart[0].img)
     console.log(cart[0].price )
     let price = cart[0].price.substr(0, cart[0].price.search(" "))

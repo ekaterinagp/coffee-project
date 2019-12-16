@@ -149,7 +149,7 @@ function showFilteredCoffee(products) {
         "url(img/products/" + product.cName + ".png)";
       clone.querySelector(".productCoffeeType").textContent =
         product.coffeeTypeName;
-      clone.querySelector(".productPrice").textContent = product.nPrice + "DKK";
+      clone.querySelector(".productPrice").textContent = product.nPrice + " DKK";
     } else {
       clone.querySelector("a").href = "singleProduct?id=" + product.nProductID;
       clone.querySelector("h3").textContent = product.productName;
@@ -158,7 +158,7 @@ function showFilteredCoffee(products) {
         "url(img/products/" + product.imagePath + ")";
       clone.querySelector(".productCoffeeType").textContent =
         product.typeName;
-      clone.querySelector(".productPrice").textContent = product.nPrice + "DKK";
+      clone.querySelector(".productPrice").textContent = product.nPrice + " DKK";
     }
 
     document.querySelector(".products-container").appendChild(clone);
@@ -319,7 +319,7 @@ const typeFilter = (products, filters) => {
 
 rangeInput.addEventListener("change", () => {
   filters.priceRange = rangeInput.value;
-  priceValueElm.textContent = rangeInput.value + " " + "DKK";
+  priceValueElm.textContent = rangeInput.value + " " + " DKK";
   runFilters(products, filters);
 });
 
@@ -363,7 +363,7 @@ function changeSelectedCoffeeType(checkbox) {
 
 async function init() {
   // Set price value start¨
-  priceValueElm.textContent = rangeInput.value + " " + "DKK";
+  priceValueElm.textContent = rangeInput.value + " " + " DKK";
 
   products = await getAllProductsAsJson();
   products = convertProducts(products);

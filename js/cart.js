@@ -77,7 +77,7 @@ function selectQ() {
     sectionTotal.appendChild(clone);
   });
   document.getElementById("totalsum").innerHTML =
-    "Total: " + totalPrice + "DKK";
+    totalPrice + "DKK";
 
     //  if(cart.length == 0){
     //   displayGoBuyMessage();

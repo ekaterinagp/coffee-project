@@ -19,22 +19,38 @@ if($_SESSION){
 }
 
 ?>
-  <main id="paymentMain" class="mv-medium">  
+  <main id="paymentMain" class="mv-medium payment">  
     <a href="cart" class=" back-button color-orange absolute">&lt;</a>
-    <h1 class=" text-center">Checkout </h1>
-  <div class="grid grid-two  m-medium">
-    <div id="paymentOverview" class="p-medium  grid grid-two">
-    <img src="" />  
-    <div class="mt-medium">
-    <h3 id="youSelected"> </h3>
-    <h4>Total Amount to Pay:</h4>
-           <h2 id="sumTopay"></h2>
-           </div>
-     
+    <div class="payment-container grid grid-two m-medium">
+      <div>  
+        <h3 class="align-self-bottom mt-medium pl-medium uppercase">Your purchase</h3>
+        <h1 id="youSelected" class="pl-medium"> </h1>
+        <div id="paymentOverview" class="p-medium grid grid-two-thirds">
+        <img src="" />  
+        <div class="mt-small">
+          <div class="description m-small grid grid-two">
+            <div>
+              <p>A soft, velvety body highlights a soft citric acidity and pleasant sweetness, with notes of raspberry, orange and sugar cane.</p>
+            </div>
+            <div class="">
+              <h4 class="bold">Roast level</h4>
+              <p class="light mb-small">Medium Roast</p>
+              <h4 class="bold">Type</h4>
+              <p class="light mb-small">Colombia</p>
+              <h4 class="bold">Recommmended for</h4>
+              <p class="light">Espresso</p>
+              <p class="light">French Press</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   
   <div class="paymentForm p-medium bg-grey">
-    <h2>Payment Details</h2>
+      <h2 class=" text-center">Checkout </h2>
+      <h3 class="align-self-bottom mt-small text-right uppercase">Total amount</h3>
+      <h4 class="totalPrice align-self-top" id="sumTopay"></h4>
+      <h4 class="bold">Payment Details</h4>
   <form method="POST" id="savedCardFrm" class="choose-credit-card mb-medium grid grid-two-thirds-reversed">
 <?php
 
@@ -42,7 +58,7 @@ if($statementCreditCard->execute([':id' => $nUserID])){
       $userCreditCards = $statementCreditCard->fetchAll(PDO::FETCH_ASSOC);
       $connection = null;
       if($userCreditCards>=1){?>
-      <label><p class="text-left align-self-center mt-small">Your saved credit cards</p>
+      <label><p class="text-left align-self-center mb-small mt-small">Choose credit cards</p>
       <select name="userCreditCards" id="">
       <?php
       foreach($userCreditCards as $userCreditCard){

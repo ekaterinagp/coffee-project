@@ -6,7 +6,6 @@ require_once(__DIR__ . '/connection.php');
 ?>
 
 <main class="cartMain mt-small mb-large">
-  <h1 class="text-center mb-medium">Cart</h1>
   <div class="cartTotal mh-large">
     <section id="cartItems">
       <template id="cartItemTemplate">
@@ -28,17 +27,20 @@ require_once(__DIR__ . '/connection.php');
 
     </section>
 
-    <div class="total bg-grey ml-medium p-large align-self-top">
-      <h2 class="text-left">Your cart</h2>
+    <div class="total bg-grey ml-medium ph-large pv-medium align-self-top">
+      <h1 class="text-center">Your cart</h1>
       <section id="totalItemsSection">
         
         <template id="totalItemsTemplate">
-          <div id="" class="totalDiv">
-          </div>
+          
+          <!-- <h3 id="" class="totalDiv">
+           
+          </h3> -->
         </template>
       </section>
-      <div id="totalsum" class="pv-small"></div>
-      <a href="<?php if($_SESSION){echo 'payment';} else{echo'log-in';}?>"><button class="button"><?php if($_SESSION){echo 'Go to payment';} else{echo'Please log in';}?></button></a>
+      <h3 class="align-self-bottom mt-medium text-right">Total amount</h3>
+      <h4 id="totalsum" class="pb-small text-right align-self-top"></h4>
+      <a href="<?php if($_SESSION){echo 'payment';} else{echo'log-in';}?>"><button class="button paymentButton"><?php if($_SESSION){echo 'Go to payment';} else{echo'Please log in';}?></button></a>
     
   </div>
   </div>

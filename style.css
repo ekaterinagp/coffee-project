@@ -1120,15 +1120,15 @@ a {
 .step-no .no {
   color: #fff;
   font-size: calc(6vw + 10%);
-  left: 4vw;
-  top: 2vw;
+  left: 3vw;
+  top: -1vw;
 }
 
 .step-no h4 {
   transform: rotate(-90deg);
   padding: 0;
-  top: 7vw;
-  left: 1vw;
+  top: 3vw;
+  left: 0vw;
 }
 
 .step .image {
@@ -1312,6 +1312,7 @@ a {
 .front {
   z-index: 2;
   transform: rotateY(0deg);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .back {
@@ -1504,10 +1505,13 @@ a {
 .single-product h3,
 .single-product .product h4,
 .profile-details h3,
-.profile .product h3, .noCart .product h3, .thank-you .product h3{
+.profile .product h3, .noCart .product h3, .thank-you .product h3, .cartMain h3{
   padding: 0;
   text-align: left;
   text-transform: uppercase;
+}
+.cartMain h3{
+  text-align: right;
 }
 .product-purchase-container .options-container>.options:first-child label {
   grid-template-columns: 1fr 3fr;
@@ -1520,7 +1524,7 @@ a {
 .options-container {
   grid-gap: 1vh;
 }
-#addToCartBtn {
+#addToCartBtn, .paymentButton {
   margin: 3vh  0;
   float:right;
 }
@@ -1557,7 +1561,7 @@ a {
 }
 
 .single-product .container-banner{
-  top: 14.5vw;
+  top: 1.5vw;
 }
 
 .thank-you .container-banner{
@@ -1591,17 +1595,21 @@ a {
 .profile .description,
 .profile .section-one,
 .current-subscriptions, 
-.profile-info-container{
+.profile-info-container, .payment-container{
   grid-gap: 2vw;
 }
 
 .single-product .section-one h3,
-.single-product .section-one h4
-/* .profile .section-two h3,
-.profile .section-two h4  */ {
-  text-align: left;
+.single-product .section-one h4, 
+.cartMain h3{
   padding-bottom: 0.5vw;
 }
+
+.single-product .section-one h3,
+.single-product .section-one h4, .payment h3, .payment h4 {
+  text-align: left;
+}
+
 
 /* CHECKBOX */
 
@@ -2270,11 +2278,11 @@ input.type_cart_grind{
 #paymentMain{
   min-height: 55vh;
 }
+
 #paymentMain .addCreditCard{
   margin: 2vh auto;
 }
 .paymentForm {
-  width: 50vw;
   transition: all 0.3s;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
