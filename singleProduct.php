@@ -50,12 +50,7 @@ require_once(__DIR__ . '/components/header.php');
                             <div class="image bg-contain" style="background-image: url(img/products/'.$result.'.png)"></div>
                             <div class="description mh-small mv-medium grid grid-two">
                                 <div>
-<<<<<<< HEAD
-                                    <h2 class="coffee-type mv-small text-left light">'.$product['cName'].'</h2>
-=======
-                                    <h1 class="productName mv-small text-left">'.$product['cProductName'].'</h1>
-                                    <h3 class="coffee-type mv-small text-left light">'.$product['cName'].'</h3>
->>>>>>> fba9e6445cf2a4a8a6d3946b985f66b84aa39726
+                                   
                                     <h4 class="productPrice mv-small">'.$product['nPrice'].' DKK</h4>
                                     <p>A soft, velvety body highlights a soft citric acidity and pleasant sweetness, with notes of raspberry, orange and sugar cane.</p>
                                 </div>
@@ -133,7 +128,7 @@ if ($statementRelatedProducts->execute($data)) {
                         <div class="image bg-contain" style="background-image: url(img/products/'.$result.'.png)"></div>
                         <div class="description m-small">
                             <h3 class="productName mt-small text-left">'.$product['cProductName'].'</h3>
-                            <h4 class="productName mt-small text-left">'.$product['cName'].'</h4>
+                            <p class="productName mt-small text-left">'.$product['cName'].'</p>
                             <h4 class="productPrice mt-small absolute">'.$product['nPrice'].' DKK</h4>
                         </div>
                     </div>

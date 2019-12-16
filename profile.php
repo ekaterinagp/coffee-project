@@ -73,9 +73,9 @@ $nUserID = $jLoggedUser['nUserID'];
     <section class="section-one grid ph-medium mb-large">
 
       <div class="profile-info-container grid grid-two-thirds-reversed">
-        <div class="profile-details details-one bg-grey p-medium pv-medium">
-          <h2 class="">Profile Details</h2>
-          <form id="form-profile" class=" grid grid-three mt-small mh-medium" method="post">
+        <div class="profile-details details-one bg-grey pv-medium ph-large  ">
+          <h2 class="text-left">Profile Details</h2>
+          <form id="form-profile" class=" grid grid-two pt-small " method="post">
             <label id="cName" class="grid" for="name">
               <p class="text-left align-self-center">Name</p>
               <input class=" not-input" data-type="string" data-min="2" data-max="20" type="text" data-type="string" name="inputName" placeholder="First name" value="<?= $jLoggedUser['cName']; ?>">
@@ -142,9 +142,9 @@ $nUserID = $jLoggedUser['nUserID'];
             </div>
           </form>
         </div>
-      <div class="profile-details bg-grey p-medium pt-medium"> 
-        <div class="creditcard-container ph-small">
-          <h2 class="">Creditcard Details</h2>
+      <div class="profile-details bg-grey pv-medium ph-large"> 
+        <div class="creditcard-container">
+          <h2 class="text-left">Creditcard Details</h2>
           <form method="POST" id="savedCardFrm" class=" pt-small choose-credit-card">
       
           <?php
@@ -152,8 +152,8 @@ $nUserID = $jLoggedUser['nUserID'];
               $jUserCreditCards = $statementCreditCard->fetchAll(PDO::FETCH_ASSOC);
 
               if (count($jUserCreditCards) >= 1) {?>
-              <label><p class="text-left align-self-center ">Your credit cards</p>
-                <select class="align-self-center" name="userCreditCards" id="">
+              <label class=" align-self-center"><p class="text-left">Your credit cards</p>
+                <select  name="userCreditCards" id="">
 
               <?php
                 foreach ($jUserCreditCards as $jUserCreditCard) {

@@ -31,7 +31,6 @@ require_once(__DIR__ . '/components/header.php');
 
         <section class=" grid mb-large">
 
-            <h2>Shop</h2>
 
             <form id="formSearch" class="grid justify-self-right pv-medium mr-medium">
                 <label for="txtSearch" class="mh-small align-self-bottom">
