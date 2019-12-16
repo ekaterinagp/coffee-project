@@ -1666,9 +1666,9 @@ a {
   margin:auto;
 }
 
-.current-subscriptions .subscriptionItem h4, .productCoffeeType{
-  text-transform: uppercase;
-  font-weight: 400;}
+.priceSubscription{
+  font-weight: 900;
+}
 
 #savedCardFrm.pt-small{
   display: grid;
@@ -1678,10 +1678,6 @@ a {
 .profile-details .button-delete-card{
   width:auto;
 }
-.current-subscriptions .subscriptionItem h4{
-  text-transform:capitalize;
-}
-
 
 #form-profile h3 {
   font-size: 80%;
@@ -1819,6 +1815,27 @@ a {
 .subscriptionItem:nth-child(6) .subscriptionItemBg {
   background-color: #d8b69c;
 }
+.subscriptionItem:nth-child(7) .subscriptionItemBg {
+  background-color: #d8b69c;
+}
+.subscriptionItem:nth-child(8) .subscriptionItemBg {
+  background-color: #815946;
+}
+
+.subscriptionItem:nth-child(9) .subscriptionItemBg {
+  background-color: #483c32;
+}
+.subscriptionItem:nth-child(10) .subscriptionItemBg {
+  background-color: #815946;
+}
+.subscriptionItem:nth-child(11) .subscriptionItemBg {
+  background-color: #483c32;
+}
+.subscriptionItem:nth-child(12) .subscriptionItemBg {
+  background-color: #d8b69c;
+}
+
+
 .subscriptionItem .addSubToCartBtn {
   text-align: center;
   margin: 2.5vh auto;
@@ -2344,6 +2361,7 @@ input.type_cart_grind{
   .subscriptionItem h3{
    height:3vh;
   }
+
   .testContent{
     height:60%;
   }
@@ -2360,6 +2378,7 @@ input.type_cart_grind{
   .testResults{
     margin-top:10%;
   } 
+
   /*  CART  */
    #paymentMain,.single-product{
     margin-top:10vh;

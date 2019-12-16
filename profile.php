@@ -223,7 +223,7 @@ $nUserID = $jLoggedUser['nUserID'];
                   <h4 class="priceSubscription"><?= $jUserSubscription['nPrice']; ?> DKK / Month</h4>
                 </div>
                 <div class="white-text-bg">
-                  <h4><?= $jUserSubscription['cName']; ?></h4>
+                  <p class="mb-small text-center"><?= $jUserSubscription['cName']; ?></p>
                   <button class="button button-delete">Cancel</button>
                 </div>
               </div>
@@ -259,7 +259,7 @@ $nUserID = $jLoggedUser['nUserID'];
                          <div class="image bg-contain" style="background-image: url(img/products/'.$result.'.png)"></div>
                          <div class="description m-small">
                              <h3 class="productName mt-small text-left">'.$jProduct['cProductName'].'</h3>
-                             <h4 class="productCoffeeType mt-small text-left">'.$jProduct['cName'].'</h4>
+                             <p class="productCoffeeType mt-small text-left">'.$jProduct['cName'].'</p>
                              <h4 class="productPrice mt-small absolute">'.$jProduct['nPrice'].' DKK</h4>
                          </div>
                      </div>

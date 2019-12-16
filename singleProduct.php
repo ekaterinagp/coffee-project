@@ -37,12 +37,7 @@ require_once(__DIR__ . '/components/header.php');
 
 <main class="single-product">
 <button class="back-button color-orange absolute">&lt;</button>
-    <section class="section-one mb-large ph-large mt-small grid grid-two-thirds-reversed">
-
-   
-        <!-- <div class="single-product-container "> -->
-        
-        
+    <section class="section-one mb-large ph-large mt-small grid grid-two-thirds-reversed">      
         <?php
                         echo '
                         <div id="product-'.$iProductID.'" class="product-info-container grid grid-two-thirds">
@@ -50,7 +45,6 @@ require_once(__DIR__ . '/components/header.php');
                             <div class="image bg-contain" style="background-image: url(img/products/'.$result.'.png)"></div>
                             <div class="description mh-small mv-medium grid grid-two">
                                 <div>
-                                   
                                     <h4 class="productPrice mv-small">'.$product['nPrice'].' DKK</h4>
                                     <p>A soft, velvety body highlights a soft citric acidity and pleasant sweetness, with notes of raspberry, orange and sugar cane.</p>
                                 </div>
@@ -99,7 +93,6 @@ require_once(__DIR__ . '/components/header.php');
                                 <button class="button" id="addToCartBtn">Add to cart</button>
                             </div>
                         </div>
-                        <!-- </div> -->
     </section>
 
     <section class="section-two grid mv-medium ph-large relative">
