@@ -420,9 +420,9 @@ function noSubscriptions(){
             let whiteBg = document.createElement('div');
             whiteBg.className = 'white-text-bg';
         
-            let h4Origin = document.createElement('h4');
-            h4Origin.className = 'productCoffeeType';
-            h4Origin.innerText = subscription.cName;
+            let pOrigin = document.createElement('p');
+            pOrigin.className = 'productCoffeeType';
+            pOrigin.innerText = subscription.cName;
         
             let pDesc = document.createElement('p');
             pDesc.className = 'descSubscription ph-small';
@@ -433,7 +433,7 @@ function noSubscriptions(){
             addSubToCartBtn.innerText = 'Add to Cart';
         
             subscriptionItemBg.append(img, h3Name, h4Price);
-            whiteBg.append(h4Origin, pDesc);
+            whiteBg.append(pOrigin, pDesc);
         
             subscriptionItem.append(subscriptionItemBg, whiteBg, addSubToCartBtn);
         

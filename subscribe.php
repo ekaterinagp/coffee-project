@@ -49,7 +49,7 @@ $statement = $connection->prepare($sql);
             <h4 class="priceSubscription">'.$row['nSubscriptionPrice'].' DKK / Month</h4>
           </div>
         <div class="white-text-bg">
-        <h4>'.$row['cCoffeeTypeName'].'</h4>
+        <p class="mb-small text-center">'.$row['cCoffeeTypeName'].'</p>
           <p class="descSubscription ph-small">Lorem ipsum dolor sit amet consectetur 
           adipisicing elit. Voluptate praesentium, inventore deleniti optio nobis
           quasi provident nulla minus odit architecto.</p>
@@ -62,10 +62,8 @@ $statement = $connection->prepare($sql);
 $connection = null;
 ?>
   </div>
-  
-  
   <h2 class="text-center mb-small" >In doubt about your coffee of choice?</h2>
-  <h4 class="text-center mb-small" >Get a personal recommendation by taking our coffee test</h4>
+  <h3 class="text-center mb-small" >Get a personal recommendation by taking our coffee test</h3>
   <a href="#test"><button id="startBtn" class="button">Start the test</button>
   </a>
 
