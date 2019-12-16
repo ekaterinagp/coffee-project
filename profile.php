@@ -71,7 +71,6 @@ $nUserID = $jLoggedUser['nUserID'];
   <main class="profile mb-large">
     <h1 class="text-center pv-medium">Welcome <?= $jLoggedUser['cName']; ?></h1>
     <section class="section-one grid ph-medium mb-large">
-
       <div class="profile-info-container grid grid-two-thirds-reversed">
         <div class="profile-details details-one bg-grey p-medium pv-medium">
           <h2 class="">Profile Details</h2>
