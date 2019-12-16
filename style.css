@@ -2138,13 +2138,11 @@ input[type="number"],
 select {
   border: 0;
   border-radius: 0px;
-  height: 32px;
+  height: 2.5vw;
   padding: 1vw;
   background: #fff;
 }
-select {
-  padding: 1vw;
-}
+
 input[type="text"].valid,
 input[type="email"].valid,
 input[type="password"].valid,
@@ -2260,11 +2258,6 @@ input.type_cart_grind{
 .choose-credit-card select{
   border-radius: 0;
   width:90%;
-}
-
-.profile .choose-credit-card select{
-  /* width:100%; */
-  height:auto
 }
 
 .paymentForm .show-newCardfrm {
