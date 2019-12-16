@@ -36,17 +36,26 @@ require_once(__DIR__ . '/components/header.php');
 ?>
 
 <main class="single-product">
-    <section class="section-one grid grid-two-thirds-reversed mb-large ph-large mt-medium">
-        <button class="back-button color-orange absolute">&lt;</button>
-        <?php
+<button class="back-button color-orange absolute">&lt;</button>
+    <section class="section-one mb-large ph-large mt-small grid grid-two-thirds-reversed">
 
+   
+        <!-- <div class="single-product-container "> -->
+        
+        
+        <?php
                         echo '
                         <div id="product-'.$iProductID.'" class="product-info-container grid grid-two-thirds">
+                        <h1 class="productName text-left mh-small ph-small">'.$product['cProductName'].'</h1>
                             <div class="image bg-contain" style="background-image: url(img/products/'.$result.'.png)"></div>
                             <div class="description mh-small mv-medium grid grid-two">
                                 <div>
+<<<<<<< HEAD
+                                    <h2 class="coffee-type mv-small text-left light">'.$product['cName'].'</h2>
+=======
                                     <h1 class="productName mv-small text-left">'.$product['cProductName'].'</h1>
                                     <h3 class="coffee-type mv-small text-left light">'.$product['cName'].'</h3>
+>>>>>>> fba9e6445cf2a4a8a6d3946b985f66b84aa39726
                                     <h4 class="productPrice mv-small">'.$product['nPrice'].' DKK</h4>
                                     <p>A soft, velvety body highlights a soft citric acidity and pleasant sweetness, with notes of raspberry, orange and sugar cane.</p>
                                 </div>
@@ -63,7 +72,6 @@ require_once(__DIR__ . '/components/header.php');
                         </div>
                         '
                         ?>
-
                         <div class="product-purchase-container bg-grey p-medium pt-medium">
                             <div class="options-container grid mb-small">
                                 <div class="options mv-small ">
@@ -96,6 +104,7 @@ require_once(__DIR__ . '/components/header.php');
                                 <button class="button" id="addToCartBtn">Add to cart</button>
                             </div>
                         </div>
+                        <!-- </div> -->
     </section>
 
     <section class="section-two grid mv-medium ph-large relative">

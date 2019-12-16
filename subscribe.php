@@ -21,7 +21,7 @@ $statement = $connection->prepare($sql);
   <div class="content-container grid grid-two relative">
     <div class=" container-header align-items-center color-white">
       <h1 class="color-black">Subscribe Now</h1>
-      <h2 class="banner-message color-black">Get fresh roasted quality coffee delivered to your doorstep so you can enjoy a wonderful cup every morning</h2>
+      <p class="banner-message color-black">Get fresh roasted quality coffee delivered to your doorstep so you can enjoy a wonderful cup every morning</p>
     </div>
     <div class="image bg-contain absolute"></div>
     </div>
