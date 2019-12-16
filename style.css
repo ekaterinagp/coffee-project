@@ -650,7 +650,10 @@ select {
   font-size: calc(0.5vw + 45%);
   font-weight: 100;
 }
-
+input:focus{
+  outline: 2px solid #fb8b23;
+  /* border:1px solid #fb8b23; */
+}
 input[type="text"].not-input, 
 input[type="email"].not-input, 
 input[type="password"].not-input, 
@@ -971,7 +974,7 @@ a {
   margin: auto;
 }
 .button-confirm-delete {
-  background-color: #e43d31;
+  background-color: black;
 }
 
 .back-button:hover {
@@ -1653,7 +1656,6 @@ a {
 
 /***** PROFILE PAGE  *****/
 #form-profile label p,
-#form-creditcard label p,
 #savedCardFrm p {
   grid-column: 1/-1;
   font-family: "Lato", sans-serif;
@@ -1665,7 +1667,9 @@ a {
   /* width:50vw; */
   margin:auto;
 }
-
+.not-input ~ h5{
+  display: none;
+}
 .priceSubscription{
   font-weight: 900;
 }
@@ -2065,7 +2069,7 @@ input:checked + .btnRadio {
 /*  LOGIN PAGE    */
 
 #loginForm {
-  width: 50%;
+  width: 60%;
   margin: auto;
 }
 #loginForm button {
@@ -2127,7 +2131,7 @@ input:checked + .btnRadio {
 
 .containerSignup h5,
 .containerLogin h5 {
-  padding: 0;
+  /* padding: 0; */
   width: 100%;
 }
 .frmLine {
@@ -2142,7 +2146,24 @@ input:checked + .btnRadio {
 #signupForm label {
   margin: 1vh 0;
 }
-
+form h5{
+  font-size: 70%;
+  align-self:end;
+}
+#signupForm input, #signupForm select,
+#loginForm input,
+.profile input, .profile select{
+  grid-column: 1/-1;
+}
+.profile .details-one form p{
+  grid-row: 1;
+  grid-column: 1/-1;
+}
+.profile .details-one form h5{
+  grid-column: 1/-1;
+  grid-row: 2;
+  text-align: left;
+}
 label {
   font-weight: bold;
 }
@@ -2170,7 +2191,7 @@ input[type="text"].valid,
 input[type="email"].valid,
 input[type="password"].valid,
 input[type="number"].valid {
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/check.svg);
+  background: url(img/valid.png);
   background-size: 1.2vw;
   background-color: white;
   background-repeat: no-repeat;
@@ -2192,11 +2213,11 @@ input[type="number"]:invalid:not(:focus):not(:placeholder-shown)
   ~ .errorMessage,
   input[type="text"]:invalid:not(:focus):not(:placeholder-shown) ~ .errorMessage,
 textarea:invalid:not(:focus) ~ .errorMessage, */
-.error:not(:focus):not(:placeholder-shown) ~ .errorMessage {
+/* .error:not(:focus):not(:placeholder-shown) ~ .errorMessage {
   max-height: 200px;
   padding: 3px 10px 10px 10px;
-}
-
+} */
+/* 
 form .errorMessage {
   padding: 0 30px 0 50px;
   max-height: 0;
@@ -2205,10 +2226,14 @@ form .errorMessage {
   color: #e43d31;
   font-style: italic;
   font-size: 80%;
-}
+} */
 
 input:not(:focus).error {
   border: 2px solid #e43d31;
+  background-image: url(img/invalid.png);
+  background-size: 1.2vw;
+  background-repeat: no-repeat;
+  background-position: 98%;
 }
 
 .highlight {
@@ -2442,10 +2467,10 @@ header .logo{
 
 /* INPUTS */
 
-/* input[type="text"], input[type="email"], input[type="password"], input[type="number"], select{
-  height: 20px;
-} */
-
+input[type="text"], input[type="email"], input[type="password"], input[type="number"], select{
+  height:auto;
+}
+ 
 /*  MARGINS AND PADDING   */
 .mt-xlarge{
   margin-top:22vw;
@@ -2515,8 +2540,8 @@ form.listenTo.grid.grid-three{
 
 /*  PROFILE  */
 .profile .section-one{
-  margin-left:5vw;
-  margin-right: 5vw;
+  margin-left:6vw;
+  margin-right: 6vw;
 }
 .creditcard-container, #form-creditcard {
   margin: 0 25%;
@@ -2532,6 +2557,9 @@ form.listenTo.grid.grid-three{
   margin-top:10%;
   min-height:75vh;
 }
+.profile-details.details-two{
+  max-height:100%;
+}
 
 /*  LOGIN  */
 .containerLogin {
@@ -2545,6 +2573,22 @@ form.listenTo.grid.grid-three{
 .containerSignup .loginWelcome{
   width:70vw;
   height:100%;
+}
+#loginForm label{
+  grid-template-columns: 1fr;
+}
+
+ #loginForm label{
+   margin-top:1vh;
+   margin-bottom:1vh
+ }
+ #loginForm label p,
+ #loginForm label h5{
+  text-align: left;
+  padding: 0;
+}
+.containerSignup.signup h4{
+  right:5vw;
 }
 
 }
@@ -2616,16 +2660,22 @@ footer svg{
   margin-top:10vw;
   margin-bottom: 10vw;
 }
+.ph-large{
+  padding-left:10vw;
+  padding-right:10vw;
+}
 /*  FRONTPAGE  */
-
+.frontpage .section-five{
+  display: none;
+}
 .colorBlock, .colorBlock1{
   width:100%;
   height:100%;
 }
 .frontpage .ph-xlarge{
   grid-template-columns: 2fr 1fr;
-  padding-left:5vw;
-  padding-right: 5vw;
+  padding-left:10vw;
+  padding-right: 10vw;
 }
 .list.p-medium{
   padding:4vw;
@@ -2645,16 +2695,15 @@ footer svg{
 }
 .frontpage .section-three .step,
 .section-three .back{
-  margin:.5em 4em;
-  padding:0 1em;
+  margin:1vw 10vw;
+  padding:4vw 0;
   height: 37vw;
+  width: 80vw;
 }
-.step .image{
+/* .step .image{
   display: none;
-}
-.step .description{
-  padding:4vh;
-}
+} */
+
 .step-no h4{
   top:7.5vw;
 }
@@ -2692,6 +2741,7 @@ h2.banner-message{
 }
 .containerForSubscriptions.grid-three{
   grid-template-columns: 1fr;
+  margin:4vw 8vw;
 }
 .subscriptionItem img{
   height:25vw;
@@ -2723,18 +2773,23 @@ form.listenTo.grid.grid-three{
 /*  SHOP  */
 .products.grid-two-thirds-bigger{
   grid-template-columns: 1fr;
+  margin-right:0;
 }
 
 .filter{
   top:0;
   padding:2vh 0;
-  margin:auto;
+  margin: 0 10vw;
+  width: auto;
 }
 .filter .accordion{
   padding:2vw;
 }
+#formSearch{
+  margin:0 10vw;
+}
 #txtSearch{
-  width:90%;
+  width:100%;
   align-self: right;
 }
 .products-container{
@@ -2773,7 +2828,27 @@ form.listenTo.grid.grid-three{
   height: 20vh;
   width: auto;  
 }
+.single-product .product-info-container{
+  display: block;
+}
+.product-info-container .image.bg-contain{
+  height: 20vh;
+  margin: auto;
+  background-position: center;
+}
 /*  LOGIN /SIGNUP  */
+#signupForm label{
+  grid-template-columns: 1fr;
+}
+#signupForm label{
+   margin-top:1vh;
+   margin-bottom:1vh
+ }
+#signupForm label h5,
+#signupForm label p{
+  text-align: left;
+  padding: 0;
+}
 .containerLogin.grid{
   display: block;
 }
@@ -2788,8 +2863,8 @@ form.listenTo.grid.grid-three{
 }
 .containerLogin .loginWelcome,
 .containerSignup .loginWelcome{
-  width:90vw;
-  margin:auto;
+  width:auto;
+  margin:0 10vw;
 }
 #loginForm{
   width:80%;
@@ -2813,6 +2888,7 @@ form.listenTo.grid.grid-three{
 #signupForm{
   margin:0 8vw;
 }
+
 .containerSignup .loginWelcome{
   height:105%;
   }
@@ -2856,8 +2932,12 @@ form.listenTo.grid.grid-three{
     grid-template-columns: 1fr;
     grid-gap: 2vh;
   }
+  #paymentMain>.grid-two, .cartTotal{
+    margin: 0 10vw;
+  }
   .total{
     grid-row:1;
+    margin-left:0;
   }
   .img_cart{
     height:25vw;
@@ -2881,6 +2961,9 @@ form.listenTo.grid.grid-three{
   }
   .receipt img{
     margin:auto;
+  }
+  .receipt{
+    width:70vw;
   }
   .thank-you .container-banner{
     top:40vw;

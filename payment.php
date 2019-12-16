@@ -60,23 +60,21 @@ if($statementCreditCard->execute([':id' => $nUserID])){
     </form><h4>Or pay with another credit card</h4>
     <button class="button show-newCardFrm">Add New</button>
 <form method="POST" id="newCardFrm">
-    <label class="grid" for="inputIBAN">
-        <p class="text-left align-self-center mt-small">IBAN</p>
-        <input required data-type="integer" data-min="99999999999999999" data-max="999999999999999999" type="text" data-type="string" name="inputIBAN" placeholder="IBAN (format 123456789123456789)" value="">
-        <div class="errorMessage">IBAN must be 18 digits</div>
-      </label>
-
-      <label class="grid" for="inputCCV">
-        <p class="text-left align-self-center mt-small">CCV</p>
-        <input  data-type="integer" data-min="99" data-max="999" type="text" name="inputCCV" placeholder="CCV (format 123)" value="" required>
-        <div class="errorMessage">CCV must be 3 digits</div>
-      </label>
-
-      <label class="grid" for="inputExpiration">
-        <p class="text-left align-self-center mt-small">Expiration date</p>
-        <input  required data-type="integer" data-min="999" data-max="9999" type="text" name="inputExpiration" placeholder="Expiration date (format mmyy)" value="">
-        <div class="errorMessage">Expiration date must be 4 digits</div>
-      </label>
+<label class="grid grid-two-thirds" for="inputIBAN">
+            <p class="text-left align-self-center">IBAN</p><h5 class="light">IBAN must be 18 digits</h5>
+            <input class="mb-small" data-type="integer" data-min="99999999999999999" data-max="999999999999999999" type="number" data-type="string" name="inputIBAN" value="">
+            
+          </label>
+          <label class="grid grid-two-thirds" for="inputCCV">
+            <p class="text-left align-self-center">CCV</p><h5 class="light">CCV must be 3 digits</h5>
+            <input class="mb-small" data-type="integer" data-min="99" data-max="999" type="number" name="inputCCV" value="">
+            
+          </label>
+          <label class="grid grid-two-thirds" for="inputExpiration">
+            <p class="text-left align-self-center">Expiration date</p> <h5 class="light">Expiration date must be 4 digits</h5>
+            <input class="mb-small" data-type="integer" data-min="100" data-max="1999" type="number" name="inputExpiration" value="">
+            
+          </label>
       <button disabled class="button formBtn addCreditCard">Purchase</button>
     </form>
     </div>
