@@ -95,11 +95,11 @@ require_once(__DIR__ . '/components/header.php');
                         </div>
     </section>
 
-    <section class="section-two grid mv-medium ph-large relative">
-        <div class="relative">
-            <h2 class="bold mb-small">You might also like</h2>
-            <div class="container-banner absolute pv-medium bg-dark-brown"></div>
-            <div class="products-container grid grid-four">
+    <section class="section-three ph-large mb-medium">
+      <h2 class="mb-small">You also might like</h2>
+      <div class="related-products relative">
+        <div class="container-banner absolute pv-large bg-light-brown"></div>
+        <div class="products-container grid grid-four">
 
             <?php
 }
@@ -131,9 +131,11 @@ if ($statementRelatedProducts->execute($data)) {
 }
 $connection = null;
 ?>
-            </div>
-        </div>
-    </section>
+    </div>
+      </div>
+    </div>
+    </div>
+  </section>
 </main>
 
 <?php
