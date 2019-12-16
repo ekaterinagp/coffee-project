@@ -3,10 +3,19 @@
 let addToCartBtn = document.querySelector("#addToCartBtn");
 let cartItem = document.querySelector("#cartItem");
 let addSubToCartBtn = document.querySelectorAll(".addSubToCartBtn");
-
+const InputNumberofBags = document.querySelector("[name=option1]");
+let totalAmountElm = document.querySelector(".totalPrice");
 // let numberOfItem = document.querySelector(".numberOfItems");
 // checkCart();
+if(InputNumberofBags){
+  let totalAmountNumber = totalAmountElm.textContent.substr(0,totalAmountElm.textContent.search(" ")-1);
+  
+  InputNumberofBags.addEventListener("input", function(){
+    // console.log(Number(totalAmountNumber))
+    totalAmountElm.textContent = (InputNumberofBags.value*Number(totalAmountNumber)) + ".00 DKK";
+  })
 
+}
 function createCartItem() {
   let cartItem = {
     id: 0,

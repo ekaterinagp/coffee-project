@@ -618,11 +618,11 @@ button,
 }
 
 h1 {
-  font-size: calc(2.5vw + 30%);
+  font-size: calc(2vw + 30%);
 }
 
 h2 {
-  font-size: calc(1.4vw + 45%);
+  font-size: calc(1.4vw + 40%);
 }
 
 h3 {
@@ -828,7 +828,7 @@ a.active {
   top: 70px;
   left: 0;
   z-index: 10;
-  padding:  0 2em 20vh;
+  padding:  0 2em 35vh;
   width: 100vw;
   height: 100vh;
   transition: all 0.3s;
@@ -869,11 +869,11 @@ svg.menuIcon {
   }
   
   .rotateUp {
-    transform: rotate(-45deg) translate(18px, 41px);
+    transform: rotate(-45deg) translate(0px, 40px);
   }
   
   .rotateDown {
-    transform: rotate(45deg) translate(17px, -14px);
+    transform: rotate(45deg) translate(22px, -16px);
   }
 
 /* .cart svg{
@@ -948,7 +948,7 @@ a {
   position: absolute;
   border: none;
   left: 5vw;
-  top: 7vw;
+  top: 8vw;
   transition: all 0.3s;
   font-size: 350%;
   cursor: pointer;
@@ -1673,7 +1673,6 @@ a {
 #savedCardFrm.pt-small{
   display: grid;
   grid-template-columns: 3fr 1fr;
-  padding-top:2em;
   margin-bottom: 2vh;
 }
 .profile-details .button-delete-card{
@@ -1707,19 +1706,22 @@ a {
 #form-profile{
   grid-gap:1vw;
 }
+
 #form-profile .formButtonContainer{
   display: grid;
   width: 100%;
   align-self: end;
-  grid-column: 2/4;
+  grid-column: 1/-1;
+  grid-row: 5;
 }
 
 .formButtonContainer .button{
-  justify-self: right;
+  justify-self: center;
 }
 
-.profile-details.details-one{
-  max-height: 29.5vw;
+
+.profile-details.details-two {
+  max-height:25vw;
 }
 
 #form-profile select::placeholder {
@@ -2144,8 +2146,8 @@ input:checked + .btnRadio {
 label {
   font-weight: bold;
 }
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+.single-product input[type="number"]::-webkit-inner-spin-button,
+.single-product input[type="number"]::-webkit-outer-spin-button {
   opacity: 1;
 }
 input[type="text"],
@@ -2158,6 +2160,10 @@ select {
   height: 2.5vw;
   padding: 1vw;
   background: #fff;
+}
+select {
+  height:3vw;
+  padding:.5vw;
 }
 
 input[type="text"].valid,
@@ -2822,7 +2828,7 @@ form.listenTo.grid.grid-three{
   #form-creditcard button{
     margin:2vw 0;
   }
-  .profile-details  #form-profile.grid.grid-three{
+  .profile-details  #form-profile.grid.grid-two{
    display: block;
   }
   #form-profile .button{

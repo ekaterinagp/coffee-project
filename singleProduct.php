@@ -121,7 +121,7 @@ if ($statementRelatedProducts->execute($data)) {
                         <div class="image bg-contain" style="background-image: url(img/products/'.$result.'.png)"></div>
                         <div class="description m-small">
                             <h3 class="productName mt-small text-left">'.$product['cProductName'].'</h3>
-                            <h4 class="productName mt-small text-left">'.$product['cName'].'</h4>
+                            <p class="productName mt-small text-left">'.$product['cName'].'</p>
                             <h4 class="productPrice mt-small absolute">'.$product['nPrice'].' DKK</h4>
                         </div>
                     </div>

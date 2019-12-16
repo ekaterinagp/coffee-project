@@ -34,7 +34,7 @@ if ($_SESSION) {
         echo '<a class="button-log-out" href="">Log out</a>';
       }; ?>
     </nav>
-    <svg class="menuIcon justify-self-right mr-small" viewBox="0 0 100 100">
+    <svg class="menuIcon justify-self-right" viewBox="0 0 100 70">
             <rect class="myrect" x="10" y="10" width="80" height="10" />
             <rect class="myrect" x="10" y="30" width="80" height="10" />
             <rect class="myrect" x="10" y="50" width="80" height="10" />
