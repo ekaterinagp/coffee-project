@@ -421,6 +421,7 @@ function noSubscriptions(){
             whiteBg.className = 'white-text-bg';
         
             let h4Origin = document.createElement('h4');
+            h4Origin.className = 'productCoffeeType';
             h4Origin.innerText = subscription.cName;
         
             let pDesc = document.createElement('p');

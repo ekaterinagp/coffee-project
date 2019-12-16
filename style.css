@@ -603,6 +603,10 @@ button,
 }
 
 
+h4{
+  font-weight: 900;
+}
+
 button,
 .checkmark {
   text-transform: uppercase;
@@ -635,7 +639,7 @@ button {
   font-size: calc(0.6vw + 45%);
 }
 
-p,
+
 input::placeholder,
 select > option,
 input[type="text"],
@@ -941,7 +945,7 @@ a {
   position: absolute;
   border: none;
   left: 5vw;
-  top: 8vw;
+  top: 7vw;
   transition: all 0.3s;
   font-size: 350%;
   cursor: pointer;
@@ -1099,7 +1103,6 @@ a {
 
 .list h4 {
   text-align: left;
-  font-weight: bold;
 }
 
 .frontpage .section-three .step {
@@ -1314,6 +1317,11 @@ a {
 }
 
 /***** SHOP PAGE *****/
+
+.single-product .productName{
+  grid-column: 1/4;
+  align-self: end;
+}
 
 #results {
   width: 22vw;
@@ -1650,9 +1658,13 @@ a {
   width:50vw;
   margin:auto;
 }
-.current-subscriptions .subscriptionItem h4{
-  text-transform:capitalize;
+
+.current-subscriptions .subscriptionItem h4, .productCoffeeType{
+  text-transform: uppercase;
+  font-weight: 400;
 }
+
+
 #form-profile h3 {
   font-size: 80%;
 }
@@ -1755,10 +1767,6 @@ a {
   color: #fff;
   max-width: 90%;
   margin: 0 auto;
-}
-
-.subscriptionItem h4, .product h4 {
-  font-weight: 100;
 }
 
 .subscriptionItem img {
@@ -2771,9 +2779,7 @@ form.listenTo.grid.grid-three{
   }
 
   /*  PROFILE  */
-  #form-creditcard{
-    width:auto;
-  }
+  
   .profile-details  #form-profile.grid.grid-three{
    display: block;
   }

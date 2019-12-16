@@ -20,9 +20,9 @@ require_once(__DIR__ . '/components/header.php');
             <div class="content-container grid grid-two relative">
                 <div class="container-header align-items-center color-white">
                     <h1>COFFEE FOR EVERY OCCASION</h1>
-                    <h2 class="banner-message mt-small">
+                    <p class="banner-message mt-small">
                         Choose From Our Wide Collection of Quality Coffee
-                    </h2>
+                    </p>
                 </div>
                 <div class="image bg-contain absolute"></div>
             </div>

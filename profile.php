@@ -238,7 +238,7 @@ $nUserID = $jLoggedUser['nUserID'];
 
     <section class="section-three ph-large mb-medium">
       <h2 class="mb-small">Want to try something new?</h2>
-      <h4 class="mb-small">Visit the shop and explore a world of quality coffee</h4>
+      <h3 class="mb-small">Visit the shop and explore a world of quality coffee</h3>
       <div class="related-products relative">
         <div class="container-banner absolute pv-large bg-medium-light-brown"></div>
         <div class="products-container grid grid-four">
@@ -259,7 +259,7 @@ $nUserID = $jLoggedUser['nUserID'];
                          <div class="image bg-contain" style="background-image: url(img/products/'.$result.'.png)"></div>
                          <div class="description m-small">
                              <h3 class="productName mt-small text-left">'.$jProduct['cProductName'].'</h3>
-                             <h4 class="productName mt-small text-left">'.$jProduct['cName'].'</h4>
+                             <h4 class="productCoffeeType mt-small text-left">'.$jProduct['cName'].'</h4>
                              <h4 class="productPrice mt-small absolute">'.$jProduct['nPrice'].' DKK</h4>
                          </div>
                      </div>
