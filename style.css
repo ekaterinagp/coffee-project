@@ -1520,9 +1520,9 @@ a {
 .single-product .image {
   background-position: left;
 }
-
 .product-purchase-container h2,
-.payment h4 {
+.payment h4,
+.payment h3.align-self-bottom.text-right {
   text-align: right;
 }
 
@@ -1656,6 +1656,15 @@ a {
 #form-creditcard{
   /* width:50vw; */
   margin:auto;
+}
+#savedCardFrm.pt-small{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  padding-top:2em;
+  margin-bottom: 2vh;
+}
+.profile-details .button-delete-card{
+  width:auto;
 }
 .current-subscriptions .subscriptionItem h4{
   text-transform:capitalize;
@@ -2109,8 +2118,7 @@ label {
 }
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+  opacity: 1;
 }
 input[type="text"],
 input[type="email"],
@@ -2803,12 +2811,7 @@ form.listenTo.grid.grid-three{
   .creditcard-container{
     margin: 0 0 2em;
   }
-  #savedCardFrm.pt-small{
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    padding-top:2em;
-    margin-bottom: 2vh;
-  }
+  
   #form-profile> label.grid{
     margin:2vh 0;
   }

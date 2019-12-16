@@ -220,7 +220,7 @@ $nUserID = $jLoggedUser['nUserID'];
                 <div class="subscriptionItemBg">
                   <img src="img/products/<?= $result; ?>.png" alt="">
                   <h3 class="subscriptionName"><?= $jUserSubscription['cSubscriptionName']; ?></h3>
-                  <h4 class="priceSubscription"><?= $jUserSubscription['nPrice']; ?></h4>
+                  <h4 class="priceSubscription"><?= $jUserSubscription['nPrice']; ?> DKK / Month</h4>
                 </div>
                 <div class="white-text-bg">
                   <h4><?= $jUserSubscription['cName']; ?></h4>
