@@ -201,12 +201,12 @@ function fetchDataForSearch() {
         );
         a.append(image, p);
         image.classList.add("image", "bg-contain");
+        p.innerHTML = "<strong>" + match.cName + "</strong>";
         changeFormatForImg(match);
         image.style.backgroundImage =
           "url(img/products/" + match.cName + ".png)";
-        p.innerHTML = "<strong>" + match.cName + "</strong>";
         theResults.append(a);
-      console.log(theResults)
+      // console.log(theResults)
       });
     });
 }
