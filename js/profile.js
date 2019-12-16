@@ -293,11 +293,14 @@ addCreditCardButton.addEventListener("click", addCreditCard);
 function addCreditCard(){
     event.preventDefault();
     const addCreditCardForm = document.querySelector("#form-creditcard");
+    const profileDetailsTwo = document.querySelector(".profile-details.details-two");
     const saveCreditCardButton = addCreditCardForm.querySelector(".button-save");
 
     saveCreditCardButton.classList.remove('hide-button');
     addCreditCardButton.classList.add('hide-button');
     addCreditCardForm.style.maxHeight = "100vh";
+    profileDetailsTwo.style.maxHeight = "100vh";
+    
 
     saveCreditCardButton.addEventListener('click', function(){
         event.preventDefault();

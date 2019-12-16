@@ -1720,11 +1720,12 @@ a {
 }
 
 .formButtonContainer .button{
-  justify-self: right;
+  justify-self: center;
 }
 
-.profile-details.details-one{
-  max-height: 36.5vw;
+
+.profile-details.details-two {
+  max-height:25vw;
 }
 
 #form-profile select::placeholder {

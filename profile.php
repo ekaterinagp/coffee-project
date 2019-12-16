@@ -142,7 +142,7 @@ $nUserID = $jLoggedUser['nUserID'];
             </div>
           </form>
         </div>
-      <div class="profile-details bg-grey pv-medium ph-large"> 
+      <div class="profile-details details-two bg-grey pv-medium ph-large"> 
         <div class="creditcard-container">
           <h2 class="text-left">Creditcard Details</h2>
           <form method="POST" id="savedCardFrm" class=" pt-small choose-credit-card">
