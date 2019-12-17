@@ -28,8 +28,8 @@ if ($_SESSION) {
       <a href="subscribe" class="<?php if ($sCurrentPage == 'subscribe') echo 'active'; ?>">Subscribe</a>
       <a href="shop" class="<?php if ($sCurrentPage == 'shop') echo 'active'; ?>">Shop</a>
       <!-- <a href="contact" class="<?php if ($sCurrentPage == 'contact') echo 'active'; ?>">Contact</a> -->
-      <a class="<?php if ($sCurrentPage == strtolower($menuPath)) echo 'active'; ?>" href="<?= strtolower(str_replace(" ", "-", $menuPath)) ?>"><?= $menuPath ?></a>
       <a href="cart" id="cartItem" class=" <?php if ($sCurrentPage == 'cart') echo 'active'; ?>">Cart <div class="numberOfItems"></div></a>
+      <a class="<?php if ($sCurrentPage == strtolower($menuPath)) echo 'active'; ?>" href="<?= strtolower(str_replace(" ", "-", $menuPath)) ?>"><?= $menuPath ?></a>
       <?php if ($_SESSION) {
         echo '<a class="button-log-out" href="">Log out</a>';
       }; ?>
@@ -47,8 +47,8 @@ if ($_SESSION) {
       <a href="subscribe" class="<?php if ($sCurrentPage == 'subscribe') echo 'active'; ?>">Subscribe</a>
       <a href="shop" class="<?php if ($sCurrentPage == 'shop') echo 'active'; ?>">Shop</a>
       <!-- <a href="contact" class="<?php if ($sCurrentPage == 'contact') echo 'active'; ?>">Contact</a> -->
-      <a class="<?php if ($sCurrentPage == strtolower($menuPath)) echo 'active'; ?>" href="<?= strtolower(str_replace(" ", "-", $menuPath)) ?>"><?= $menuPath ?></a>
       <a href="cart" id="cartItem" class=" <?php if ($sCurrentPage == 'cart') echo 'active'; ?>">Cart <div class="numberOfItems"></div></a>
+      <a class="<?php if ($sCurrentPage == strtolower($menuPath)) echo 'active'; ?>" href="<?= strtolower(str_replace(" ", "-", $menuPath)) ?>"><?= $menuPath ?></a>
       <?php if ($_SESSION) {
         echo '<a class="button-log-out" href="">Log out</a>';
       }; ?>

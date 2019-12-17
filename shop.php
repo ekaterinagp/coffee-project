@@ -38,7 +38,7 @@ require_once(__DIR__ . '/components/header.php');
                 <button id="searchBtn" class="button">Search</button>
 
             </form>
-            <div id="forSearch"></div>
+            <h4 class="text-right mr-large" id="forSearch"></h4>
             <div id="results" class="pv-small grid align-items-center"></div>
 
             <div class="products grid grid-two-thirds-bigger mr-medium">

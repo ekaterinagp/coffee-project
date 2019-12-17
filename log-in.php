@@ -18,14 +18,14 @@ if ($_SESSION) {
         <h1 class="color-white p-small text-center">log in</h1>
       
       <form id="loginForm" class="mv-medium" method="POST">
-              <label for="email" class="grid grid-two  color-white">
-            <p class="text-left align-self-center pv-small">Email | Username</p> <h5 class="light text-right pv-small">Must be a valid e-mail or username</h5>
+              <label for="email" class="grid color-white">
+            <p class="text-left align-self-center pv-small">Email | Username</p>
             <input class="text-left" required data-type="string" data-min="2" data-max="255" name="inputEmail" placeholder="Email | Username" type="text" value="jakob@gmail.com">
             <!-- <div class="errorMessage" id="emailDiv">Please enter a valid e-mail or username</div> -->
           </label>
 
-          <label for="password" class="grid grid-two-thirds color-white">
-            <p class="text-left align-self-center pv-small">Password</p> <h5 class="light text-right pv-small">Password must be 8 characters</h5>
+          <label for="password" class="grid color-white">
+            <p class="text-left align-self-center pv-small">Password</p>
             <input class="text-left"  required data-type="string" data-min="8" data-max="8" type="password" name="password" placeholder="Password" value="12345678">
             <!-- <div class="errorMessage">Password must be 8 characters</div> -->
           </label>

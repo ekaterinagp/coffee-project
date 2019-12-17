@@ -235,10 +235,8 @@ function fetchDataForSearchBtn() {
       // document.querySelector(".products-container").innerHTML = "";
       document.querySelector("#forSearch").innerHTML = "";
       document.querySelector("#forSearch").innerHTML =
-        "Search results for:" +
-        txtSearch.value +
-        ":" +
-        searchResultsArray.length;
+      searchResultsArray.length + " search results for " +
+        txtSearch.value;
       showFilteredCoffee(searchResultsArray);
       // let inputText = document.querySelector(".products-container");
       // cachedHtml = inputText.innerHTML;
