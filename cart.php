@@ -30,20 +30,24 @@ require_once(__DIR__ . '/connection.php');
 
     </section>
     </div>
-    <div class="total bg-grey ph-regular pv-medium align-self-top">
-     
+    <div class="total bg-grey p-medium align-self-top">
       <section id="totalItemsSection">
-      <h2 class=" text-center pb-small">Checkout </h2>
-        
+        <h2 class="text-center pb-small">Checkout</h2> 
         <template id="totalItemsTemplate">
         </template>
       </section>
-      <h4 class="align-self-bottom mt-small text-right">Subtotal</h4>
-      <p id="subsum" class="pb-small text-right align-self-top"></p>
-      <h4 class="align-self-bottom text-right">Tax</h4>
-      <p id="tax" class="pb-small text-right align-self-top"></p>
-      <h3 class="align-self-bottom mt-small text-right">Total amount</h3>
-      <h4 id="totalsum" class="pb-small text-right align-self-top"></h4>
+      <div class="grid grid-two mt-small">
+        <h4 class="align-self-bottom text-left">Subtotal</h4>
+        <p id="subsum" class="text-right align-self-top"></p>
+      </div>
+      <div class="grid grid-two mb-small">
+        <h4 class="align-self-bottom text-left">Tax</h4>
+        <p id="tax" class="text-right align-self-top"></p>
+      </div>
+      <!-- <div class="grid grid-two mt-small"> -->
+        <h3 class="align-self-bottom text-right">Total amount</h3>
+        <h4 id="totalsum" class="pb-small text-right align-self-top"></h4>
+      <!-- </div> -->
       <a href="<?php if($_SESSION){echo 'payment';} else{echo'log-in';}?>"><button class="button margin-auto mv-small paymentButton"><?php if($_SESSION){echo 'Go to payment';} else{echo'Please log in';}?></button></a>
     
   </div>
