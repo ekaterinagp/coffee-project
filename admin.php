@@ -19,7 +19,7 @@ require_once(__DIR__.'/connection.php');
     foreach($products as $row){
             
             echo '
-            <div class="adminProduct" id="product-'.$row['nProductID'].' ">
+            <div class="adminProduct grid grid-one" id="product-'.$row['nProductID'].' ">
             <h3 class="bold uppercase adminProductName">'.$row['cName'].' </h3>
             <p class="adminPropertyPrice">'.$row['nPrice'].'kr.</p>
             <form method="post" class="frmUpdatePrice"> 
