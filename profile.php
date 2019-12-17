@@ -87,13 +87,16 @@ $nUserID = $jLoggedUser['nUserID'];
               <input class=" not-input" type="email" data-type="email" name="inputEmail" placeholder="email" value="<?= $jLoggedUser['cEmail']; ?>">
               <h5 class="light">Must be a valid email address</h5>
             </label>
+            <div class="formButtonContainer">
+                <button class="button-edit button">Edit information</button>
+                <button class="button-save formBtn hide-button button">Save information</button>
+            </div>
             </div>
 
             <h2 class="text-left">Shipping details</h2>
             <div class="form-profile-form-container-shipping grid grid-two bg-grey pv-medium ph-medium">
             <label id="nCityID" for="cityInput" class="grid pb-small">
               <p class="text-left align-self-center">City</p>
-              <h5 class="light">Choose your city</h5>
               <select class=" not-input" data-type="integer" data-min="0" data-max="999" name="cityInput" value="<?= $jLoggedUser['nCityID'] ?>">
                 <option value="1" <?php if ($jLoggedUser['nCityID'] = 1) echo 'selected' ?>>Copenhagen</option>
                 <option value="2" <?php if ($jLoggedUser['nCityID'] = 2) echo 'selected' ?>>Århus</option>
@@ -117,6 +120,7 @@ $nUserID = $jLoggedUser['nUserID'];
                 <option value="20" <?php if ($jLoggedUser['nCityID'] = 20) echo 'selected' ?>>Herlev</option>
                 <option value="21" <?php if ($jLoggedUser['nCityID'] = 21) echo 'selected' ?>>Vanløse</option>
               </select>
+              <h5 class="light">Choose your city</h5>
             </label>
             <label id="cAddress" class="grid grid-two-thirds pb-small" for="userAddress">
               <p class="text-left align-self-center">Address</p>    
@@ -129,10 +133,10 @@ $nUserID = $jLoggedUser['nUserID'];
               <input class=" not-input" type="number" data-type="number" data-min="9999999" data-max="99999999" name="inputPhone" placeholder="phone number" value="<?= $jLoggedUser['cPhoneNo']; ?>">
               <h5 class="light">Must be 8 characters</h5>
             </label>
-            </div>
             <div class="formButtonContainer">
                 <button class="button-edit button">Edit information</button>
                 <button class="button-save formBtn hide-button button">Save information</button>
+            </div>
             </div>
           </form>
         </div>
@@ -148,7 +152,7 @@ $nUserID = $jLoggedUser['nUserID'];
               $jUserCreditCards = $statementCreditCard->fetchAll(PDO::FETCH_ASSOC);
 
               if (count($jUserCreditCards) >= 1) {?>
-              <label class=" align-self-center"><p class="text-left">Your credit cards</p>
+              <label class=" align-self-center"><p class="text-left pb-small">Your credit cards</p>
                 <select  name="userCreditCards" id="">
 
               <?php

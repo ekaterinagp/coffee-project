@@ -88,6 +88,10 @@ svg {
   grid-template-columns: 2.5fr 3fr;
 }
 
+.grid-almost-two-reversed {
+  grid-template-columns: 2.5fr 3fr;
+}
+
 .grid-two-thirds {
   grid-template-columns: 2fr 4fr;
 }
@@ -949,7 +953,7 @@ a {
   cursor: pointer;
 }
 
-.button-delete-profile, .button-delete-card, .button-delete {
+.button-delete-profile, .button-delete {
   background-color: #000;
   border: solid 2px #000;
 }
@@ -957,8 +961,24 @@ a {
   margin: auto;
 }
 
+.button-delete-card, .button.button-edit, .button.button-save{
+  background-color: transparent;
+  width: calc(3vw + 19%);
+  height: auto;
+  border: none;
+  box-shadow: none;
+  color: #000;
+  text-decoration: underline;
+  padding: 1.5vw 0;
+}
+
+.button-delete-card:hover, .button.button-edit:hover, .button.button-save:hover{
+  box-shadow: none;
+  color: #fb8b23;
+}
+
 .subscriptionItem .button-delete,
-.profile-details .button-add, .profile-details .button-delete-card {
+.profile-details .button-add {
   margin: 2vw auto;
 }
 
@@ -1465,8 +1485,9 @@ a {
 .shop .products-container,
 .single-product .products-container,
 .profile .products-container, .creditcard-info, .noCart .products-container, 
-.thank-you .products-container, #form-profile, .profile-details.details-two{
-
+.thank-you .products-container, #form-profile, .profile-details.details-two,
+.form-profile-form-container-info, .form-profile-form-container-shipping,
+.choose-credit-card{
   grid-gap: 1vw;
 }
 
@@ -1714,11 +1735,10 @@ a {
   width: 100%;
   align-self: end;
   grid-column: 1/-1;
-  grid-row: 5;
 }
 
 .formButtonContainer .button{
-  justify-self: center;
+  justify-self: right;
 }
 
 
