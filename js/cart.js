@@ -1,22 +1,23 @@
 "use strict";
 
 let cart = JSON.parse(sessionStorage.getItem("cart"));
-if(!cart){
+if (!cart) {
   cart = [];
 }
 console.log("cart", cart);
 let cartSection = document.querySelector("#cartItems");
-// selectQ();  
+// selectQ();
 
 if (cart) {
   cart.forEach(cartItem => {
     let template = document.querySelector("#cartItemTemplate").content;
     let clone = template.cloneNode(true);
-    clone.querySelector(".title_cart").value = cartItem.name;
+    clone.querySelector(".title_cart").textContent = cartItem.name;
     clone.querySelector(".img_cart").setAttribute("src", cartItem.img);
     clone.querySelector(".cartDiv").setAttribute("id", cartItem.id);
     clone.querySelector(".type_cart_grind").value = cartItem.typeGrind;
     clone.querySelector(".price_cart").value = cartItem.price;
+    clone.querySelector(".cart_quantity").value = cartItem.amount;
 
     let removeBtn = clone.querySelector(".remove");
 
@@ -28,16 +29,16 @@ if (cart) {
     cartSection.appendChild(clone);
   });
 } else {
-    emptyTotal();
+  emptyTotal();
 }
 
-if(cart.length == 0){
+if (cart.length == 0) {
   displayGoBuyMessage();
 }
 
 selectQ();
 
-function displayGoBuyMessage(){
+function displayGoBuyMessage() {
   console.log("go buy");
   document.querySelector(".cartTotal").style.display = "none";
   document.querySelector(".noCart").style.display = "block";
@@ -53,41 +54,45 @@ function removeItem(cartItemId) {
   sessionStorage.setItem("cart", JSON.stringify(cart));
   let cartItemElement = document.getElementById(cartItemId);
   cartItemElement.remove();
-  checkCart()
-  if(cart.length==0){
-    displayGoBuyMessage();    
+  checkCart();
+  if (cart.length == 0) {
+    displayGoBuyMessage();
   }
-// console.log()
+  // console.log()
   selectQ();
 }
 
 function selectQ() {
   let totalPrice = 0;
+  let taxAmount = 0;
   let sectionTotal = document.getElementById("totalItemsSection");
   let cart = JSON.parse(sessionStorage.getItem("cart"));
-  cart.forEach(cartItem => {
-    //parseInt takes a string and returns a number
-    totalPrice = totalPrice + parseInt(cartItem.price);
+  if (cart) {
+    cart.forEach(cartItem => {
+      //parseInt takes a string and returns a number
+      totalPrice = totalPrice + parseInt(cartItem.price);
 
-    // let oneItemSum = cartItem.price;
-    // let oneItemTitle = cartItem.name;
-    let template = document.querySelector("#totalItemsTemplate").content;
-    let clone = template.cloneNode(true);
+      // let oneItemSum = cartItem.price;
+      // let oneItemTitle = cartItem.name;
+      let template = document.querySelector("#totalItemsTemplate").content;
+      let clone = template.cloneNode(true);
 
-    sectionTotal.appendChild(clone);
-  });
+      sectionTotal.appendChild(clone);
+    });
+  }
+
   document.getElementById("totalsum").innerHTML =
-    totalPrice + "DKK";
+    "Total: " + totalPrice + "DKK";
 
-    //  if(cart.length == 0){
-    //   displayGoBuyMessage();
-    // }
+  //  if(cart.length == 0){
+  //   displayGoBuyMessage();
+  // }
 }
 
 function emptyTotal() {
   // document.querySelector(".item_total").innerHTML = 0;
   document.getElementById("totalsum").innerHTML = 0;
-  }
+}
 // let numberOfItem = document.querySelector(".numberOfItems");
 // function checkCart() {
 //   let cart = JSON.parse(sessionStorage.getItem("cart"));
@@ -101,4 +106,3 @@ function emptyTotal() {
 // }
 
 // checkCart();
-

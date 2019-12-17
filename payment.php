@@ -11,7 +11,12 @@ if(!$_SESSION){
 
 if($_SESSION){
   $nUserID= $_SESSION['user']['nUserID'];
-
+  $userName = $_SESSION['user']['cName'];
+  $userLastname = $_SESSION['user']['cSurname'];
+  $userAddress = $_SESSION['user']['cAddress'];
+  $userPhone = $_SESSION['user']['cPhoneNo'];
+  // echo $userAddress;
+  // echo $userPhone;
   require_once(__DIR__ . '/connection.php');
 
   $sql = "SELECT * FROM tCreditCard WHERE tCreditCard.nUserID = :id";
@@ -21,36 +26,31 @@ if($_SESSION){
 ?>
   <main id="paymentMain" class="mv-medium payment">  
     <a href="cart" class=" back-button color-orange absolute">&lt;</a>
-    <div class="payment-container grid grid-two m-medium">
+    <div class="payment-container grid grid-two-thirds m-medium">
       <div>  
         <h3 class="align-self-bottom mt-medium pl-medium uppercase">Your purchase</h3>
         <h1 id="youSelected" class="pl-medium"> </h1>
-        <div id="paymentOverview" class="p-medium grid grid-two-thirds">
+        <div id="paymentOverview" class="p-medium">
         <img src="" />  
-        <div class="mt-small">
-          <div class="description m-small grid grid-two">
-            <div>
-              <p>A soft, velvety body highlights a soft citric acidity and pleasant sweetness, with notes of raspberry, orange and sugar cane.</p>
-            </div>
-            <div class="">
-              <h4 class="bold">Roast level</h4>
-              <p class="light mb-small">Medium Roast</p>
-              <h4 class="bold">Type</h4>
-              <p class="light mb-small">Colombia</p>
-              <h4 class="bold">Recommmended for</h4>
-              <p class="light">Espresso</p>
-              <p class="light">French Press</p>
-            </div>
-          </div>
-        </div>
+      
       </div>
     </div>
   
   <div class="paymentForm p-medium bg-grey">
       <h2 class=" text-center">Checkout </h2>
-      <h3 class="align-self-bottom mt-small text-right uppercase">Total amount</h3>
+     <div class="grid grid-two">
+       <div>
+
+         <h4 class="bold mt-small">Shipping Details</h4>
+         <p class="bold pb-small"><strong>Name: </strong><?="$userName  $userLastname"?></p>
+         <p class="pb-small"><strong>Address:</strong> <?=$userAddress?></p>
+         <p class="pb-medium"><strong>Phone number:</strong> <?=$userPhone?></p>
+        </div>
+        <div>
+        <h3 class="align-self-bottom mt-small text-right uppercase">Total amount</h3>
       <h4 class="totalPrice align-self-top" id="sumTopay"></h4>
-      <h4 class="bold">Payment Details</h4>
+        </div>
+      </div>
   <form method="POST" id="savedCardFrm" class="choose-credit-card mb-medium grid grid-two-thirds-reversed">
 <?php
 
@@ -58,7 +58,7 @@ if($statementCreditCard->execute([':id' => $nUserID])){
       $userCreditCards = $statementCreditCard->fetchAll(PDO::FETCH_ASSOC);
       $connection = null;
       if($userCreditCards>=1){?>
-      <label><p class="text-left align-self-center mb-small mt-small">Choose credit cards</p>
+      <label><p class="text-left align-self-center mb-small mt-small">Choose credit card</p>
       <select name="userCreditCards" id="">
       <?php
       foreach($userCreditCards as $userCreditCard){
@@ -74,27 +74,26 @@ if($statementCreditCard->execute([':id' => $nUserID])){
     </label>
     <button class="button purchaseBtn align-self-bottom">Purchase</button>
     </form><h4>Or pay with another credit card</h4>
-    <button class="button show-newCardFrm">Add New</button>
+    <button class="button show-newCardFrm mb-medium">Add New</button>
 <form method="POST" id="newCardFrm">
-    <label class="grid" for="inputIBAN">
-        <p class="text-left align-self-center mt-small">IBAN</p>
-        <input required data-type="integer" data-min="99999999999999999" data-max="999999999999999999" type="text" data-type="string" name="inputIBAN" placeholder="IBAN (format 123456789123456789)" value="">
-        <div class="errorMessage">IBAN must be 18 digits</div>
-      </label>
-
-      <label class="grid" for="inputCCV">
-        <p class="text-left align-self-center mt-small">CCV</p>
-        <input  data-type="integer" data-min="99" data-max="999" type="text" name="inputCCV" placeholder="CCV (format 123)" value="" required>
-        <div class="errorMessage">CCV must be 3 digits</div>
-      </label>
-
-      <label class="grid" for="inputExpiration">
-        <p class="text-left align-self-center mt-small">Expiration date</p>
-        <input  required data-type="integer" data-min="999" data-max="9999" type="text" name="inputExpiration" placeholder="Expiration date (format mmyy)" value="">
-        <div class="errorMessage">Expiration date must be 4 digits</div>
-      </label>
+<label class="grid grid-two-thirds" for="inputIBAN">
+            <p class="text-left align-self-center">IBAN</p><h5 class="light text-right">IBAN must be 18 digits</h5>
+            <input class="mb-small" data-type="integer" data-min="99999999999999999" data-max="999999999999999999" type="number" data-type="string" name="inputIBAN" value="">
+            
+          </label>
+          <label class="grid grid-two-thirds" for="inputCCV">
+            <p class="text-left align-self-center">CCV</p><h5 class="light text-right">CCV must be 3 digits</h5>
+            <input class="mb-small" data-type="integer" data-min="99" data-max="999" type="number" name="inputCCV" value="">
+            
+          </label>
+          <label class="grid grid-two-thirds" for="inputExpiration">
+            <p class="text-left align-self-center">Expiration date</p> <h5 class="light text-right">Expiration date must be 4 digits</h5>
+            <input class="mb-small" data-type="integer" data-min="100" data-max="1999" type="number" name="inputExpiration" value="">
+            
+          </label>
       <button disabled class="button formBtn addCreditCard">Purchase</button>
     </form>
+    
     </div>
     </div>
     
