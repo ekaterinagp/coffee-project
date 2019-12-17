@@ -21,7 +21,7 @@ require_once(__DIR__ . '/components/header.php');
                 <div class="container-header align-items-center color-white">
                     <h1>COFFEE FOR EVERY OCCASION</h1>
                     <p class="banner-message mt-small">
-                        Choose from our Wide Collection of Quality Coffee
+                        Choose from our wide collection of quality coffee
                     </p>
                 </div>
                 <div class="image bg-contain absolute"></div>

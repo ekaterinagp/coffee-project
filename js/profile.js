@@ -1,7 +1,9 @@
 // UPDATE USER
 
-const editButton = document.querySelector('.button-edit');
-const saveButton = document.querySelector('.button-save');
+const editButtons = document.querySelectorAll('.button-edit');
+const saveButtons = document.querySelectorAll('.button-save');
+
+console.log(editButtons);
 
 const inputName = document.querySelector("[name=inputName]");
 const inputLastName = document.querySelector("[name=inputLastName]");
@@ -11,26 +13,35 @@ const inputPhoneNo = document.querySelector("[name=inputPhone]");
 const inputCity = document.querySelector("[name=cityInput]");
 const inputUsername = document.querySelector("[name=inputLoginName]");
 
-editButton.addEventListener('click', function(){
-    inputName.classList.remove('not-input');
-    inputLastName.classList.remove('not-input');
-    inputEmail.classList.remove('not-input');
-    inputAddress.classList.remove('not-input');
-    inputPhoneNo.classList.remove('not-input');
-    inputCity.classList.remove('not-input');
-    inputUsername.classList.remove('not-input');
-
-    event.preventDefault();
-    showSaveButton();
-});
+editButtons.forEach(editButton=> {
+    editButton.addEventListener('click', function(){
+        event.preventDefault();
+        
+        inputName.classList.remove('not-input');
+        inputLastName.classList.remove('not-input');
+        inputEmail.classList.remove('not-input');
+        inputAddress.classList.remove('not-input');
+        inputPhoneNo.classList.remove('not-input');
+        inputCity.classList.remove('not-input');
+        inputUsername.classList.remove('not-input');
+    
+       
+        showSaveButton();
+    });
+})
 
 function showSaveButton(){
-    document.querySelector('input').focus();
+    saveButtons.forEach(saveButton =>{
+        document.querySelector('input').focus();
 
-    saveButton.classList.remove('hide-button');
+        saveButton.classList.remove('hide-button');
+        
+        saveButton.addEventListener('click', updateUser);   
+    });  
+    
+    editButtons.forEach(editButton =>{
     editButton.classList.add('hide-button');
-
-    saveButton.addEventListener('click', updateUser);    
+    });
 }
 
 function updateUser(){
@@ -53,7 +64,6 @@ function updateUser(){
     formData.append('inputPhone', inputPhoneNoValue);
     formData.append('cityInput', inputCityValue);
     formData.append('inputLoginName', inputUsernameValue);
-    // formData.append('inputPassword', inputPassword);
 
     let endpoint = "api/api-update-profile.php";
 
@@ -68,8 +78,21 @@ function updateUser(){
         let text = "Your profile has been updated";
         let responseClass = "success";
 
-        editButton.classList.remove('hide-button');
-        saveButton.classList.add('hide-button');
+        editButtons.forEach(editButton =>{
+            editButton.classList.remove('hide-button');
+        });
+
+        saveButtons.forEach(saveButton =>{
+            saveButton.classList.add('hide-button');
+        });
+
+        inputName.classList.add('not-input');
+        inputLastName.classList.add('not-input');
+        inputEmail.classList.add('not-input');
+        inputAddress.classList.add('not-input');
+        inputPhoneNo.classList.add('not-input');
+        inputCity.classList.add('not-input');
+        inputUsername.classList.add('not-input');
 
         showNotification(text, responseClass);
     }
