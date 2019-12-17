@@ -28,7 +28,7 @@ $statement = $connection->prepare($sql);
 </div>
 </section>
 
-  <h2 class="text-center mv-medium ">Six great ways to subscribe</h2>
+  <!-- <h2 class="text-center mv-medium ">Six great ways to subscribe</h2> -->
   <div class="containerForSubscriptions grid grid-three m-medium">
 
   <?php
@@ -67,7 +67,7 @@ $connection = null;
   <a href="#test"><button id="startBtn" class="button">Start the test</button>
   </a>
 
-  <div id="test" class="testContainer hide margin-auto mt-small mb-medium">
+  <div id="test" class="testContainer hide margin-auto mt-small mb-footer">
     <div class="testbg bg-brown"></div>
     <div class="intro">
     </div>

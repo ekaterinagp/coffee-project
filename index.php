@@ -166,7 +166,7 @@ require_once(__DIR__ . '/components/header.php');
 
     </section>
 
-    <section class="section-five grid mb-large">
+    <section class="section-five grid mb-footer">
         <h2 class="mb-small">Enhance your experience</h2>
         <h3 class="mb-small">Tips and tricks to make your best cup of coffee</h3>
         <div class="grid grid-four container masonry">

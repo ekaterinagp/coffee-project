@@ -6,10 +6,15 @@ console.log("cart", cart);
 if(cart){
     console.log(cart)
     let title = document.querySelector("#youSelected");
+    let pPrice = document.querySelector(".price")
+    let pQuantity = document.querySelector(".quantity")
     let img = document.querySelector("img");
     let sumToPay = document.querySelector("#sumToPay");
     title.textContent = cart[0].name;
     img.setAttribute("src", cart[0].img)
+    pQuantity.textContent = cart[0].amount;
+    pPrice.textContent = cart[0].price;
+
     console.log(cart[0].price )
     let price = cart[0].price.substr(0, cart[0].price.search(" "))
     console.log(price)
