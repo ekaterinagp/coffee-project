@@ -131,7 +131,7 @@ $nUserID = $jLoggedUser['nUserID'];
 
             <label id="cPhoneNo" class="grid grid-two-thirds pb-small" for="userPhone">
               <p class="text-left align-self-center">Phone</p>        
-              <input class=" not-input" type="number" data-type="number" data-min="9999999" data-max="99999999" name="inputPhone" placeholder="phone number" value="<?= $jLoggedUser['cPhoneNo']; ?>">
+              <input class="phone not-input" type="number" data-type="number" data-min="9999999" data-max="99999999" name="inputPhone" placeholder="phone number" value="<?= $jLoggedUser['cPhoneNo']; ?>">
               <h5 class="light">Must be 8 characters</h5>
             </label>
             <div class="formButtonContainer">

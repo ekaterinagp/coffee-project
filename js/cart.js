@@ -15,9 +15,28 @@ if (cart) {
     clone.querySelector(".title_cart").textContent = cartItem.name;
     clone.querySelector(".img_cart").setAttribute("src", cartItem.img);
     clone.querySelector(".cartDiv").setAttribute("id", cartItem.id);
-    clone.querySelector(".type_cart_grind").value = cartItem.typeGrind;
-    clone.querySelector(".price_cart").value = cartItem.price;
+    clone.querySelector(".type_cart_grind").textContent = cartItem.typeGrind;
+    clone.querySelector(".price_cart").textContent = cartItem.price;
     clone.querySelector(".cart_quantity").value = cartItem.amount;
+
+    clone.querySelector(".cart_quantity").addEventListener('input', function(){ 
+      cartItem.amount = event.target.value;
+      console.log(cartItem.amount);
+
+      let originalPrice = cartItem.price;
+
+      originalPrice = originalPrice.substr(0,originalPrice.search(" "));
+      console.log(originalPrice);
+
+      let newPrice = parseInt(originalPrice) * parseInt(cartItem.amount);
+      console.log(newPrice);
+
+      let taxAmount = newPrice * 0.25
+      document.getElementById("tax").textContent = taxAmount + " DKK";
+      
+      document.getElementById("subsum").innerHTML = newPrice + " DKK";
+  
+    })
 
     let removeBtn = clone.querySelector(".remove");
 
@@ -63,6 +82,7 @@ function removeItem(cartItemId) {
 }
 
 function selectQ() {
+  let subTotalPrice = 0;
   let totalPrice = 0;
   let taxAmount = 0;
   let sectionTotal = document.getElementById("totalItemsSection");
@@ -70,39 +90,21 @@ function selectQ() {
   if (cart) {
     cart.forEach(cartItem => {
       //parseInt takes a string and returns a number
-      totalPrice = totalPrice + parseInt(cartItem.price);
-      taxAmount = totalPrice * 0.25
-      // let oneItemSum = cartItem.price;
-      // let oneItemTitle = cartItem.name;
+      subTotalPrice = subTotalPrice + parseInt(cartItem.price);
+      taxAmount = subTotalPrice * 0.25;
+      totalPrice = subTotalPrice + taxAmount;
       let template = document.querySelector("#totalItemsTemplate").content;
       let clone = template.cloneNode(true);
 
       sectionTotal.appendChild(clone);
     });
   }
-document.getElementById("tax").textContent = taxAmount;
-  document.getElementById("totalsum").innerHTML =
-    "Total: " + totalPrice + "DKK";
-
-  //  if(cart.length == 0){
-  //   displayGoBuyMessage();
-  // }
+  document.getElementById("tax").textContent = taxAmount + " DKK";
+  document.getElementById("subsum").innerHTML = subTotalPrice + " DKK";
+  document.getElementById("totalsum").innerHTML = totalPrice + " DKK";
 }
 
 function emptyTotal() {
-  // document.querySelector(".item_total").innerHTML = 0;
+  document.getElementById("subsum").innerHTML = 0;
   document.getElementById("totalsum").innerHTML = 0;
 }
-// let numberOfItem = document.querySelector(".numberOfItems");
-// function checkCart() {
-//   let cart = JSON.parse(sessionStorage.getItem("cart"));
-
-//   if (cart && cart.length > 0) {
-//     numberOfItem.innerHTML = cart.length;
-//     numberOfItem.setAttribute("style", "display:block;");
-//   } else {
-//     numberOfItem.setAttribute("style", "display: none;");
-//   }
-// }
-
-// checkCart();

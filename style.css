@@ -388,6 +388,11 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
   padding-left: 1vw;
 }
 
+.ph-regular{
+  padding-left: 2vw;
+  padding-right: 2vw;
+}
+
 .p-medium {
   padding: 2vw;
 }
@@ -1569,7 +1574,9 @@ a.back-button:hover{
 }
 .product-purchase-container h2,
 .payment h4,
-.payment h3.align-self-bottom.text-right {
+.payment h3.align-self-bottom.text-right,
+#paymentMain h4.subsumPayment, 
+#paymentMain h4.taxPayment {
   text-align: right;
 }
 
@@ -1630,7 +1637,8 @@ a.back-button:hover{
 .profile .description,
 .profile .section-one,
 .current-subscriptions, 
-.profile-info-container, .payment-container{
+.profile-info-container, .payment-container,
+.cartTotal{
   grid-gap: 2vw;
 }
 
@@ -2227,7 +2235,9 @@ label {
   font-weight: bold;
 }
 .single-product input[type="number"]::-webkit-inner-spin-button,
-.single-product input[type="number"]::-webkit-outer-spin-button {
+.single-product input[type="number"]::-webkit-outer-spin-button, 
+#cartItems .cart_quantity::-webkit-outer-spin-button, 
+.cartDiv input[type="number"]::-webkit-inner-spin-button{
   opacity: 1;
 }
 input[type="text"],
@@ -2235,11 +2245,22 @@ input[type="email"],
 input[type="password"],
 input[type="number"],
 select {
-  border: 0;
   border-radius: 0px;
   height: 2.5vw;
   padding: 1vw;
   background: #fff;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"], 
+select,
+input.phone{
+  border: none;
+}
+
+input[type="number"].cart_quantity{
+  border: solid 0.1px #00000045;
 }
 select {
   height:3vw;
@@ -2343,27 +2364,22 @@ input:not(:focus).error {
   justify-self: center;
 }
 
-.cartTotal {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  align-items: center;
-  justify-content: center;
-}
-
 .cart_desc input{
   width:100%;
   font-family: "Lato", sans-serif;
   font-size: 115%;
 }
 
-
-input.type_cart_grind,
-input.price_cart,
-input.cart_quantity {
+.type_cart_grind,
+.price_cart {
   border: none;
   display: inline;
-  /* width:100%; */
 }
+
+.price_cart{
+  padding-top: 0.5vw;
+}
+
 .title_cart{
   text-align: left !important;
 }
@@ -2556,7 +2572,8 @@ header .logo{
 
 /* INPUTS */
 
-input[type="text"], input[type="email"], input[type="password"], input[type="number"], select{
+input[type="text"], input[type="email"], 
+input[type="password"], input[type="number"], select{
   height:auto;
 }
  
@@ -2709,9 +2726,10 @@ form.listenTo.grid.grid-three{
   h1,h2{
     font-size: 150%;
   }
-  h3,h4,h5,p,div,input,button,span, input[type="text"], input[type="email"], 
-input[type="password"],
- input[type="number"], select, select>option, a{
+  h3,h4,h5,p,div,input,button,span, 
+  input[type="text"], input[type="email"], 
+  input[type="password"],input[type="number"], 
+  select, select>option, a{
   font-size: 95%;
 }
 input[type="text"]::placeholder, input[type="email"]::placeholder, 
