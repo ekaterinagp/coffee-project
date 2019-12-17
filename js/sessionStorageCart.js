@@ -62,6 +62,8 @@ function getSubCartItem(id){
   let imgElm = parent.querySelector("img");
   let img = imgElm.getAttribute("src");
   cartItem.img = img;
+  let typeGrind = "Whole";
+  cartItem.typeGrind = typeGrind;
   let price = parent.querySelector(".priceSubscription").innerHTML;
   cartItem.price = price;
   let purchaseType = "subscription";

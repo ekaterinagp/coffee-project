@@ -83,7 +83,7 @@ if ($_SESSION) {
         </label>
 
 
-        <button name="reg_user" class="button formBtn" disabled>Sign Up</button>
+        <button name="reg_user" class="button formBtn margin-auto mv-small" disabled>Sign Up</button>
       </form>
     </div>
     <h4 class="text-left">Already a user? <strong><a href="log-in">Log in </a></strong></h3>

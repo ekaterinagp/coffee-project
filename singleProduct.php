@@ -36,7 +36,7 @@ require_once(__DIR__ . '/components/header.php');
 ?>
 
 <main class="single-product">
-<button class="back-button color-orange absolute">&lt;</button>
+<button class="back-button absolute">&lt;</button>
     <section class="section-one mb-large ph-large mt-small grid grid-two-thirds-reversed">      
         <?php
                         echo '
@@ -61,7 +61,7 @@ require_once(__DIR__ . '/components/header.php');
                         </div>
                         '
                         ?>
-                        <div class="product-purchase-container bg-grey p-medium pt-medium">
+                        <div class="product-purchase-container bg-grey p-medium">
                             <div class="options-container grid mb-small">
                                 <div class="options mv-small ">
                                     <h4 class="text-left bold pb-small">Quantity</h4>
@@ -90,7 +90,7 @@ require_once(__DIR__ . '/components/header.php');
                             <div class="payment">
                                 <h3 class="align-self-bottom mt-medium text-right">Total amount</h3>
                                 <h4 class="totalPrice align-self-top"><?= $product['nPrice']; ?> DKK</h4>
-                                <button class="button" id="addToCartBtn">Add to cart</button>
+                                <button class="button margin-auto mv-small mt-medium" id="addToCartBtn">Add to cart</button>
                             </div>
                         </div>
     </section>

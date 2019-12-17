@@ -322,7 +322,7 @@ function addCreditCard(){
     saveCreditCardButton.classList.remove('hide-button');
     addCreditCardButton.classList.add('hide-button');
     addCreditCardForm.style.maxHeight = "100vh";
-    profileDetailsTwo.style.maxHeight = "100vh";
+    // profileDetailsTwo.style.maxHeight = "100vh";
     
 
     saveCreditCardButton.addEventListener('click', function(){

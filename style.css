@@ -635,7 +635,7 @@ a {
   font-size: calc(0.8vw + 45%);
 }
 p {
-  font-size: calc(0.8vw + 40%);
+  font-size: calc(0.8vw + 20%);
 }
 h5,
 button {
@@ -953,11 +953,14 @@ a {
   background: none;
   position: absolute;
   border: none;
-  left: 5vw;
-  top: 8vw;
+  left: 2vw;
+  top: 4.5vw;
   transition: all 0.3s;
-  font-size: 350%;
+  font-size: 250%;
   cursor: pointer;
+}
+a.back-button:hover {
+  color: #fb8b23;
 }
 
 .button-delete-profile,
@@ -968,6 +971,32 @@ a {
 }
 .button-delete-profile {
   margin: auto;
+}
+
+.button-delete-card,
+.button.button-edit,
+.button.button-save,
+.show-newCardFrm {
+  background-color: transparent;
+  width: auto;
+  height: auto;
+  border: none;
+  box-shadow: none;
+  color: #000;
+  text-decoration: underline;
+  padding: 1.5vw 0;
+}
+
+.show-newCardFrm {
+  align-self: end;
+}
+
+.button-delete-card:hover,
+.button.button-edit:hover,
+.button.button-save:hover,
+.show-newCardFrm:hover {
+  box-shadow: none;
+  color: #fb8b23;
 }
 
 .subscriptionItem .button-delete,
@@ -1547,11 +1576,6 @@ a {
 .options-container {
   grid-gap: 1vh;
 }
-#addToCartBtn,
-.paymentButton {
-  margin: 3vh 0;
-  float: right;
-}
 
 .single-product .image {
   background-position: left;
@@ -1696,6 +1720,9 @@ a {
 #form-creditcard {
   /* width:50vw; */
   margin: auto;
+}
+#form-creditcard .button-save {
+  margin: 1vw auto;
 }
 .not-input ~ h5 {
   display: none;
@@ -2387,9 +2414,6 @@ input.type_cart_grind {
   width: 90%;
 }
 
-.paymentForm .show-newCardfrm {
-  margin: 0 auto 3vw;
-}
 #newCardFrm {
   max-width: 30vw;
   margin: auto;
@@ -2584,45 +2608,53 @@ input.type_cart_grind {
   }
   /*  SUBSCRIBE PAGE  */
 
-  .containerForSubscriptions.grid-three {
+  /*  PROFILE  */
+  .profile .section-one {
+    margin-left: 6vw;
+    margin-right: 6vw;
+  }
+  .creditcard-container {
+    max-width: 50vw;
+  }
+  #form-creditcard {
+    margin: 0 10%;
+  }
+  /*  CART /PAYMENT /THANK YOU */
+  .cartMain,
+  #paymentMain {
+    margin-top: 15%;
+  }
+  #form-profile {
+    display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  .subscriptionItem h3 {
-    height: 4vh;
+  #form-profile h2:first-child,
+  .form-profile-form-container-info {
+    grid-column: 1;
   }
-  .testContent {
-    height: 50%;
-    width: auto;
+  .form-profile-form-container-info,
+  .form-profile-form-container-shipping {
+    grid-row: 2;
   }
-  form.listenTo.grid.grid-three {
-    grid-template-columns: 1fr 1fr 1fr;
+  #form-profile h2:last-child,
+  .form-profile-form-container-shipping {
+    grid-column: 2;
   }
-  .btnRadio,
-  .btnRadio.noGrid {
-    height: 10vh;
-    width: 12em;
+  .cartTotal {
+    grid-template-columns: 1fr;
   }
-  .smallerFrm {
-    width: auto;
-    margin: 5vh;
-  }
-  .smallerFrm .btnRadio {
-    width: 15em;
-  }
-  .textBtns .btnRadio {
-    width: 20em;
-    height: 8em;
-  }
-  .testResults {
-    margin: 5vh auto;
-  }
-  /*  SHOP  */
-  #results {
-    right: 15vw;
-    top: 42vw;
-  }
-  .product-purchase-container {
+  .total {
     margin-left: 50%;
+  }
+  #paymentMain {
+    min-height: 70vh;
+  }
+  .thank-you {
+    margin-top: 10%;
+    min-height: 75vh;
+  }
+  .profile-details.details-two {
+    max-height: 100%;
   }
 
   /*  PROFILE  */
@@ -3025,8 +3057,13 @@ input.type_cart_grind {
   #form-creditcard button {
     margin: 2vw 0;
   }
-  .profile-details #form-profile.grid.grid-two {
+  .profile-details .form-profile-form-container-info,
+  .form-profile-form-container-shipping {
     display: block;
+  }
+  .form-profile-form-container-shipping label,
+  .form-profile-form-container-info label {
+    margin: 1vw;
   }
   #form-profile .button {
     margin: 3vw auto;

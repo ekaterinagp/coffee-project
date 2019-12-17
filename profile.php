@@ -145,7 +145,7 @@ $nUserID = $jLoggedUser['nUserID'];
       <div class="profile-details details-two grid"> 
       <h2 class="text-left">Creditcard details</h2>
         <div class="creditcard-container">
-        <div class="form-profile-form-container-creditcard bg-grey pv-medium ph-medium">
+        <div class="form-profile-form-container-creditcard bg-grey p-medium">
           <form method="POST" id="savedCardFrm" class="choose-credit-card  grid grid-two-thirds-reversed">
       
           <?php
@@ -173,8 +173,7 @@ $nUserID = $jLoggedUser['nUserID'];
       <div class="creditcard-form-button-container">
       </div>
       <button class="button-add button">Add creditcard</button>
-      </div>
-      <form id="form-creditcard" method="post" class="ph-medium">
+      <form id="form-creditcard" method="post" class="ph-medium mv-medium">
           <label class="grid grid-two-thirds" for="inputIBAN">
             <p class="text-left align-self-center">IBAN</p><h5 class="light text-right">Must be 18 digits</h5>
             <input class="mb-small" data-type="integer" data-min="99999999999999999" data-max="999999999999999999" type="number" data-type="string" name="inputIBAN" value="">
@@ -194,6 +193,8 @@ $nUserID = $jLoggedUser['nUserID'];
 
           <button class="button-save formBtn hide-button button " disabled>Save creditcard</button>
         </form>
+      </div>
+    
         </div>
       </div>
       </div>
