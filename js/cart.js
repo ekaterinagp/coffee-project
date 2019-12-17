@@ -12,11 +12,12 @@ if (cart) {
   cart.forEach(cartItem => {
     let template = document.querySelector("#cartItemTemplate").content;
     let clone = template.cloneNode(true);
-    clone.querySelector(".title_cart").value = cartItem.name;
+    clone.querySelector(".title_cart").textContent = cartItem.name;
     clone.querySelector(".img_cart").setAttribute("src", cartItem.img);
     clone.querySelector(".cartDiv").setAttribute("id", cartItem.id);
     clone.querySelector(".type_cart_grind").value = cartItem.typeGrind;
     clone.querySelector(".price_cart").value = cartItem.price;
+    clone.querySelector(".cart_quantity").value = cartItem.amount;
 
     let removeBtn = clone.querySelector(".remove");
 
@@ -63,6 +64,7 @@ function removeItem(cartItemId) {
 
 function selectQ() {
   let totalPrice = 0;
+  let taxAmount = 0;
   let sectionTotal = document.getElementById("totalItemsSection");
   let cart = JSON.parse(sessionStorage.getItem("cart"));
   if (cart) {

@@ -12,9 +12,9 @@ require_once(__DIR__ . '/components/header.php');
                 <div class="logo">
                     <h1>Welcome</h1>
                 </div>
-                <h2 class="banner-message align-self-top pt-small pr-large">
+                <p class="banner-message align-self-top pt-small pr-large">
                     Enhance your everyday coffee experience with a coffee subscription tailored to your taste or discover a world of coffee and let us surprise you!
-                </h2>
+                </p>
 
                 <a href="subscribe">
                     <button class="button mt-small">Subscribe</button>
@@ -79,12 +79,12 @@ require_once(__DIR__ . '/components/header.php');
                         <div class="image bg-contain"></div>
                         <div class="description">
 
-                            <h5 class="color-white">Select a coffee you like or take a test to get an advice from us</h5>
+                            <h4 class="color-white">Select a coffee you like or take a test to get an advice from us</h4>
                         </div>
                     </div>
                     <div class="back p-medium">
 
-                        <h5>We have 6 types of subscription</h5>
+                        <h4>We have 6 types of subscription</h4>
 
                         <p>To make sure our subscriptions fit to the different taste of our clients, we generated 6 different subscriptions. You can choose one, but if you still in doubt, go a head and take a test we created, which will provide tailored recommendations</p>
 
@@ -100,11 +100,11 @@ require_once(__DIR__ . '/components/header.php');
                         </div>
                         <div class="image bg-contain"></div>
                         <div class="description">
-                            <h5 class="color-white">Create a user profile and choose a delivery method</h5>
+                            <h4 class="color-white">Create a user profile and choose a delivery method</h4>
                         </div>
                     </div>
                     <div class="back p-medium">
-                        <h5>Create a user profile and get a discount</h5>
+                        <h4>Create a user profile and get a discount</h4>
                         <p>We take our users sensitive data very seriously, that is why we highly recommend you to create a profile and we will protect your data. Also as a new user you get a discount from us as a welcome gift! </p>
                     </div>
                 </div>
@@ -118,11 +118,11 @@ require_once(__DIR__ . '/components/header.php');
                         </div>
                         <div class="image bg-contain"></div>
                         <div class="description">
-                            <h5 class="color-white">Get it delivered and enjoy your coffee!</h5>
+                            <h4 class="color-white">Get it delivered and enjoy your coffee!</h4>
                         </div>
                     </div>
                     <div class="back p-medium">
-                            <h5>We deliver as fast as we can</h5>
+                            <h4>We deliver as fast as we can</h4>
                         <p>We aim to deliver your coffee as soon as possible and the most convineient way. We know how important to get a freshly roasted coffee, that is why we work hard to make your coffee drinking experience as best as possible. </p>
                     </div>
                 </div>

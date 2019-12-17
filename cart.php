@@ -6,39 +6,50 @@ require_once(__DIR__ . '/connection.php');
 ?>
 
 <main class="cartMain mt-small mb-large">
-  <h1 class="text-center mb-medium">Cart</h1>
-  <div class="cartTotal mh-large">
+<h1 class="text-center">Your cart</h1>
+  <div class="cartTotal mh-medium">
     <section id="cartItems">
+      
       <template id="cartItemTemplate">
-        <div id="" class="cartDiv grid grid-two-thirds mb-small">
+        <div id="" class="cartDiv grid  mb-small ">
+          <p class="bold">Description:</p>
+          <p class="bold">Grind:</p>
+          <p class="bold">Price:</p>
+          <p class="bold">Amount:</p>
+      <div class="frmLine"></div>
+          <div >
+            <h3 class="title_cart bold uppercase pl-small" name="coffeeName"></h3>
           <img class="img_cart align-self-center" src="" />
-          <div class="cart_desc">
-            <input class="title_cart bold uppercase pv-small" name="coffeeName">
-            <input class="type_cart_grind pb-small" name="coffeeGrind"></p>
-
-            <div class="price_number">
-              <input class="price_cart bold pb-small" name="coffeePrice">
-              <p class="quantity"></p>
-            </div>
-
-            <button class="remove button">Remove item</button>
           </div>
+            <input class="type_cart_grind pl-small" name="coffeeGrind">
+
+            <!-- <div class="price_number"> -->
+              <input class=" price_cart pl-small" name="coffeePrice">
+              <input class="cart_quantity pl-small" name="coffeeQuantity">
+
+            <button class="remove button align-self-center">Remove item</button>
+          <!-- </div> -->
         </div>
       </template>
 
     </section>
 
-    <div class="total bg-grey ml-medium p-large align-self-top">
-      <h2 class="text-left">Your cart</h2>
+    <div class="total bg-grey ml-medium p-medium align-self-top">
+     
       <section id="totalItemsSection">
         
         <template id="totalItemsTemplate">
-          <div id="" class="totalDiv">
-          </div>
+          
+          <!-- <h3 id="" class="totalDiv">
+           
+          </h3> -->
         </template>
       </section>
-      <div id="totalsum" class="pv-small"></div>
-      <a href="<?php if($_SESSION){echo 'payment';} else{echo'log-in';}?>"><button class="button"><?php if($_SESSION){echo 'Go to payment';} else{echo'Please log in';}?></button></a>
+      <h3 class="align-self-bottom mt-medium text-right">Total amount</h3>
+      <h4 id="totalsum" class="pb-small text-right align-self-top"></h4>
+      <h3 class="align-self-bottom text-right">Tax</h3>
+      <h4 id="tax" class="pb-small text-right align-self-top"></h4>
+      <a href="<?php if($_SESSION){echo 'payment';} else{echo'log-in';}?>"><button class="button paymentButton"><?php if($_SESSION){echo 'Go to payment';} else{echo'Please log in';}?></button></a>
     
   </div>
   </div>

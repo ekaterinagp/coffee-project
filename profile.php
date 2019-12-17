@@ -72,35 +72,36 @@ $nUserID = $jLoggedUser['nUserID'];
     <h1 class="text-center pv-medium">Welcome <?= $jLoggedUser['cName']; ?></h1>
     <section class="section-one grid ph-medium mb-large">
 
-      <div class="profile-info-container grid grid-two-thirds-reversed">
-        <div class="profile-details details-one bg-grey p-medium pv-medium">
-          <h2 class="">Profile Details</h2>
-          <form id="form-profile" class=" grid grid-three mt-small mh-medium" method="post">
-            <label id="cName" class="grid" for="name">
-              <p class="text-left align-self-center">Name</p>
+      <div class="profile-info-container grid grid-almost-two">
+        <div class="profile-details details-one bg-grey pv-medium ph-medium">
+          <h2 class="text-left">Profile Details</h2>
+          <form id="form-profile" class=" grid grid-two pt-small " method="post">
+            <label id="cName" class="grid grid-two-thirds" for="name">
+              <p class="text-left align-self-center">Name</p> 
               <input class=" not-input" data-type="string" data-min="2" data-max="20" type="text" data-type="string" name="inputName" placeholder="First name" value="<?= $jLoggedUser['cName']; ?>">
-              <div class="errorMessage">Name must be more than 1 and less than 20 letters</div>
+              <h5 class="light">Must be 1 to 20 characters</h5>
             </label>
 
-            <label id="cSurname" class="grid" for="lastName">
+            <label id="cSurname" class="grid grid-two-thirds" for="lastName">
               <p class="text-left align-self-center">Last Name</p>
               <input class="  not-input" data-type="string" data-min="2" data-max="20" type="text" name="inputLastName" placeholder="Last name" value="<?= $jLoggedUser['cSurname']; ?>">
-              <div class="errorMessage">Last name must be more than 1 and less than 20 letters</div>
+              <h5 class="light">Must be 1 to 20 characters</h5>
             </label>
 
-            <label class="grid" for="loginName">
+            <label class="grid grid-two-thirds" for="loginName">
               <p class="text-left align-self-center">Username</p>
               <input class=" not-input" type="text" data-type="string" data-min="2" data-max="12" name="inputLoginName" placeholder="username" value="<?= $jLoggedUser['cUsername']; ?>">
-              <div class="errorMessage">Must be more than 2 and less than 12</div>
+              <h5 class="light">Must be 2 to 12 characters</h5>
             </label>
 
-            <label id="cEmail" class="grid" for="email">
+            <label id="cEmail" class="grid grid-two-thirds" for="email">
               <p class="text-left align-self-center">Email</p>
               <input class=" not-input" type="email" data-type="email" name="inputEmail" placeholder="email" value="<?= $jLoggedUser['cEmail']; ?>">
-              <div class="errorMessage" id="emailDiv">Must be a valid email address</div>
+              <h5 class="light">Must be a valid email address</h5>
             </label>
-            <label id="nCityID" for="cityInput" class="grid">
+            <label id="nCityID" for="cityInput" class="grid grid-two-thirds">
               <p class="text-left align-self-center">City</p>
+              <h5 class="light">Choose your city</h5>
               <select class=" not-input" data-type="integer" data-min="0" data-max="999" name="cityInput" value="<?= $jLoggedUser['nCityID'] ?>">
                 <option value="1" <?php if ($jLoggedUser['nCityID'] = 1) echo 'selected' ?>>Copenhagen</option>
                 <option value="2" <?php if ($jLoggedUser['nCityID'] = 2) echo 'selected' ?>>Århus</option>
@@ -125,16 +126,16 @@ $nUserID = $jLoggedUser['nUserID'];
                 <option value="21" <?php if ($jLoggedUser['nCityID'] = 21) echo 'selected' ?>>Vanløse</option>
               </select>
             </label>
-            <label id="cAddress" class="grid" for="userAddress">
-              <p class="text-left align-self-center">Address</p>
+            <label id="cAddress" class="grid grid-two-thirds" for="userAddress">
+              <p class="text-left align-self-center">Address</p>    
               <input class=" not-input" type="text" data-type="string" data-min="12" data-max="9999999999" name="inputAddress" placeholder="Address" value="<?= $jLoggedUser['cAddress']; ?>">
-              <div class="errorMessage">Must be more than 12 characters</div>
+              <h5 class="light">Must be 12+ characters</h5>
             </label>
 
-            <label id="cPhoneNo" class="grid" for="userPhone">
-              <p class="text-left align-self-center">Phone</p>
+            <label id="cPhoneNo" class="grid grid-two-thirds" for="userPhone">
+              <p class="text-left align-self-center">Phone</p>        
               <input class=" not-input" type="number" data-type="number" data-min="9999999" data-max="99999999" name="inputPhone" placeholder="phone number" value="<?= $jLoggedUser['cPhoneNo']; ?>">
-              <div class="errorMessage">Must be 8 characters</div>
+              <h5 class="light">Must be 8 characters</h5>
             </label>
             <div class="formButtonContainer">
                 <button class="button-edit button">Edit information</button>
@@ -142,9 +143,9 @@ $nUserID = $jLoggedUser['nUserID'];
             </div>
           </form>
         </div>
-      <div class="profile-details bg-grey p-medium pt-medium"> 
-        <div class="creditcard-container ph-small">
-          <h2 class="">Creditcard Details</h2>
+      <div class="profile-details details-two bg-grey pv-medium ph-medium"> 
+        <div class="creditcard-container">
+          <h2 class="text-left">Creditcard Details</h2>
           <form method="POST" id="savedCardFrm" class=" pt-small choose-credit-card">
       
           <?php
@@ -152,8 +153,8 @@ $nUserID = $jLoggedUser['nUserID'];
               $jUserCreditCards = $statementCreditCard->fetchAll(PDO::FETCH_ASSOC);
 
               if (count($jUserCreditCards) >= 1) {?>
-              <label><p class="text-left align-self-center ">Your credit cards</p>
-                <select class="align-self-center" name="userCreditCards" id="">
+              <label class=" align-self-center"><p class="text-left">Your credit cards</p>
+                <select  name="userCreditCards" id="">
 
               <?php
                 foreach ($jUserCreditCards as $jUserCreditCard) {
@@ -174,20 +175,20 @@ $nUserID = $jLoggedUser['nUserID'];
       <button class="button-add button">Add creditcard</button>
       </div>
       <form id="form-creditcard" method="post" class="ph-medium">
-          <label class="grid" for="inputIBAN">
-            <p class="text-left align-self-center">IBAN</p>
-            <input class="mb-small" data-type="integer" data-min="99999999999999999" data-max="999999999999999999" type="number" data-type="string" name="inputIBAN" placeholder="IBAN (format 123456789123456789)" value="">
-            <div class="errorMessage">IBAN must be 18 digits</div>
+          <label class="grid grid-two-thirds" for="inputIBAN">
+            <p class="text-left align-self-center">IBAN</p><h5 class="light text-right">Must be 18 digits</h5>
+            <input class="mb-small" data-type="integer" data-min="99999999999999999" data-max="999999999999999999" type="number" data-type="string" name="inputIBAN" value="">
+            
           </label>
-          <label class="grid" for="inputCCV">
-            <p class="text-left align-self-center">CCV</p>
-            <input class="mb-small" data-type="integer" data-min="99" data-max="999" type="number" name="inputCCV" placeholder="CCV (format 123)" value="">
-            <div class="errorMessage">CCV must be 3 digits</div>
+          <label class="grid grid-two-thirds" for="inputCCV">
+            <p class="text-left align-self-center">CCV</p><h5 class="light text-right">Must be 3 digits</h5>
+            <input class="mb-small" data-type="integer" data-min="99" data-max="999" type="number" name="inputCCV" value="">
+            
           </label>
-          <label class="grid" for="inputExpiration">
-            <p class="text-left align-self-center">Expiration date</p>
-            <input class="mb-small" data-type="integer" data-min="100" data-max="1999" type="number" name="inputExpiration" placeholder="Expiration date (format mmyy)" value="">
-            <div class="errorMessage">Expiration date must be 4 digits</div>
+          <label class="grid grid-two-thirds" for="inputExpiration">
+            <p class="text-left align-self-center">Expiration date</p> <h5 class="light text-right">Must be 4 digits</h5>
+            <input class="mb-small" data-type="integer" data-min="100" data-max="1999" type="number" name="inputExpiration" value="">
+            
           </label>
 
 
@@ -220,10 +221,10 @@ $nUserID = $jLoggedUser['nUserID'];
                 <div class="subscriptionItemBg">
                   <img src="img/products/<?= $result; ?>.png" alt="">
                   <h3 class="subscriptionName"><?= $jUserSubscription['cSubscriptionName']; ?></h3>
-                  <h4 class="priceSubscription"><?= $jUserSubscription['nPrice']; ?></h4>
+                  <h4 class="priceSubscription"><?= $jUserSubscription['nPrice']; ?> DKK / Month</h4>
                 </div>
                 <div class="white-text-bg">
-                  <h4><?= $jUserSubscription['cName']; ?></h4>
+                  <p class="mb-small text-center"><?= $jUserSubscription['cName']; ?></p>
                   <button class="button button-delete">Cancel</button>
                 </div>
               </div>
@@ -238,7 +239,7 @@ $nUserID = $jLoggedUser['nUserID'];
 
     <section class="section-three ph-large mb-medium">
       <h2 class="mb-small">Want to try something new?</h2>
-      <h4 class="mb-small">Visit the shop and explore a world of quality coffee</h4>
+      <h3 class="mb-small">Visit the shop and explore a world of quality coffee</h3>
       <div class="related-products relative">
         <div class="container-banner absolute pv-large bg-medium-light-brown"></div>
         <div class="products-container grid grid-four">
@@ -259,7 +260,7 @@ $nUserID = $jLoggedUser['nUserID'];
                          <div class="image bg-contain" style="background-image: url(img/products/'.$result.'.png)"></div>
                          <div class="description m-small">
                              <h3 class="productName mt-small text-left">'.$jProduct['cProductName'].'</h3>
-                             <h4 class="productName mt-small text-left">'.$jProduct['cName'].'</h4>
+                             <p class="productCoffeeType mt-small text-left">'.$jProduct['cName'].'</p>
                              <h4 class="productPrice mt-small absolute">'.$jProduct['nPrice'].' DKK</h4>
                          </div>
                      </div>

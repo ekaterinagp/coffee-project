@@ -20,9 +20,9 @@ require_once(__DIR__ . '/components/header.php');
             <div class="content-container grid grid-two relative">
                 <div class="container-header align-items-center color-white">
                     <h1>COFFEE FOR EVERY OCCASION</h1>
-                    <h2 class="banner-message mt-small">
+                    <p class="banner-message mt-small">
                         Choose From Our Wide Collection of Quality Coffee
-                    </h2>
+                    </p>
                 </div>
                 <div class="image bg-contain absolute"></div>
             </div>
@@ -31,7 +31,6 @@ require_once(__DIR__ . '/components/header.php');
 
         <section class=" grid mb-large">
 
-            <h2>Shop</h2>
 
             <form id="formSearch" class="grid justify-self-right pv-medium mr-medium">
                 <label for="txtSearch" class="mh-small align-self-bottom">
@@ -104,7 +103,7 @@ require_once(__DIR__ . '/components/header.php');
                     <div class="image bg-contain" style="background-image: url(img/products/' . $result . '.png)"></div>
                     <div class="description m-small">
                         <h3 class="productName mt-small text-left">' . $product['cProductName'] . '</h3>
-                        <h4 class="productCoffeeType mt-small text-left">' . $product['cName'] . '</h4>
+                        <p class="productCoffeeType mt-small text-left">' . $product['cName'] . '</p>
                     <h4 class="absolute productPrice mt-small">' . $product['nPrice'] . ' DKK</h4>
                     </div>
                 </div>
@@ -123,7 +122,7 @@ require_once(__DIR__ . '/components/header.php');
                         <div class="image bg-contain"></div>
                         <div class="description m-small">
                             <h3 class="productName mt-small text-left"></h3>
-                            <h4 class="productCoffeeType mt-small text-left"></h4>
+                            <p class="productCoffeeType mt-small text-left"></p>
                             <h4 class="productPrice mt-small absolute"></h4>
                         </div>
 

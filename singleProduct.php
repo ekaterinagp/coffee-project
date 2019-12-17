@@ -36,17 +36,15 @@ require_once(__DIR__ . '/components/header.php');
 ?>
 
 <main class="single-product">
-    <section class="section-one grid grid-two-thirds-reversed mb-large ph-large mt-medium">
-        <button class="back-button color-orange absolute">&lt;</button>
+<button class="back-button color-orange absolute">&lt;</button>
+    <section class="section-one mb-large ph-large mt-small grid grid-two-thirds-reversed">      
         <?php
-
                         echo '
                         <div id="product-'.$iProductID.'" class="product-info-container grid grid-two-thirds">
+                        <h1 class="productName text-left mh-small ph-small">'.$product['cProductName'].'</h1>
                             <div class="image bg-contain" style="background-image: url(img/products/'.$result.'.png)"></div>
                             <div class="description mh-small mv-medium grid grid-two">
                                 <div>
-                                    <h1 class="productName mv-small text-left">'.$product['cProductName'].'</h1>
-                                    <h2 class="coffee-type mv-small text-left light">'.$product['cName'].'</h2>
                                     <h4 class="productPrice mv-small">'.$product['nPrice'].' DKK</h4>
                                     <p>A soft, velvety body highlights a soft citric acidity and pleasant sweetness, with notes of raspberry, orange and sugar cane.</p>
                                 </div>
@@ -63,7 +61,6 @@ require_once(__DIR__ . '/components/header.php');
                         </div>
                         '
                         ?>
-
                         <div class="product-purchase-container bg-grey p-medium pt-medium">
                             <div class="options-container grid mb-small">
                                 <div class="options mv-small ">
@@ -79,7 +76,7 @@ require_once(__DIR__ . '/components/header.php');
                                 <div class="options mv-small">
                                 <h4 class="text-left bold pb-small">Grind</h4>
                                     <label>
-                                        <input type="radio" name="grindType" value="whole" class="mb-small">
+                                        <input type="radio" name="grindType" value="whole" class="mb-small" checked>
                                         <div class="checkmark">Whole</div>
                                     </label>
                                     <label>
@@ -91,18 +88,18 @@ require_once(__DIR__ . '/components/header.php');
                                 </div>
                             </div>
                             <div class="payment">
-                                <h2 class="align-self-bottom mt-medium text-right light">Total amount</h2>
+                                <h3 class="align-self-bottom mt-medium text-right">Total amount</h3>
                                 <h4 class="totalPrice align-self-top"><?= $product['nPrice']; ?> DKK</h4>
                                 <button class="button" id="addToCartBtn">Add to cart</button>
                             </div>
                         </div>
     </section>
 
-    <section class="section-two grid mv-medium ph-large relative">
-        <div class="relative">
-            <h2 class="bold mb-small">You might also like</h2>
-            <div class="container-banner absolute pv-medium bg-dark-brown"></div>
-            <div class="products-container grid grid-four">
+    <section class="section-three ph-large mb-medium">
+      <h2 class="mb-small">You also might like</h2>
+      <div class="related-products relative">
+        <div class="container-banner absolute pv-large bg-light-brown"></div>
+        <div class="products-container grid grid-four">
 
             <?php
 }
@@ -124,7 +121,7 @@ if ($statementRelatedProducts->execute($data)) {
                         <div class="image bg-contain" style="background-image: url(img/products/'.$result.'.png)"></div>
                         <div class="description m-small">
                             <h3 class="productName mt-small text-left">'.$product['cProductName'].'</h3>
-                            <h4 class="productName mt-small text-left">'.$product['cName'].'</h4>
+                            <p class="productName mt-small text-left">'.$product['cName'].'</p>
                             <h4 class="productPrice mt-small absolute">'.$product['nPrice'].' DKK</h4>
                         </div>
                     </div>
@@ -134,9 +131,11 @@ if ($statementRelatedProducts->execute($data)) {
 }
 $connection = null;
 ?>
-            </div>
-        </div>
-    </section>
+    </div>
+      </div>
+    </div>
+    </div>
+  </section>
 </main>
 
 <?php

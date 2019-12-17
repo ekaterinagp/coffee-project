@@ -150,11 +150,11 @@ function showModal(text, deleteType, itemID){
     modal.append(modalContainer);
     document.querySelector('body').append(modal);
 
-    document.addEventListener("click", function(){
-    if(event.target == modal ){
-        modal.style.display="none";
-    }
-})
+    // document.addEventListener("click", function(){
+    // if(event.target == modal ){
+    //     modal.style.display="none";
+    // }
+// })
     document.querySelector(".button-abort-delete").addEventListener("click", function(){
         modal.classList.add('hide');
         setTimeout(function(){
@@ -293,11 +293,14 @@ addCreditCardButton.addEventListener("click", addCreditCard);
 function addCreditCard(){
     event.preventDefault();
     const addCreditCardForm = document.querySelector("#form-creditcard");
+    const profileDetailsTwo = document.querySelector(".profile-details.details-two");
     const saveCreditCardButton = addCreditCardForm.querySelector(".button-save");
 
     saveCreditCardButton.classList.remove('hide-button');
     addCreditCardButton.classList.add('hide-button');
     addCreditCardForm.style.maxHeight = "100vh";
+    profileDetailsTwo.style.maxHeight = "100vh";
+    
 
     saveCreditCardButton.addEventListener('click', function(){
         event.preventDefault();
@@ -420,8 +423,9 @@ function noSubscriptions(){
             let whiteBg = document.createElement('div');
             whiteBg.className = 'white-text-bg';
         
-            let h4Origin = document.createElement('h4');
-            h4Origin.innerText = subscription.cName;
+            let pOrigin = document.createElement('p');
+            pOrigin.className = 'productCoffeeType';
+            pOrigin.innerText = subscription.cName;
         
             let pDesc = document.createElement('p');
             pDesc.className = 'descSubscription ph-small';
@@ -432,7 +436,7 @@ function noSubscriptions(){
             addSubToCartBtn.innerText = 'Add to Cart';
         
             subscriptionItemBg.append(img, h3Name, h4Price);
-            whiteBg.append(h4Origin, pDesc);
+            whiteBg.append(pOrigin, pDesc);
         
             subscriptionItem.append(subscriptionItemBg, whiteBg, addSubToCartBtn);
         
