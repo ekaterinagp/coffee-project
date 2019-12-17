@@ -1686,6 +1686,9 @@ a {
   /* width:50vw; */
   margin:auto;
 }
+#form-creditcard .button-save{
+  margin:1vw auto;
+}
 .not-input ~ h5{
   display: none;
 }
@@ -2610,12 +2613,28 @@ form.listenTo.grid.grid-three{
   margin-left:6vw;
   margin-right: 6vw;
 }
-.creditcard-container, #form-creditcard {
-  margin: 0 25%;
+.creditcard-container{
+  max-width: 50vw;
+}
+ #form-creditcard {
+  margin: 0 10%;
 }
 /*  CART /PAYMENT /THANK YOU */
 .cartMain, #paymentMain{
   margin-top:15%;
+}
+#form-profile{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#form-profile h2:first-child,.form-profile-form-container-info {
+  grid-column: 1;
+}
+.form-profile-form-container-info, .form-profile-form-container-shipping{
+  grid-row:2;
+}
+#form-profile h2:last-child, .form-profile-form-container-shipping {
+  grid-column: 2;
 }
 .cartTotal{
   grid-template-columns: 1fr;
@@ -2977,8 +2996,11 @@ form.listenTo.grid.grid-three{
   #form-creditcard button{
     margin:2vw 0;
   }
-  .profile-details  #form-profile.grid.grid-two{
+  .profile-details  .form-profile-form-container-info, .form-profile-form-container-shipping{
    display: block;
+  }
+  .form-profile-form-container-shipping label, .form-profile-form-container-info label{
+    margin:1vw;
   }
   #form-profile .button{
     margin: 3vw auto;
