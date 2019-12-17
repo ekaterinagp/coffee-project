@@ -2420,6 +2420,7 @@ input.type_cart_grind {
 .paymentForm {
   transition: all 0.3s;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  max-height: 50vw;
 }
 .choose-credit-card select {
   border-radius: 0;
@@ -2696,6 +2697,7 @@ input[type="password"], input[type="number"], select{
     margin-left: 25%;
     padding-left: 4vw;
     padding-right: 4vw;
+    max-height: 60vw;
   }
   #paymentMain {
     min-height: 70vh;
