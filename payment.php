@@ -36,6 +36,7 @@ if($_SESSION){
       <div>
 
         <h3 id="youSelected" class="bold uppercase text-center"></h3>
+        <p class="grind"></p>
         <img src="" /> 
       </div>
       <p class="price" name="coffeePrice"> </p>

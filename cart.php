@@ -48,7 +48,7 @@ require_once(__DIR__ . '/connection.php');
       <h4 id="totalsum" class="pb-small text-right align-self-top"></h4>
       <h3 class="align-self-bottom text-right">Tax</h3>
       <h4 id="tax" class="pb-small text-right align-self-top"></h4>
-      <a href="<?php if($_SESSION){echo 'payment';} else{echo'log-in';}?>"><button class="button paymentButton"><?php if($_SESSION){echo 'Go to payment';} else{echo'Please log in';}?></button></a>
+      <a href="<?php if($_SESSION){echo 'payment';} else{echo'log-in';}?>"><button class="button margin-auto mv-small paymentButton"><?php if($_SESSION){echo 'Go to payment';} else{echo'Please log in';}?></button></a>
     
   </div>
   </div>
