@@ -35,9 +35,9 @@ if($_SESSION){
             <p class="bold">Price</p>
             <p class="bold">Quantity</p>
           <div class="frmLine"></div>
-          <div>
-            <h3 class="title_cart bold uppercase pl-small" name="coffeeName"></h3>
-            <input class="type_cart_grind " name="coffeeGrind">
+          <div class="grid grid-one">
+            <h3 class="title_cart bold uppercase " name="coffeeName"></h3>
+            <p class="type_cart_grind"></p>
             <img class="img_cart align-self-center" src="" />
           </div>
           <p class="price_cart"></p>
