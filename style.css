@@ -588,10 +588,16 @@ h5 a,
 
 h1 {
   text-transform: uppercase;
+  font-size: calc(2vw + 30%);
+}
+
+h2 {
+  font-size: calc(1.4vw + 40%);
 }
 
 h3 {
   text-transform: inherit;
+  font-size: calc(1vw + 30%);
 }
 
 h1 {
@@ -609,6 +615,21 @@ button,
   padding-bottom: 1vw;
 }
 
+h4,
+a {
+  font-size: calc(0.8vw + 45%);
+}
+
+p, input::placeholder, select > option, input[type="text"], 
+input[type="email"], input[type="password"], 
+input[type="number"], select, .shipping p:last-child{
+  font-size: calc(0.8vw + 20%);
+}
+h5, button {
+  padding-bottom: 0.5vw;
+  font-size: calc(0.6vw + 35%);
+}
+
 h4 {
   font-weight: 900;
 }
@@ -623,30 +644,8 @@ button,
   font-weight: 400;
 }
 
-h1 {
-  font-size: calc(2vw + 30%);
-}
 
-h2 {
-  font-size: calc(1.4vw + 40%);
-}
-
-h3 {
-  font-size: calc(1vw + 40%);
-}
-
-h4,
-a {
-  font-size: calc(0.8vw + 45%);
-}
-p {
-  font-size: calc(0.8vw + 20%);
-}
-h5,
-button {
-  padding-bottom: 0.5vw;
-  font-size: calc(0.6vw + 45%);
-}
+/* END OF FONTS  */
 
 input::placeholder,
 select > option,
@@ -656,12 +655,10 @@ input[type="password"],
 input[type="number"],
 select,
 .shipping p:last-child {
-  font-size: calc(0.5vw + 45%);
   font-weight: 100;
 }
 input:focus {
   outline: 2px solid #fb8b23;
-  /* border:1px solid #fb8b23; */
 }
 input[type="text"].not-input,
 input[type="email"].not-input,
@@ -1603,7 +1600,7 @@ a.back-button:hover {
 .containerSignup .container-banner,
 .containerLogin .container-banner,
 .thank-you .container-banner {
-  width: 100%;
+  width: 100vw;
   z-index: -1;
 }
 
@@ -1721,8 +1718,6 @@ a.back-button:hover {
   grid-column: 1/-1;
   font-family: "Lato", sans-serif;
   font-weight: bold;
-  font-size: 90%;
-  /* color: #fff; */
 }
 #form-creditcard {
   /* width:50vw; */
@@ -1812,7 +1807,6 @@ a.back-button:hover {
   color: white;
   cursor: pointer;
   transition: all 0.3s;
-  margin: 1em;
   background: white;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
@@ -1827,7 +1821,7 @@ a.back-button:hover {
 .subscriptionItem .priceSubscription {
   color: white;
   font-weight: bold;
-  font-size: 95%;
+  /* font-size: 95%; */
   /* text-align: right; */
 }
 .subscribeOptiopnP {
@@ -2371,7 +2365,6 @@ input:not(:focus).error {
   background: black;
   width: 50%;
   height: 20%;
-  font-size: 80%;
 }
 
 .img_cart {
@@ -2461,7 +2454,6 @@ input.type_cart_grind {
     grid-template-columns: 1fr 1fr;
   }
   .button {
-    padding: 2vw;
     max-width: 27vw;
   }
   .cupImage {
@@ -2493,6 +2485,11 @@ input.type_cart_grind {
   .section-three .back {
     height: 35vw;
   }
+
+  .products-container.grid-four{
+    grid-template-columns: repeat(4, 1fr);
+  }
+
   /*  SUBSCRIBE  PAGE  */
   h2.banner-message {
     line-height: 22px;
@@ -2505,7 +2502,7 @@ input.type_cart_grind {
     grid-template-columns: 1fr 1fr;
   } */
   .subscriptionItem h3 {
-    height: 3vh;
+    height: 10vw;
   }
 
   .testContent {
@@ -2579,6 +2576,14 @@ input.type_cart_grind {
 
   .creditcard-form-button-container {
     display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #paymentMain .payment-container.grid-two-thirds-reversed{
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .products-container.grid-four{
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -2662,7 +2667,7 @@ input[type="password"], input[type="number"], select{
   /*  CART /PAYMENT /THANK YOU */
   .cartMain,
   #paymentMain {
-    margin-top: 15%;
+    margin-top: 0%;
   }
   #form-profile {
     display: grid;
@@ -2683,8 +2688,11 @@ input[type="password"], input[type="number"], select{
   .cartTotal {
     grid-template-columns: 1fr;
   }
-  .total {
-    margin-left: 50%;
+  .total, .paymentForm {
+    margin-right: 25%;
+    margin-left: 25%;
+    padding-left: 4vw;
+    padding-right: 4vw;
   }
   #paymentMain {
     min-height: 70vh;
@@ -2707,15 +2715,8 @@ input[type="password"], input[type="number"], select{
     margin: 0 25%;
   }
   /*  CART /PAYMENT /THANK YOU */
-  .cartMain,
-  #paymentMain {
-    margin-top: 15%;
-  }
   .cartTotal {
     grid-template-columns: 1fr;
-  }
-  .total {
-    margin-left: 50%;
   }
   #paymentMain {
     min-height: 70vh;
@@ -2928,8 +2929,8 @@ input[type="password"], input[type="number"], select{
     height: 25vw;
   }
   .subscriptionItem h3 {
-    height: 100%;
-  }
+    height: 14vh;
+}
   form.listenTo.grid.grid-three {
     grid-template-columns: 1fr 1fr;
   }
@@ -3120,6 +3121,7 @@ input[type="password"], input[type="number"], select{
   }
 
   /*    CART/   PAYMENT/   THANK YOU PAGE  */
+
   .noCart .container-banner {
     top: 20vw;
   }

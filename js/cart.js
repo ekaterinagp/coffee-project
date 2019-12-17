@@ -26,16 +26,12 @@ if (cart) {
       let originalPrice = cartItem.price;
 
       originalPrice = originalPrice.substr(0,originalPrice.search(" "));
-      console.log(originalPrice);
 
       let newPrice = parseInt(originalPrice) * parseInt(cartItem.amount);
-      console.log(newPrice);
+      let taxAmount = newPrice * 0.25;
 
-      let taxAmount = newPrice * 0.25
       document.getElementById("tax").textContent = taxAmount + " DKK";
-      
       document.getElementById("subsum").innerHTML = newPrice + " DKK";
-  
     })
 
     let removeBtn = clone.querySelector(".remove");
