@@ -1,5 +1,7 @@
 "use strict";
-
+let subTotalPrice = 0;
+let totalPrice = 0;
+let taxAmount = 0;
 let cart = JSON.parse(sessionStorage.getItem("cart"));
 if (!cart) {
   cart = [];
@@ -9,7 +11,7 @@ let cartSection = document.querySelector("#cartItems");
 // selectQ();
 
 if (cart) {
-  cart.forEach(cartItem => {
+    cart.forEach(cartItem => {
     let template = document.querySelector("#cartItemTemplate").content;
     let clone = template.cloneNode(true);
     clone.querySelector(".title_cart").textContent = cartItem.name;
@@ -18,31 +20,38 @@ if (cart) {
     clone.querySelector(".type_cart_grind").textContent = cartItem.typeGrind;
     clone.querySelector(".price_cart").textContent = cartItem.price;
     clone.querySelector(".cart_quantity").value = cartItem.amount;
-
     clone.querySelector(".cart_quantity").addEventListener('input', function(){ 
-      cartItem.amount = event.target.value;
-      console.log(cartItem.amount);
+    cartItem.amount = event.target.value;
+    console.log(cartItem.amount);
 
-      let originalPrice = cartItem.price;
+    subTotalPrice = subTotalPrice + parseInt(cartItem.price) * parseInt(cartItem.amount);
+    console.log(subTotalPrice)
+    taxAmount = subTotalPrice * 0.25;
+    totalPrice = subTotalPrice + taxAmount;
+// console.log(totalPrice)
+      // console.log(cartItem.amount);
 
-      originalPrice = originalPrice.substr(0,originalPrice.search(" "));
+      // let originalPrice = cartItem.price;
 
-      let newPrice = parseInt(originalPrice) * parseInt(cartItem.amount);
-      let taxAmount = newPrice * 0.25;
+      // originalPrice = originalPrice.substr(0,originalPrice.search(" "));
+
+      // let newPrice = parseInt(originalPrice) * parseInt(cartItem.amount);
+      // let taxAmount = newPrice * 0.25;
 
       document.getElementById("tax").textContent = taxAmount + " DKK";
-      document.getElementById("subsum").innerHTML = newPrice + " DKK";
+      document.getElementById("subsum").innerHTML = subTotalPrice + " DKK";
+      document.getElementById("totalsum").innerHTML = totalPrice + " DKK";
+    
     })
-
     let removeBtn = clone.querySelector(".remove");
-
     removeBtn.addEventListener("click", function() {
       console.log("removeItemId: ", cartItem.id);
       removeItem(cartItem.id);
     });
-
+    
     cartSection.appendChild(clone);
   });
+  sessionStorage.setItem("cart", JSON.stringify(cart));
 } else {
   emptyTotal();
 }
@@ -77,16 +86,14 @@ function removeItem(cartItemId) {
   selectQ();
 }
 
+
 function selectQ() {
-  let subTotalPrice = 0;
-  let totalPrice = 0;
-  let taxAmount = 0;
   let sectionTotal = document.getElementById("totalItemsSection");
   let cart = JSON.parse(sessionStorage.getItem("cart"));
   if (cart) {
     cart.forEach(cartItem => {
-      //parseInt takes a string and returns a number
-      subTotalPrice = subTotalPrice + parseInt(cartItem.price);
+      subTotalPrice = subTotalPrice + parseInt(cartItem.price) * parseInt(cartItem.amount);
+      console.log(subTotalPrice)
       taxAmount = subTotalPrice * 0.25;
       totalPrice = subTotalPrice + taxAmount;
       let template = document.querySelector("#totalItemsTemplate").content;
@@ -101,6 +108,7 @@ function selectQ() {
 }
 
 function emptyTotal() {
+  document.getElementById("tax").textContent = 0;
   document.getElementById("subsum").innerHTML = 0;
   document.getElementById("totalsum").innerHTML = 0;
 }

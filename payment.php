@@ -29,6 +29,8 @@ if($_SESSION){
       <div>
     <h1 class="text-left pb-small">Purchase overview</h1>
       <section id="paymentItems">  
+
+
         <template id="paymentItemTemplate">
           <div id="" class="cartDiv grid mb-small ">
             <p class="bold">Description</p>
@@ -36,7 +38,7 @@ if($_SESSION){
             <p class="bold">Quantity</p>
           <div class="frmLine"></div>
           <div class="grid grid-one">
-            <h3 class="title_cart bold uppercase " name="coffeeName"></h3>
+            <h3 class="title_cart bold uppercase" ></h3>
             <p class="type_cart_grind"></p>
             <img class="img_cart align-self-center" src="" />
           </div>
