@@ -2,7 +2,7 @@
 
 let cart = JSON.parse(sessionStorage.getItem("cart"));
 console.log("cart", cart);
-
+//something silly
 if(cart){
     console.log(cart)
     let title = document.querySelector("#youSelected");
