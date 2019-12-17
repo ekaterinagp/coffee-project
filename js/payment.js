@@ -3,7 +3,7 @@
 let cart = JSON.parse(sessionStorage.getItem("cart"));
 console.log("cart", cart);
 let cartSection = document.querySelector("#paymentItems");
-//something silly
+
 if(cart){
     console.log(cart)
 
