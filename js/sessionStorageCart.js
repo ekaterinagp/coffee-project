@@ -66,6 +66,8 @@ function getSubCartItem(id){
   cartItem.price = price;
   let purchaseType = "subscription";
   cartItem.purchaseType = purchaseType;
+  let quantity = 1;
+  cartItem.amount = quantity;
   currentCartItem = cartItem;
   }
 

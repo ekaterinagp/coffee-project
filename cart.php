@@ -5,27 +5,26 @@ require_once(__DIR__ . '/components/header.php');
 require_once(__DIR__ . '/connection.php');
 ?>
 
-<main class="cartMain mt-small mb-large">
+<main class="cartMain mt-small mb-footer">
 <h1 class="text-center">Your cart</h1>
   <div class="cartTotal mh-medium">
     <section id="cartItems">
       
       <template id="cartItemTemplate">
         <div id="" class="cartDiv grid  mb-small ">
-          <p class="bold">Description:</p>
-          <p class="bold">Grind:</p>
-          <p class="bold">Price:</p>
-          <p class="bold">Amount:</p>
+          <p class="bold">Description</p>
+          <p class="bold">Price</p>
+          <p class="bold">Quantity</p>
       <div class="frmLine"></div>
           <div >
             <h3 class="title_cart bold uppercase pl-small" name="coffeeName"></h3>
+            <input class="type_cart_grind " name="coffeeGrind">
           <img class="img_cart align-self-center" src="" />
           </div>
-            <input class="type_cart_grind pl-small" name="coffeeGrind">
 
             <!-- <div class="price_number"> -->
-              <input class=" price_cart pl-small" name="coffeePrice">
-              <input class="cart_quantity pl-small" name="coffeeQuantity">
+              <input class=" price_cart " name="coffeePrice">
+              <input class="cart_quantity " name="coffeeQuantity">
 
             <button class="remove button align-self-center">Remove item</button>
           <!-- </div> -->
@@ -56,7 +55,7 @@ require_once(__DIR__ . '/connection.php');
   <div class="noCart">
     <h3 class="mt-medium text-center"> Your cart seems to be empty...</h3>
 
-    <section class="section-three mb-large ph-large pt-medium">
+    <section class="section-three ph-large pt-medium">
       <div class="related-products relative">
         <h2 class="coffee-type mb-medium">Discover a world of quality coffee</h2>
         <div class="container-banner absolute pv-large bg-medium-light-brown"></div>

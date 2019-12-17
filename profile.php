@@ -68,8 +68,7 @@ $nUserID = $jLoggedUser['nUserID'];
 
   ?>
 
-  <main class="profile mb-large">
-    <h1 class="text-center pv-medium">Welcome <?= $jLoggedUser['cName']; ?></h1>
+  <main class="profile mb-footer">
     <section class="section-one grid ph-medium mb-large">
 
       <div class="profile-info-container grid grid-almost-two">
@@ -237,7 +236,7 @@ $nUserID = $jLoggedUser['nUserID'];
       </div>
     </section>
 
-    <section class="section-three ph-large mb-medium">
+    <section class="section-three ph-large mb-footer">
       <h2 class="mb-small">Want to try something new?</h2>
       <h3 class="mb-small">Visit the shop and explore a world of quality coffee</h3>
       <div class="related-products relative">

@@ -491,6 +491,9 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
 .m-medium {
   margin: 4vw;
 }
+.mb-footer{
+  margin-bottom: 3vw;  
+}
 .mh-medium {
   margin-left: 4vw;
   margin-right: 4vw;
@@ -632,7 +635,9 @@ h3 {
 h4, a {
   font-size: calc(0.8vw + 45%);
 }
-
+p{
+  font-size: calc(0.8vw + 40%);
+}
 h5,
 button {
   padding-bottom: 0.5vw;
@@ -646,7 +651,8 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="number"],
-select {
+select,
+.shipping p:last-child {
   font-size: calc(0.5vw + 45%);
   font-weight: 100;
 }
@@ -1011,7 +1017,7 @@ a {
   animation: moveUp 2s forwards 0.3s;
 }
 .notification-container.success{
-  background-color: #483c32;
+  background-color: #4CAF50;
 }
 .notification-container.fail{
   background-color: #e43d31;
@@ -1482,7 +1488,8 @@ a {
 .single-product .product,
 .profile .product,
 .current-subscriptions .product-info-container,
-/* .cartDiv, */
+.cartDiv,
+#paymentOverview,
  .noCart .product, .thank-you .product {
   height: 30vw;
   border: solid 0.1px #00000045;
@@ -1491,7 +1498,9 @@ a {
   padding: 1vw;
   background-color: #fff;
 }
-
+#paymentOverview{
+  height:auto;
+}
 /* .shop .product:hover,
 .single-product .product:hover,
 .subscriptionItem:hover,
@@ -1665,7 +1674,8 @@ a {
 
 /***** PROFILE PAGE  *****/
 #form-profile label p,
-#savedCardFrm p {
+#savedCardFrm p,
+.shipping p:first-child {
   grid-column: 1/-1;
   font-family: "Lato", sans-serif;
   font-weight: bold;
@@ -2050,25 +2060,34 @@ input:checked + .btnRadio {
 /*   ADMIN PAGE   */
 
 #frmAddProduct,
-#frmUpdateStock,
-#frmUpdatePrice {
+.frmUpdateStock,
+.frmUpdatePrice {
   display: grid;
   margin: auto;
+  margin:1vw 0 ;
 }
-#frmUpdateStock,
-#frmUpdatePrice {
+.admin input{
+  background-color:#ddd !important;
+}
+.admin button{
+  margin:0 2vw;
+  /* height:2.5vw; */
+}
+.frmUpdateStock,
+.frmUpdatePrice {
   grid-template-columns: 1fr 1fr;
 }
 #frmAddProduct {
   grid-template-columns: 1fr;
   text-align: center;
   width: 500px;
-  margin: auto;
+  margin: 1vh auto;
 }
+/**/
 .adminProducts {
   margin: 5em;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 }
 .adminProduct {
   margin: 1em;
@@ -2263,14 +2282,14 @@ input:not(:focus).error {
   color: white;
   margin-left: 0.5vw;
 }
-.cartDiv {
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+.cartDiv, #paymentOverview {
+  grid-template-columns: 1.5fr 1fr .5fr;
   height: auto;
   padding:2vw;
   grid-gap:1vw;
   align-items: start;
 }
-.cartDiv .frmLine{
+.cartDiv .frmLine, #paymentOverview .frmLine{
   height:1px;
   background:black;
   grid-column: 1/-1;
@@ -2281,7 +2300,7 @@ input:not(:focus).error {
 }
 .cartDiv button{
   grid-row: 4;
-  grid-column: 3/-1;
+  grid-column: 2/-1;
   justify-self: end;
   background:black;
   width:50%;
@@ -2297,7 +2316,7 @@ input:not(:focus).error {
 
 .cartTotal {
   display: grid;
-  grid-template-columns: 2.5fr 1fr;
+  grid-template-columns: 2fr 1fr;
   align-items: center;
   justify-content: center;
 }
@@ -2333,9 +2352,8 @@ input.type_cart_grind{
   min-height: 55vh;
 }
 #paymentOverview img{
-  height:20vw;
+  height:10vw;
   width:auto;
-  margin:auto;
   display: block;
 }
 
@@ -3065,6 +3083,10 @@ form.listenTo.grid.grid-three{
   left:10vw;
   right:10vw;
   grid-gap: 2vw;
+}
+/*    LOGOUT PAGE   */
+.log-out.thank-you .container-banner{
+  top:80vw;
 }
 }
 
