@@ -2335,7 +2335,7 @@ input.price_cart{
 }
 .choose-credit-card select{
   border-radius: 0;
-  width:90%;
+  width:100%;
 }
 
 .paymentForm .show-newCardfrm {
