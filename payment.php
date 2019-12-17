@@ -26,8 +26,27 @@ if($_SESSION){
   <main id="paymentMain" class="mv-medium payment">  
     <a href="cart" class=" back-button absolute">&lt;</a>
     <div class="payment-container grid grid-two-thirds-reversed m-medium">
-      <div>  
-        <h1 class="align-self-bottom mb-small">Your purchase</h1>
+      <section id="paymentItems">  
+
+        <template id="paymentItemTemplate">
+          <div id="" class="cartDiv grid mb-small ">
+            <p class="bold">Description</p>
+            <p class="bold">Price</p>
+            <p class="bold">Quantity</p>
+          <div class="frmLine"></div>
+          <div>
+            <h3 class="title_cart bold uppercase pl-small" name="coffeeName"></h3>
+            <input class="type_cart_grind " name="coffeeGrind">
+            <img class="img_cart align-self-center" src="" />
+          </div>
+          <p class="price_cart"></p>
+          <input type="number" class="cart_quantity">
+          <!-- <button class="remove button align-self-center">Remove item</button> -->
+          </div>
+      </template>
+
+
+        <!-- <h1 class="align-self-bottom mb-small">Your purchase</h1>
         <div id="paymentOverview" class="grid p-medium">
         <p class="bold">Description</p>
         <p class="bold">Price</p>
@@ -42,8 +61,8 @@ if($_SESSION){
       <p class="price" name="coffeePrice"> </p>
       <p class="quantity" name="coffeePrice"> </p>
       
-      </div>
-    </div>
+      </div> -->
+      </section>
   
   <div class="paymentForm ph-regular pv-medium bg-grey">
       <h2 class="text-center pb-small">Checkout</h2>

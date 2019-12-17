@@ -971,6 +971,7 @@ a.back-button:hover {
   background-color: #000;
   border: solid 2px #000;
 }
+
 .button-delete-profile {
   margin: auto;
 }
@@ -978,7 +979,8 @@ a.back-button:hover {
 .button-delete-card,
 .button.button-edit,
 .button.button-save,
-.show-newCardFrm {
+.show-newCardFrm, 
+.remove {
   background-color: transparent;
   width: auto;
   height: auto;
@@ -996,7 +998,8 @@ a.back-button:hover {
 .button-delete-card:hover,
 .button.button-edit:hover,
 .button.button-save:hover,
-.show-newCardFrm:hover {
+.show-newCardFrm:hover,
+.remove:hover {
   box-shadow: none;
   color: #fb8b23;
 }
@@ -2358,13 +2361,13 @@ input:not(:focus).error {
 .cartDiv div {
   grid-row: 3/5;
 }
+
 .cartDiv button {
   grid-row: 4;
-  grid-column: 2/-1;
+  grid-column: 3/3;
   justify-self: end;
-  background: black;
-  width: 50%;
-  height: 20%;
+  width: 100%;
+  align-self: end;
 }
 
 .img_cart {

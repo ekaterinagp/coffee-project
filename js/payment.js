@@ -2,30 +2,51 @@
 
 let cart = JSON.parse(sessionStorage.getItem("cart"));
 console.log("cart", cart);
+let cartSection = document.querySelector("#paymentItems");
 //something silly
 if(cart){
     console.log(cart)
-    let title = document.querySelector("#youSelected");
-    let pPrice = document.querySelector(".price")
-    let pQuantity = document.querySelector(".quantity")
-    let pGrind = document.querySelector(".grind");
-    let img = document.querySelector("img");
-    let sumToPay = document.querySelector("#sumToPay");
-    let taxPayment = document.querySelector("#taxPayment");
-    let subsumPayment = document.querySelector("#subsumPayment");
 
-    title.textContent = cart[0].name;
-    img.setAttribute("src", cart[0].img)
-    pQuantity.textContent = cart[0].amount;
-    pPrice.textContent = cart[0].price;
-    pGrind.textContent = cart[0].typeGrind;
+    const sumToPay = document.querySelector("#sumToPay");
+    const taxPayment = document.querySelector("#taxPayment");
+    const subsumPayment = document.querySelector("#subsumPayment");
 
-    console.log(cart[0].price);
-    let price = cart[0].price.substr(0, cart[0].price.search(" "));
-    console.log(price);
-    sumToPay.textContent = (price * 1.25) + " DKK";
-    taxPayment.textContent = (price * 0.25) + " DKK";
-    subsumPayment.textContent = (price) + " DKK";
+    let subsum = 0;
+    let totalsum = 0;
+    let tax = 0;
+
+    sumToPay.textContent = 0; //(price * 1.25) + " DKK";
+    taxPayment.textContent = 0; //(price * 0.25) + " DKK";
+    subsumPayment.textContent = 0; //(price) + " DKK";
+
+    if (cart) {
+      cart.forEach(cartItem => {
+        let template = document.querySelector("#paymentItemTemplate").content;
+        let clone = template.cloneNode(true);
+        clone.querySelector(".title_cart").textContent = cartItem.name;
+        clone.querySelector(".img_cart").setAttribute("src", cartItem.img);
+        clone.querySelector(".cartDiv").setAttribute("id", cartItem.id);
+        clone.querySelector(".type_cart_grind").textContent = cartItem.typeGrind;
+        clone.querySelector(".price_cart").textContent = cartItem.price;
+        clone.querySelector(".cart_quantity").value = cartItem.amount;
+
+        let price = cartItem.price.substr(0, cartItem.price.search(" "));
+
+        subsum = parseInt(subsum) + parseInt(price);
+        tax = parseInt(subsum*0.25);
+        totalsum =parseInt(subsum*1.25);
+
+        sumToPay.textContent = totalsum + " DKK";
+        taxPayment.textContent = tax + " DKK";
+        subsumPayment.textContent = subsum + " DKK";
+
+        cartSection.appendChild(clone);
+
+      });
+
+    } else {
+      emptyTotal();
+    }
 
   let purchaseBtn = document.querySelector(".purchaseBtn");
   purchaseBtn.addEventListener("click", function(){
@@ -72,12 +93,9 @@ console.log(IBAN, CCV, expiration)
 });
 }
 
-
-
 function purchaseItem(cardID){
-    console.log("doPurvhase")
+    console.log("doPurchase");
 
-    // let itemToBePurchased = document.querySelector(".cartDiv").id
     let productID = cart[0].id;
     let creditCardID = cardID;
     let taxPercentage = 0.25;
