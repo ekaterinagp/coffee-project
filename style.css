@@ -23,6 +23,7 @@ img {
 
 h2 {
   font-size: 2em;
+  /* text-transform: capitalize !important; */
 }
 
 header .logo {
@@ -40,11 +41,17 @@ svg {
   height: 100%;
 }
 
+/* .section-one{
+  margin-top: 70px;
+} */
+
 .list ul {
   list-style-type: none;
 }
 
 .list {
+  /* padding: 1em 0 2em 3em; */
+  /* color: white; */
   display: grid;
   justify-content: center;
   align-content: center;
@@ -55,6 +62,7 @@ svg {
 
 .list1 {
   padding: 2em;
+  /* color: white; */
   background-color: white;
   display: grid;
   grid-template-rows: 2fr 2fr 2fr;
@@ -82,10 +90,6 @@ svg {
 
 .grid-almost-two {
   grid-template-columns: 3fr 2.5fr;
-}
-
-.grid-almost-two-reversed {
-  grid-template-columns: 2.5fr 3fr;
 }
 
 .grid-almost-two-reversed {
@@ -360,7 +364,7 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
 }
 .p-smallest {
   padding: 5px;
-  font-size: calc(0.5vw + 30%);
+  font-size: 0.9em;
 }
 .ph-small {
   padding-left: 1vw;
@@ -632,7 +636,7 @@ h4, a {
   font-size: calc(0.8vw + 45%);
 }
 p{
-  font-size: calc(0.8vw + 40%);
+  font-size: calc(0.8vw + 20%);
 }
 h5,
 button {
@@ -952,14 +956,17 @@ a {
   background:none;
   position: absolute;
   border: none;
-  left: 5vw;
-  top: 8vw;
+  left: 2vw;
+  top: 4.5vw;
   transition: all 0.3s;
-  font-size: 350%;
+  font-size: 250%;
   cursor: pointer;
 }
+a.back-button:hover{
+  color: #fb8b23;
+}
 
-.button-delete-profile, .button-delete {
+.button-delete-profile, .button-delete-card, .button-delete {
   background-color: #000;
   border: solid 2px #000;
 }
@@ -971,7 +978,7 @@ a {
 .show-newCardFrm
 {
   background-color: transparent;
-  width: calc(3vw + 19%);
+  width: auto;
   height: auto;
   border: none;
   box-shadow: none;
@@ -984,13 +991,14 @@ a {
   align-self: end;
 }
 
-.button-delete-card:hover, .button.button-edit:hover, .button.button-save:hover{
+.button-delete-card:hover, .button.button-edit:hover, .button.button-save:hover,
+.show-newCardFrm:hover{
   box-shadow: none;
   color: #fb8b23;
 }
 
 .subscriptionItem .button-delete,
-.profile-details .button-add {
+.profile-details .button-add, .profile-details .button-delete-card {
   margin: 2vw auto;
 }
 
@@ -1215,6 +1223,7 @@ a {
 } */
 
 .section-five .masonry .item.one .image1 {
+  /* min-height: 20vw; */
   height: 80%;
 }
 
@@ -1497,9 +1506,7 @@ a {
 .shop .products-container,
 .single-product .products-container,
 .profile .products-container, .creditcard-info, .noCart .products-container, 
-.thank-you .products-container, #form-profile, .profile-details.details-two,
-.form-profile-form-container-info, .form-profile-form-container-shipping,
-.choose-credit-card{
+.thank-you .products-container  {
   grid-gap: 1vw;
 }
 
@@ -1745,16 +1752,20 @@ a {
 .hide-button {
   display: none;
 }
+#form-profile{
+  grid-gap:1vw;
+}
 
 #form-profile .formButtonContainer{
   display: grid;
   width: 100%;
   align-self: end;
   grid-column: 1/-1;
+  grid-row: 5;
 }
 
 .formButtonContainer .button{
-  justify-self: right;
+  justify-self: center;
 }
 
 
@@ -2085,8 +2096,12 @@ input:checked + .btnRadio {
   background-color:#ddd !important;
 }
 .admin button{
-  margin:0 2vw;
+  margin: 1vw 2vw;
   /* height:2.5vw; */
+}
+.admin .button-delete{
+  justify-self:right;
+  margin: 2vw 0;
 }
 .frmUpdateStock,
 .frmUpdatePrice {
@@ -2356,7 +2371,9 @@ input.cart_quantity {
 input.price_cart{
   font-size: inherit;
 }
-
+input.type_cart_grind{
+  text-transform: capitalize;
+}
 .noCart {
   display: none;
 }
@@ -2379,7 +2396,7 @@ input.price_cart{
 }
 .choose-credit-card select{
   border-radius: 0;
-  width:100%;
+  width:90%;
 }
 
 #newCardFrm {
