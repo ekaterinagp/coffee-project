@@ -26,6 +26,8 @@ if($_SESSION){
   <main id="paymentMain" class="mv-medium payment">  
     <a href="cart" class=" back-button absolute">&lt;</a>
     <div class="payment-container grid grid-two-thirds-reversed m-medium">
+      <div>
+    <h1 class="text-left pb-small">Purchase overview</h1>
       <section id="paymentItems">  
 
         <template id="paymentItemTemplate">
@@ -45,7 +47,7 @@ if($_SESSION){
           </div>
       </template>
 
-
+      </div>
         <!-- <h1 class="align-self-bottom mb-small">Your purchase</h1>
         <div id="paymentOverview" class="grid p-medium">
         <p class="bold">Description</p>
