@@ -1927,6 +1927,7 @@ h4.productPrice,
 
 .containerForSubscriptions {
   max-width: 100%;
+  grid-gap:1vw;
 }
 
 .selectedItem {
