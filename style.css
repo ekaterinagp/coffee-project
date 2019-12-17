@@ -1537,10 +1537,6 @@ a {
 .options-container {
   grid-gap: 1vh;
 }
-#addToCartBtn, .paymentButton {
-  margin: 3vh  0;
-  float:right;
-}
 
 .single-product .image {
   background-position: left;

@@ -71,7 +71,7 @@ function selectQ() {
     cart.forEach(cartItem => {
       //parseInt takes a string and returns a number
       totalPrice = totalPrice + parseInt(cartItem.price);
-
+      taxAmount = totalPrice * 0.25
       // let oneItemSum = cartItem.price;
       // let oneItemTitle = cartItem.name;
       let template = document.querySelector("#totalItemsTemplate").content;
@@ -80,7 +80,7 @@ function selectQ() {
       sectionTotal.appendChild(clone);
     });
   }
-
+document.getElementById("tax").textContent = taxAmount;
   document.getElementById("totalsum").innerHTML =
     "Total: " + totalPrice + "DKK";
 
