@@ -15,8 +15,7 @@ if($_SESSION){
   $userLastname = $_SESSION['user']['cSurname'];
   $userAddress = $_SESSION['user']['cAddress'];
   $userPhone = $_SESSION['user']['cPhoneNo'];
-  // echo $userAddress;
-  // echo $userPhone;
+  $userCity = $_SESSION['user']['nCityID'];
   require_once(__DIR__ . '/connection.php');
 
   $sql = "SELECT * FROM tCreditCard WHERE tCreditCard.nUserID = :id";
@@ -60,6 +59,74 @@ if($_SESSION){
          <p class="pb-small"><?=$userAddress?></p>
          </div>
          <div class="shipping pb-small">
+         <p>City</p>
+         <p class="pb-small">
+            <?php if ($userCity = 1) {?>
+              Copenhagen 
+            <?php }
+            elseif ($userCity = 2){?>
+              Århus
+            <?php }
+            elseif ($userCity = 3){?>
+              Odense
+            <?php }
+            elseif ($userCity = 4){?>
+              Roskilde
+            <?php }
+            elseif ($userCity = 5){?>
+              Lyngby
+            <?php }
+            elseif ($userCity = 6){?>
+              Aalborg
+            <?php }
+            elseif ($userCity = 7){?>
+              Silkeborg
+            <?php }
+            elseif ($userCity = 8){?>
+              Ballerup
+            <?php }
+            elseif ($userCity = 9){?>
+              Hellerup
+            <?php }
+            elseif ($userCity = 10){?>
+              Holte
+            <?php }
+            elseif ($userCity = 11){?>
+              Horsens
+            <?php }
+            elseif ($userCity = 12){?>
+              Randers
+            <?php }
+            elseif ($userCity = 13){?>
+              Sønderborg
+            <?php }
+            elseif ($userCity = 14){?>
+              Helsingør
+            <?php }
+            elseif ($userCity = 15){?>
+              Dragør
+            <?php }
+            elseif ($userCity = 16){?>
+              Charlottenlund
+            <?php }
+            elseif ($userCity = 17){?>
+              Frederiksberg
+            <?php }
+            elseif ($userCity = 18){?>
+              Valby
+            <?php }
+            elseif ($userCity = 19){?>
+              Whateverby
+            <?php }
+            elseif ($userCity = 20){?>
+              Herlev
+            <?php }
+            elseif ($userCity = 21){?>
+              Vanløse
+            <?php }?>
+        </p>
+         </div>
+         <div class="shipping pb-small">
          <p>Phone number </p>
          <p class="pb-medium"><?=$userPhone?></p>
          </div>
@@ -69,7 +136,7 @@ if($_SESSION){
       <h4 class="totalPrice align-self-top" id="sumTopay"></h4>
         </div>
       </div>
-  <form method="POST" id="savedCardFrm" class="choose-credit-card mb-medium grid grid-two-thirds-reversed">
+  <form method="POST" id="savedCardFrm" class="choose-credit-card pb-small grid grid-two-thirds-reversed">
 <?php
 
 if($statementCreditCard->execute([':id' => $nUserID])){
@@ -90,9 +157,9 @@ if($statementCreditCard->execute([':id' => $nUserID])){
       ?>
     </select>
     </label>
-    <button class="button purchaseBtn align-self-bottom">Purchase</button>
+    <button class="button show-newCardFrm">Add New</button>
     </form>
-    <button class="button show-newCardFrm mb-medium">Add New</button>
+    <button class="button purchaseBtn align-self-bottom">Purchase</button>
 <form method="POST" id="newCardFrm">
 <label class="grid grid-two-thirds" for="inputIBAN">
             <p class="text-left align-self-center">IBAN</p><h5 class="light text-right">IBAN must be 18 digits</h5>

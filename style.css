@@ -967,7 +967,9 @@ a {
   margin: auto;
 }
 
-.button-delete-card, .button.button-edit, .button.button-save{
+.button-delete-card, .button.button-edit, .button.button-save,
+.show-newCardFrm
+{
   background-color: transparent;
   width: calc(3vw + 19%);
   height: auto;
@@ -976,6 +978,10 @@ a {
   color: #000;
   text-decoration: underline;
   padding: 1.5vw 0;
+}
+
+.show-newCardFrm{
+  align-self: end;
 }
 
 .button-delete-card:hover, .button.button-edit:hover, .button.button-save:hover{
@@ -2376,9 +2382,6 @@ input.price_cart{
   width:100%;
 }
 
-.paymentForm .show-newCardfrm {
-  margin: 0 auto 3vw;
-}
 #newCardFrm {
   max-width: 30vw;
   margin:auto;
