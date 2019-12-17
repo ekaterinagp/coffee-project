@@ -9,9 +9,7 @@ require_once(__DIR__ . '/connection.php');
   <div class="cartTotal grid grid-two-thirds-reversed m-medium">
   <div>
   <h1 class="text-left pb-small">Your cart</h1>
-  
     <section id="cartItems">
-      
       <template id="cartItemTemplate">
         <div id="" class="cartDiv grid mb-small ">
           <p class="bold">Description</p>
@@ -25,7 +23,6 @@ require_once(__DIR__ . '/connection.php');
           </div>
               <p class="price_cart"></p>
               <input type="number" class="cart_quantity">
-
             <button class="remove button align-self-center">Remove item</button>
           <!-- </div> -->
         </div>

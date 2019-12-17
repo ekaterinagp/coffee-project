@@ -29,7 +29,6 @@ if($_SESSION){
       <div>
     <h1 class="text-left pb-small">Purchase overview</h1>
       <section id="paymentItems">  
-
         <template id="paymentItemTemplate">
           <div id="" class="cartDiv grid mb-small ">
             <p class="bold">Description</p>
