@@ -2378,7 +2378,6 @@ input:not(:focus).error {
 .img_cart {
   height: 10vw;
   width: auto;
-  justify-self: center;
 }
 
 .cart_desc input{

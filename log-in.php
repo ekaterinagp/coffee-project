@@ -31,7 +31,7 @@ if ($_SESSION) {
           </label>
 
 
-        <button id="loginBtn" class="formBtn button" >Log in</button>
+        <button id="loginBtn" class="formBtn button margin-auto mv-small" >Log in</button>
       </form>
     </div>
   </div>
