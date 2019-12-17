@@ -2323,7 +2323,7 @@ input.price_cart,
 input.cart_quantity {
   border: none;
   display: inline;
-  width:100%;
+  /* width:100%; */
 }
 .title_cart{
   text-align: left !important;
