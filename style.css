@@ -1588,7 +1588,7 @@ a.back-button:hover {
   grid-gap: 1vh;
 }
 
-.single-product .image {
+.single-product .product-info-container .image {
   background-position: left;
 }
 .product-purchase-container h2,
