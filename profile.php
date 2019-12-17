@@ -28,18 +28,6 @@ $nUserID = $jLoggedUser['nUserID'];
                 FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID WHERE tProduct.bActive != 0 LIMIT 4";
   $statementProducts = $connection->prepare($sqlProducts);
 
-  // SUBSCRIPTIONS THAT THE USER IS NOT SUBSCRIBED TO
-  // $sqlSubscriptions = "SELECT DISTINCT tSubscriptiontype.cName, tSubscriptiontype.nSubscriptionTypeID AS nSubscriptionID, 
-  //                   tProduct.cName AS cProductName, tProduct.nPrice AS nSubscriptionPrice, tProduct.bActive,
-  //                   tCoffeeType.cName AS cCoffeeTypeName 
-  //                   FROM tSubscriptiontype 
-  //                   INNER JOIN tProduct ON tProduct.nProductID=tsubscriptiontype.nProductID
-  //                   INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID 
-  //                   INNER JOIN tUserSubscription ON tUserSubscription.nSubscriptionTypeID = tSubscriptionType.nSubscriptionTypeID
-  //                   WHERE tProduct.bActive != 0 AND tUserSubscription.nUserID = :id";
-
-  // $statementSubscriptions = $connection->prepare($sqlSubscriptions);
-
   $sqlSubscriptions = "SELECT tSubscriptionType.nSubscriptionTypeID, tSubscriptionType.cName AS cSubscriptionName,
                       tProduct.nProductID, tProduct.cName AS cProductName, tProduct.nPrice, tProduct.nStock, tProduct.bActive, 
                       tCoffeeType.nCoffeeTypeID, tCoffeeType.cName  
@@ -67,14 +55,15 @@ $nUserID = $jLoggedUser['nUserID'];
   $statementCreditCard = $connection->prepare($sqlCreditCard);
 
   ?>
-
   <main class="profile mb-large">
-    <h1 class="text-center pv-medium">Welcome <?= $jLoggedUser['cName']; ?></h1>
     <section class="section-one grid ph-medium mb-large">
-      <div class="profile-info-container grid grid-two-thirds-reversed">
-        <div class="profile-details details-one bg-grey pv-medium ph-large  ">
-          <h2 class="text-left">Profile Details</h2>
-          <form id="form-profile" class=" grid grid-two pt-small " method="post">
+    <h1 class="pt-medium">Welcome <?= $jLoggedUser['cName']; ?></h1>
+      <div class="profile-info-container grid grid-almost-two">
+        <div class="profile-details details-one grid">
+          <form id="form-profile" class="grid" method="post">
+
+          <h2 class="text-left">Profile details</h2>
+          <div class="form-profile-form-container-info grid grid-two bg-grey pv-medium ph-medium">
             <label id="cName" class="grid" for="name">
               <p class="text-left align-self-center">Name</p>
               <input class=" not-input" data-type="string" data-min="2" data-max="20" type="text" data-type="string" name="inputName" placeholder="First name" value="<?= $jLoggedUser['cName']; ?>">
@@ -98,6 +87,10 @@ $nUserID = $jLoggedUser['nUserID'];
               <input class=" not-input" type="email" data-type="email" name="inputEmail" placeholder="email" value="<?= $jLoggedUser['cEmail']; ?>">
               <div class="errorMessage" id="emailDiv">Must be a valid email address</div>
             </label>
+            </div>
+
+            <h2 class="text-left">Shipping details</h2>
+            <div class="form-profile-form-container-shipping grid grid-two bg-grey pv-medium ph-large">
             <label id="nCityID" for="cityInput" class="grid">
               <p class="text-left align-self-center">City</p>
               <select class=" not-input" data-type="integer" data-min="0" data-max="999" name="cityInput" value="<?= $jLoggedUser['nCityID'] ?>">
@@ -135,15 +128,18 @@ $nUserID = $jLoggedUser['nUserID'];
               <input class=" not-input" type="number" data-type="number" data-min="9999999" data-max="99999999" name="inputPhone" placeholder="phone number" value="<?= $jLoggedUser['cPhoneNo']; ?>">
               <div class="errorMessage">Must be 8 characters</div>
             </label>
+            </div>
             <div class="formButtonContainer">
                 <button class="button-edit button">Edit information</button>
                 <button class="button-save formBtn hide-button button">Save information</button>
             </div>
           </form>
         </div>
-      <div class="profile-details details-two bg-grey pv-medium ph-large"> 
+      
+      <div class="profile-details details-two grid"> 
+      <h2 class="text-left">Creditcard details</h2>
         <div class="creditcard-container">
-          <h2 class="text-left">Creditcard Details</h2>
+        <div class="form-profile-form-container-creditcard bg-grey pv-medium ph-medium">
           <form method="POST" id="savedCardFrm" class=" pt-small choose-credit-card">
       
           <?php
@@ -192,6 +188,7 @@ $nUserID = $jLoggedUser['nUserID'];
 
           <button class="button-save formBtn hide-button button " disabled>Save creditcard</button>
         </form>
+        </div>
       </div>
       </div>
     </section>
