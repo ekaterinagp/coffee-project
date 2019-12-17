@@ -11,16 +11,21 @@ if(cart){
     let pGrind = document.querySelector(".grind");
     let img = document.querySelector("img");
     let sumToPay = document.querySelector("#sumToPay");
+    let taxPayment = document.querySelector("#taxPayment");
+    let subsumPayment = document.querySelector("#subsumPayment");
+
     title.textContent = cart[0].name;
     img.setAttribute("src", cart[0].img)
     pQuantity.textContent = cart[0].amount;
     pPrice.textContent = cart[0].price;
     pGrind.textContent = cart[0].typeGrind;
 
-    console.log(cart[0].price )
-    let price = cart[0].price.substr(0, cart[0].price.search(" "))
-    console.log(price)
-    sumToPay.textContent= (price * 1.25 ) + " DKK";
+    console.log(cart[0].price);
+    let price = cart[0].price.substr(0, cart[0].price.search(" "));
+    console.log(price);
+    sumToPay.textContent = (price * 1.25) + " DKK";
+    taxPayment.textContent = (price * 0.25) + " DKK";
+    subsumPayment.textContent = (price) + " DKK";
 
   let purchaseBtn = document.querySelector(".purchaseBtn");
   purchaseBtn.addEventListener("click", function(){

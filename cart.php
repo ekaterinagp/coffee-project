@@ -6,12 +6,14 @@ require_once(__DIR__ . '/connection.php');
 ?>
 
 <main class="cartMain mt-small mb-footer">
-<h1 class="text-center">Your cart</h1>
-  <div class="cartTotal mh-medium">
+  <div class="cartTotal grid grid-two-thirds-reversed m-medium">
+  <div>
+  <h1 class="text-left pb-small">Your cart</h1>
+  
     <section id="cartItems">
       
       <template id="cartItemTemplate">
-        <div id="" class="cartDiv grid  mb-small ">
+        <div id="" class="cartDiv grid mb-small ">
           <p class="bold">Description</p>
           <p class="bold">Price</p>
           <p class="bold">Quantity</p>
@@ -21,10 +23,8 @@ require_once(__DIR__ . '/connection.php');
             <input class="type_cart_grind " name="coffeeGrind">
           <img class="img_cart align-self-center" src="" />
           </div>
-
-            <!-- <div class="price_number"> -->
-              <input class=" price_cart " name="coffeePrice">
-              <input class="cart_quantity " name="coffeeQuantity">
+              <p class="price_cart"></p>
+              <input type="number" class="cart_quantity">
 
             <button class="remove button align-self-center">Remove item</button>
           <!-- </div> -->
@@ -32,22 +32,21 @@ require_once(__DIR__ . '/connection.php');
       </template>
 
     </section>
-
-    <div class="total bg-grey ml-medium p-medium align-self-top">
+    </div>
+    <div class="total bg-grey ph-regular pv-medium align-self-top">
      
       <section id="totalItemsSection">
+      <h2 class=" text-center pb-small">Checkout </h2>
         
         <template id="totalItemsTemplate">
-          
-          <!-- <h3 id="" class="totalDiv">
-           
-          </h3> -->
         </template>
       </section>
-      <h3 class="align-self-bottom mt-medium text-right">Total amount</h3>
+      <h4 class="align-self-bottom mt-small text-right">Subtotal</h4>
+      <p id="subsum" class="pb-small text-right align-self-top"></p>
+      <h4 class="align-self-bottom text-right">Tax</h4>
+      <p id="tax" class="pb-small text-right align-self-top"></p>
+      <h3 class="align-self-bottom mt-small text-right">Total amount</h3>
       <h4 id="totalsum" class="pb-small text-right align-self-top"></h4>
-      <h3 class="align-self-bottom text-right">Tax</h3>
-      <h4 id="tax" class="pb-small text-right align-self-top"></h4>
       <a href="<?php if($_SESSION){echo 'payment';} else{echo'log-in';}?>"><button class="button margin-auto mv-small paymentButton"><?php if($_SESSION){echo 'Go to payment';} else{echo'Please log in';}?></button></a>
     
   </div>

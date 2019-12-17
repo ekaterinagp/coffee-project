@@ -45,8 +45,8 @@ if($_SESSION){
       </div>
     </div>
   
-  <div class="paymentForm p-medium bg-grey">
-      <h2 class=" text-center">Checkout </h2>
+  <div class="paymentForm ph-regular pv-medium bg-grey">
+      <h2 class="text-center pb-small">Checkout</h2>
      <div class="grid grid-two">
        <div>
 
@@ -133,8 +133,12 @@ if($_SESSION){
          </div>
         </div>
         <div class="align-self-bottom">
+        <h4 class="subsumPayment align-self-bottom mt-small text-right">Subtotal</h4>
+        <p id="subsumPayment" class="pb-small text-right align-self-top"></p>
+        <h4 class="taxPayment align-self-bottom">Tax</h4>
+        <p id="taxPayment" class="pb-small text-right align-self-top"></p>
         <h3 class="align-self-bottom mt-small text-right uppercase">Total amount</h3>
-      <h4 class="totalPrice align-self-top" id="sumTopay"></h4>
+        <h4 class="totalPrice align-self-top" id="sumTopay"></h4>
         </div>
       </div>
   <form method="POST" id="savedCardFrm" class="choose-credit-card pb-medium grid grid-two-thirds-reversed">
