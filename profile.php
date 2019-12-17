@@ -28,18 +28,6 @@ $nUserID = $jLoggedUser['nUserID'];
                 FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID WHERE tProduct.bActive != 0 LIMIT 4";
   $statementProducts = $connection->prepare($sqlProducts);
 
-  // SUBSCRIPTIONS THAT THE USER IS NOT SUBSCRIBED TO
-  // $sqlSubscriptions = "SELECT DISTINCT tSubscriptiontype.cName, tSubscriptiontype.nSubscriptionTypeID AS nSubscriptionID, 
-  //                   tProduct.cName AS cProductName, tProduct.nPrice AS nSubscriptionPrice, tProduct.bActive,
-  //                   tCoffeeType.cName AS cCoffeeTypeName 
-  //                   FROM tSubscriptiontype 
-  //                   INNER JOIN tProduct ON tProduct.nProductID=tsubscriptiontype.nProductID
-  //                   INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID 
-  //                   INNER JOIN tUserSubscription ON tUserSubscription.nSubscriptionTypeID = tSubscriptionType.nSubscriptionTypeID
-  //                   WHERE tProduct.bActive != 0 AND tUserSubscription.nUserID = :id";
-
-  // $statementSubscriptions = $connection->prepare($sqlSubscriptions);
-
   $sqlSubscriptions = "SELECT tSubscriptionType.nSubscriptionTypeID, tSubscriptionType.cName AS cSubscriptionName,
                       tProduct.nProductID, tProduct.cName AS cProductName, tProduct.nPrice, tProduct.nStock, tProduct.bActive, 
                       tCoffeeType.nCoffeeTypeID, tCoffeeType.cName  
@@ -68,40 +56,48 @@ $nUserID = $jLoggedUser['nUserID'];
 
   ?>
 
-  <main class="profile mb-large">
-    <h1 class="text-center pv-medium">Welcome <?= $jLoggedUser['cName']; ?></h1>
+  <main class="profile mb-footer">
     <section class="section-one grid ph-medium mb-large">
-
+    <h1 class="pt-medium">Welcome <?= $jLoggedUser['cName']; ?></h1>
       <div class="profile-info-container grid grid-almost-two">
-        <div class="profile-details details-one bg-grey pv-medium ph-medium">
-          <h2 class="text-left">Profile Details</h2>
-          <form id="form-profile" class=" grid grid-two pt-small " method="post">
-            <label id="cName" class="grid grid-two-thirds" for="name">
-              <p class="text-left align-self-center">Name</p> 
+        <div class="profile-details details-one grid">
+          <form id="form-profile" class="grid" method="post">
+
+          <h2 class="text-left">Profile details</h2>
+          <div class="form-profile-form-container-info grid grid-two bg-grey pv-medium ph-medium">
+            <label id="cName" class="grid pb-small" for="name">
+              <p class="text-left align-self-center">Name</p>
               <input class=" not-input" data-type="string" data-min="2" data-max="20" type="text" data-type="string" name="inputName" placeholder="First name" value="<?= $jLoggedUser['cName']; ?>">
               <h5 class="light">Must be 1 to 20 characters</h5>
             </label>
 
-            <label id="cSurname" class="grid grid-two-thirds" for="lastName">
+            <label id="cSurname" class="grid grid-two-thirds pb-small" for="lastName">
               <p class="text-left align-self-center">Last Name</p>
               <input class="  not-input" data-type="string" data-min="2" data-max="20" type="text" name="inputLastName" placeholder="Last name" value="<?= $jLoggedUser['cSurname']; ?>">
               <h5 class="light">Must be 1 to 20 characters</h5>
             </label>
 
-            <label class="grid grid-two-thirds" for="loginName">
+            <label class="grid grid-two-thirds pb-small" for="loginName">
               <p class="text-left align-self-center">Username</p>
               <input class=" not-input" type="text" data-type="string" data-min="2" data-max="12" name="inputLoginName" placeholder="username" value="<?= $jLoggedUser['cUsername']; ?>">
               <h5 class="light">Must be 2 to 12 characters</h5>
             </label>
 
-            <label id="cEmail" class="grid grid-two-thirds" for="email">
+            <label id="cEmail" class="grid grid-two-thirds pb-small" for="email">
               <p class="text-left align-self-center">Email</p>
               <input class=" not-input" type="email" data-type="email" name="inputEmail" placeholder="email" value="<?= $jLoggedUser['cEmail']; ?>">
               <h5 class="light">Must be a valid email address</h5>
             </label>
-            <label id="nCityID" for="cityInput" class="grid grid-two-thirds">
+            <div class="formButtonContainer">
+                <button class="button-edit button">Edit information</button>
+                <button class="button-save formBtn hide-button button">Save information</button>
+            </div>
+            </div>
+
+            <h2 class="text-left">Shipping details</h2>
+            <div class="form-profile-form-container-shipping grid grid-two bg-grey pv-medium ph-medium">
+            <label id="nCityID" for="cityInput" class="grid pb-small">
               <p class="text-left align-self-center">City</p>
-              <h5 class="light">Choose your city</h5>
               <select class=" not-input" data-type="integer" data-min="0" data-max="999" name="cityInput" value="<?= $jLoggedUser['nCityID'] ?>">
                 <option value="1" <?php if ($jLoggedUser['nCityID'] = 1) echo 'selected' ?>>Copenhagen</option>
                 <option value="2" <?php if ($jLoggedUser['nCityID'] = 2) echo 'selected' ?>>Århus</option>
@@ -125,14 +121,15 @@ $nUserID = $jLoggedUser['nUserID'];
                 <option value="20" <?php if ($jLoggedUser['nCityID'] = 20) echo 'selected' ?>>Herlev</option>
                 <option value="21" <?php if ($jLoggedUser['nCityID'] = 21) echo 'selected' ?>>Vanløse</option>
               </select>
+              <h5 class="light">Choose your city</h5>
             </label>
-            <label id="cAddress" class="grid grid-two-thirds" for="userAddress">
+            <label id="cAddress" class="grid grid-two-thirds pb-small" for="userAddress">
               <p class="text-left align-self-center">Address</p>    
               <input class=" not-input" type="text" data-type="string" data-min="12" data-max="9999999999" name="inputAddress" placeholder="Address" value="<?= $jLoggedUser['cAddress']; ?>">
               <h5 class="light">Must be 12+ characters</h5>
             </label>
 
-            <label id="cPhoneNo" class="grid grid-two-thirds" for="userPhone">
+            <label id="cPhoneNo" class="grid grid-two-thirds pb-small" for="userPhone">
               <p class="text-left align-self-center">Phone</p>        
               <input class=" not-input" type="number" data-type="number" data-min="9999999" data-max="99999999" name="inputPhone" placeholder="phone number" value="<?= $jLoggedUser['cPhoneNo']; ?>">
               <h5 class="light">Must be 8 characters</h5>
@@ -141,19 +138,22 @@ $nUserID = $jLoggedUser['nUserID'];
                 <button class="button-edit button">Edit information</button>
                 <button class="button-save formBtn hide-button button">Save information</button>
             </div>
+            </div>
           </form>
         </div>
-      <div class="profile-details details-two bg-grey pv-medium ph-medium"> 
+      
+      <div class="profile-details details-two grid"> 
+      <h2 class="text-left">Creditcard details</h2>
         <div class="creditcard-container">
-          <h2 class="text-left">Creditcard Details</h2>
-          <form method="POST" id="savedCardFrm" class=" pt-small choose-credit-card">
+        <div class="form-profile-form-container-creditcard bg-grey pv-medium ph-medium">
+          <form method="POST" id="savedCardFrm" class="choose-credit-card  grid grid-two-thirds-reversed">
       
           <?php
             if ($statementCreditCard->execute([':id' => $nUserID])) {
               $jUserCreditCards = $statementCreditCard->fetchAll(PDO::FETCH_ASSOC);
 
               if (count($jUserCreditCards) >= 1) {?>
-              <label class=" align-self-center"><p class="text-left">Your credit cards</p>
+              <label class=" align-self-center"><p class="text-left pb-small">Your credit cards</p>
                 <select  name="userCreditCards" id="">
 
               <?php
@@ -194,6 +194,7 @@ $nUserID = $jLoggedUser['nUserID'];
 
           <button class="button-save formBtn hide-button button " disabled>Save creditcard</button>
         </form>
+        </div>
       </div>
       </div>
     </section>
@@ -237,7 +238,7 @@ $nUserID = $jLoggedUser['nUserID'];
       </div>
     </section>
 
-    <section class="section-three ph-large mb-medium">
+    <section class="section-three ph-large mb-footer">
       <h2 class="mb-small">Want to try something new?</h2>
       <h3 class="mb-small">Visit the shop and explore a world of quality coffee</h3>
       <div class="related-products relative">

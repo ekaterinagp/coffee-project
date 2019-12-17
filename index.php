@@ -166,7 +166,7 @@ require_once(__DIR__ . '/components/header.php');
 
     </section>
 
-    <section class="section-five grid mb-large">
+    <section class="section-five grid mb-footer">
         <h2 class="mb-small">Enhance your experience</h2>
         <h3 class="mb-small">Tips and tricks to make your best cup of coffee</h3>
         <div class="grid grid-four container masonry">
@@ -179,12 +179,12 @@ require_once(__DIR__ . '/components/header.php');
                     <div class="back p-medium ">
 
 
-                        <p class=""> If you prefer<strong> coffee with a smooth taste </strong>, then look for dry, light coloured coffee beans, which are roasted for a shorter time.
+                        <p class="p-smallest"> If you prefer<strong> coffee with a smooth taste </strong>, then look for dry, light coloured coffee beans, which are roasted for a shorter time.
                             If you like a strong, bold cofee, buy beans,that roasted longer.
 
                         </p>
-                        <p class=""><strong>Light roasted coffee beans contain the highest level of caffeine </strong>, then medium and then dark roasted. If you are looking for increase your caffeine intake, you are better going for light or medium roasted beans. </p>
-                        <p class="">Freshness is important, so <strong>check the roast date </strong> the label before buying coffee! If you don’t have a coffee grinder in your house, go for the whole bean bag and ask the supermarket or café to grind them for you.</p>
+                        <p class="p-smallest"><strong>Light roasted coffee beans contain the highest level of caffeine </strong>, then medium and then dark roasted. If you are looking for increase your caffeine intake, you are better going for light or medium roasted beans. </p>
+                        <p class="p-smallest">Freshness is important, so <strong>check the roast date </strong> the label before buying coffee! If you don’t have a coffee grinder in your house, go for the whole bean bag and ask the supermarket or café to grind them for you.</p>
 
                     </div>
                 </div>
@@ -197,7 +197,7 @@ require_once(__DIR__ . '/components/header.php');
                         <h4 class="color-white relative text-cente">How to brew coffee</h4>
                     </div>
                     <div class="back p-medium">
-                        <p class="">Make sure that <strong>your tools are cleaned and rinsed </strong> hot water. It’s important to check that no grounds have been left to collect and that there’s no build-up of coffee, which can make future cups of coffee taste bitter and rancid.</p>
+                        <p class="p-smallest">Make sure that <strong>your tools are cleaned and rinsed </strong> hot water. It’s important to check that no grounds have been left to collect and that there’s no build-up of coffee, which can make future cups of coffee taste bitter and rancid.</p>
                         <p class="p-smallest"><strong>Great coffee starts with great beans </strong> the flavour of your coffee is not only determined by your favourite brewing process, but also by the type of coffee you select.</p>
                         <p class="p-smallest"> Buy coffee as soon as possible after it’s roasted. <strong>Fresh-roasted coffee is essential </strong> to a quality cup, so buy your coffee in small amounts (ideally every two weeks).</p>
                         <p class="p-smallest"><strong>The size of the grind is hugely important </strong> to the taste of your coffee. If your coffee tastes bitter, it may be over-extracted, or ground too fine. On the other hand, if your coffee tastes flat, it may be under-extracted, meaning your grind is too rough.</p>

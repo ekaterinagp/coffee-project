@@ -26,12 +26,21 @@ if($_SESSION){
 ?>
   <main id="paymentMain" class="mv-medium payment">  
     <a href="cart" class=" back-button color-orange absolute">&lt;</a>
-    <div class="payment-container grid grid-two-thirds m-medium">
+    <div class="payment-container grid grid-almost-two-reversed m-medium">
       <div>  
-        <h3 class="align-self-bottom mt-medium pl-medium uppercase">Your purchase</h3>
-        <h1 id="youSelected" class="pl-medium"> </h1>
-        <div id="paymentOverview" class="p-medium">
-        <img src="" />  
+        <h3 class="align-self-bottom mt-medium uppercase">Your purchase</h3>
+        <div id="paymentOverview" class="grid p-medium">
+        <p class="bold">Description</p>
+        <p class="bold">Price</p>
+        <p class="bold">Quantity</p>
+      <div class="frmLine"></div>
+      <div>
+
+        <h3 id="youSelected" class="bold uppercase text-center"></h3>
+        <img src="" /> 
+      </div>
+      <p class="price" name="coffeePrice"> </p>
+      <p class="quantity" name="coffeePrice"> </p>
       
       </div>
     </div>
@@ -42,11 +51,20 @@ if($_SESSION){
        <div>
 
          <h4 class="bold mt-small">Shipping Details</h4>
-         <p class="bold pb-small"><strong>Name: </strong><?="$userName  $userLastname"?></p>
-         <p class="pb-small"><strong>Address:</strong> <?=$userAddress?></p>
-         <p class="pb-medium"><strong>Phone number:</strong> <?=$userPhone?></p>
+         <div class="shipping pb-small">
+         <p>Name</p>
+         <p class=" pb-small"><?="$userName  $userLastname"?></p>
+         </div>
+         <div class="shipping pb-small">
+         <p>Address </p>
+         <p class="pb-small"><?=$userAddress?></p>
+         </div>
+         <div class="shipping pb-small">
+         <p>Phone number </p>
+         <p class="pb-medium"><?=$userPhone?></p>
+         </div>
         </div>
-        <div>
+        <div class="align-self-bottom">
         <h3 class="align-self-bottom mt-small text-right uppercase">Total amount</h3>
       <h4 class="totalPrice align-self-top" id="sumTopay"></h4>
         </div>
@@ -73,7 +91,7 @@ if($statementCreditCard->execute([':id' => $nUserID])){
     </select>
     </label>
     <button class="button purchaseBtn align-self-bottom">Purchase</button>
-    </form><h4>Or pay with another credit card</h4>
+    </form>
     <button class="button show-newCardFrm mb-medium">Add New</button>
 <form method="POST" id="newCardFrm">
 <label class="grid grid-two-thirds" for="inputIBAN">

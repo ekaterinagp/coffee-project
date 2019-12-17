@@ -4,7 +4,7 @@ require_once(__DIR__.'/components/header.php');
 require_once(__DIR__.'/connection.php');
 ?>
 
-<main>
+<main class="admin">
 
 <h1>Update Products</h1>
 <div class="adminProducts">
@@ -19,19 +19,19 @@ require_once(__DIR__.'/connection.php');
     foreach($products as $row){
             
             echo '
-            <div class="adminProduct" id="product-'.$row['nProductID'].' ">
-            <h3 class="adminProductName">'.$row['cName'].' </h3>
+            <div class="adminProduct grid grid-one" id="product-'.$row['nProductID'].' ">
+            <h3 class="bold uppercase adminProductName">'.$row['cName'].' </h3>
             <p class="adminPropertyPrice">'.$row['nPrice'].'kr.</p>
-            <form method="post" id="frmUpdatePrice"> 
+            <form method="post" class="frmUpdatePrice"> 
     <label for="">Update Price<input type="text" name="updatePrice"></label> 
-    <button type="submit" class="btnUpdatePrice">UPDATE PRICE</button>
+    <button type="submit" class="button btnUpdatePrice">UPDATE</button>
 </form>
             <p class="propertyStock">'.$row['nStock'].'</p>
-            <form method="post" id="frmUpdateStock"> 
+            <form method="post" class="frmUpdateStock"> 
     <label for="">Update Stock<input type="text" name="updateStock"></label>
-    <button type="submit" class="btnUpdateStock">UPDATE STOCK</button>
+    <button type="submit" class="button btnUpdateStock">UPDATE</button>
 </form>
-<button class="btnDeleteProduct">Delete Product</button>
+<button class="btnDeleteProduct button-delete button">Delete </button>
             </div>
             ';
         
@@ -59,7 +59,7 @@ $connection = null;
         </select>
     </label>
     <label for="">Stock<input type="text" name="newStock"></label>
-        <button class="btnAddProduct">Add Product</button>
+        <button class="button btnAddProduct">Add Product</button>
         </form>
 </div>
 
