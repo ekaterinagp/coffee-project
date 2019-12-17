@@ -15,9 +15,9 @@ if(cart){
     let totalsum = 0;
     let tax = 0;
 
-    sumToPay.textContent = 0; //(price * 1.25) + " DKK";
-    taxPayment.textContent = 0; //(price * 0.25) + " DKK";
-    subsumPayment.textContent = 0; //(price) + " DKK";
+    sumToPay.textContent = 0;
+    taxPayment.textContent = 0; 
+    subsumPayment.textContent = 0; 
 
     if (cart) {
       cart.forEach(cartItem => {
