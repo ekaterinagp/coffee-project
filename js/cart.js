@@ -21,13 +21,21 @@ if (cart) {
     clone.querySelector(".price_cart").textContent = cartItem.price;
     clone.querySelector(".cart_quantity").value = cartItem.amount;
     clone.querySelector(".cart_quantity").addEventListener('input', function(){ 
-    cartItem.amount = event.target.value;
-    console.log(cartItem.amount);
-
-    subTotalPrice = subTotalPrice + parseInt(cartItem.price) * parseInt(cartItem.amount);
-    console.log(subTotalPrice)
-    taxAmount = subTotalPrice * 0.25;
-    totalPrice = subTotalPrice + taxAmount;
+      if(event.target.value < cartItem.amount){
+        cartItem.amount = event.target.value;
+        // console.log(cartItem.amount)
+        subTotalPrice = subTotalPrice - parseInt(cartItem.price) ;
+        // console.log(subTotalPrice)
+        taxAmount = subTotalPrice * 0.25;
+        totalPrice = subTotalPrice - taxAmount;
+      }else{
+        cartItem.amount = event.target.value;
+        console.log(cartItem.amount);
+        subTotalPrice = subTotalPrice + parseInt(cartItem.price);
+        console.log(subTotalPrice)
+        taxAmount = subTotalPrice * 0.25;
+        totalPrice = subTotalPrice + taxAmount;
+      }
 // console.log(totalPrice)
       // console.log(cartItem.amount);
 

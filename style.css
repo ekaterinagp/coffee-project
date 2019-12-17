@@ -1052,7 +1052,7 @@ a.back-button:hover {
   /* height: 4vw; */
   color: white;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  animation: moveUp 2s forwards 0.3s;
+  animation: moveUp 5s forwards 0.3s;
 }
 .notification-container.success {
   background-color: #4caf50;
