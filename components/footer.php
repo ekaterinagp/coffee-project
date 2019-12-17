@@ -3,15 +3,15 @@
         <?= file_get_contents(__DIR__ . '/../img/the-proper-pour-logo.svg'); ?>
       </div>
       <div class="item address color-white ph-small">
-        <h5>Address</h5>
+        <h4 class="text-left color-white">Address</h4>
         <p>Lygten 37 2400 Copenhagen Denmark</p>
       </div>
       <div class="item phone color-white ph-small">
-        <h5>Phone</h5>
-        <p>+45 12 34 56 78</p>
+        <h4 class="text-left color-white">Phone</h4>
+        <p>+44 12 34 46 78</p>
       </div>
       <div class="item email color-white ph-small">
-        <h5>Email</h5>
+        <h4 class="text-left color-white">Email</h4>
         <p>info@properpour.dk</p>
       </div>
       <div class="item some color-white ph-small">

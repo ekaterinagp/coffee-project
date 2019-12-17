@@ -36,7 +36,7 @@ require_once(__DIR__ . '/components/header.php');
 ?>
 
 <main class="single-product">
-<button class="back-button color-orange absolute">&lt;</button>
+<button class="back-button absolute">&lt;</button>
     <section class="section-one mb-large ph-large mt-small grid grid-two-thirds-reversed">      
         <?php
                         echo '

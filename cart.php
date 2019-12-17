@@ -53,7 +53,7 @@ require_once(__DIR__ . '/connection.php');
   </div>
   </div>
   <div class="noCart">
-    <h3 class="mt-medium text-center"> Your cart seems to be empty...</h3>
+    <p class="mt-medium text-center"> Your cart seems to be empty...</p>
 
     <section class="section-three ph-large pt-medium">
       <div class="related-products relative">

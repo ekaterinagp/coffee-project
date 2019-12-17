@@ -24,10 +24,10 @@ if($_SESSION){
 
 ?>
   <main id="paymentMain" class="mv-medium payment">  
-    <a href="cart" class=" back-button color-orange absolute">&lt;</a>
-    <div class="payment-container grid grid-almost-two-reversed m-medium">
+    <a href="cart" class=" back-button absolute">&lt;</a>
+    <div class="payment-container grid grid-two-thirds-reversed m-medium">
       <div>  
-        <h3 class="align-self-bottom mt-medium uppercase">Your purchase</h3>
+        <h1 class="align-self-bottom mb-small">Your purchase</h1>
         <div id="paymentOverview" class="grid p-medium">
         <p class="bold">Description</p>
         <p class="bold">Price</p>
@@ -136,7 +136,7 @@ if($_SESSION){
       <h4 class="totalPrice align-self-top" id="sumTopay"></h4>
         </div>
       </div>
-  <form method="POST" id="savedCardFrm" class="choose-credit-card pb-small grid grid-two-thirds-reversed">
+  <form method="POST" id="savedCardFrm" class="choose-credit-card pb-medium grid grid-two-thirds-reversed">
 <?php
 
 if($statementCreditCard->execute([':id' => $nUserID])){
@@ -159,7 +159,7 @@ if($statementCreditCard->execute([':id' => $nUserID])){
     </label>
     <button class="button show-newCardFrm">Add New</button>
     </form>
-    <button class="button purchaseBtn align-self-bottom">Purchase</button>
+    <button class="button purchaseBtn align-self-bottom  margin-auto">Purchase</button>
 <form method="POST" id="newCardFrm">
 <label class="grid grid-two-thirds" for="inputIBAN">
             <p class="text-left align-self-center">IBAN</p><h5 class="light text-right">IBAN must be 18 digits</h5>
