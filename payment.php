@@ -42,46 +42,29 @@ if($_SESSION){
           </div>
           <p class="price_cart"></p>
           <input type="number" class="cart_quantity">
-          <!-- <button class="remove button align-self-center">Remove item</button> -->
           </div>
       </template>
 
       </div>
-        <!-- <h1 class="align-self-bottom mb-small">Your purchase</h1>
-        <div id="paymentOverview" class="grid p-medium">
-        <p class="bold">Description</p>
-        <p class="bold">Price</p>
-        <p class="bold">Quantity</p>
-      <div class="frmLine"></div>
-      <div>
-
-        <h3 id="youSelected" class="bold uppercase text-center"></h3>
-        <p class="grind"></p>
-        <img src="" /> 
-      </div>
-      <p class="price" name="coffeePrice"> </p>
-      <p class="quantity" name="coffeePrice"> </p>
-      
-      </div> -->
       </section>
   
-  <div class="paymentForm ph-regular pv-medium bg-grey">
+  <div class="paymentForm p-medium bg-grey">
       <h2 class="text-center pb-small">Checkout</h2>
-     <div class="grid grid-two">
-       <div>
-
-         <h4 class="bold mt-small">Shipping Details</h4>
+     <div>
+     <h4 class="bold mt-small">Shipping Details</h4>
+       <!-- <div class="grid grid-two"> -->
+       
          <div class="shipping pb-small">
          <p>Name</p>
-         <p class=" pb-small"><?="$userName  $userLastname"?></p>
+         <p><?="$userName  $userLastname"?></p>
          </div>
          <div class="shipping pb-small">
          <p>Address </p>
-         <p class="pb-small"><?=$userAddress?></p>
+         <p class=""><?=$userAddress?></p>
          </div>
          <div class="shipping pb-small">
          <p>City</p>
-         <p class="pb-small">
+         <p class="">
             <?php if ($userCity = 1) {?>
               Copenhagen 
             <?php }
@@ -147,16 +130,20 @@ if($_SESSION){
             <?php }?>
         </p>
          </div>
-         <div class="shipping pb-small">
+         <div class="shipping pb-small grid grid-two">
          <p>Phone number </p>
-         <p class="pb-medium"><?=$userPhone?></p>
+         <p class=""><?=$userPhone?></p>
          </div>
-        </div>
-        <div class="align-self-bottom">
-        <h4 class="subsumPayment align-self-bottom mt-small text-right">Subtotal</h4>
-        <p id="subsumPayment" class="pb-small text-right align-self-top"></p>
-        <h4 class="taxPayment align-self-bottom">Tax</h4>
-        <p id="taxPayment" class="pb-small text-right align-self-top"></p>
+        <!-- </div> -->
+        <div class="pt-regular">
+          <div class="grid grid-two">
+            <h4 class="subsumPayment align-self-bottom text-left">Subtotal</h4>
+            <p id="subsumPayment" class="pb-small text-right align-self-top"></p>
+          </div>
+          <div class="grid grid-two">
+            <h4 class="taxPayment align-self-bottom">Tax</h4>
+            <p id="taxPayment" class="pb-small text-right align-self-top"></p>
+          </div>
         <h3 class="align-self-bottom mt-small text-right uppercase">Total amount</h3>
         <h4 class="totalPrice align-self-top" id="sumTopay"></h4>
         </div>
