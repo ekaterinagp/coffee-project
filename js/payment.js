@@ -1,5 +1,7 @@
 "use strict"
-
+let subTotalPrice = 0;
+let totalPrice = 0;
+let taxAmount = 0;
 let cart = JSON.parse(sessionStorage.getItem("cart"));
 console.log("cart", cart);
 let paymentSection = document.querySelector("#paymentItems")
@@ -12,26 +14,22 @@ if(cart){
     let clone = template.cloneNode(true);
     clone.querySelector(".title_cart").textContent=cartItem.name;
     clone.querySelector(".price_cart").textContent =cartItem.price;
-    clone.querySelector(".cart_quantity").value =cartItem.amount
+    clone.querySelector(".cart_quantity").textContent =cartItem.amount
     clone.querySelector(".type_cart_grind").textContent =cartItem.typeGrind;
     clone.querySelector("img").setAttribute("src",cartItem.img);
     paymentSection.appendChild(clone);
+    subTotalPrice = subTotalPrice + parseInt(cartItem.price) * parseInt(cartItem.amount);
+      console.log(subTotalPrice)
+      taxAmount = subTotalPrice * 0.25;
+      totalPrice = subTotalPrice + taxAmount;
 });
     let sumToPay = document.querySelector("#sumToPay");
     let taxPayment = document.querySelector("#taxPayment");
     let subsumPayment = document.querySelector("#subsumPayment");
-    // title.textContent 
-    // img.
-    // pQuantity.textContent = ;
-    // pPrice.textContent = cart[0].price;
-    // pGrind.textContent = 
-   
-    console.log(cart[0].price);
-    let price = cart[0].price.substr(0, cart[0].price.search(" "));
-    console.log(price);
-    sumToPay.textContent = (price * 1.25) + " DKK";
-    taxPayment.textContent = (price * 0.25) + " DKK";
-    subsumPayment.textContent = (price) + " DKK";
+     
+    sumToPay.textContent = totalPrice + " DKK";
+    taxPayment.textContent = taxAmount + " DKK";
+    subsumPayment.textContent = subTotalPrice + " DKK";
 
   let purchaseBtn = document.querySelector(".purchaseBtn");
   purchaseBtn.addEventListener("click", function(){

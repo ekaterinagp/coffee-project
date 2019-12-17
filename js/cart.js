@@ -101,7 +101,7 @@ function selectQ() {
   if (cart) {
     cart.forEach(cartItem => {
       subTotalPrice = subTotalPrice + parseInt(cartItem.price) * parseInt(cartItem.amount);
-      console.log(subTotalPrice)
+      // console.log(subTotalPrice)
       taxAmount = subTotalPrice * 0.25;
       totalPrice = subTotalPrice + taxAmount;
       let template = document.querySelector("#totalItemsTemplate").content;

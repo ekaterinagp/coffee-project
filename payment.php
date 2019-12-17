@@ -43,7 +43,7 @@ if($_SESSION){
             <img class="img_cart align-self-center" src="" />
           </div>
           <p class="price_cart"></p>
-          <input type="number" class="cart_quantity">
+          <p type="number" class="cart_quantity"><p>
           </div>
       </template>
 
