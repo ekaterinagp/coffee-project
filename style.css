@@ -1973,19 +1973,22 @@ h4.productPrice,
   position: relative;
   max-width: 100%;
   padding: 1em;
-  height: 80%;
+  height: 85%;
   transition: all 0.3s;
   text-align: center;
 }
 
 .smallerFrm {
   width: 50vw;
-  margin: auto;
+  margin: 5vw auto;
+}
+.textBtns{
+  margin:0 20%;
 }
 .btnRadio.noGrid {
   grid-template-columns: 1fr;
-  height: 20vw;
 }
+
 #timeline {
   text-align: right;
 }
@@ -2090,9 +2093,9 @@ input:checked + .btnRadio {
 } */
 
 .textBtns .btnRadio {
-  display: block;
-  height: 25vh;
-  width: 23em;
+  padding: 1vw;
+    display: block;
+    height: 15vw;
 }
 
 .imgResults {
@@ -2509,17 +2512,26 @@ input.type_cart_grind {
     height: 60%;
     width:auto;
   }
-  .smallerFrm, .textBtns{
-    width:65vw;
-    margin:auto;
+  .smallerFrm .btnRadio{
+    height:8vw;
   }
-
+  .smallerFrm, .textBtns{
+    width:50vw;
+    margin:5vw auto;
+  }
+  
+  .textBtns{
+    width:60vw;
+  }
+  .results{
+    margin: 0 auto;
+  }
   .testbg {
     top: 15%;
     bottom: 55%;
   }
-  .testContainer .btnRadio {
-    height: 10vh;
+  .testContainer{
+    height:60%;
   }
   .textBtns .btnRadio {
     height: 10vh;
@@ -2653,6 +2665,24 @@ input[type="password"], input[type="number"], select{
     height: 65%;
   }
   /*  SUBSCRIBE PAGE  */
+  .smallerFrm, .textBtns{
+    width:60vw;
+    margin:5vw auto;
+  }
+  .testContainer .smallerFrm .btnRadio{
+    width:27vw;
+  }
+  .testContainer .textBtns .btnRadio{
+    width: 27vw;
+    height:15vw;
+  }
+  .testResults{
+    margin-top:0;
+  }
+  .testContainer .btnRadio{
+    height:10vw;
+    width:80%;
+  }
 
   /*  PROFILE  */
   .profile .section-one {
@@ -2944,6 +2974,15 @@ input[type="password"], input[type="number"], select{
   }
   .testContainer {
     height: 100%;
+  }
+  .testContainer .btnRadio{
+    height:20vw;
+    width:100%;
+  }
+  .testContainer .smallerFrm .btnRadio,
+  .testContainer .textBtns .btnRadio{
+    width:50vw;
+    height:100%;
   }
   .smallerFrm,
   .textBtns {
