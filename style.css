@@ -3308,7 +3308,7 @@ input[type="password"], input[type="number"], select{
     width: 70vw;
   }
   .thank-you .container-banner {
-    top: 40vw;
+    top: 60vw;
   }
   /*  VALIDATION  */
   input[type="text"].valid,
