@@ -984,7 +984,8 @@ a.back-button:hover {
 .button.button-edit,
 .button.button-save,
 .show-newCardFrm, 
-.remove {
+.remove, 
+.button.button-delete {
   background-color: transparent;
   width: auto;
   height: auto;
@@ -1009,8 +1010,7 @@ a.back-button:hover {
 }
 
 .subscriptionItem .button-delete,
-.profile-details .button-add,
-.profile-details .button-delete-card {
+.profile-details .button-add{
   margin: 2vw auto;
 }
 
@@ -1786,7 +1786,7 @@ a.back-button:hover {
 }
 
 .formButtonContainer .button {
-  justify-self: center;
+  justify-self: right;
 }
 
 .profile-details.details-two {
