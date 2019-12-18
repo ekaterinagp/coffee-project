@@ -81,6 +81,7 @@ function removeItem(cartItemId) {
   cart.forEach(function(cartItem, index, object) {
     if (cartItem.id === cartItemId) {
       object.splice(index, 1);
+      console.log(cart)
     }
   });
   sessionStorage.setItem("cart", JSON.stringify(cart));
@@ -96,17 +97,21 @@ function removeItem(cartItemId) {
 
 
 function selectQ() {
+  subTotalPrice = 0;
+  taxAmount = 0;
+  totalPrice= 0;
   let sectionTotal = document.getElementById("totalItemsSection");
   let cart = JSON.parse(sessionStorage.getItem("cart"));
+  console.log(cart)
   if (cart) {
     cart.forEach(cartItem => {
+      // console.log()
       subTotalPrice = subTotalPrice + parseInt(cartItem.price) * parseInt(cartItem.amount);
-      // console.log(subTotalPrice)
+      console.log(subTotalPrice)
       taxAmount = subTotalPrice * 0.25;
       totalPrice = subTotalPrice + taxAmount;
       let template = document.querySelector("#totalItemsTemplate").content;
       let clone = template.cloneNode(true);
-
       sectionTotal.appendChild(clone);
     });
   }
