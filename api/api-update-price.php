@@ -1,4 +1,5 @@
 <?php
+require_once(__DIR__.'/../components/functions.php');
 
 if($_POST){
 
@@ -16,7 +17,6 @@ if($_POST){
     $id = $_POST['id'];
     
     require_once(__DIR__.'/../connection.php');
-    require_once(__DIR__.'/../components/functions.php');
 
     $sql = "UPDATE tproduct SET nPrice=:price WHERE nProductID=:id";
     $statement = $connection->prepare($sql);
@@ -29,9 +29,12 @@ if($_POST){
     if($statement->execute($data)){
         echo '{"status":1, "message":"price successfully updated"}';
         $connection = null;
+        exit;
+    }else{
+        
+        echo 0;
+        $connection = null;
     }
 
-    echo 0;
-    $connection = null;
    
 }

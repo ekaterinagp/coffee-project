@@ -233,12 +233,13 @@ function fetchDataForSearchBtn() {
     .then(function(searchResultsArray) {
       console.log({ searchResultsArray });
       // document.querySelector(".products-container").innerHTML = "";
-      document.querySelector("#forSearch").innerHTML = "";
-      document.querySelector("#forSearch").innerHTML =
-        "Search results for:" +
-        txtSearch.value +
-        ":" +
-        searchResultsArray.length;
+      document.querySelector("#forSearch").style.visibility="initial";
+      // document.querySelector(".span1").innerHTML = "";
+      // document.querySelector(".span2").innerHTML = "";
+      document.querySelector(".span1").innerHTML = searchResultsArray.length +" ";
+      document.querySelector(".span2").innerHTML = txtSearch.value;
+      
+        
       showFilteredCoffee(searchResultsArray);
       // let inputText = document.querySelector(".products-container");
       // cachedHtml = inputText.innerHTML;

@@ -60,12 +60,12 @@ $nUserID = $jLoggedUser['nUserID'];
     <section class="section-one grid ph-medium mb-large">
     <h1 class="pt-medium">Welcome <?= $jLoggedUser['cName']; ?></h1>
       <div class="profile-info-container grid grid-almost-two">
-        <div class="profile-details details-one grid">
+        <!-- <div class="profile-details details-one grid"> -->
+          <h2 class="text-left">Profile details</h2>
           <form id="form-profile" class="grid" method="post">
 
-          <h2 class="text-left">Profile details</h2>
-          <div class="form-profile-form-container-info grid grid-two bg-grey pv-medium ph-medium">
-            <label id="cName" class="grid pb-small" for="name">
+          <div class="form-profile-form-container-info grid bg-grey pv-medium ph-medium">
+            <label id="cName" class="grid grid-two-thirds pb-small" for="name">
               <p class="text-left align-self-center">Name</p>
               <input class=" not-input" data-type="string" data-min="2" data-max="20" type="text" data-type="string" name="inputName" placeholder="First name" value="<?= $jLoggedUser['cName']; ?>">
               <h5 class="light">Must be 1 to 20 characters</h5>
@@ -88,15 +88,7 @@ $nUserID = $jLoggedUser['nUserID'];
               <input class=" not-input" type="email" data-type="email" name="inputEmail" placeholder="email" value="<?= $jLoggedUser['cEmail']; ?>">
               <h5 class="light">Must be a valid email address</h5>
             </label>
-            <div class="formButtonContainer">
-                <button class="button-edit button">Edit information</button>
-                <button class="button-save formBtn hide-button button">Save information</button>
-            </div>
-            </div>
-
-            <h2 class="text-left">Shipping details</h2>
-            <div class="form-profile-form-container-shipping grid grid-two bg-grey pv-medium ph-medium">
-            <label id="nCityID" for="cityInput" class="grid pb-small">
+              <label id="nCityID" for="cityInput" class="grid grid-two-thirds pb-small">
               <p class="text-left align-self-center">City</p>
               <select class=" not-input" data-type="integer" data-min="0" data-max="999" name="cityInput" value="<?= $jLoggedUser['nCityID'] ?>">
                 <option value="1" <?php if ($jLoggedUser['nCityID'] = 1) echo 'selected' ?>>Copenhagen</option>
@@ -138,14 +130,14 @@ $nUserID = $jLoggedUser['nUserID'];
                 <button class="button-edit button">Edit information</button>
                 <button class="button-save formBtn hide-button button">Save information</button>
             </div>
-            </div>
           </form>
         </div>
+      <!-- </div> -->
       
-      <div class="profile-details details-two grid"> 
+      <!-- <div class="profile-details details-two grid">  -->
       <h2 class="text-left">Creditcard details</h2>
         <div class="creditcard-container">
-        <div class="form-profile-form-container-creditcard bg-grey p-medium">
+        <div class="form-profile-form-container-creditcard grid bg-grey p-medium">
           <form method="POST" id="savedCardFrm" class="choose-credit-card  grid grid-two-thirds-reversed">
       
           <?php
@@ -172,32 +164,32 @@ $nUserID = $jLoggedUser['nUserID'];
           </form>
       <div class="creditcard-form-button-container">
       </div>
-      <button class="button-add button">Add creditcard</button>
+      <p class="addCardHeader text-center p-small mt-medium">Add creditcard</p>
       <form id="form-creditcard" method="post" class="ph-medium mv-medium">
           <label class="grid grid-two-thirds" for="inputIBAN">
             <p class="text-left align-self-center">IBAN</p><h5 class="light text-right">Must be 18 digits</h5>
-            <input class="mb-small" data-type="integer" data-min="99999999999999999" data-max="999999999999999999" type="number" data-type="string" name="inputIBAN" value="">
+            <input class="mb-small" data-type="integer" data-min="99999999999999999" data-max="999999999999999999" type="number" required data-type="string" name="inputIBAN" value="">
             
           </label>
           <label class="grid grid-two-thirds" for="inputCCV">
             <p class="text-left align-self-center">CCV</p><h5 class="light text-right">Must be 3 digits</h5>
-            <input class="mb-small" data-type="integer" data-min="99" data-max="999" type="number" name="inputCCV" value="">
+            <input class="mb-small" data-type="integer" data-min="99" data-max="999" type="number" name="inputCCV" required>
             
           </label>
           <label class="grid grid-two-thirds" for="inputExpiration">
             <p class="text-left align-self-center">Expiration date</p> <h5 class="light text-right">Must be 4 digits</h5>
-            <input class="mb-small" data-type="integer" data-min="100" data-max="1999" type="number" name="inputExpiration" value="">
+            <input class="mb-small" data-type="integer" data-min="100" data-max="1999" type="number" name="inputExpiration" required> 
             
           </label>
 
 
-          <button class="button-save formBtn hide-button button " disabled>Save creditcard</button>
+          <button class="button-save formBtn button " disabled>Save creditcard</button>
         </form>
       </div>
     
         </div>
       </div>
-      </div>
+      <!-- </div> -->
     </section>
 
     <section class="section-two mv-medium ph-medium mb-large current-subscription">
@@ -227,7 +219,7 @@ $nUserID = $jLoggedUser['nUserID'];
                 </div>
                 <div class="white-text-bg">
                   <p class="mb-small text-center"><?= $jUserSubscription['cName']; ?></p>
-                  <button class="button button-delete">Cancel</button>
+                  <button class="button button-delete">Delete</button>
                 </div>
               </div>
 

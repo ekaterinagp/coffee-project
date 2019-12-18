@@ -15,7 +15,7 @@ function showNotification(text, responseClass){
 
   setTimeout(function(){
       document.querySelector('.notification-container').remove();
-  }, 80100);
+  }, 5100);
 }
 //
 

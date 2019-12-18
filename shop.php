@@ -38,8 +38,12 @@ require_once(__DIR__ . '/components/header.php');
                 <button id="searchBtn" class="button">Search</button>
 
             </form>
-            <div id="forSearch"></div>
-            <div id="results" class="pv-small grid align-items-center"></div>
+            <div class="text-right mr-large pb-small" id="forSearch">
+            <h4 class="span1"></h4>Search results for <h4 class="span2"></h4>
+            </div>
+            <div id="results" class="pv-small grid align-items-center">
+                
+            </div>
 
             <div class="products grid grid-two-thirds-bigger mr-medium">
 
