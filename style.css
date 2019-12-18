@@ -387,12 +387,12 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
   padding-left: 1vw;
 }
 
-.ph-regular{
+.ph-regular {
   padding-left: 2vw;
   padding-right: 2vw;
 }
 
-.pt-regular{
+.pt-regular {
   padding-top: 2vw;
 }
 
@@ -624,12 +624,19 @@ a {
   font-size: calc(0.8vw + 45%);
 }
 
-p, input::placeholder, select > option, input[type="text"], 
-input[type="email"], input[type="password"], 
-input[type="number"], select, .shipping p:last-child{
+p,
+input::placeholder,
+select > option,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select,
+.shipping p:last-child {
   font-size: calc(0.8vw + 20%);
 }
-h5, button {
+h5,
+button {
   padding-bottom: 0.5vw;
   font-size: calc(0.6vw + 35%);
 }
@@ -647,7 +654,6 @@ button,
   font-family: "Lato", sans-serif;
   font-weight: 400;
 }
-
 
 /* END OF FONTS  */
 
@@ -1010,7 +1016,7 @@ a.back-button:hover {
 }
 
 .subscriptionItem .button-delete,
-.profile-details .button-add{
+.profile-details .button-add {
   margin: 2vw auto;
 }
 
@@ -1395,10 +1401,10 @@ a.back-button:hover {
   width: 4vw;
   height: 4vw;
 }
-#forSearch{
+#forSearch {
   visibility: hidden;
 }
-#forSearch h4{
+#forSearch h4 {
   display: inline;
 }
 #results p {
@@ -1576,7 +1582,7 @@ a.back-button:hover {
   text-transform: uppercase;
 }
 
-.cartMain h3{
+.cartMain h3 {
   text-align: right;
 }
 
@@ -1599,7 +1605,7 @@ a.back-button:hover {
 }
 .product-purchase-container h2,
 .payment h4,
-.payment h3.align-self-bottom.text-right{
+.payment h3.align-self-bottom.text-right {
   text-align: right;
 }
 
@@ -1657,9 +1663,10 @@ a.back-button:hover {
 .single-product .description,
 .profile .description,
 .profile .section-one,
-.current-subscriptions, 
-.profile-info-container, .payment-container,
-.cartTotal{
+.current-subscriptions,
+.profile-info-container,
+.payment-container,
+.cartTotal {
   grid-gap: 2vw;
 }
 
@@ -1725,11 +1732,11 @@ a.back-button:hover {
 }
 
 /***** PROFILE PAGE  *****/
-.profile .section-one h2{
-  grid-row:1;
+.profile .section-one h2 {
+  grid-row: 1;
 }
-.form-profile-form-container-creditcard{
-  height:100%;
+.form-profile-form-container-creditcard {
+  height: 100%;
   align-content: center;
 }
 #form-profile label p,
@@ -1744,7 +1751,8 @@ a.back-button:hover {
   /* width:50vw; */
   margin: auto;
 }
-#form-creditcard .button-save, .profile .button-add {
+#form-creditcard .button-save,
+.profile .button-add {
   margin: 1vw auto;
 }
 .not-input ~ h5 {
@@ -1791,7 +1799,7 @@ a.back-button:hover {
   grid-gap: 1vw;
 }
 
-.productCoffeeType{
+.productCoffeeType {
   text-align: center;
 }
 
@@ -1948,7 +1956,7 @@ h4.productPrice,
 
 .containerForSubscriptions {
   max-width: 100%;
-  grid-gap:1vw;
+  grid-gap: 1vw;
 }
 
 .selectedItem {
@@ -1982,8 +1990,8 @@ h4.productPrice,
   width: 50vw;
   margin: 5vw auto;
 }
-.textBtns{
-  margin:0 20%;
+.textBtns {
+  margin: 0 20%;
 }
 .btnRadio.noGrid {
   grid-template-columns: 1fr;
@@ -2094,8 +2102,8 @@ input:checked + .btnRadio {
 
 .textBtns .btnRadio {
   padding: 1vw;
-    display: block;
-    height: 15vw;
+  display: block;
+  height: 15vw;
 }
 
 .imgResults {
@@ -2186,10 +2194,6 @@ input:checked + .btnRadio {
   z-index: -1;
 }
 
-
-
-
-
 .loginWelcome {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   width: 55vw;
@@ -2212,14 +2216,14 @@ input:checked + .btnRadio {
   padding: 0;
   align-self: center;
 }
-.containerSignup .linkContainer{
-  width:25vw;
- }
-.linkContainer{
-  right:5vw;
-  top:40%;
+.containerSignup .linkContainer {
+  width: 25vw;
+}
+.linkContainer {
+  right: 5vw;
+  top: 40%;
   justify-items: left;
-  width:30vw;
+  width: 30vw;
 }
 
 .containerSignup h5,
@@ -2243,38 +2247,39 @@ form label h5 {
   font-size: 70%;
   align-self: end;
 }
- #form-profile  label input,
- #form-profile label select{
-   grid-column: 2;
-   grid-row: 1;
- }
- #form-profile  label h5,
-  #form-profile  label select{
-   grid-column: 2;
- }
-  form>label>select,
-  form>label> input {
-    grid-column: 1/-1;
-  }
+#form-profile label input,
+#form-profile label select {
+  grid-column: 2;
+  grid-row: 1;
+}
+#form-profile label h5,
+#form-profile label select {
+  grid-column: 2;
+}
+form > label > select,
+form > label > input {
+  grid-column: 1/-1;
+}
 
-  form >label>h5, form label p{
-    grid-row:1
-  }
-  form label h5{
-    grid-column: 2;
-    text-align: right;
-  }
+form > label > h5,
+form label p {
+  grid-row: 1;
+}
+form label h5 {
+  grid-column: 2;
+  text-align: right;
+}
 label {
   font-weight: bold;
 }
 #form-creditcard input[type="number"]::-webkit-inner-spin-button,
-#form-creditcard input[type="number"]::-webkit-outer-spin-button{
+#form-creditcard input[type="number"]::-webkit-outer-spin-button {
   display: none;
 }
 .single-product input[type="number"]::-webkit-inner-spin-button,
-.single-product input[type="number"]::-webkit-outer-spin-button, 
-#cartItems .cart_quantity::-webkit-outer-spin-button, 
-.cartDiv input[type="number"]::-webkit-inner-spin-button{
+.single-product input[type="number"]::-webkit-outer-spin-button,
+#cartItems .cart_quantity::-webkit-outer-spin-button,
+.cartDiv input[type="number"]::-webkit-inner-spin-button {
   opacity: 1;
 }
 input[type="text"],
@@ -2286,12 +2291,10 @@ select {
   height: 2.5vw;
   padding: 1vw;
   background: #fff;
-  border:none;
+  border: none;
 }
 
-
-
-input[type="number"].cart_quantity{
+input[type="number"].cart_quantity {
   border: solid 0.1px #00000045;
 }
 select {
@@ -2316,7 +2319,6 @@ input[type="password"]:valid + label,
 input[type="number"]:valid + label {
   opacity: 0;
 }
-
 
 input:not(:focus).error {
   border: 2px solid #e43d31;
@@ -2374,8 +2376,8 @@ input:not(:focus).error {
   width: auto;
 }
 
-.cart_desc input{
-  width:100%;
+.cart_desc input {
+  width: 100%;
   font-family: "Lato", sans-serif;
   font-size: 115%;
 }
@@ -2386,11 +2388,11 @@ input:not(:focus).error {
   display: inline;
 }
 
-.price_cart{
+.price_cart {
   padding-top: 0.5vw;
 }
 
-.title_cart{
+.title_cart {
   text-align: left !important;
 }
 input.price_cart {
@@ -2430,7 +2432,7 @@ input.type_cart_grind {
   margin: auto;
   max-height: 0;
   overflow: hidden;
-} 
+}
 #newCardfrm.showFrm {
   max-height: 100vh;
   overflow: auto;
@@ -2492,7 +2494,7 @@ input.type_cart_grind {
     height: 35vw;
   }
 
-  .products-container.grid-four{
+  .products-container.grid-four {
     grid-template-columns: repeat(4, 1fr);
   }
 
@@ -2513,32 +2515,33 @@ input.type_cart_grind {
 
   .testContent {
     height: 60%;
-    width:auto;
+    width: auto;
   }
-  .smallerFrm .btnRadio{
-    height:8vw;
+  .smallerFrm .btnRadio {
+    height: 8vw;
   }
-  .smallerFrm, .textBtns{
-    width:50vw;
-    margin:5vw auto;
+  .smallerFrm,
+  .textBtns {
+    width: 50vw;
+    margin: 5vw auto;
   }
-  
-  .textBtns{
-    width:60vw;
+
+  .textBtns {
+    width: 60vw;
   }
-  .results{
+  .results {
     margin: 0 auto;
   }
   .testbg {
     top: 15%;
     bottom: 55%;
   }
-  .testContainer{
-    height:60%;
+  .testContainer {
+    height: 60%;
   }
   .textBtns .btnRadio {
     height: 10vh;
-    width:32vw;
+    width: 32vw;
   }
   .testResults {
     margin-top: 10%;
@@ -2588,19 +2591,16 @@ input.type_cart_grind {
     grid-template-columns: 1fr;
   }
 
- 
-
-
   .creditcard-form-button-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
 
-  #paymentMain .payment-container.grid-two-thirds-reversed{
+  #paymentMain .payment-container.grid-two-thirds-reversed {
     grid-template-columns: repeat(1, 1fr);
   }
 
-  .products-container.grid-four{
+  .products-container.grid-four {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -2611,36 +2611,39 @@ input.type_cart_grind {
 
   /* INPUTS */
 
-input[type="text"], input[type="email"], 
-input[type="password"], input[type="number"], select{
-  height:auto;
-}
- 
-/*  MARGINS AND PADDING   */
-.mt-xlarge{
-  margin-top:22vw;
-}
-.mv-medium{
-  margin-top: 5vw;
-  margin-bottom: 5vw;
-}
-/*  FRONT PAGE  */
-.frontpage .section-three .step{
-  padding-top:4vh;
-  margin: 0 1em 1em 1em;
-}
-.section-three .back{
-  margin: 0 1em;
-}
-.cupImage {
-  bottom: 4vh;
-}
-.p-smallest{
-  font-size: 80%;
-}
-.image1{
-  height:65%;
-}
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  select {
+    height: auto;
+  }
+
+  /*  MARGINS AND PADDING   */
+  .mt-xlarge {
+    margin-top: 22vw;
+  }
+  .mv-medium {
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+  }
+  /*  FRONT PAGE  */
+  .frontpage .section-three .step {
+    padding-top: 4vh;
+    margin: 0 1em 1em 1em;
+  }
+  .section-three .back {
+    margin: 0 1em;
+  }
+  .cupImage {
+    bottom: 4vh;
+  }
+  .p-smallest {
+    font-size: 80%;
+  }
+  .image1 {
+    height: 65%;
+  }
 
   /*  MARGINS AND PADDING   */
   .mt-xlarge {
@@ -2668,23 +2671,24 @@ input[type="password"], input[type="number"], select{
     height: 65%;
   }
   /*  SUBSCRIBE PAGE  */
-  .smallerFrm, .textBtns{
-    width:60vw;
-    margin:5vw auto;
+  .smallerFrm,
+  .textBtns {
+    width: 60vw;
+    margin: 5vw auto;
   }
-  .testContainer .smallerFrm .btnRadio{
-    width:27vw;
-  }
-  .testContainer .textBtns .btnRadio{
+  .testContainer .smallerFrm .btnRadio {
     width: 27vw;
-    height:15vw;
   }
-  .testResults{
-    margin-top:0;
+  .testContainer .textBtns .btnRadio {
+    width: 27vw;
+    height: 15vw;
   }
-  .testContainer .btnRadio{
-    height:10vw;
-    width:80%;
+  .testResults {
+    margin-top: 0;
+  }
+  .testContainer .btnRadio {
+    height: 10vw;
+    width: 80%;
   }
 
   /*  PROFILE  */
@@ -2698,11 +2702,11 @@ input[type="password"], input[type="number"], select{
   #form-creditcard {
     margin: 0 10%;
   }
-  .subscriptionItem h3{
-    height:5vw;
+  .subscriptionItem h3 {
+    height: 5vw;
   }
   /*  SHOP   */
-  #results{
+  #results {
     top: 28vh;
   }
   /*  CART /PAYMENT /THANK YOU */
@@ -2710,12 +2714,12 @@ input[type="password"], input[type="number"], select{
   #paymentMain {
     margin-top: 0%;
   }
- 
 
   .cartTotal {
     grid-template-columns: 1fr;
   }
-  .total, .paymentForm {
+  .total,
+  .paymentForm {
     margin-right: 25%;
     margin-left: 25%;
     padding-left: 4vw;
@@ -2739,7 +2743,7 @@ input[type="password"], input[type="number"], select{
     margin-left: 6vw;
     margin-right: 6vw;
   }
- 
+
   /*  CART /PAYMENT /THANK YOU */
   .cartTotal {
     grid-template-columns: 1fr;
@@ -2760,16 +2764,16 @@ input[type="password"], input[type="number"], select{
     margin-top: 20%;
     min-height: 67vh;
   }
-  .containerSignup .signupBg{
-    height:60vh;
+  .containerSignup .signupBg {
+    height: 60vh;
   }
-  .containerLogin .signupBg{
-    height:20vh;
+  .containerLogin .signupBg {
+    height: 20vh;
   }
-  .linkContainer{
-    margin-left:-20px;
-    width:40vw;
-    position:initial;
+  .linkContainer {
+    margin-left: -20px;
+    width: 40vw;
+    position: initial;
   }
   .containerLogin .loginWelcome {
     height: 30vh;
@@ -2978,14 +2982,14 @@ input[type="password"], input[type="number"], select{
   .testContainer {
     height: 100%;
   }
-  .testContainer .btnRadio{
-    height:20vw;
-    width:100%;
+  .testContainer .btnRadio {
+    height: 20vw;
+    width: 100%;
   }
   .testContainer .smallerFrm .btnRadio,
-  .testContainer .textBtns .btnRadio{
-    width:50vw;
-    height:100%;
+  .testContainer .textBtns .btnRadio {
+    width: 50vw;
+    height: 100%;
   }
   .smallerFrm,
   .textBtns {
@@ -3015,11 +3019,11 @@ input[type="password"], input[type="number"], select{
   .filter .accordion {
     padding: 2vw;
   }
-  #forSearch{
-    margin:auto;
+  #forSearch {
+    margin: auto;
     justify-self: center;
   }
-  #results{
+  #results {
     width: 50vw;
     top: 42vh;
     right: 34vw;
@@ -3083,12 +3087,13 @@ input[type="password"], input[type="number"], select{
     margin: auto;
     background-position: center;
   }
-  .smallerFrm, .textBtns .btnRadio{
-    width:auto;
-    margin:auto;
+  .smallerFrm,
+  .textBtns .btnRadio {
+    width: auto;
+    margin: auto;
   }
   /*  LOGIN /SIGNUP  */
-  #form-creditcard label.grid-two-thirds  {
+  #form-creditcard label.grid-two-thirds {
     grid-template-columns: 1fr;
   }
   form label {
@@ -3098,10 +3103,10 @@ input[type="password"], input[type="number"], select{
   form label h5,
   form label p {
     grid-column: 1;
-    text-align:left !important;
+    text-align: left !important;
     padding: 0;
   }
-  form label h5{
+  form label h5 {
     grid-row: 2;
   }
   .containerLogin.grid {
@@ -3131,16 +3136,16 @@ input[type="password"], input[type="number"], select{
     color: black;
     text-align: center;
   }
-  .containerSignup .linkContainer{
-    width:60vw;
+  .containerSignup .linkContainer {
+    width: 60vw;
   }
-  .linkContainer .button{
-    width:30vw;
+  .linkContainer .button {
+    width: 30vw;
   }
-  .linkContainer{
+  .linkContainer {
     justify-items: center;
-    width:70vw;
-    margin:auto;
+    width: 70vw;
+    margin: auto;
   }
   .containerSignup h4,
   .containerSignup a {
@@ -3176,14 +3181,14 @@ input[type="password"], input[type="number"], select{
   #form-creditcard button {
     margin: 2vw 0;
   }
-  .profile-info-container{
+  .profile-info-container {
     display: block;
-    margin:1vw;
+    margin: 1vw;
   }
-  .profile-info-container form{
-    width:auto;
+  .profile-info-container form {
+    width: auto;
   }
-  
+
   #form-profile .button {
     margin: 3vw auto;
   }
@@ -3194,11 +3199,11 @@ input[type="password"], input[type="number"], select{
     margin: 0 0 2em;
     max-width: 100%;
   }
-  .containerForSubscriptions{
+  .containerForSubscriptions {
     grid-gap: 4vw;
   }
-  .subscriptionItem h3{
-    height:auto;
+  .subscriptionItem h3 {
+    height: auto;
   }
   #form-profile > label.grid {
     margin: 2vh 0;
@@ -3217,7 +3222,7 @@ input[type="password"], input[type="number"], select{
   .thank-you {
     margin-top: 0;
   }
-  .shipping p:last-child{
+  .shipping p:last-child {
     font-size: 90%;
   }
   .cartTotal,
@@ -3241,18 +3246,20 @@ input[type="password"], input[type="number"], select{
     justify-items: right;
     text-align: right;
   }
-  .cartDiv div h3{
+  .cartDiv div h3 {
     grid-column: 1;
     text-align: right;
   }
   .frmLine {
     display: none;
   }
-  .cartDiv img{
-    height:10vh;
-    width:auto;
+  .cartDiv img {
+    height: 10vh;
+    width: auto;
   }
-   .cartDiv input, .price_cart, .cart_quantity  {
+  .cartDiv input,
+  .price_cart,
+  .cart_quantity {
     grid-column: 2;
     justify-self: right;
     text-align: right;
@@ -3279,8 +3286,8 @@ input[type="password"], input[type="number"], select{
   .img_cart {
     height: 25vw;
   }
-  #paymentMain{
-    margin-top:10%;
+  #paymentMain {
+    margin-top: 10%;
   }
   .paymentForm {
     display: grid;
@@ -3289,10 +3296,10 @@ input[type="password"], input[type="number"], select{
     width: auto;
     padding: 4vw;
     margin: 0;
-    max-height:100%;
+    max-height: 100%;
   }
-  .show-newCardFrm{
-    padding:0;
+  .show-newCardFrm {
+    padding: 0;
   }
   #newCardFrm {
     max-width: 100%;
@@ -3326,13 +3333,13 @@ input[type="password"], input[type="number"], select{
     left: 10vw;
     right: 10vw;
     grid-gap: 2vw;
-    padding:6vw;
+    padding: 6vw;
   }
   /*    LOGOUT PAGE   */
   .log-out.thank-you .container-banner {
     top: 80vw;
   }
-  .products-container.grid-four{
+  .products-container.grid-four {
     grid-template-columns: 1fr;
   }
 }
