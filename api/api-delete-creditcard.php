@@ -11,7 +11,7 @@ if($_POST){
 
     require_once(__DIR__ . '/../connection.php');
 
-    $sql = "UPDATE tCreditCard SET dDeleteCreditCard=CURRENT_TIMESTAMP() WHERE nCreditCardID=:id";
+    $sql = "UPDATE tcreditcard SET dDeleteCreditCard=CURRENT_TIMESTAMP() WHERE nCreditCardID=:id";
     
       $statement = $connection->prepare($sql);  
       $data =[

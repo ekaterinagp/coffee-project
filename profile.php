@@ -22,36 +22,36 @@ $nUserID = $jLoggedUser['nUserID'];
     exit;
   }
 
-  $sqlProducts = "SELECT tProduct.nProductID, tProduct.cName AS cProductName, 
-                tProduct.nCoffeeTypeID AS nProductCoffeeTypeID, tProduct.nPrice, 
-                tProduct.nStock, tProduct.bActive, tCoffeeType.nCoffeeTypeID, tCoffeeType.cName 
-                FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID WHERE tProduct.bActive != 0 LIMIT 4";
+  $sqlProducts = "SELECT tproduct.nProductID, tproduct.cName AS cProductName, 
+                tproduct.nCoffeeTypeID AS nProductCoffeeTypeID, tproduct.nPrice, 
+                tproduct.nStock, tproduct.bActive, tcoffeetype.nCoffeeTypeID, tcoffeetype.cName 
+                FROM tproduct INNER JOIN tcoffeetype on tproduct.nCoffeeTypeID = tcoffeetype.nCoffeeTypeID WHERE tproduct.bActive != 0 LIMIT 4";
   $statementProducts = $connection->prepare($sqlProducts);
 
-  $sqlSubscriptions = "SELECT tSubscriptionType.nSubscriptionTypeID, tSubscriptionType.cName AS cSubscriptionName,
-                      tProduct.nProductID, tProduct.cName AS cProductName, tProduct.nPrice, tProduct.nStock, tProduct.bActive, 
-                      tCoffeeType.nCoffeeTypeID, tCoffeeType.cName  
-                      FROM tSubscriptionType 
-                      INNER JOIN tProduct ON tSubscriptionType.nProductID = tProduct.nProductID 
-                      INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID 
-                      WHERE tProduct.bActive != 0 LIMIT 3";
+  $sqlSubscriptions = "SELECT tsubscriptiontype.nSubscriptionTypeID, tsubscriptiontype.cName AS cSubscriptionName,
+                      tproduct.nProductID, tproduct.cName AS cProductName, tproduct.nPrice, tproduct.nStock, tproduct.bActive, 
+                      tcoffeetype.nCoffeeTypeID, tcoffeetype.cName  
+                      FROM tsubscriptiontype 
+                      INNER JOIN tproduct ON tsubscriptiontype.nProductID = tproduct.nProductID 
+                      INNER JOIN tcoffeetype ON tproduct.nCoffeeTypeID = tcoffeetype.nCoffeeTypeID 
+                      WHERE tproduct.bActive != 0 LIMIT 3";
   
   $statementSubscriptions = $connection->prepare($sqlSubscriptions);
 
-  $sqlUserSubscription = "SELECT tUserSubscription.nUserSubscriptionID, tUserSubscription.dCancellation, 
-                        tSubscriptionType.nSubscriptionTypeID, tSubscriptionType.cName AS cSubscriptionName,
-                        tProduct.nProductID, tProduct.cName AS cProductName, tProduct.nPrice, tProduct.nStock, tProduct.bActive, 
-                        tCoffeeType.nCoffeeTypeID, tCoffeeType.cName  
+  $sqlUserSubscription = "SELECT tusersubscription.nUserSubscriptionID, tusersubscription.dCancellation, 
+                        tsubscriptiontype.nSubscriptionTypeID, tsubscriptiontype.cName AS cSubscriptionName,
+                        tproduct.nProductID, tproduct.cName AS cProductName, tproduct.nPrice, tproduct.nStock, tproduct.bActive, 
+                        tcoffeetype.nCoffeeTypeID, tcoffeetype.cName  
                         FROM tUser
-                        INNER JOIN tUserSubscription ON tUser.nUserID = tUserSubscription.nUserID 
-                        INNER JOIN tSubscriptionType ON tUserSubscription.nSubscriptionTypeID = tSubscriptionType.nSubscriptionTypeID 
-                        INNER JOIN tProduct ON tSubscriptionType.nProductID = tProduct.nProductID 
-                        INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID 
-                        WHERE tuser.nUserID = :id AND tUserSubscription.dCancellation IS NULL AND tProduct.bActive != 0";
+                        INNER JOIN tusersubscription ON tuser.nUserID = tusersubscription.nUserID 
+                        INNER JOIN tsubscriptiontype ON tusersubscription.nSubscriptionTypeID = tsubscriptiontype.nSubscriptionTypeID 
+                        INNER JOIN tproduct ON tsubscriptionType.nProductID = tproduct.nProductID 
+                        INNER JOIN tcoffeeType ON tproduct.nCoffeeTypeID = tcoffeetype.nCoffeeTypeID 
+                        WHERE tuser.nUserID = :id AND tusersubscription.dCancellation IS NULL AND tproduct.bActive != 0";
 
   $statementUserSubscription = $connection->prepare($sqlUserSubscription);
 
-  $sqlCreditCard = "SELECT * FROM tCreditCard WHERE tCreditCard.nUserID = :id AND dDeleteCreditCard IS NULL";
+  $sqlCreditCard = "SELECT * FROM tcreditcard WHERE tcreditcard.nUserID = :id AND dDeleteCreditCard IS NULL";
   $statementCreditCard = $connection->prepare($sqlCreditCard);
 
   ?>
@@ -266,21 +266,7 @@ $nUserID = $jLoggedUser['nUserID'];
                              <h4 class="productPrice mt-small absolute">'.$jProduct['nPrice'].' DKK</h4>
                          </div>
                      </div>
-                 </a>';
-
-                //  echo 
-                //  '<a href="singleProduct?id='.$jProduct['nProductID'].'">
-                //   <div class="subscriptionItem" id="'.$jProduct['nProductID'].'">
-                //     <div class="subscriptionItemBg">
-                //       <img src="img/products/'.$result.'.png" alt="">  
-                //       <h3 class="subscriptionName">'.$jProduct['cProductName'].'</h3>
-                //       <h4 class="priceSubscription ">'.$jProduct['nPrice'].' DKK</h4>
-                //     </div>
-                //   <div class="white-text-bg">
-                //   <h4>'.$jProduct['cName'].'</h4>    
-                //     </div>
-                //   </div>
-                //  </a>'; 
+                 </a>'; 
               }
             }; ?>
         </div>

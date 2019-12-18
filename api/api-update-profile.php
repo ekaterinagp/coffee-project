@@ -82,7 +82,7 @@ if($_SESSION){
     
     require_once(__DIR__.'/../connection.php');
 
-    $sql = "UPDATE TUser SET cName=:name, cSurname=:lastName, cEmail=:email, 
+    $sql = "UPDATE tuser SET cName=:name, cSurname=:lastName, cEmail=:email, 
     cAddress=:address, nCityID =:cityID, cPhoneNo=:phone, 
     cUsername=:username WHERE nUserID=:id"; 
     $statement = $connection->prepare($sql);

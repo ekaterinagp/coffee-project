@@ -2,18 +2,18 @@
 $iProductID = $_GET['id'];
 require_once(__DIR__ . '/connection.php');
 
-$sqlSingleProduct = "SELECT tProduct.nProductID, tProduct.cName as cProductName, tProduct.nCoffeeTypeID as nProductCoffeeTypeID, 
-        tProduct.nPrice, tProduct.nStock, tProduct.bActive, 
-        tCoffeeType.nCoffeeTypeID, tCoffeeType.cName 
-        FROM tProduct INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID 
-        WHERE tProduct.bActive != 0 AND tProduct.nProductID = :id";
+$sqlSingleProduct = "SELECT tproduct.nProductID, tproduct.cName as cProductName, tproduct.nCoffeeTypeID as nProductCoffeeTypeID, 
+        tproduct.nPrice, tproduct.nStock, tproduct.bActive, 
+        tcoffeetype.nCoffeeTypeID, tcoffeetype.cName 
+        FROM tproduct INNER JOIN tcoffeetype ON tproduct.nCoffeeTypeID = tcoffeetype.nCoffeeTypeID 
+        WHERE tproduct.bActive != 0 AND tproduct.nProductID = :id";
 $statementSingleProduct = $connection->prepare($sqlSingleProduct);
 
-$sqlRelatedProducts = "SELECT tProduct.nProductID, tProduct.cName as cProductName, tProduct.nCoffeeTypeID as nProductCoffeeTypeID, 
-                        tProduct.nPrice, tProduct.nStock, tProduct.bActive, 
-                        tCoffeeType.nCoffeeTypeID, tCoffeeType.cName 
-                        FROM tProduct INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID 
-                        WHERE tProduct.bActive != 0 AND tProduct.nCoffeeTypeID = :coffeeID AND tProduct.nProductID != :id";
+$sqlRelatedProducts = "SELECT tproduct.nProductID, tproduct.cName as cProductName, tproduct.nCoffeeTypeID as nProductCoffeeTypeID, 
+                        tproduct.nPrice, tproduct.nStock, tproduct.bActive, 
+                        tcoffeetype.nCoffeeTypeID, tcoffeetype.cName 
+                        FROM tproduct INNER JOIN tcoffeetype ON tproduct.nCoffeeTypeID = tcoffeetype.nCoffeeTypeID 
+                        WHERE tproduct.bActive != 0 AND tproduct.nCoffeeTypeID = :coffeeID AND tproduct.nProductID != :id";
 $statementRelatedProducts = $connection->prepare($sqlRelatedProducts);
 
 $data =[

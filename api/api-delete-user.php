@@ -12,7 +12,7 @@ if($_SESSION){
 
     require_once(__DIR__ . '/../connection.php');
 
-    $sql = "UPDATE tUser SET dDeleteUser=CURRENT_TIMESTAMP() WHERE nUserId=:id";
+    $sql = "UPDATE tuser SET dDeleteUser=CURRENT_TIMESTAMP() WHERE nUserId=:id";
     
       $statement = $connection->prepare($sql);  
       $data =[

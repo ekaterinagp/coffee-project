@@ -23,22 +23,13 @@ require_once(__DIR__ . '/connection.php');
 </div>
 
 </div>
-
-
-
-
-
-
-
-
-<!-- <h2 class="coffee-type mb-medium">Back to shop</h2> -->
         <div class="container-banner absolute pv-large bg-medium-light-brown"></div>
         <div class="products-container grid grid-four">
 <?php
-$sqlProducts = "SELECT tProduct.nProductID, tProduct.cName AS cProductName, 
-tProduct.nCoffeeTypeID AS nProductCoffeeTypeID, tProduct.nPrice, 
-tProduct.nStock, tProduct.bActive, tCoffeeType.nCoffeeTypeID, tCoffeeType.cName 
-FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID WHERE tProduct.bActive != 0 LIMIT 4";
+$sqlProducts = "SELECT tproduct.nProductID, tproduct.cName AS cProductName, 
+tproduct.nCoffeeTypeID AS nProductCoffeeTypeID, tproduct.nPrice, 
+tproduct.nStock, tproduct.bActive, tcoffeetype.nCoffeeTypeID, tcoffeetype.cName 
+FROM tproduct INNER JOIN tcoffeetype on tproduct.nCoffeeTypeID = tcoffeetype.nCoffeeTypeID WHERE tproduct.bActive != 0 LIMIT 4";
 $statementProducts = $connection->prepare($sqlProducts);
 
 if ($statementProducts->execute()) {
@@ -61,8 +52,6 @@ if ($statementProducts->execute()) {
     //    </a>';
     }
 }
-
-
 
 ?>
 <script src="js/thankyou.js"></script>
