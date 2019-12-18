@@ -51,10 +51,10 @@ require_once(__DIR__ . '/connection.php');
                 } else {
                   echo 'log-in';
                 } ?>"><button class="button margin-auto mv-small paymentButton"><?php if ($_SESSION) {
-                                                                                                                                        echo 'Go to payment';
-                                                                                                                                      } else {
-                                                                                                                                        echo 'Please log in';
-                                                                                                                                      } ?></button></a>
+                                                                                  echo 'Go to payment';
+                                                                                } else {
+                                                                                  echo 'Please log in';
+                                                                                } ?></button></a>
 
     </div>
   </div>
@@ -68,40 +68,37 @@ require_once(__DIR__ . '/connection.php');
         <div class="products-container grid grid-four">
 
           <?php
-                                                                                                                                      $sqlProducts = "SELECT tproduct.nProductID, tproduct.cName AS cProductName, 
+                                                                                $sqlProducts = "SELECT tproduct.nProductID, tproduct.cName AS cProductName, 
   tproduct.nCoffeeTypeID AS nProductCoffeeTypeID, tproduct.nPrice, 
   tproduct.nStock, tproduct.bActive, tcoffeetype.nCoffeeTypeID, tcoffeetype.cName 
   FROM tproduct INNER JOIN tcoffeetype on tproduct.nCoffeeTypeID = tcoffeetype.nCoffeeTypeID WHERE tproduct.bActive != 0 LIMIT 4";
-                                                                                                                                      $statementProducts = $connection->prepare($sqlProducts);
-
-                                                                                                                                      if ($statementProducts->execute()) {
-
-                                                                                                                                        $jProducts = $statementProducts->fetchAll(PDO::FETCH_ASSOC);
-
-                                                                                                                                        foreach ($jProducts as $jProduct) {
-                                                                                                                                          $imgUrl = $jProduct['cProductName'];
-                                                                                                                                          $result = strtolower(str_replace(" ", "-", $imgUrl));
-                                                                                                                                          echo
-                                                                                                                                            ' <a href="singleProduct?id=' . $jProduct['nProductID'] . '">
-             <div class="product relative " id="product-' . $jProduct['nProductID'] . '">
-                 <div class="image bg-contain" style="background-image: url(img/products/' . $result . '.png)"></div>
-                 <div class="description m-small">
-                     <h3 class="productName mt-small text-left">' . $jProduct['cProductName'] . '</h3>
-                     <h4 class="productName mt-small text-left">' . $jProduct['cName'] . '</h4>
-                     <h4 class="productPrice absolute mt-small">' . $jProduct['nPrice'] . ' DKK</h4>
-                 </div>
-             </div>
+                                                                                $statementProducts = $connection->prepare($sqlProducts);
+                                                                                if ($statementProducts->execute()) {
+                                                                                  $jProducts = $statementProducts->fetchAll(PDO::FETCH_ASSOC);
+                                                                                  foreach ($jProducts as $jProduct) {
+                                                                                    $imgUrl = $jProduct['cProductName'];
+                                                                                    $result = strtolower(str_replace(" ", "-", $imgUrl));
+                                                                                    echo
+                                                                                      ' <a href="singleProduct?id=' . $jProduct['nProductID'] . '">
+    <div class="product relative " id="product-' . $jProduct['nProductID'] . '">
+     <div class="image bg-contain" style="background-image: url(img/products/' . $result . '.png)"></div>
+    <div class="description m-small">
+    <h3 class="productName mt-small text-left">' . $jProduct['cProductName'] . '</h3>
+     <h4 class="productName mt-small text-left">' . $jProduct['cName'] . '</h4>
+     <h4 class="productPrice absolute mt-small">' . $jProduct['nPrice'] . ' DKK</h4>
+     </div>
+     </div>
          </a>';
-                                                                                                                                        }; ?>
+                                                                                  }; ?>
         </div>
       </div>
     </section>
   <?php
-                                                                                                                                        $connection = null;
-                                                                                                                                      }; ?>
+                                                                                  $connection = null;
+                                                                                }; ?>
   </div>
 </main>
 
 <?php
-                                                                                                                                      $sScriptPath = 'cart.js';
-                                                                                                                                      require_once(__DIR__ . '/components/footer.php');
+                                                                                $sScriptPath = 'cart.js';
+                                                                                require_once(__DIR__ . '/components/footer.php');
