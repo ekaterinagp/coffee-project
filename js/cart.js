@@ -11,7 +11,7 @@ let cartSection = document.querySelector("#cartItems");
 // selectQ();
 
 if (cart) {
-    cart.forEach(cartItem => {
+  cart.forEach(cartItem => {
     let template = document.querySelector("#cartItemTemplate").content;
     let clone = template.cloneNode(true);
     clone.querySelector(".title_cart").textContent = cartItem.name;
@@ -20,23 +20,23 @@ if (cart) {
     clone.querySelector(".type_cart_grind").textContent = cartItem.typeGrind;
     clone.querySelector(".price_cart").textContent = cartItem.price;
     clone.querySelector(".cart_quantity").value = cartItem.amount;
-    clone.querySelector(".cart_quantity").addEventListener('input', function(){ 
-      if(event.target.value < cartItem.amount){
+    clone.querySelector(".cart_quantity").addEventListener("input", function() {
+      if (event.target.value < cartItem.amount) {
         cartItem.amount = event.target.value;
         // console.log(cartItem.amount)
-        subTotalPrice = subTotalPrice - parseInt(cartItem.price) ;
+        subTotalPrice = subTotalPrice - parseInt(cartItem.price);
         // console.log(subTotalPrice)
         taxAmount = subTotalPrice * 0.25;
         totalPrice = subTotalPrice - taxAmount;
-      }else{
+      } else {
         cartItem.amount = event.target.value;
         console.log(cartItem.amount);
         subTotalPrice = subTotalPrice + parseInt(cartItem.price);
-        console.log(subTotalPrice)
+        console.log(subTotalPrice);
         taxAmount = subTotalPrice * 0.25;
         totalPrice = subTotalPrice + taxAmount;
       }
-// console.log(totalPrice)
+      // console.log(totalPrice)
       // console.log(cartItem.amount);
 
       // let originalPrice = cartItem.price;
@@ -49,14 +49,13 @@ if (cart) {
       document.getElementById("tax").textContent = taxAmount + " DKK";
       document.getElementById("subsum").innerHTML = subTotalPrice + " DKK";
       document.getElementById("totalsum").innerHTML = totalPrice + " DKK";
-    
-    })
+    });
     let removeBtn = clone.querySelector(".remove");
     removeBtn.addEventListener("click", function() {
       console.log("removeItemId: ", cartItem.id);
       removeItem(cartItem.id);
     });
-    
+
     cartSection.appendChild(clone);
   });
   sessionStorage.setItem("cart", JSON.stringify(cart));
@@ -94,14 +93,14 @@ function removeItem(cartItemId) {
   selectQ();
 }
 
-
 function selectQ() {
   let sectionTotal = document.getElementById("totalItemsSection");
   let cart = JSON.parse(sessionStorage.getItem("cart"));
   if (cart) {
     cart.forEach(cartItem => {
-      subTotalPrice = subTotalPrice + parseInt(cartItem.price) * parseInt(cartItem.amount);
-      // console.log(subTotalPrice)
+      subTotalPrice =
+        subTotalPrice + parseInt(cartItem.price) * parseInt(cartItem.amount);
+      console.log(subTotalPrice);
       taxAmount = subTotalPrice * 0.25;
       totalPrice = subTotalPrice + taxAmount;
       let template = document.querySelector("#totalItemsTemplate").content;
