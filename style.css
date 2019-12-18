@@ -982,7 +982,7 @@ a.back-button:hover {
 
 .button-delete-card,
 .button.button-edit,
-.button.button-save,
+/* .button.button-save, */
 .show-newCardFrm, 
 .remove, 
 .button.button-delete {
@@ -1017,7 +1017,7 @@ a.back-button:hover {
 .modal .button {
   margin: auto;
 }
-.button-confirm-delete {
+.button-abort-delete {
   background-color: black;
 }
 
@@ -1395,7 +1395,12 @@ a.back-button:hover {
   width: 4vw;
   height: 4vw;
 }
-
+#forSearch{
+  visibility: hidden;
+}
+#forSearch h4{
+  display: inline;
+}
 #results p {
   text-align: left;
 }
@@ -1720,7 +1725,15 @@ a.back-button:hover {
 }
 
 /***** PROFILE PAGE  *****/
+.profile .section-one h2{
+  grid-row:1;
+}
+.form-profile-form-container-creditcard{
+  height:100%;
+  align-content: center;
+}
 #form-profile label p,
+.addCardHeader,
 #savedCardFrm p,
 .shipping p:first-child {
   grid-column: 1/-1;
@@ -1731,7 +1744,7 @@ a.back-button:hover {
   /* width:50vw; */
   margin: auto;
 }
-#form-creditcard .button-save {
+#form-creditcard .button-save, .profile .button-add {
   margin: 1vw auto;
 }
 .not-input ~ h5 {
@@ -1765,11 +1778,11 @@ a.back-button:hover {
   margin-top: 0.5vh;
 }
 
-#form-creditcard {
+/* #form-creditcard {
   max-height: 0;
   overflow: hidden;
   transition: all 0.3s;
-}
+} */
 
 .hide-button {
   display: none;
@@ -1787,7 +1800,6 @@ a.back-button:hover {
   width: 100%;
   align-self: end;
   grid-column: 1/-1;
-  grid-row: 5;
 }
 
 .formButtonContainer .button {
@@ -2163,7 +2175,7 @@ input:checked + .btnRadio {
 .signupBg {
   left: 0;
   position: absolute;
-  top: 50%;
+  top: 40%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   height: 15vw;
@@ -2171,25 +2183,9 @@ input:checked + .btnRadio {
   z-index: -1;
 }
 
-.containerSignup.signup .signupBg {
-  top: 25%;
-  -ms-transform: translateY(-25%);
-  transform: translateY(-25%);
-}
 
-.containerSignup h4 {
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: 15vw;
-}
 
-.containerSignup.signup h4 {
-  top: 30%;
-  -ms-transform: translateY(-30%);
-  transform: translateY(-30%);
-}
+
 
 .loginWelcome {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -2210,7 +2206,17 @@ input:checked + .btnRadio {
 }
 .containerSignup h4,
 .containerLogin h4 {
-  text-align: left;
+  padding: 0;
+  align-self: center;
+}
+.containerSignup .linkContainer{
+  width:25vw;
+ }
+.linkContainer{
+  right:5vw;
+  top:40%;
+  justify-items: left;
+  width:30vw;
 }
 
 .containerSignup h5,
@@ -2230,30 +2236,37 @@ input:checked + .btnRadio {
 #signupForm label {
   margin: 1vh 0;
 }
-form h5 {
+form label h5 {
   font-size: 70%;
   align-self: end;
 }
-#signupForm input,
-#signupForm select,
-#loginForm input,
-.profile input,
-.profile select,
-#newCardFrm input {
-  grid-column: 1/-1;
-}
-.profile .details-one form p {
-  grid-row: 1;
-  grid-column: 1/-1;
-}
-.profile .details-one form h5,
-.newCardFrm h5 {
-  grid-column: 1/-1;
-  grid-row: 2;
-  text-align: left;
-}
+ #form-profile  label input,
+ #form-profile label select{
+   grid-column: 2;
+   grid-row: 1;
+ }
+ #form-profile  label h5,
+  #form-profile  label select{
+   grid-column: 2;
+ }
+  form>label>select,
+  form>label> input {
+    grid-column: 1/-1;
+  }
+
+  form >label>h5, form label p{
+    grid-row:1
+  }
+  form label h5{
+    grid-column: 2;
+    text-align: right;
+  }
 label {
   font-weight: bold;
+}
+#form-creditcard input[type="number"]::-webkit-inner-spin-button,
+#form-creditcard input[type="number"]::-webkit-outer-spin-button{
+  display: none;
 }
 .single-product input[type="number"]::-webkit-inner-spin-button,
 .single-product input[type="number"]::-webkit-outer-spin-button, 
@@ -2270,15 +2283,10 @@ select {
   height: 2.5vw;
   padding: 1vw;
   background: #fff;
+  border:none;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"], 
-select,
-input.phone{
-  border: none;
-}
+
 
 input[type="number"].cart_quantity{
   border: solid 0.1px #00000045;
@@ -2306,28 +2314,6 @@ input[type="number"]:valid + label {
   opacity: 0;
 }
 
-/* input[type="text"]:invalid:not(:focus):not(:placeholder-shown) ~ .errorMessage,
-input[type="email"]:invalid:not(:focus):not(:placeholder-shown) ~ .errorMessage,
-input[type="password"]:invalid:not(:focus):not(:placeholder-shown)
-  ~ .errorMessage,
-input[type="number"]:invalid:not(:focus):not(:placeholder-shown)
-  ~ .errorMessage,
-  input[type="text"]:invalid:not(:focus):not(:placeholder-shown) ~ .errorMessage,
-textarea:invalid:not(:focus) ~ .errorMessage, */
-/* .error:not(:focus):not(:placeholder-shown) ~ .errorMessage {
-  max-height: 200px;
-  padding: 3px 10px 10px 10px;
-} */
-/* 
-form .errorMessage {
-  padding: 0 30px 0 50px;
-  max-height: 0;
-  transition: all 0.3s;
-  overflow: hidden;;
-  color: #e43d31;
-  font-style: italic;
-  font-size: 80%;
-} */
 
 input:not(:focus).error {
   border: 2px solid #e43d31;
@@ -2441,12 +2427,13 @@ input.type_cart_grind {
   margin: auto;
   max-height: 0;
   overflow: hidden;
-}
+} 
 #newCardfrm.showFrm {
   max-height: 100vh;
   overflow: auto;
   transition: all 0.2s;
 }
+
 #savedCardFrm p {
   grid-column: 1/-1;
 }
@@ -2586,13 +2573,8 @@ input.type_cart_grind {
     grid-template-columns: 1fr;
   }
 
-  .profile .grid-two-thirds-reversed {
-    grid-template-columns: 1fr;
-  }
+ 
 
-  .profile .profile-details.details-one {
-    max-height: 100%;
-  }
 
   .creditcard-form-button-container {
     display: grid;
@@ -2683,6 +2665,9 @@ input[type="password"], input[type="number"], select{
   #form-creditcard {
     margin: 0 10%;
   }
+  .subscriptionItem h3{
+    height:5vw;
+  }
   /*  SHOP   */
   #results{
     top: 28vh;
@@ -2692,22 +2677,8 @@ input[type="password"], input[type="number"], select{
   #paymentMain {
     margin-top: 0%;
   }
-  #form-profile {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  #form-profile h2:first-child,
-  .form-profile-form-container-info {
-    grid-column: 1;
-  }
-  .form-profile-form-container-info,
-  .form-profile-form-container-shipping {
-    grid-row: 2;
-  }
-  #form-profile h2:last-child,
-  .form-profile-form-container-shipping {
-    grid-column: 2;
-  }
+ 
+
   .cartTotal {
     grid-template-columns: 1fr;
   }
@@ -2735,10 +2706,7 @@ input[type="password"], input[type="number"], select{
     margin-left: 6vw;
     margin-right: 6vw;
   }
-  .creditcard-container,
-  #form-creditcard {
-    margin: 0 25%;
-  }
+ 
   /*  CART /PAYMENT /THANK YOU */
   .cartTotal {
     grid-template-columns: 1fr;
@@ -2759,6 +2727,17 @@ input[type="password"], input[type="number"], select{
     margin-top: 20%;
     min-height: 67vh;
   }
+  .containerSignup .signupBg{
+    height:60vh;
+  }
+  .containerLogin .signupBg{
+    height:20vh;
+  }
+  .linkContainer{
+    margin-left:-20px;
+    width:40vw;
+    position:initial;
+  }
   .containerLogin .loginWelcome {
     height: 30vh;
   }
@@ -2775,13 +2754,14 @@ input[type="password"], input[type="number"], select{
     margin-bottom: 1vh;
   }
   #loginForm label p,
-  #loginForm label h5 {
+  #loginForm label h5,
+  #form-profile label h5 {
     text-align: left;
     padding: 0;
   }
-  .containerSignup.signup h4 {
+  /* .containerSignup.signup h4 {
     right: 5vw;
-  }
+  } */
 }
 
 @media only screen and (max-width: 420px) {
@@ -3063,17 +3043,21 @@ input[type="password"], input[type="number"], select{
     margin:auto;
   }
   /*  LOGIN /SIGNUP  */
-  #signupForm label {
+  #form-creditcard label.grid-two-thirds  {
     grid-template-columns: 1fr;
   }
-  #signupForm label {
+  form label {
     margin-top: 1vh;
     margin-bottom: 1vh;
   }
-  #signupForm label h5,
-  #signupForm label p {
-    text-align: left;
+  form label h5,
+  form label p {
+    grid-column: 1;
+    text-align:left !important;
     padding: 0;
+  }
+  form label h5{
+    grid-row: 2;
   }
   .containerLogin.grid {
     display: block;
@@ -3101,6 +3085,17 @@ input[type="password"], input[type="number"], select{
   .containerLogin a {
     color: black;
     text-align: center;
+  }
+  .containerSignup .linkContainer{
+    width:60vw;
+  }
+  .linkContainer .button{
+    width:30vw;
+  }
+  .linkContainer{
+    justify-items: center;
+    width:70vw;
+    margin:auto;
   }
   .containerSignup h4,
   .containerSignup a {
@@ -3131,19 +3126,19 @@ input[type="password"], input[type="number"], select{
   #form-creditcard,
   #form-creditcard {
     margin: auto;
-    width: auto;
+    width: 80%;
   }
   #form-creditcard button {
     margin: 2vw 0;
   }
-  .profile-details .form-profile-form-container-info,
-  .form-profile-form-container-shipping {
+  .profile-info-container{
     display: block;
+    margin:1vw;
   }
-  .form-profile-form-container-shipping label,
-  .form-profile-form-container-info label {
-    margin: 1vw;
+  .profile-info-container form{
+    width:auto;
   }
+  
   #form-profile .button {
     margin: 3vw auto;
   }
@@ -3152,8 +3147,14 @@ input[type="password"], input[type="number"], select{
   }
   .creditcard-container {
     margin: 0 0 2em;
+    max-width: 100%;
   }
-
+  .containerForSubscriptions{
+    grid-gap: 4vw;
+  }
+  .subscriptionItem h3{
+    height:auto;
+  }
   #form-profile > label.grid {
     margin: 2vh 0;
   }
@@ -3168,7 +3169,9 @@ input[type="password"], input[type="number"], select{
   .thank-you {
     margin-top: 0;
   }
-
+  .shipping p:last-child{
+    font-size: 90%;
+  }
   .cartTotal,
   #paymentMain > .grid-two-thirds {
     grid-template-columns: 1fr;
@@ -3275,6 +3278,7 @@ input[type="password"], input[type="number"], select{
     left: 10vw;
     right: 10vw;
     grid-gap: 2vw;
+    padding:6vw;
   }
   /*    LOGOUT PAGE   */
   .log-out.thank-you .container-banner {

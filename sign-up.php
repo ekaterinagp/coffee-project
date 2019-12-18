@@ -10,15 +10,16 @@ if ($_SESSION) {
 }
 ?>
   <section class="containerSignup signup grid grid-two align-items-center">
-    <div class="loginWelcome mh-medium pv-medium mb-footer bg-brown">
-      <div class="signupBg bg-orange"></div>
-      <h1 class="color-white p-small text-center">Signup</h1>
+    <div class="loginWelcome mh-medium pv-medium mb-footer bg-grey">
+      <div class="signupBg bg-brown"></div>
+      <h1 class=" p-small text-center">Signup</h1>
 
 
       <form id="signupForm" class="grid grid-one" method="POST">
-        <h5 class="mt-small color-white">Personal Information</h5>
+        <h5 class="mt-small ">Personal Information</h5>
         <hr class="frmLine mt-small">
 
+<<<<<<< HEAD
         <label class="grid grid-two-thirds color-white" for="name"><p>First Name</p><h5 class="light text-right">Must be 1 to 20 characters</h5><input required data-min="2" data-max="20" type="text" data-type="string" name="inputName">
         </label>
 
@@ -26,9 +27,22 @@ if ($_SESSION) {
         </label>
 
         <label class="grid grid-two-thirds color-white" for="email"><p>Email</p>  <h5 class="light text-right">Must be a valid email address</h5><input required type="email" data-type="email" name="inputEmail" >
+=======
+        <label class="grid grid-two-thirds " for="name"><p>First Name</p><h5 class="light text-right">Must be 1 to 20 characters</h5><input required data-min="2" data-max="20" type="text" data-type="string" name="inputName">
+          <!-- <div class="errorMessage">Name must be more than 1 and less than 20 letters</div> -->
         </label>
 
-        <label for="cityInput" class="grid grid-two color-white"><p>City</p> <h5 class="text-right light">Choose your City</h5>
+        <label class="grid grid-two-thirds " for="lastName"><p>Last Name</p> <h5 class="light text-right">Must be 1 to 20 characters</h5><input required data-type="string" data-min="2" data-max="20" type="text" name="inputLastName" >
+          <!-- <div class="errorMessage">Last name must be more than 1 and less than 20 letters</div> -->
+        </label>
+
+        <label class="grid grid-two-thirds " for="email"><p>Email</p>  <h5 class="light text-right">Must be a valid email address</h5><input required type="email" data-type="email" name="inputEmail" >
+          <!-- onchange="fvIsEmailAvailable(this);"  -->
+          <!-- <div class="errorMessage" id="emailDiv">Must be a valid email address</div> -->
+>>>>>>> 75268e2598449ea72fd0e8d0c9cd0a88977f0763
+        </label>
+
+        <label for="cityInput" class="grid grid-two "><p>City</p> <h5 class="text-right light">Choose your City</h5>
           <select name="cityInput" data-min="0" data-max="99" data-type="integer">
             <option disabled selected value> -- select your city -- </option>
             <option value="1">Copenhagen</option>
@@ -60,7 +74,7 @@ if ($_SESSION) {
 
         <label class="grid grid-two color-white" for="userPhone"><p>Phone Number</p> <h5 class="light text-right">Must be 8 characters</h5><input required type="text" data-type="integer" data-min="9999999" data-max="999999999" name="inputPhone">
         </label>
-        <h5 class="mt-medium color-white">Account Information</h5>
+        <h5 class="mt-medium ">Account Information</h5>
 
         <hr class="frmLine mt-small">
         <label class="grid grid-two color-white" for="loginName"><p>Username</p> <h5 class="light text-right">Must be 2 to 12 charachters</h5><input required type="text" data-type="string" data-min="2" data-max="12"  name="inputLoginName">
@@ -73,10 +87,17 @@ if ($_SESSION) {
         </label>
 
 
-        <button name="reg_user" class="button formBtn margin-auto mv-small" disabled>Sign Up</button>
+        <button name="reg_user" class="button formBtn margin-auto" disabled>Sign Up</button>
       </form>
     </div>
-    <h4 class="text-left">Already a user? <strong><a href="log-in">Log in </a></strong></h3>
+    
+    <div class="linkContainer grid grid-two absolute">
+    <h4 class="text-left">Already a user? </h4>
+      <a href="log-in">
+        <button class="button"> Log in</button>
+    </a>
+    </div>
+
 </section>
   <script src="js/signup.js"></script>
   <?php

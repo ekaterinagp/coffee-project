@@ -24,6 +24,7 @@ btnUpdatePrice.forEach(btnUpdate=>{
         let id = btnUpdate.parentElement.parentElement.id;
         let form = btnUpdate.parentElement;
             updateProduct(id, form);
+            console.log(id)
         });
 })
 btnUpdateStock.forEach(btnUpdate=>{
@@ -31,7 +32,8 @@ btnUpdateStock.forEach(btnUpdate=>{
         event.preventDefault();
         let id = btnUpdate.parentElement.parentElement.id;
         let form = btnUpdate.parentElement;
-        updateProduct(id, form);
+        // updateProduct(id, form);
+        console.log(id)
         });
 })
 
@@ -55,7 +57,7 @@ function updateProduct(id, form){
     id = id.substr(id.search("-")+1,id.length)
     let formData = new FormData();
 
-    if (form.id == "frmUpdatePrice"){   
+    if (form.className == "frmUpdatePrice"){   
         console.log("price");
         url = updatePriceUrl;
         let price= form.querySelector('[name=updatePrice]').value;
