@@ -166,11 +166,6 @@ function showModal(text, deleteType, itemID){
     modal.append(modalContainer);
     document.querySelector('body').append(modal);
 
-    // document.addEventListener("click", function(){
-    // if(event.target == modal ){
-    //     modal.style.display="none";
-    // }
-// })
     document.querySelector(".button-abort-delete").addEventListener("click", function(){
         modal.classList.add('hide');
         setTimeout(function(){
@@ -446,7 +441,7 @@ function noSubscriptions(){
             whiteBg.className = 'white-text-bg';
         
             let pOrigin = document.createElement('p');
-            pOrigin.className = 'productCoffeeType';
+            pOrigin.className = 'productCoffeeType pb-small';
             pOrigin.innerText = subscription.cName;
         
             let pDesc = document.createElement('p');
