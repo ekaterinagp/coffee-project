@@ -1778,6 +1778,10 @@ a.back-button:hover {
   grid-gap: 1vw;
 }
 
+.productCoffeeType{
+  text-align: center;
+}
+
 #form-profile .formButtonContainer {
   display: grid;
   width: 100%;

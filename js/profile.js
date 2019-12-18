@@ -442,7 +442,7 @@ function noSubscriptions(){
             whiteBg.className = 'white-text-bg';
         
             let pOrigin = document.createElement('p');
-            pOrigin.className = 'productCoffeeType';
+            pOrigin.className = 'productCoffeeType pb-small';
             pOrigin.innerText = subscription.cName;
         
             let pDesc = document.createElement('p');
