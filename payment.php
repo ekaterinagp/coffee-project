@@ -25,9 +25,10 @@ if($_SESSION){
 ?>
   <main id="paymentMain" class="mv-medium payment">  
     <a href="cart" class=" back-button absolute">&lt;</a>
-    <div class="payment-container grid grid-two-thirds-reversed m-medium">
+    <div>
+      <h1 class="text-left pl-medium">Purchase overview</h1>
+    <div class="payment-container grid grid-two-thirds-reversed mh-medium mb-medium mt-small">
       <div>
-    <h1 class="text-left pb-small">Purchase overview</h1>
       <section id="paymentItems">  
 
 
@@ -192,6 +193,7 @@ if($statementCreditCard->execute([':id' => $nUserID])){
     
     </div>
     </div>
+</div>
     
 
   </main>

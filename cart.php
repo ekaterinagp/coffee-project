@@ -5,11 +5,11 @@ require_once(__DIR__ . '/components/header.php');
 require_once(__DIR__ . '/connection.php');
 ?>
 
-<main class="cartMain mt-small mb-footer">
-  <h1 class="text-left pb-small">Your cart</h1>
-  <div class="cartTotal grid grid-two-thirds-reversed m-medium">
+<main class="cartMain mv-medium mb-footer">
+  <div>
+  <h1 class="text-left pl-medium">Your cart</h1>
+  <div class="cartTotal grid grid-two-thirds-reversed mh-medium mb-medium mt-small">
     <div>
-
       <section id="cartItems">
         <template id="cartItemTemplate">
           <div id="" class="cartDiv grid mb-small ">
@@ -57,6 +57,7 @@ require_once(__DIR__ . '/connection.php');
                                                                                                                                       } ?></button></a>
 
     </div>
+  </div>
   </div>
   <div class="noCart">
     <p class="mt-medium text-center"> Your cart seems to be empty...</p>
