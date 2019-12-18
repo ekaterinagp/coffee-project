@@ -50,7 +50,7 @@ if($_SESSION){
 
         require_once(__DIR__.'/../connection.php');
 
-        $sql = "INSERT INTO tCreditCard (cIBAN, cCCV, cExpiration, nUserID) VALUES (:iban, :ccv, :expiration, :id)";
+        $sql = "INSERT INTO tcreditcard (cIBAN, cCCV, cExpiration, nUserID) VALUES (:iban, :ccv, :expiration, :id)";
 
         $statement = $connection->prepare($sql);
     

@@ -3,15 +3,15 @@ $sTitle = ' | Subscribe';
 $sCurrentPage = 'subscribe';
 require_once(__DIR__.'/components/header.php');
 require_once(__DIR__.'/connection.php');
-$sql = "SELECT tSubscriptiontype.cName, tProduct.cName AS cProductName, tCoffeeType.cName AS cCoffeeTypeName,
-                 tSubscriptiontype.nSubscriptionTypeID AS nSubscriptionID, 
-                 tProduct.nPrice AS nSubscriptionPrice  
-                 FROM tSubscriptiontype 
-                 INNER JOIN tProduct 
-                 ON tProduct.nProductID = tSubscriptiontype.nProductID
-                 INNER JOIN tCoffeeType
-                 ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID
-                 WHERE tProduct.bActive != 0";
+$sql = "SELECT tsubscriptiontype.cName, tproduct.cName AS cProductName, tcoffeetype.cName AS cCoffeeTypeName,
+                 tsubscriptiontype.nSubscriptionTypeID AS nSubscriptionID, 
+                 tproduct.nPrice AS nSubscriptionPrice  
+                 FROM tsubscriptiontype 
+                 INNER JOIN tproduct 
+                 ON tproduct.nProductID = tsubscriptiontype.nProductID
+                 INNER JOIN tcoffeetype
+                 ON tproduct.nCoffeeTypeID = tcoffeetype.nCoffeeTypeID
+                 WHERE tproduct.bActive != 0";
 $statement = $connection->prepare($sql);
 ?>
 
@@ -28,7 +28,6 @@ $statement = $connection->prepare($sql);
 </div>
 </section>
 
-  <!-- <h2 class="text-center mv-medium ">Six great ways to subscribe</h2> -->
   <div class="containerForSubscriptions grid grid-three m-medium">
 
   <?php

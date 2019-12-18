@@ -24,7 +24,6 @@ require_once(__DIR__ . '/connection.php');
               <p class="price_cart"></p>
               <input type="number" class="cart_quantity">
             <button class="remove button align-self-center">Remove item</button>
-          <!-- </div> -->
         </div>
       </template>
 
@@ -44,10 +43,8 @@ require_once(__DIR__ . '/connection.php');
         <h4 class="align-self-bottom text-left">Tax</h4>
         <p id="tax" class="text-right align-self-top"></p>
       </div>
-      <!-- <div class="grid grid-two mt-small"> -->
         <h3 class="align-self-bottom text-right">Total amount</h3>
         <h4 id="totalsum" class="pb-small text-right align-self-top"></h4>
-      <!-- </div> -->
       <a href="<?php if($_SESSION){echo 'payment';} else{echo'log-in';}?>"><button class="button margin-auto mv-small paymentButton"><?php if($_SESSION){echo 'Go to payment';} else{echo'Please log in';}?></button></a>
     
   </div>
@@ -62,10 +59,10 @@ require_once(__DIR__ . '/connection.php');
         <div class="products-container grid grid-four">
 
         <?php
-  $sqlProducts = "SELECT tProduct.nProductID, tProduct.cName AS cProductName, 
-  tProduct.nCoffeeTypeID AS nProductCoffeeTypeID, tProduct.nPrice, 
-  tProduct.nStock, tProduct.bActive, tCoffeeType.nCoffeeTypeID, tCoffeeType.cName 
-  FROM tProduct INNER JOIN tCoffeeType on tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID WHERE tProduct.bActive != 0 LIMIT 4";
+  $sqlProducts = "SELECT tproduct.nProductID, tproduct.cName AS cProductName, 
+  tproduct.nCoffeeTypeID AS nProductCoffeeTypeID, tproduct.nPrice, 
+  tproduct.nStock, tproduct.bActive, tcoffeetype.nCoffeeTypeID, tcoffeetype.cName 
+  FROM tproduct INNER JOIN tcoffeetype on tproduct.nCoffeeTypeID = tcoffeetype.nCoffeeTypeID WHERE tproduct.bActive != 0 LIMIT 4";
   $statementProducts = $connection->prepare($sqlProducts);
 
     if ($statementProducts->execute()) {

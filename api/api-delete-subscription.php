@@ -12,7 +12,7 @@ if($_POST){
 
   require_once(__DIR__ . '/../connection.php');
 
-  $sql = "UPDATE tUserSubscription SET dCancellation=CURRENT_TIMESTAMP() WHERE nUserSubscriptionID=:id";
+  $sql = "UPDATE tusersubscription SET dCancellation=CURRENT_TIMESTAMP() WHERE nUserSubscriptionID=:id";
 
   $statement = $connection->prepare($sql);  
   $data =[

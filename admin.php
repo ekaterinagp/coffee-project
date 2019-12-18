@@ -9,7 +9,7 @@ require_once(__DIR__.'/connection.php');
 <h1>Update Products</h1>
 <div class="adminProducts">
 <?php
-    $sql = "SELECT * FROM tProduct WHERE bActive=1";
+    $sql = "SELECT * FROM tproduct WHERE bActive=1";
     $statement = $connection->prepare($sql);
 
     if($statement->execute()){
