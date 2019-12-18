@@ -3076,6 +3076,9 @@ input.type_cart_grind {
   .single-product .product-info-container {
     display: block;
   }
+  .single-product .container-banner{
+    top:2.5vw;
+  }
   .product-info-container .image.bg-contain {
     height: 20vh;
     margin: auto;
@@ -3202,6 +3205,9 @@ input.type_cart_grind {
   #form-profile > label.grid {
     margin: 2vh 0;
   }
+  .profile .related-products .container-banner{
+    top:6vw;
+  }
 
   /*    CART/   PAYMENT/   THANK YOU PAGE  */
 
@@ -3309,7 +3315,7 @@ input.type_cart_grind {
     width: 70vw;
   }
   .thank-you .container-banner {
-    top: 40vw;
+    top: 60vw;
   }
   /*  VALIDATION  */
   input[type="text"].valid,
