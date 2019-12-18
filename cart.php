@@ -16,10 +16,10 @@ require_once(__DIR__ . '/connection.php');
           <p class="bold">Price</p>
           <p class="bold">Quantity</p>
       <div class="frmLine"></div>
-          <div >
+          <div class="grid grid-one" >
             <h3 class="title_cart bold uppercase pl-small" name="coffeeName"></h3>
-            <input class="type_cart_grind " name="coffeeGrind">
-          <img class="img_cart align-self-center" src="" />
+            <p class="type_cart_grind"></p>
+          <img class="img_cart align-self-center justify-self-start" src="" />
           </div>
               <p class="price_cart"></p>
               <input type="number" class="cart_quantity">

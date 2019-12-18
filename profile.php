@@ -227,7 +227,7 @@ $nUserID = $jLoggedUser['nUserID'];
                 </div>
                 <div class="white-text-bg">
                   <p class="mb-small text-center"><?= $jUserSubscription['cName']; ?></p>
-                  <button class="button button-delete">Cancel</button>
+                  <button class="button button-delete">Delete</button>
                 </div>
               </div>
 

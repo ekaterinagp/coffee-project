@@ -29,19 +29,21 @@ if($_SESSION){
       <div>
     <h1 class="text-left pb-small">Purchase overview</h1>
       <section id="paymentItems">  
+
+
         <template id="paymentItemTemplate">
           <div id="" class="cartDiv grid mb-small ">
             <p class="bold">Description</p>
             <p class="bold">Price</p>
             <p class="bold">Quantity</p>
           <div class="frmLine"></div>
-          <div>
-            <h3 class="title_cart bold uppercase pl-small" name="coffeeName"></h3>
-            <input class="type_cart_grind " name="coffeeGrind">
+          <div class="grid grid-one">
+            <h3 class="title_cart bold uppercase" ></h3>
+            <p class="type_cart_grind"></p>
             <img class="img_cart align-self-center" src="" />
           </div>
           <p class="price_cart"></p>
-          <input type="number" class="cart_quantity">
+          <p type="number" class="cart_quantity"><p>
           </div>
       </template>
 
