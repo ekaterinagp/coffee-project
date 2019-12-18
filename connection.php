@@ -14,7 +14,6 @@ $options = [
     PDO::ATTR_EMULATE_PREPARES => false,
 ];
 
-// TEST IF CONNECTION IS SUCCEFUL WITH try catch
 try{
     $connection = new PDO($dsn, $username, $password, $options);      
 } catch(PDOException $e){

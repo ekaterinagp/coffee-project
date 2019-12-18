@@ -3,10 +3,10 @@ $sTitle = ' | Shop';
 $sCurrentPage = 'shop';
 
 require_once(__DIR__ . '/connection.php');
-$sql = "SELECT tProduct.nProductID, tProduct.cName AS cProductName, tProduct.nCoffeeTypeID AS nProductCoffeeTypeID, 
-        tProduct.nPrice, tProduct.nStock, tProduct.bActive, 
-        tCoffeeType.nCoffeeTypeID, tCoffeeType.cName 
-        FROM tProduct INNER JOIN tCoffeeType ON tProduct.nCoffeeTypeID = tCoffeeType.nCoffeeTypeID WHERE tProduct.bActive != 0";
+$sql = "SELECT tproduct.nProductID, tproduct.cName AS cProductName, tproduct.nCoffeeTypeID AS nProductCoffeeTypeID, 
+        tproduct.nPrice, tproduct.nStock, tproduct.bActive, 
+        tcoffeetype.nCoffeeTypeID, tcoffeetype.cName 
+        FROM tproduct INNER JOIN tcoffeetype ON tproduct.nCoffeeTypeID = tcoffeetype.nCoffeeTypeID WHERE tproduct.bActive != 0";
 
 $statement = $connection->prepare($sql);
 

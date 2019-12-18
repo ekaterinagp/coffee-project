@@ -18,7 +18,7 @@ if($_SESSION){
   $userCity = $_SESSION['user']['nCityID'];
   require_once(__DIR__ . '/connection.php');
 
-  $sql = "SELECT * FROM tCreditCard WHERE tCreditCard.nUserID = :id";
+  $sql = "SELECT * FROM tcreditcard WHERE tcreditcard.nUserID = :id";
   $statementCreditCard = $connection->prepare($sql);
 }
 
@@ -54,8 +54,6 @@ if($_SESSION){
       <h2 class="text-center pb-small">Checkout</h2>
      <div>
      <h4 class="bold mt-small">Shipping Details</h4>
-       <!-- <div class="grid grid-two"> -->
-       
          <div class="shipping pb-small">
          <p>Name</p>
          <p><?="$userName  $userLastname"?></p>
@@ -136,7 +134,6 @@ if($_SESSION){
          <p>Phone number </p>
          <p class=""><?=$userPhone?></p>
          </div>
-        <!-- </div> -->
         <div class="pt-regular">
           <div class="grid grid-two">
             <h4 class="subsumPayment align-self-bottom text-left">Subtotal</h4>
