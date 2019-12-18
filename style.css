@@ -1984,7 +1984,7 @@ h4.productPrice,
 }
 .btnRadio.noGrid {
   grid-template-columns: 1fr;
-  height: 20vh;
+  height: 20vw;
 }
 #timeline {
   text-align: right;
@@ -2053,7 +2053,7 @@ input:checked + .btnRadio {
   -webkit-appearance: none;
   padding: 1em;
   margin: 0.5em 0;
-  height: 15vh;
+  height: 8vw;
   display: inline-grid;
   justify-items: center;
   align-items: center;
