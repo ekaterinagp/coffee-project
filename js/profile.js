@@ -1,9 +1,9 @@
 // UPDATE USER
 
-const editButtons = document.querySelectorAll('.button-edit');
-const saveButtons = document.querySelectorAll('.button-save');
+const editButton = document.querySelector('.button-edit');
+const saveButton = document.querySelector('.button-save');
 
-console.log(editButtons);
+// console.log(editButtons);
 
 const inputName = document.querySelector("[name=inputName]");
 const inputLastName = document.querySelector("[name=inputLastName]");
@@ -13,7 +13,6 @@ const inputPhoneNo = document.querySelector("[name=inputPhone]");
 const inputCity = document.querySelector("[name=cityInput]");
 const inputUsername = document.querySelector("[name=inputLoginName]");
 
-editButtons.forEach(editButton=> {
     editButton.addEventListener('click', function(){
         event.preventDefault();
         
@@ -28,20 +27,18 @@ editButtons.forEach(editButton=> {
        
         showSaveButton();
     });
-})
+
 
 function showSaveButton(){
-    saveButtons.forEach(saveButton =>{
         document.querySelector('input').focus();
 
         saveButton.classList.remove('hide-button');
         
         saveButton.addEventListener('click', updateUser);   
-    });  
+
     
-    editButtons.forEach(editButton =>{
-    editButton.classList.add('hide-button');
-    });
+        editButton.classList.add('hide-button');
+
 }
 
 function updateUser(){
@@ -78,13 +75,9 @@ function updateUser(){
         let text = "Your profile has been updated";
         let responseClass = "success";
 
-        editButtons.forEach(editButton =>{
-            editButton.classList.remove('hide-button');
-        });
-
-        saveButtons.forEach(saveButton =>{
-            saveButton.classList.add('hide-button');
-        });
+        editButton.classList.remove('hide-button');
+        saveButton.classList.add('hide-button');
+     
 
         inputName.classList.add('not-input');
         inputLastName.classList.add('not-input');
@@ -119,7 +112,7 @@ const deleteSubscriptionBtn = document.querySelectorAll(".current-subscriptions 
 deleteSubscriptionBtn.forEach(deleteBtn=>{
    
     deleteBtn.addEventListener("click", function(){
-        let text = "Are you sure you want to unsubscribe?";
+        let text = "Are you sure you want to delete subscription?";
         let deleteType = "subscription";
         let userSubscriptionID = deleteBtn.parentElement.parentElement.id;
         showModal(text, deleteType, userSubscriptionID);       
@@ -310,19 +303,21 @@ function deleteUser(){
 
 // ADD CREDITCARD
 
-const addCreditCardButton = document.querySelector(".button-add");
-addCreditCardButton.addEventListener("click", addCreditCard);
+// const addCreditCardButton = document.querySelector(".button-add");
+// addCreditCardButton.addEventListener("click", addCreditCard);
 
-function addCreditCard(){
-    event.preventDefault();
-    const addCreditCardForm = document.querySelector("#form-creditcard");
-    const profileDetailsTwo = document.querySelector(".profile-details.details-two");
-    const saveCreditCardButton = addCreditCardForm.querySelector(".button-save");
+const addCreditCardForm = document.querySelector("#form-creditcard");
+const saveCreditCardButton = addCreditCardForm.querySelector(".button-save");
 
-    saveCreditCardButton.classList.remove('hide-button');
-    addCreditCardButton.classList.add('hide-button');
-    addCreditCardForm.style.maxHeight = "100vh";
-    // profileDetailsTwo.style.maxHeight = "100vh";
+
+// function addCreditCard(){
+//     event.preventDefault();
+//     const profileDetailsTwo = document.querySelector(".profile-details.details-two");
+
+//     // saveCreditCardButton.classList.remove('hide-button');
+//     addCreditCardButton.classList.add('hide-button');
+//     addCreditCardForm.style.maxHeight = "100vh";
+//     // profileDetailsTwo.style.maxHeight = "100vh";
     
 
     saveCreditCardButton.addEventListener('click', function(){
@@ -358,9 +353,13 @@ function addCreditCard(){
             let text = "Your creditcard has been added";
             let responseClass = "success";
 
-            addCreditCardButton.classList.remove('hide-button');
-            saveCreditCardButton.classList.add('hide-button');
-            addCreditCardForm.style.maxHeight = "0";
+            // addCreditCardButton.classList.remove('hide-button');
+            // saveCreditCardButton.classList.add('hide-button');
+            // addCreditCardForm.style.maxHeight = "0";
+            document.querySelectorAll("#form-creditcart input").forEach(input=>{
+                input.value = " ";
+
+            })
 
             showNotification(text, responseClass);
             
@@ -375,7 +374,7 @@ function addCreditCard(){
             }
         });
     });
-}
+// }
 
 // IMG URL
 
