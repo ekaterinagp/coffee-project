@@ -95,8 +95,7 @@ if ($_POST) {
 
   if ($statement->execute($data)) {
   echo '{"status":1, "message":"New user created"}';
-  $connection = null;
-  exit;
+  
 }
 
 $connection = null;

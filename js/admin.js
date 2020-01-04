@@ -32,7 +32,7 @@ btnUpdateStock.forEach(btnUpdate=>{
         event.preventDefault();
         let id = btnUpdate.parentElement.parentElement.id;
         let form = btnUpdate.parentElement;
-        // updateProduct(id, form);
+        updateProduct(id, form);
         console.log(id)
         });
 })

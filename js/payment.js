@@ -39,7 +39,9 @@ if(cart){
   })
   let showAddCardFrm = document.querySelector(".show-newCardFrm");
   showAddCardFrm.addEventListener("click", function(){
+    event.preventDefault();
       document.querySelector("#newCardFrm").classList.add("showFrm");
+      document.querySelector(".paymentForm").style.maxHeight="100%";
   })
   let registerCardBtn = document.querySelector(".addCreditCard")
   registerCardBtn.addEventListener("click", registerCard);

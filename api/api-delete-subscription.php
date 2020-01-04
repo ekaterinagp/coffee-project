@@ -20,13 +20,10 @@ if($_POST){
     ];
   if ($statement->execute($data)) {
     echo 1;
-    $connection = null;
-    exit;
   }
   else{
     echo 0;
-    $connection = null;
-    exit;
   }
 
+  $connection = null;
 }
